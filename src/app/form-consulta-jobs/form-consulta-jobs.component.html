@@ -1,0 +1,43 @@
+<!--	FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS 		-->
+<div id="areaBusca" class="container" style="display: none">
+	<br>
+	<form id="frmBuscaJob">
+		<fieldset id="fieldBusca" class="the-fieldset well">
+					<legend class="the-legend text-muted">
+				Rellene los campos de la consulta
+					</legend>
+			<div class="row form-group form-group-sm">
+				<div class="col-sm-3">
+					<label for="frmBuscaJobJobname">Jobname</label>
+					<input type="text" class="form-control" id="frmBuscaJobJobname">
+				</div>
+				<div class="col-sm-3">
+					<label for="frmBuscaJobGrupo">Grupo de Soporte</label>
+					<select id="frmBuscaJobGrupo" class="form-control">
+						<option>Seleccione Grupo...</option>
+						<option>RA DISTRIBUIDOS</option>
+						<option>RA HOST</option>
+						<option>HERRAMIENTAS PRODUCCION</option>
+						<option>...</option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<label for="frmBuscaJobNombre">Nombre</label>
+					<input type="date" class="form-control" id="frmBuscaJobNombre">
+				</div>
+				<div class="col-sm-3">
+					<label for="frmBuscaJobMaqOr">Maquina origen</label>
+					<input type="date" class="form-control" id="frmBuscaJobMaqOr">
+				</div>
+			</div>
+			<div class="row form-group form-group-sm">
+				<div class="col-sm-2">
+					<button type="button" class="pull-left btn btn-primary">Limpiar</button>
+				</div>
+				<div class="col-sm-offset-8 col-sm-2">
+					<button id="frmBuscaJobBtnBusca" type="button" class="pull-right btn btn-success">Buscar</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

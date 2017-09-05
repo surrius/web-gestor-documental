@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 //Libreria Jquery para usarla en todo el proyecto
 import * as $ from 'jquery';
 import { MenuComponent } from './menu/menu.component';
+import { FormConsultaJobsComponent } from './form-consulta-jobs/form-consulta-jobs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    FormConsultaJobsComponent
   ],
   imports: [
     BrowserModule
