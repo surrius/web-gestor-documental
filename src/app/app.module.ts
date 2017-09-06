@@ -1,9 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
+//Librerias de Angular
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
 //Libreria Jquery para usarla en todo el proyecto
 import * as $ from 'jquery';
+
+//Componentes creados para el proyecto
+import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FormConsultaJobsComponent } from './form-consulta-jobs/form-consulta-jobs.component';
 
@@ -14,7 +18,8 @@ import { FormConsultaJobsComponent } from './form-consulta-jobs/form-consulta-jo
     FormConsultaJobsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

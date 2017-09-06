@@ -1,6 +1,13 @@
-# PruebaBootstrap
+# web-gestor-documental
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+
+La aplicación correrá en el servidor de desarrollo LDSGC101.
+Para el despliegue de la web, se debe colocar el WAR (WebGestDoc.war) en la ruta /de/ewok/online/multipais/web/vrs, y a continuación usar la herramienta de DC para el despliegue.
+Actualmente para generar el WAR, se realiza lo siguiente:
+- 	ng build del proyecto Angular para generar la carpeta dist.
+- 	Copiamos la carpeta dist al proyecto proyecto-web-gestor-documental.
+- 	Hay que ver como mejorarlo o automatizarlo: subir un nivel la carpeta assets (con las imágenes y demas), y 	cambiar en el index.html el base-href = ./dist para que coja la ruta.
 
 ## Development server
 

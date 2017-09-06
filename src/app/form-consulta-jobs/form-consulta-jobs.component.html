@@ -1,41 +1,56 @@
 <!--	FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS 		-->
-<div id="areaBusca" class="container" style="display: none">
+<div id="areaBusca" class="container">
 	<br>
-	<form id="frmBuscaJob">
+	<form id="frmBuscaJob" (ngSubmit)="onSubmit()"
+		#consultaJobsForm="ngForm">
 		<fieldset id="fieldBusca" class="the-fieldset well">
-					<legend class="the-legend text-muted">
-				Rellene los campos de la consulta
-					</legend>
+			<legend class="the-legend text-muted"> Rellene los campos de la consulta </legend>
 			<div class="row form-group form-group-sm">
+				<!-- JOBNAME -->
 				<div class="col-sm-3">
-					<label for="frmBuscaJobJobname">Jobname</label>
-					<input type="text" class="form-control" id="frmBuscaJobJobname">
+					<label for="des_nombrjob">Jobname</label> 
+					<input type="text" class="form-control" id="des_nombrjob"
+						[(ngModel)]="jobs.des_nombrjob" name="des_nombrjob"	#name="ngModel">
 				</div>
+				
+				<!-- GRUPO DE SOPORTE -->
 				<div class="col-sm-3">
-					<label for="frmBuscaJobGrupo">Grupo de Soporte</label>
-					<select id="frmBuscaJobGrupo" class="form-control">
+					<label for="des_gsoporte">Grupo de Soporte</label>
+<!-- 					<select	id="des_gsoporte" class="form-control"> 
 						<option>Seleccione Grupo...</option>
 						<option>RA DISTRIBUIDOS</option>
 						<option>RA HOST</option>
 						<option>HERRAMIENTAS PRODUCCION</option>
 						<option>...</option>
+					</select> -->
+					<select class="form-control" id="des_gsoporte"
+						[(ngModel)]="jobs.des_nombrjob" name="des_gsoporte" #power="ngModel">
+						<option *ngFor="let grupo of grupo_soporte" [value]="grupo">{{grupo}}</option>
 					</select>
 				</div>
+				
+				<!-- MAQUINA DE ORIGEN -->
 				<div class="col-sm-3">
-					<label for="frmBuscaJobNombre">Nombre</label>
-					<input type="date" class="form-control" id="frmBuscaJobNombre">
+					<label for="des_maqori">Maquina origen</label> 
+					<input type="text" class="form-control" id="des_maqori"
+						[(ngModel)]="jobs.des_maqori" name="des_maqori"	#name="ngModel">
 				</div>
+				
+				<!-- LIBRERIA DE ORIGEN -->
 				<div class="col-sm-3">
-					<label for="frmBuscaJobMaqOr">Maquina origen</label>
-					<input type="date" class="form-control" id="frmBuscaJobMaqOr">
+					<label for="des_libreori">Libreria de origen</label>
+					<input type="text" class="form-control" id="des_libreori"
+						[(ngModel)]="jobs.des_libreori" name="des_libreori"	#name="ngModel">
 				</div>
 			</div>
+			
+			<!-- BOTONERA DEL FORMULARIO -->
 			<div class="row form-group form-group-sm">
 				<div class="col-sm-2">
 					<button type="button" class="pull-left btn btn-primary">Limpiar</button>
 				</div>
 				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaJobBtnBusca" type="button" class="pull-right btn btn-success">Buscar</button>
+					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success">Buscar</button>
 				</div>
 			</div>
 		</fieldset>
