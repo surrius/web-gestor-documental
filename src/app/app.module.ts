@@ -10,12 +10,14 @@ import * as $ from 'jquery';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FormConsultaJobsComponent } from './form-consulta-jobs/form-consulta-jobs.component';
+import { FormAltaJobsComponent } from './form-alta-jobs/form-alta-jobs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    FormConsultaJobsComponent
+    FormConsultaJobsComponent,
+    FormAltaJobsComponent
   ],
   imports: [
     BrowserModule,

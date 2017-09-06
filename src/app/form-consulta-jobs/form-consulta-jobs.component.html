@@ -1,8 +1,7 @@
 <!--	FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS 		-->
 <div id="areaBusca" class="container">
 	<br>
-	<form id="frmBuscaJob" (ngSubmit)="onSubmit()"
-		#consultaJobsForm="ngForm">
+	<form id="consultaJobsForm" name="consultaJobsForm" (ngSubmit)="onSubmit()" #consultaJobsForm="ngForm">
 		<fieldset id="fieldBusca" class="the-fieldset well">
 			<legend class="the-legend text-muted"> Rellene los campos de la consulta </legend>
 			<div class="row form-group form-group-sm">
@@ -16,15 +15,8 @@
 				<!-- GRUPO DE SOPORTE -->
 				<div class="col-sm-3">
 					<label for="des_gsoporte">Grupo de Soporte</label>
-<!-- 					<select	id="des_gsoporte" class="form-control"> 
-						<option>Seleccione Grupo...</option>
-						<option>RA DISTRIBUIDOS</option>
-						<option>RA HOST</option>
-						<option>HERRAMIENTAS PRODUCCION</option>
-						<option>...</option>
-					</select> -->
 					<select class="form-control" id="des_gsoporte"
-						[(ngModel)]="jobs.des_nombrjob" name="des_gsoporte" #power="ngModel">
+						[(ngModel)]="jobs.des_gsoporte" name="des_gsoporte" #power="ngModel">
 						<option *ngFor="let grupo of grupo_soporte" [value]="grupo">{{grupo}}</option>
 					</select>
 				</div>
@@ -47,10 +39,10 @@
 			<!-- BOTONERA DEL FORMULARIO -->
 			<div class="row form-group form-group-sm">
 				<div class="col-sm-2">
-					<button type="button" class="pull-left btn btn-primary">Limpiar</button>
+					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 				</div>
 				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success">Buscar</button>
+					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!consultaJobsForm.form.dirty">Buscar</button>
 				</div>
 			</div>
 		</fieldset>
