@@ -60,7 +60,7 @@ body {
 */
 
 /* **************************************************** */
-/* Estilos propios de los formularios de la web 		*/
+/* Estilos generales de los formularios de la web 		*/
 /* **************************************************** */
 .the-legend {
     border-style: none;
@@ -94,12 +94,12 @@ textarea {
 	text-align: center;
 }
 
-#frmAltaJobs th {
+#altaJobsForm th {
 	background: #d3d3d3;
 	text-align: center;
 }
 
-#frmAltaJobs .celda-vacia {
+#altaJobsForm .celda-vacia {
 	background: #eff2f5 !important;
 	border-color: transparent !important;
 }
@@ -112,6 +112,8 @@ textarea {
 form .table-bordered {
 	border: none;
 }
+/* **************************************************** */
+/* **************************************************** */
 
 /* **************************************************** */
 /* Modificaciones en de aspecto de la ventana modal 	*/
