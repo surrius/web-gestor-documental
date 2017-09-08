@@ -1,7 +1,7 @@
 //Librerias de Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Libreria Jquery para usarla en todo el proyecto
 import * as $ from 'jquery';
@@ -23,7 +23,8 @@ import { FormBuscaJobsComponent } from './form-busca-jobs/form-busca-jobs.compon
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

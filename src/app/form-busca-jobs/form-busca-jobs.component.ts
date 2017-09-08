@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Jobs } from '../clases/jobs';
+import { JobsPrincipal } from '../clases/jobs';
 
 @Component({
   selector: 'app-form-busca-jobs',
@@ -9,7 +9,7 @@ import { Jobs } from '../clases/jobs';
 })
 export class FormBuscaJobsComponent {
 //  jobs = new Jobs('', 0, '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', 0, '', '', '');  
-  jobs = new Jobs();
+  jobs = new JobsPrincipal();
   grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
   
   public onSubmit() {
@@ -19,6 +19,6 @@ export class FormBuscaJobsComponent {
   
   public limpiar() {
     console.log('Entra en metodo limpiar');
-    this.jobs = new Jobs();
+    this.jobs = new JobsPrincipal();
   }
 }
