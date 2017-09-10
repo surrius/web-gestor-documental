@@ -6,11 +6,6 @@
 	margin-top: 50px;	/* cambiar */
 }
 
-/* Clase para el título del selector de tipo de documento a tratar */
-.alinea-centro {
-	text-align: center;
-}
-
 /* **************************************************** */
 /*	Barra de navegacion	*/
 /* **************************************************** */
@@ -59,6 +54,10 @@
 #contentImagenes h3 {
 	color: #2A86CA;
 	font-weight: bold;
+}
+
+.alinea-centro {
+	text-align: center;
 }
 
 /* **************************************************** */

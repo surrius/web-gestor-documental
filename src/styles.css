@@ -16,6 +16,13 @@ body {
 }
 
 /* **************************************************** */
+/* 					CLASES GENERALES 					*/
+/* **************************************************** */
+
+/* **************************************************** */
+
+
+/* **************************************************** */
 /* TITULOS Y ROTULACIONES */
 /* **************************************************** */
 
@@ -104,6 +111,16 @@ textarea {
 	border-color: transparent !important;
 }
 
+#altaCadenasForm th {
+	background: #d3d3d3;
+	text-align: center;
+}
+
+#altaCadenasForm .celda-vacia {
+	background: #eff2f5 !important;
+	border-color: transparent !important;
+}
+
 #frmConsulta .celda-vacia {
 	background: white !important;
 	border-color: transparent !important;
@@ -116,7 +133,7 @@ form .table-bordered {
 /* **************************************************** */
 
 /* **************************************************** */
-/* Modificaciones en de aspecto de la ventana modal 	*/
+/* Modificaciones 	 de aspecto de la ventana modal 	*/
 /* **************************************************** */
 #consultaModal .modal-header {
 	color: white;

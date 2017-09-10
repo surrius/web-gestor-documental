@@ -1,5 +1,4 @@
 <!--	CABECERA DE LA PAGINA 		-->
-
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6">
@@ -19,19 +18,19 @@
 </div>
 
 <!--	BARRA DE NAVEGACION 		-->
-
+{{navControl}}
 <nav class="navbar-inverse">
 	<ul class="nav nav-justified">
-      <li id="nav_consulta" class="active-nav"><span>CONSULTA</span></li>
-      <li id="nav_alta"><span>ALTA</span></li>
-      <li id="nav_modifica"><span>MODIFICACION</span></li>
-      <li id="nav_baja"><span>BAJA</span></li>
+      <li id="nav_consulta" class="active-nav" (click)="navControl='consulta'"><span>CONSULTA</span></li>
+      <li id="nav_alta" (click)="navControl='alta'"><span>ALTA</span></li>
+      <li id="nav_modifica" (click)="navControl='modificacion'"><span>MODIFICACION</span></li>
+      <li id="nav_baja" (click)="navControl='baja'"><span>BAJA</span></li>
     </ul>
 </nav>
 
 <!-- 	IMAGENES DE ENLACE A LA DOCUMENTACION -->
-
-<div id="contentImagenes" class="container alinea-centro">
+<!--
+<div id="contentImagenes" class="container alinea-centro" *ngIf="showIconosMenu">
 	<div class="col-xs-4 col-sm-4 circular">
 		<img src="../assets/img/aplicacion.png" alt="Aplicaciones" class="img-circular">
 		<h3>APLICACIONES</h3>
@@ -40,14 +39,30 @@
 		<img src="../assets/img/cadena.png" alt="Cadenas" class="img-circular">
 		<h3>CADENAS</h3>
 	</div>
-	<div class="col-xs-4 col-sm-4 circular">
+	<div class="col-xs-4 col-sm-4 circular" (click)="operarJobs()">
 		<img src="../assets/img/job.png" alt="Jobs" class="img-circular">
 		<h3>JOBS</h3>
 	</div>
 </div>
+-->
+
+<!-- MENU DE OPERACIONES TRAS SELECCIONAR TIPO DE DOCUMENTO -->
+<app-menu-operacion></app-menu-operacion>
+
+<!-- 	FORMULARIO DE BUSQUEDA EN EL SERVIDOR PARA JOBS 	-->
+<!-- <app-form-busca-jobs [showMe]="showBuscaJobs"></app-form-busca-jobs> -->
+
+<!-- 	FORMULARIO DE ALTA DE JOBS	 -->
+<!-- <app-form-alta-jobs [showMe]="showAltaJobs"></app-form-alta-jobs> -->
+
+<!-- 	FORMULARIO DE BUSQUEDA EN EL SERVIDOR PARA CADENAS 	-->
+<!-- <app-form-busca-cadenas></app-form-busca-cadenas> -->
+
+<!-- 	FORMULARIO DE ALTA DE CADENAS	 -->
+<!-- <app-form-alta-cadenas></app-form-alta-cadenas> -->
+
 
 <!--	PIE DE PÁGINA INFORMATIVO DE LA APLICACION		-->
-
 <footer class="footer">
 	<div class="container-fluid">
 		<p>

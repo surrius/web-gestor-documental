@@ -2,7 +2,7 @@
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
 
-<div id="areaBusca" class="container">
+<div id="areaBusca" class="container" *ngIf="showMe">
 	<br>
 	<form id="buscaJobsForm" name="buscaJobsForm" (ngSubmit)="onSubmit()" #buscaJobsForm="ngForm">
 		<fieldset id="fieldBusca" class="the-fieldset well">
