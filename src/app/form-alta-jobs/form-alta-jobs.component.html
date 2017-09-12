@@ -3,7 +3,7 @@
 		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
 		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
 
-<div id="areaAlta" class="container">
+<div id="areaAlta">
 	<br>
 	<form id="altaJobsForm" name="altaJobsForm" [formGroup]="altaJobsForm" (ngSubmit)="onSubmit()" novalidate>
 		<fieldset id="fieldAlta" class="the-fieldset well">
@@ -246,6 +246,13 @@
 				</div>
 				<div class="col-sm-offset-6 col-sm-3">
 					<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success">Aceptar</button>
+				</div>
+			</div>
+			
+			<!-- PRUEBAS -->
+			<div class="row form-group form-group-sm">
+				<div class="col-sm-3">
+					<button type="button" class="pull-left btn btn-primary" (click)="prueba()">Informar</button>
 				</div>
 			</div>
 		</fieldset>

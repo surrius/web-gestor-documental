@@ -14,7 +14,8 @@ const appRoutes: Routes = [
   { path: 'form-busca-jobs', component: FormBuscaJobsComponent},
   { path: 'form-alta-jobs', component: FormAltaJobsComponent},
   { path: 'form-busca-cadenas', component: FormBuscaCadenasComponent},
-  { path: 'form-alta-cadenas', component: FormAltaCadenasComponent}
+  { path: 'form-alta-cadenas', component: FormAltaCadenasComponent},
+  { path: '**', component: IconosMenuComponent}
 ];
 
 export const routes:ModuleWithProviders = RouterModule.forRoot(appRoutes);

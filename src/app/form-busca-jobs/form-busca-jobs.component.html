@@ -1,7 +1,7 @@
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
-
+<app-consulta-jobs class="modal fade" id="consultaJobsModal" tabindex="-1" role="dialog"></app-consulta-jobs>
 <div id="areaBusca" class="container">
 	<br>
 	<form id="buscaJobsForm" name="buscaJobsForm" (ngSubmit)="onSubmit()" #buscaJobsForm="ngForm">
@@ -79,7 +79,9 @@
 					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 				</div>
 				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button>
+					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaJobsModal" 
+						[disabled]="!buscaJobsForm.form.dirty">Buscar</button>
+<!-- 					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button> -->
 				</div>
 			</div>
 		</fieldset>

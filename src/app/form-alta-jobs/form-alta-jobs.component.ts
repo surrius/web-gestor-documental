@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { JobsPrincipal, JobsPasos1, JobsPasos2, JobsPasos3, Jobs } from '../clases/jobs';
 
@@ -12,6 +12,9 @@ import { JobsPrincipal, JobsPasos1, JobsPasos2, JobsPasos3, Jobs } from '../clas
 export class FormAltaJobsComponent implements OnInit {
   //TODO: Quitar, variable de pruebas
   grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
+  pruebaForm: string =  '{ "cod_aplicaci": "kkkk", "des_refdocjb": "bbbbbbbbbbbbbbbbbb", "des_nombrjob": "aaaaaaaaa" }';  
+  obj = JSON.parse(this.pruebaForm);
+  //TODO: Fin Pruebas
   
   // Control de visualizacion del componente
 //  @Input() showMe: boolean;
@@ -45,6 +48,15 @@ export class FormAltaJobsComponent implements OnInit {
       pasos3: this.fb.array([this.initPaso3()])
     });
   }
+  
+  //TODO: Metodo de pruebas
+  prueba () {
+    console.log('Hola: ' + this.obj.des_refdocjb);
+    this.altaJobsForm.get('des_refdocjb').setValue(this.obj.des_refdocjb);
+    this.altaJobsForm.get('cod_aplicaci').setValue(this.obj.cod_aplicaci);
+    this.altaJobsForm.get('des_nombrjob').setValue(this.obj.des_nombrjob);
+  }
+  //TODO: Metodo de pruebas-fin
 
   /*
    * Metodos usados para crear un nuevo paso inicializado, declarando si es 

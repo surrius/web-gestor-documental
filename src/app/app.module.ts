@@ -19,6 +19,7 @@ import { FormBuscaCadenasComponent } from './form-busca-cadenas/form-busca-caden
 import { FormAltaCadenasComponent } from './form-alta-cadenas/form-alta-cadenas.component';
 import { MenuOperacionComponent } from './menu-operacion/menu-operacion.component';
 import { IconosMenuComponent } from './iconos-menu/iconos-menu.component';
+import { ConsultaJobsComponent } from './consulta-jobs/consulta-jobs.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { IconosMenuComponent } from './iconos-menu/iconos-menu.component';
     FormBuscaCadenasComponent,
     FormAltaCadenasComponent,
     MenuOperacionComponent,
-    IconosMenuComponent
+    IconosMenuComponent,
+    ConsultaJobsComponent
   ],
   imports: [
     routes,
