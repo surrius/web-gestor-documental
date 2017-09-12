@@ -14,7 +14,7 @@ export class FormAltaJobsComponent implements OnInit {
   grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
   
   // Control de visualizacion del componente
-  @Input() showMe: boolean;
+//  @Input() showMe: boolean;
   
   //Variable del tipo Jobs sobre la que mapear los campos del formulario
   jobs: Jobs = new Jobs();

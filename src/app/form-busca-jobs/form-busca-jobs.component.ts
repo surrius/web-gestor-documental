@@ -10,7 +10,7 @@ import { JobsPrincipal } from '../clases/jobs';
   
 export class FormBuscaJobsComponent {
   // Control de visualizacion del componente
-  @Input() showMe: boolean;
+//  @Input() showMe: boolean;
   
   jobs = new JobsPrincipal();
   grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];

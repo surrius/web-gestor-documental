@@ -1,32 +1,51 @@
-<div class="container">
-	<div class="col-xs-3 well well-sm">
-		<h3>CONSULTAS</h3>
+{{documento}}-->{{operacion}}
+<div class="container-fluid">
+	<div class="col-xs-3">
+		<div class="redondea">
+			<div class="redondea-doble row" (click)="selecciona('consulta')" routerLink="{{enrutador('consulta')}}">
+				CONSULTAS
+			</div>
+		</div>
 	</div>
-	<div class="col-xs-3 well well-sm">
-		<ul class="nav navbar-nav">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle"	data-toggle="dropdown">ALTAS</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">DOCUMENTO NUEVO<span
-							class="glyphicon glyphicon-cog pull-right"></span></a></li>
-					<li class="divider"></li>
-					<li><a href="#">COPIAR DOCUMENTO<span
-							class="glyphicon glyphicon-stats pull-right"></span></a></li>
-					<li class="divider"></li>
-					<li><a href="#">ALTA MASIVA<span class="badge pull-right">
-								42 </span></a></li>
-					<li class="divider"></li>
-					<li><a href="#">COPIA MASIVA<span
-							class="glyphicon glyphicon-heart pull-right"></span></a></li>
-					<li class="divider"></li>
-				</ul>
-			</li>
-		</ul>
+	<div class="col-xs-3">
+		<div class="redondea">
+			<div class="redondea-doble row">
+				ALTAS
+			</div>
+		</div>
+		<div class="redondea">
+			<div class="redondea-doble row" (click)="selecciona('alta_nueva')" routerLink="{{enrutador('alta_nueva')}}">
+				DOCUMENTO NUEVO
+			</div>
+		</div>
+		<div class="redondea">
+			<div class="redondea-doble row" (click)="selecciona('alta_copia')" routerLink="{{enrutador('alta_copia')}}">
+				COPIAR DOCUMENTO
+			</div>
+		</div>
+		<div class="redondea">
+			<div class="redondea-doble row" (click)="selecciona('alta_masiva')" routerLink="{{enrutador('alta_masiva')}}">
+				ALTA MASIVA
+			</div>
+		</div>
+		<div class="redondea">
+			<div class="redondea-doble row" (click)="selecciona('alta_copia_masiva')" routerLink="{{enrutador('alta_copia_masiva')}}">
+				COPIA MASIVA
+			</div>
+		</div>
 	</div>
-	<div class="col-xs-3 well well-sm">
-		<h3>MODIFICACION</h3>
+	<div class="col-xs-3">
+		<div class="redondea">
+			<div class="redondea-doble row" (click)="selecciona('modificacion')" routerLink="{{enrutador('modificacion')}}">
+				MODIFICACION
+			</div>
+		</div>
 	</div>
-	<div class="col-xs-3 well well-sm">
-		<h3>BAJAS</h3>
+	<div class="col-xs-3">
+		<div class="redondea">
+			<div class="redondea-doble row" (click)="selecciona('baja')" routerLink="{{enrutador('baja')}}">
+				BAJAS
+			</div>
+		</div>
 	</div>
 </div>

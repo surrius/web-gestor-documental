@@ -10,7 +10,7 @@ import { CadenaPrincipal } from '../clases/cadenas';
 export class FormBuscaCadenasComponent {
 
   // Control de visualizacion del componente
-  @Input() showMe: boolean;
+//  @Input() showMe: boolean;
   
   cadenas = new CadenaPrincipal();
   

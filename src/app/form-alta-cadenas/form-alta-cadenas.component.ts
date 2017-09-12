@@ -12,7 +12,7 @@ import { CadenaPrincipal, CadenaRelaciones, Cadenas } from '../clases/cadenas';
 export class FormAltaCadenasComponent implements OnInit {
 
   // Control de visualizacion del componente
-  @Input() showMe: boolean;
+//  @Input() showMe: boolean;
   
   //Variable del tipo Cadenas sobre la que mapear los campos del formulario
   cadenas: Cadenas = new Cadenas();

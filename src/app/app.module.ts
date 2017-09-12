@@ -1,10 +1,14 @@
 //Librerias de Angular
+import { routes } from './app.routes';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Libreria Jquery para usarla en todo el proyecto
 import * as $ from 'jquery';
+
+//Servicio de enrutamiento
+import { EnroutadorService } from './services/enroutador.service';
 
 //Componentes creados para el proyecto
 import { AppComponent } from './app.component';
@@ -14,6 +18,7 @@ import { FormBuscaJobsComponent } from './form-busca-jobs/form-busca-jobs.compon
 import { FormBuscaCadenasComponent } from './form-busca-cadenas/form-busca-cadenas.component';
 import { FormAltaCadenasComponent } from './form-alta-cadenas/form-alta-cadenas.component';
 import { MenuOperacionComponent } from './menu-operacion/menu-operacion.component';
+import { IconosMenuComponent } from './iconos-menu/iconos-menu.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +28,18 @@ import { MenuOperacionComponent } from './menu-operacion/menu-operacion.componen
     FormBuscaJobsComponent,
     FormBuscaCadenasComponent,
     FormAltaCadenasComponent,
-    MenuOperacionComponent
+    MenuOperacionComponent,
+    IconosMenuComponent
   ],
   imports: [
+    routes,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    EnroutadorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
