@@ -2,13 +2,18 @@
 import { routes } from './app.routes';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+//Formularios
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//Importamos el módulo http del paquete http de Angular
+import { HttpModule, JsonpModule } from '@angular/http';
 
 //Libreria Jquery para usarla en todo el proyecto
 import * as $ from 'jquery';
 
 //Servicio de enrutamiento
 import { EnroutadorService } from './services/enroutador.service';
+//Servicio de comunicacion
+import { ComunicacionService } from './services/comunicacion.service';
 
 //Componentes creados para el proyecto
 import { AppComponent } from './app.component';
@@ -37,10 +42,12 @@ import { ConsultaJobsComponent } from './consulta-jobs/consulta-jobs.component';
     routes,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
-    EnroutadorService
+    EnroutadorService,
+    ComunicacionService
   ],
   bootstrap: [AppComponent]
 })
