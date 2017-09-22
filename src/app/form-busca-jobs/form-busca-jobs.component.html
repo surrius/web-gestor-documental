@@ -1,12 +1,15 @@
+<!-- REFERENCIA AL FORMULARIO DE CONSULTA, QUE CONTIENE EL FORMULARIO DE ALTA DESHABILITADO PARA LA CARGA DE DATOS -->
+<app-consulta-jobs></app-consulta-jobs>
+<!-- <app-consulta-jobs class="modal fade" id="consultaJobsModal" tabindex="-1" role="dialog"></app-consulta-jobs> -->
+
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
-<app-consulta-jobs class="modal fade" id="consultaJobsModal" tabindex="-1" role="dialog"></app-consulta-jobs>
-<div id="areaBusca" class="container">
+<div id="areaBusca">
 	<br>
 	<form id="buscaJobsForm" name="buscaJobsForm" (ngSubmit)="onSubmit()" #buscaJobsForm="ngForm">
-		<fieldset id="fieldBusca" class="the-fieldset well">
-			<legend class="the-legend text-muted"> Rellene los campos de la consulta </legend>
+		<fieldset id="fieldBusca">
+			<legend class="text-muted"> Rellene los campos de la consulta </legend>
 			<div class="row form-group form-group-sm">
 				<!-- NOMBRE -->
 				<div class="col-sm-3">
@@ -38,39 +41,45 @@
 						[(ngModel)]="jobs.des_maqori" name="busca_des_maqori" #busca_des_maqori="ngModel">
 				</div>
 			</div>
-			
-			<div class="row form-group form-group-sm">
-				<!-- LIBRERIA DE ORIGEN -->
-				<div class="col-sm-3">
-					<label for="busca_des_libreori">Libreria de origen</label>
-					<input type="text" class="form-control" id="busca_des_libreori"
-						[(ngModel)]="jobs.des_libreori" name="busca_des_libreori" #busca_des_libreori="ngModel">
-				</div>
-				
-				<!-- ESTRUCTURA -->
-				<div class="col-sm-3">
-					<label for="busca_des_estrupl">Estructura</label>
-					<input type="text" class="form-control" id="busca_des_estrupl"
-						[(ngModel)]="jobs.des_estrupl" name="busca_des_estrupl" #busca_des_estrupl="ngModel">
-				</div>
-				
-				<!-- PERIODICIDAD -->
-				<div class="col-sm-3">
-					<label for="busca_des_periojob">Reglas de Planificación/Periodicidad</label>
-					<input type="text" class="form-control" id="busca_des_periojob"
-						[(ngModel)]="jobs.des_periojob" name="busca_des_periojob" #busca_des_periojob="ngModel">
-				</div>
-				
-				<!-- MAQUINA DE EJECUCION -->
-				<div class="col-sm-3">
-					<label for="busca_des_maqeje">Máquina de ejecución</label> 
-					<input type="text" class="form-control" id="busca_des_maqeje"
-						[(ngModel)]="jobs.des_maqeje" name="busca_des_maqeje" #busca_des_maqeje="ngModel">
-				</div>				
+			<div *ngIf="!masCampos">
+				<a style="cursor: pointer;"> 
+					Mostrar mas campos de b&uacute;squeda + 
+				</a>
 			</div>
-			
-			<div class="row form-group form-group-sm">
-				TODO: Componer busqueda del campo criticidad 
+			<div *ngIf="masCampos">
+				<div class="row form-group form-group-sm">
+					<!-- LIBRERIA DE ORIGEN -->
+					<div class="col-sm-3">
+						<label for="busca_des_libreori">Libreria de origen</label>
+						<input type="text" class="form-control" id="busca_des_libreori"
+							[(ngModel)]="jobs.des_libreori" name="busca_des_libreori" #busca_des_libreori="ngModel">
+					</div>
+					
+					<!-- ESTRUCTURA -->
+					<div class="col-sm-3">
+						<label for="busca_des_estrupl">Estructura</label>
+						<input type="text" class="form-control" id="busca_des_estrupl"
+							[(ngModel)]="jobs.des_estrupl" name="busca_des_estrupl" #busca_des_estrupl="ngModel">
+					</div>
+					
+					<!-- PERIODICIDAD -->
+					<div class="col-sm-3">
+						<label for="busca_des_periojob">Reglas de Planificaci&oacute;n/Periodicidad</label>
+						<input type="text" class="form-control" id="busca_des_periojob"
+							[(ngModel)]="jobs.des_periojob" name="busca_des_periojob" #busca_des_periojob="ngModel">
+					</div>
+					
+					<!-- MAQUINA DE EJECUCION -->
+					<div class="col-sm-3">
+						<label for="busca_des_maqeje">M&aacute;quina de ejecuci&oacute;n</label> 
+						<input type="text" class="form-control" id="busca_des_maqeje"
+							[(ngModel)]="jobs.des_maqeje" name="busca_des_maqeje" #busca_des_maqeje="ngModel">
+					</div>				
+				</div>
+				
+				<div class="row form-group form-group-sm">
+					TODO: Componer busqueda del campo criticidad 
+				</div>
 			</div>
 			
 			<!-- BOTONERA DEL FORMULARIO -->

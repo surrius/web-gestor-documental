@@ -30,7 +30,7 @@ export class FormBuscaCadenasComponent {
         console.log('Resultado de llamada al Servicio web: ' + JSON.stringify(this.posts));
       },
       error => {
-        alert("Error en la petición");
+        alert("Error en la petici&oacute;n");
       }
       );
   }

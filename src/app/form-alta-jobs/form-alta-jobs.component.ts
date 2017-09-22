@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 
-import { JobsPrincipal, JobsPasos1, JobsPasos2, JobsPasos3, Jobs } from '../clases/jobs';
+import { JobsPrincipal, JobsCriticidad, JobsPasos1, JobsPasos2, JobsPasos3, Jobs } from '../clases/jobs';
+import { EnroutadorService } from '../services/enroutador.service';
 
 @Component({
   selector: 'app-form-alta-jobs',
@@ -16,8 +17,18 @@ export class FormAltaJobsComponent implements OnInit {
   obj = JSON.parse(this.pruebaForm);
   //TODO: Fin Pruebas
   
-  // Control de visualizacion del componente
-//  @Input() showMe: boolean;
+  //Variebles que contendran el valor del servicio de enrutamiento
+  public documento: string;
+  public operacion: string;
+  
+  //Variable que usaremos para mostrar unicamente partes del html del alta, ya que este formulario
+  //se usa también para las consultas.
+  public showAlta: boolean = false;
+  
+  //Variables para informar los combos de criticidad
+  criticidad: any[] = [['W','Aviso al d&iacute;a siguiente'],['S','Aviso al d&iacute;a siguiente incluso si es festivo'],['C','Aviso inmediato']];
+  acciones: any[] = [['L','Liberar sucesores'],['F','Force OK'],['R','Relanzar']];
+  igualdades: any[] = [['I','Igual'],['D','Distinto']];
   
   //Variable del tipo Jobs sobre la que mapear los campos del formulario
   jobs: Jobs = new Jobs();
@@ -27,11 +38,17 @@ export class FormAltaJobsComponent implements OnInit {
 
   //CONSTRUCTOR DEL COMPONNENTE:
   //La instancia fb nos permitirá crear grupos, controles y arrays de campos para el contro del formulario
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private data: EnroutadorService
+  ) { }
 
   //Metodo que se ejecutará tras el constructor en el que inicializaremos los campos que va a contener el 
   //formulario. Estos serán los mismos que el de la plantilla HTML, para luego hacer el mapeo con su clase
   ngOnInit() {
+    this.data.currentDocumento.subscribe(documento => this.documento = documento);
+    this.data.currentOperacion.subscribe(operacion => this.operacion = operacion);
+    
     this.altaJobsForm = this.fb.group({
       cod_aplicaci: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       des_refdocjb: ['', [Validators.required, Validators.minLength(8)]],
@@ -43,10 +60,37 @@ export class FormAltaJobsComponent implements OnInit {
       des_estrupl: [''],
       des_periojob: [''],
       des_maqeje: [''],
+      xti_critijob: [''],
+      jobsCriticidad: this.fb.array([this.initJobsCriticidad()]),
       pasos1: this.fb.array([this.initPaso1()]),
       pasos2: this.fb.array([this.initPaso2()]),
       pasos3: this.fb.array([this.initPaso3()])
     });
+    
+    this.showAlta = this.sw_alta_consulta(this.operacion);
+  }
+  
+  //Metodo que decidirá si se muestran o no las partes del alta
+  sw_alta_consulta(oper: string): boolean {
+    let resultado: boolean = false;
+    switch (oper) {
+      case 'alta_nueva':
+      case 'alta_copia':
+      case 'alta_masiva':
+      case 'alta_copia_masiva':
+        resultado = true;
+        break;        
+      default:
+        resultado = false;
+        break;  
+    }
+    
+    if(resultado) {
+      this.altaJobsForm.enable();
+    } else {
+      this.altaJobsForm.disable();
+    }
+    return resultado;
   }
   
   //TODO: Metodo de pruebas
@@ -57,11 +101,25 @@ export class FormAltaJobsComponent implements OnInit {
     this.altaJobsForm.get('des_nombrjob').setValue(this.obj.des_nombrjob);
   }
   //TODO: Metodo de pruebas-fin
+  
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  /*                              METODOS USADOS PARA EL ALTA DE DATOS                             */
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
 
   /*
    * Metodos usados para crear un nuevo paso inicializado, declarando si es 
    * preciso sus validaciones de formulario a tener en cuenta.
    */
+  initJobsCriticidad(): FormGroup {
+    return this.fb.group({
+      xti_accion: [''],
+      cod_error: [''],
+      xti_igualdad: ['']
+    });
+  }
+  
   initPaso1(): FormGroup {
     return this.fb.group({
       des_paso: [''],
@@ -91,6 +149,10 @@ export class FormAltaJobsComponent implements OnInit {
   
   //Con el metodo get, se retorna directamente una variable con el nombre del metodo (sin los () ),
   //que tendra el valor del objeto que se retorna. En este caso, retornamos los pasos
+  get jobsCriticidad(): FormArray {
+    return this.altaJobsForm.get('jobsCriticidad') as FormArray;
+  }
+  
   get pasos1(): FormArray {
     return this.altaJobsForm.get('pasos1') as FormArray;
   }
@@ -104,6 +166,10 @@ export class FormAltaJobsComponent implements OnInit {
   }
   
   //Metodos para añadir un nuevo paso
+  addJobsCriticidad(): void {
+    this.jobsCriticidad.push(this.initJobsCriticidad());
+  }
+  
   addPaso1(): void {
     this.pasos1.push(this.initPaso1());
   }
@@ -117,6 +183,10 @@ export class FormAltaJobsComponent implements OnInit {
   }
   
   //Metodos para eliminar un paso
+  removeJobsCriticidad(x: number): void {
+    this.jobsCriticidad.removeAt(x);
+  }
+  
   removePaso1(i: number): void {
     this.pasos1.removeAt(i);
   }
@@ -153,94 +223,58 @@ export class FormAltaJobsComponent implements OnInit {
       des_estrupl: formModel.des_estrupl as string,
       des_periojob: formModel.des_periojob as string,
       des_maqeje: formModel.des_maqeje as string,
-      xti_critijob: ''
+      xti_critijob: formModel.xti_critijob as string
     };
     
     // Mapeo automático de los campos del formulario y la clase JobsPasos1, JobsPasos2, JobsPasos3
-    const pasos1DeepCopy: JobsPasos1[] = formModel.pasos1.map(
+    let jobsCriticidadDeepCopy: JobsCriticidad[] = formModel.jobsCriticidad.map(
+      (jobsCriticidad: JobsCriticidad) => Object.assign({}, jobsCriticidad)
+    );
+    
+    jobsCriticidadDeepCopy = this.valida_jobsCriticidadDeepCopy(jobsCriticidadDeepCopy);
+    
+    let pasos1DeepCopy: JobsPasos1[] = formModel.pasos1.map(
       (pasos1: JobsPasos1) => Object.assign({}, pasos1)
     );
     
-    const pasos2DeepCopy: JobsPasos2[] = formModel.pasos2.map(
+    let pasos2DeepCopy: JobsPasos2[] = formModel.pasos2.map(
       (pasos2: JobsPasos2) => Object.assign({}, pasos2)
     );
     
-    const pasos3DeepCopy: JobsPasos3[] = formModel.pasos3.map(
+    let pasos3DeepCopy: JobsPasos3[] = formModel.pasos3.map(
       (pasos3: JobsPasos3) => Object.assign({}, pasos3)
     );
 
     // Mapeo manual de la clase Jobs que une todas las clases que forman la tabla de jobs
     const saveJob: Jobs = {
       jobs_principal: principalDeepCopy,
+      jobsCriticidad: jobsCriticidadDeepCopy,
       pasos1: pasos1DeepCopy,
       pasos2: pasos2DeepCopy,
       pasos3: pasos3DeepCopy
     };
     return saveJob;
-    
-  }
-   /* ***************************************************** */
-  
-//  /* ***************************************
-//   * Creacion del formulario anterior donde
-//   * no daba fallo el html, pero que es 
-//   * menos clara que la actual.
-//   * ***************************************
-//   */  
-//  //Variable del tipo FormGroup (Formulario) que contendrá el formulario de altas
-//  public altaJobsForm: FormGroup;
-//
-//  //La instancia fb nos permitirá crear grupos, controles y arrays de campos para el control del formulario
-//  constructor(private fb: FormBuilder) { }
-//
-//  ngOnInit() {
-//    // Creacion de los campos del formulario
-//    this.altaJobsForm = this.fb.group({
-//      des_nombrjob: ['', [Validators.required, Validators.minLength(8)]],
-//      pasos1: this.fb.array([])
-//    });
-//
-//    // En la carga inicial, creamos la primera linea de los pasos
-//    this.addPaso();
-//  }
-//
-//  /*
-//   * Metodo usado para crear un nuevo paso inicializado, declarando si es 
-//   * preciso sus validaciones de formulario a tener en cuenta.
-//   */
-//  initPaso(): FormGroup {
-//    return this.fb.group({
-//      des_paso: [''],
-//      des_fichentr: [''],
-//      des_fichsali: [''],
-//      des_entibd: [''],
-//      des_accesbd: ['']
-//    });
-//  }
-//
-//  get pasos1(): FormArray {
-//    return this.altaJobsForm.get('pasos1') as FormArray;
-//  }
-//  
-//  addPaso() {
-//    const control = this.altaJobsForm.get('pasos1') as FormArray;
-//    const addrCtrl = this.initPaso();
-//
-//    control.push(addrCtrl);
-//  }
-  
-/*  
-  alta_jobs = new JobsPrincipal();
-  //Datos para rellenar el combo del grupo de soprote
-  grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
-  
-  public onSubmit() {
-    console.log('ha pulsado en submit en ALTA DE JOBS. Desde método de clase: ' + this.alta_jobs.consulta);
   }
   
-  public limpiar() {
-    console.log('Entra en metodo limpiar ALTA JOBS');
-    this.alta_jobs = new JobsPrincipal();
+  //Validaciones previas al envio de datos al servidor
+  valida_jobsCriticidadDeepCopy(datos: JobsCriticidad[]) {
+    for (let data of datos) {
+      let data_criticidad: JobsCriticidad = data;
+      
+      if (data_criticidad.xti_igualdad != <string>"I" && data_criticidad.xti_igualdad != <string>'D') {
+        data_criticidad.xti_igualdad = 'N';
+      }
+    }
+    return datos;
   }
- */ 
+
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  /*                          METODOS USADOS PARA LA CONSULTA DE DATOS                             */
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  
 }

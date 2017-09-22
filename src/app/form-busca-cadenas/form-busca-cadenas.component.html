@@ -1,12 +1,15 @@
+<!-- REFERENCIA AL FORMULARIO DE CONSULTA, QUE CONTIENE EL FORMULARIO DE ALTA DESHABILITADO PARA LA CARGA DE DATOS -->
+<app-consulta-cadenas></app-consulta-cadenas>
+
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
 
-<div id="areaBusca" class="container">
+<div id="areaBusca">
 	<br>
 	<form id="buscaCdnForm" name="buscaCdnForm" (ngSubmit)="onSubmit()" #buscaCdnForm="ngForm">
-		<fieldset id="fieldBusca" class="the-fieldset well">
-			<legend class="the-legend text-muted"> Rellene los campos de la consulta </legend>
+		<fieldset id="fieldBusca">
+			<legend class="text-muted"> Rellene los campos de la consulta </legend>
 			<div class="row form-group form-group-sm">
 				<!-- NOMBRE -->
 				<div class="col-sm-3">
@@ -31,7 +34,7 @@
 				
 				<!-- APLICACION -->
 				<div class="col-sm-3">
-					<label for="cod_aplicaci">Cod.Aplicación - UUAA</label> 
+					<label for="cod_aplicaci">Cod.Aplicaci&oacute;n - UUAA</label> 
 					<input type="text" class="form-control" id="cod_aplicaci"
 						[(ngModel)]="cadenas.cod_aplicaci" name="cod_aplicaci" #cod_aplicaci="ngModel">
 				</div>
@@ -40,7 +43,7 @@
 			<div class="row form-group form-group-sm">
 				<!-- FECHA DE MODIFICACION -->
 				<div class="col-sm-3">
-					<label for="fec_modifica">Fecha de Modificación</label>
+					<label for="fec_modifica">Fecha de Modificaci&oacute;n</label>
 					<input type="date" class="form-control" id="fec_modifica"
 						[(ngModel)]="cadenas.fec_modifica" name="fec_modifica" #fec_modifica="ngModel">
 				</div>
@@ -61,7 +64,7 @@
 				
 				<!-- DIA DE EJECUCION -->
 				<div class="col-sm-3">
-					<label for="des_diaejecu">Día de ejecución</label> 
+					<label for="des_diaejecu">D&iacute;a de ejecuci&oacute;n</label> 
 					<input type="text" class="form-control" id="des_diaejecu"
 						[(ngModel)]="cadenas.des_diaejecu" name="des_diaejecu" #des_diaejecu="ngModel">
 				</div>				
@@ -91,7 +94,7 @@
 				
 				<!-- INTERRELACCION ONLINE -->
 				<div class="col-sm-3">
-					<label for="des_interrel">Interrelacción Online</label> 
+					<label for="des_interrel">Interrelacci&oacute;n Online</label> 
 					<input type="text" class="form-control" id="des_interrel"
 						[(ngModel)]="cadenas.des_interrel" name="des_interrel" #des_interrel="ngModel">
 				</div>				
@@ -103,7 +106,9 @@
 					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 				</div>
 				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaCdnForm.form.dirty">Buscar</button>
+					<button id="frmBuscaCadenaBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaCadenasModal" 
+						[disabled]="!buscaCdnForm.form.dirty">Buscar</button>
+<!-- 					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaCdnForm.form.dirty">Buscar</button> -->
 				</div>
 			</div>
 		</fieldset>

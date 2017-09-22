@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //Formularios
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//Importamos el módulo http del paquete http de Angular
+//Importamos el mï¿½dulo http del paquete http de Angular
 import { HttpModule, JsonpModule } from '@angular/http';
 
 //Libreria Jquery para usarla en todo el proyecto
@@ -25,6 +25,7 @@ import { FormAltaCadenasComponent } from './form-alta-cadenas/form-alta-cadenas.
 import { MenuOperacionComponent } from './menu-operacion/menu-operacion.component';
 import { IconosMenuComponent } from './iconos-menu/iconos-menu.component';
 import { ConsultaJobsComponent } from './consulta-jobs/consulta-jobs.component';
+import { ConsultaCadenasComponent } from './consulta-cadenas/consulta-cadenas.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ConsultaJobsComponent } from './consulta-jobs/consulta-jobs.component';
     FormAltaCadenasComponent,
     MenuOperacionComponent,
     IconosMenuComponent,
-    ConsultaJobsComponent
+    ConsultaJobsComponent,
+    ConsultaCadenasComponent
   ],
   imports: [
     routes,

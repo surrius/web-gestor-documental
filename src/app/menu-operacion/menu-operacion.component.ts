@@ -10,6 +10,7 @@ import { EnroutadorService } from '../services/enroutador.service';
   
 export class MenuOperacionComponent implements OnInit {
 
+  //Variebles que contendran el valor del servicio de enrutamiento
   public documento: string;
   public operacion: string;
   

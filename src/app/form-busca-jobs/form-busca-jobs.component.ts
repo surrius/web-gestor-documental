@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { JobsPrincipal } from '../clases/jobs';
 
@@ -9,8 +9,8 @@ import { JobsPrincipal } from '../clases/jobs';
 })
   
 export class FormBuscaJobsComponent {
-  // Control de visualizacion del componente
-//  @Input() showMe: boolean;
+  // Control para visualizar mas o menos campos de búsqueda
+  masCampos: boolean = false;
   
   jobs = new JobsPrincipal();
   grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];

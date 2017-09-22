@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 
 import { CadenaPrincipal, CadenaRelaciones, Cadenas } from '../clases/cadenas';
+import { EnroutadorService } from '../services/enroutador.service';
 
 @Component({
   selector: 'app-form-alta-cadenas',
@@ -10,9 +11,13 @@ import { CadenaPrincipal, CadenaRelaciones, Cadenas } from '../clases/cadenas';
 })
   
 export class FormAltaCadenasComponent implements OnInit {
-
-  // Control de visualizacion del componente
-//  @Input() showMe: boolean;
+  //Variebles que contendran el valor del servicio de enrutamiento
+  public documento: string;
+  public operacion: string;
+  
+  //Variable que usaremos para mostrar unicamente partes del html del alta, ya que este formulario
+  //se usa también para las consultas.
+  public showAlta: boolean = false;
   
   //Variable del tipo Cadenas sobre la que mapear los campos del formulario
   cadenas: Cadenas = new Cadenas();
@@ -22,11 +27,17 @@ export class FormAltaCadenasComponent implements OnInit {
 
   //CONSTRUCTOR DEL COMPONNENTE:
   //La instancia fb nos permitirá crear grupos, controles y arrays de campos para el contro del formulario
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private data: EnroutadorService
+  ) { }
 
   //Metodo que se ejecutará tras el constructor en el que inicializaremos los campos que va a contener el 
   //formulario. Estos serán los mismos que el de la plantilla HTML, para luego hacer el mapeo con su clase
   ngOnInit() {
+    this.data.currentDocumento.subscribe(documento => this.documento = documento);
+    this.data.currentOperacion.subscribe(operacion => this.operacion = operacion);
+    
     this.altaCadenasForm = this.fb.group({
       cod_aplicaci: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       des_refdocum: ['', [Validators.required, Validators.minLength(8)]],
@@ -44,8 +55,38 @@ export class FormAltaCadenasComponent implements OnInit {
       des_incompat: [''],
       relaciones: this.fb.array([this.initRelacion()])
     });
+    
+    this.showAlta = this.sw_alta_consulta(this.operacion);
   }
-
+  
+  //Metodo que decidirá si se muestran o no las partes del alta
+  sw_alta_consulta(oper: string): boolean {
+    let resultado: boolean = false;
+    switch (oper) {
+      case 'alta_nueva':
+      case 'alta_copia':
+      case 'alta_masiva':
+      case 'alta_copia_masiva':
+        resultado = true;
+        break;        
+      default:
+        resultado = false;
+        break;  
+    }
+    
+    if(resultado) {
+      this.altaCadenasForm.enable();
+    } else {
+      this.altaCadenasForm.disable();
+    }
+    return resultado;
+  }
+  
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  /*                              METODOS USADOS PARA EL ALTA DE DATOS                             */
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
   /*
    * Metodos usados para crear una nueva relacion inicializada, declarando si es 
    * preciso sus validaciones de formulario a tener en cuenta.
@@ -119,4 +160,12 @@ export class FormAltaCadenasComponent implements OnInit {
     return saveCadena;
   }
   
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  /*                          METODOS USADOS PARA LA CONSULTA DE DATOS                             */
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
 }
