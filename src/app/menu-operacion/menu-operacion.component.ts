@@ -38,7 +38,7 @@ export class MenuOperacionComponent implements OnInit {
         
         switch (this.documento) {
           case 'aplicacion':
-            ruta = '/form-alta-aplicacion';
+            ruta = '/form-alta-aplicaciones';
             break;
           case 'cadena':
             ruta = '/form-alta-cadenas';
@@ -56,7 +56,7 @@ export class MenuOperacionComponent implements OnInit {
         
         switch (this.documento) {
           case 'aplicacion':
-            ruta = '/form-busca-aplicacion';
+            ruta = '/form-busca-aplicaciones';
             break;
           case 'cadena':
             ruta = '/form-busca-cadenas';

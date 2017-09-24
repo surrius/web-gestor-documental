@@ -19,6 +19,10 @@ export class FormAltaCadenasComponent implements OnInit {
   //se usa también para las consultas.
   public showAlta: boolean = false;
   
+  //Variables de validacion del formulario
+  datos_ok: boolean = true;
+  mensaje_err: string[];
+  
   //Variable del tipo Cadenas sobre la que mapear los campos del formulario
   cadenas: Cadenas = new Cadenas();
   
@@ -45,10 +49,10 @@ export class FormAltaCadenasComponent implements OnInit {
       des_autor: [''],
       fec_modifica: [''],
       des_equipocd: [''],
-      xti_periocdn: [''],
+      xti_periocdn: ['', [Validators.required]],
       des_diaejecu: [''],
       des_horaejec: [''],
-      xti_critical: [''],
+      xti_critical: ['', [Validators.required]],
       des_rearran: [''],
       des_interrel: [''],
       des_descaden: [''],
@@ -121,8 +125,14 @@ export class FormAltaCadenasComponent implements OnInit {
   /* METODOS PARA PREPARAR EL ENVIO AL SERVICIO WEB
   /* ***************************************************** */
   onSubmit() {
+    this.datos_ok = true;
+    this.mensaje_err = [];
     this.cadenas = this.prepareSaveCadena();
-    console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.cadenas));
+    if (this.datos_ok) {
+      console.log('Resultado del formulario de ALTA DE CADENAS: ' + JSON.stringify(this.cadenas));
+    } else {
+      alert("Errores al validar el formulario. Corregirlos para continuar");
+    } 
   }
   
   prepareSaveCadena(): Cadenas {
@@ -153,11 +163,15 @@ export class FormAltaCadenasComponent implements OnInit {
     );
     
     // Mapeo manual de la clase Cadenas que une todas las clases que forman la tabla
-    const saveCadena: Cadenas = {
-      cadena_principal: principalDeepCopy,
-      cadena_relaciones: relacionesDeepCopy
-    };
-    return saveCadena;
+    if (this.datos_ok) { 
+      const saveCadena: Cadenas = {
+        cadena_principal: principalDeepCopy,
+        cadena_relaciones: relacionesDeepCopy
+      };
+      return saveCadena;
+    } else {
+      return null;
+    }
   }
   
   /* ********************************************************************************************* */

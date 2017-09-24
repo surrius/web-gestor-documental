@@ -1,0 +1,198 @@
+<!-- REFERENCIA AL FORMULARIO DE CONSULTA, QUE CONTIENE EL FORMULARIO DE ALTA DESHABILITADO PARA LA CARGA DE DATOS -->
+<!-- <app-consulta-aplicaciones></app-consulta-aplicaciones> -->
+
+<!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
+<!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
+		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
+<div id="areaBuscaAplicaciones">
+	<br>
+	<form id="buscaAppsForm" name="buscaAppsForm" (ngSubmit)="onSubmit()" #buscaAppsForm="ngForm">
+		<fieldset id="fieldBusca">
+			<legend class="text-muted"> Rellene los campos de la consulta </legend>
+			<div class="row form-group form-group-sm">
+				<!-- COD. APLICACION -->
+				<div class="col-sm-3">
+					<label for="cod_aplicaci">Aplicaci&oacute;n</label> 
+					<input type="text" class="form-control" id="cod_aplicaci"
+						[(ngModel)]="aplicaciones.cod_aplicaci" name="cod_aplicaci" #cod_aplicaci="ngModel">
+				</div>
+				
+				<!-- FECHA IMPLANTACION -->
+				<div class="col-sm-3">
+					<label for="tim_implanta">Fecha de implantaci&oacute;n</label> 
+					<input type="datetime-local" class="form-control" id="tim_implanta"
+						[(ngModel)]="aplicaciones.tim_implanta" name="tim_implanta" #tim_implanta="ngModel">
+				</div>
+				
+				<!-- FECHA ENTREGA -->
+				<div class="col-sm-3">
+					<label for="tim_entrega">Fecha de entrega</label> 
+					<input type="datetime-local" class="form-control" id="tim_entrega"
+						[(ngModel)]="aplicaciones.tim_entrega" name="tim_entrega" #tim_entrega="ngModel">
+				</div>
+				
+				<!-- ID MONITORIZACION -->
+				<div class="col-sm-3">
+					<label for="des_codmonit">ID. Monitorizaci&oacute;n</label> 
+					<input type="text" class="form-control" id="des_codmonit"
+						[(ngModel)]="aplicaciones.des_codmonit" name="des_codmonit" #des_codmonit="ngModel">
+				</div>
+				
+			</div>
+			<div *ngIf="!masCampos">
+				<a (click)="toogleCampos()" style="cursor: pointer;"> 
+					Mostrar mas campos de b&uacute;squeda + 
+				</a>
+			</div>
+			<div *ngIf="masCampos">
+				<div class="row form-group form-group-sm">
+					<!-- FECHA MONITORIZACION -->
+					<div class="col-sm-3">
+						<label for="fec_monitori">Fecha de Monitorizaci&oacute;n</label>
+						<input type="date" class="form-control" id="fec_monitori"
+							[(ngModel)]="aplicaciones.fec_monitori" name="fec_monitori" #fec_monitori="ngModel">
+					</div>
+					
+					<!-- HORAS MAXIMO -->
+					<div class="col-sm-3">
+						<label for="des_hmax">Horas m&aacute;ximo acceso</label>
+						<input type="text" class="form-control" id="des_hmax"
+							[(ngModel)]="aplicaciones.des_hmax" name="des_hmax" #des_hmax="ngModel">
+					</div>
+					
+					<!-- HORAS VALLE -->
+					<div class="col-sm-3">
+						<label for="des_hvalle">Horas valle</label>
+						<input type="text" class="form-control" id="des_hvalle"
+							[(ngModel)]="aplicaciones.des_hvalle" name="des_hvalle" #des_hvalle="ngModel">
+					</div>
+					
+					<!-- FECHA PREVISTA ENTREGA -->
+					<div class="col-sm-3">
+						<label for="tim_estimada">Fecha prevista de entrega</label> 
+						<input type="datetime-local" class="form-control" id="tim_estimada"
+							[(ngModel)]="aplicaciones.tim_estimada" name="tim_estimada" #tim_estimada="ngModel">
+					</div>				
+				</div>
+				<div class="row form-group form-group-sm">
+					<!-- NOMBRE PETICIONARIO -->
+					<div class="col-sm-3">
+						<label for="des_nompet">Nombre del peticionario</label>
+						<input type="text" class="form-control" id="des_nompet"
+							[(ngModel)]="aplicaciones.des_nompet" name="des_nompet" #des_nompet="ngModel">
+					</div>
+					
+					<!-- TELEFONO PETICIONARIO -->
+					<div class="col-sm-3">
+						<label for="des_telsolic">Tel&eacute;fono del peticionario</label>
+						<input type="text" class="form-control" id="des_telsolic"
+							[(ngModel)]="aplicaciones.des_telsolic" name="des_telsolic" #des_telsolic="ngModel">
+					</div>
+					
+					<!-- SANCION APROBADA -->
+					<div class="col-sm-3">
+						<label for="xti_csancion">Sanci&oacute;n aprobada?</label>
+						<select class="form-control" id="xti_csancion"
+							[(ngModel)]="aplicaciones.xti_csancion" name="xti_csancion" #xti_csancion="ngModel">
+							<option value="N">NO</option>
+							<option value="S">SI</option>
+						</select>
+					</div>
+					
+					<!-- FECHA ULTIMA SOLICITUD -->
+					<div class="col-sm-3">
+						<label for="tim_ultsol">Fecha &uacute;ltima solicitud</label> 
+						<input type="datetime-local" class="form-control" id="tim_ultsol"
+							[(ngModel)]="aplicaciones.tim_ultsol" name="tim_ultsol" #tim_ultsol="ngModel">
+					</div>				
+				</div>
+				<div class="row form-group form-group-sm">
+					<!-- FECHA FIN RA -->
+					<div class="col-sm-3">
+						<label for="tim_finra">Fecha fin trabajo R.A.</label>
+						<input type="datetime-local" class="form-control" id="tim_finra"
+							[(ngModel)]="aplicaciones.tim_finra" name="tim_finra" #tim_finra="ngModel">
+					</div>
+					
+					<!-- USUARIO -->
+					<div class="col-sm-3">
+						<label for="cod_user">Usuario R.A.</label>
+						<input type="text" class="form-control" id="cod_user"
+							[(ngModel)]="aplicaciones.cod_user" name="cod_user" #cod_user="ngModel">
+					</div>
+					
+					<!-- RESPONSABLE RA -->
+					<div class="col-sm-3">
+						<label for="cod_userra">Responsable R.A.</label>
+						<input type="text" class="form-control" id="cod_userra"
+							[(ngModel)]="aplicaciones.cod_userra" name="cod_userra" #cod_userra="ngModel">
+					</div>
+					
+					<!-- TELEFONO RA -->
+					<div class="col-sm-3">
+						<label for="des_telusura">Tel&eacute;fono responsable R.A.</label> 
+						<input type="datetime-local" class="form-control" id="des_telusura"
+							[(ngModel)]="aplicaciones.des_telusura" name="des_telusura" #des_telusura="ngModel">
+					</div>				
+				</div>
+				<div class="row form-group form-group-sm">
+					<div class="col-sm-12">
+						<label>ALCANCE (N&uacute;mero de Objetos/Ejecuciones):</label>
+					</div>
+					<!-- PAQUETES -->
+					<div class="col-sm-3">
+						<label for="qnu_npaquete">Paquetes</label>
+						<input type="number" class="form-control" id="qnu_npaquete"
+							[(ngModel)]="aplicaciones.qnu_npaquete" name="qnu_npaquete" #qnu_npaquete="ngModel">
+					</div>
+					
+					<!-- SCRIPTS -->
+					<div class="col-sm-3">
+						<label for="qnu_nscripts">Scripts</label>
+						<input type="number" class="form-control" id="qnu_nscripts"
+							[(ngModel)]="aplicaciones.qnu_nscripts" name="qnu_nscripts" #qnu_nscripts="ngModel">
+					</div>
+					
+					<!-- FICHEROS DE CONFIG -->
+					<div class="col-sm-3">
+						<label for="qnu_nfichero">Ficheros de configuraci&oacute;n</label>
+						<input type="number" class="form-control" id="qnu_nfichero"
+							[(ngModel)]="aplicaciones.qnu_nfichero" name="qnu_nfichero" #qnu_nfichero="ngModel">
+					</div>
+					
+					<!-- CARGAS EN BBDD -->
+					<div class="col-sm-3">
+						<label for="qnu_ncargabd">Cargas de BBDD</label> 
+						<input type="number" class="form-control" id="qnu_ncargabd"
+							[(ngModel)]="aplicaciones.qnu_ncargabd" name="qnu_ncargabd" #qnu_ncargabd="ngModel">
+					</div>				
+				</div>
+				<a (click)="toogleCampos()" style="cursor: pointer;">
+					Mostrar menos campos de b&uacute;squeda - 
+				</a>
+			</div>
+			<br>
+			<!-- BOTONERA DEL FORMULARIO -->
+			<div class="row form-group form-group-sm">
+				<div class="col-sm-2">
+					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
+				</div>
+				<div class="col-sm-offset-8 col-sm-2">
+					<button id="frmBuscaAppBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaJobsModal" 
+						[disabled]="!buscaAppsForm.form.dirty">Buscar</button>
+<!-- 					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button> -->
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
+<br>

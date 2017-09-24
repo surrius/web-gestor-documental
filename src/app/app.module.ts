@@ -1,7 +1,7 @@
 //Librerias de Angular
-import { routes } from './app.routes';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { routes } from './app.routes';
 //Formularios
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Importamos el m�dulo http del paquete http de Angular
@@ -26,6 +26,8 @@ import { MenuOperacionComponent } from './menu-operacion/menu-operacion.componen
 import { IconosMenuComponent } from './iconos-menu/iconos-menu.component';
 import { ConsultaJobsComponent } from './consulta-jobs/consulta-jobs.component';
 import { ConsultaCadenasComponent } from './consulta-cadenas/consulta-cadenas.component';
+import { FormBuscaAplicacionesComponent } from './form-busca-aplicaciones/form-busca-aplicaciones.component';
+import { FormAltaAplicacionesComponent } from './form-alta-aplicaciones/form-alta-aplicaciones.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ConsultaCadenasComponent } from './consulta-cadenas/consulta-cadenas.co
     MenuOperacionComponent,
     IconosMenuComponent,
     ConsultaJobsComponent,
-    ConsultaCadenasComponent
+    ConsultaCadenasComponent,
+    FormBuscaAplicacionesComponent,
+    FormAltaAplicacionesComponent
   ],
   imports: [
     routes,

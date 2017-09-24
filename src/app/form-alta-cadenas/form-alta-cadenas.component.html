@@ -88,6 +88,11 @@
 				<div class="col-sm-3">
 					<label for="xti_periocdn">Periodicidad</label> 
 					<input type="text" class="form-control" id="xti_periocdn" name="xti_periocdn" formControlName="xti_periocdn">
+					
+					<small class="text-danger" 
+						*ngIf="altaCadenasForm.get('xti_periocdn').invalid && (altaCadenasForm.get('xti_periocdn').dirty || altaCadenasForm.get('xti_periocdn').touched)">
+						Campo obligatorio
+					</small>
 				</div>
 				
 				<!-- DIA EJECUCION -->
@@ -108,6 +113,11 @@
 				<div class="col-sm-4">
 					<label for="xti_critical">Criticidad</label> 
 					<input type="text" class="form-control" id="xti_critical" name="xti_critical" formControlName="xti_critical">
+					
+					<small class="text-danger" 
+						*ngIf="altaCadenasForm.get('xti_critical').invalid && (altaCadenasForm.get('xti_critical').dirty || altaCadenasForm.get('xti_critical').touched)">
+						Campo obligatorio
+					</small>
 				</div>
 				
 				<!-- REARRANQUES -->
@@ -193,13 +203,18 @@
 			</div>
 		</fieldset>
 		<br>
+		<div class="alert alert-danger" *ngIf="!datos_ok">
+			<p *ngFor="let msg of mensaje_err">
+				{{msg}}
+			</p>
+		</div>
 		<!-- BOTONERA DEL FORMULARIO -->
 		<div class="row form-group form-group-sm" *ngIf="showAlta">
 			<div class="col-sm-3">
 				<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 			</div>
 			<div class="col-sm-offset-6 col-sm-3">
-				<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success">Aceptar</button>
+				<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success" [disabled]="!altaCadenasForm.valid">Aceptar</button>
 			</div>
 		</div>
 <!-- 		QUITAR TODO: -->
@@ -210,3 +225,13 @@
         </div>
 	</form>
 </div>
+<br>
+<div class="row">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
+<br>

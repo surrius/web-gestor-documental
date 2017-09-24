@@ -10,6 +10,9 @@ import { ComunicacionService } from '../services/comunicacion.service';
   styleUrls: ['./form-busca-cadenas.component.css']
 })
 export class FormBuscaCadenasComponent {
+  
+  // Control para visualizar mas o menos campos de búsqueda
+  masCampos: boolean = false;
 
   cadenas = new CadenaPrincipal();
   
@@ -17,6 +20,11 @@ export class FormBuscaCadenasComponent {
 
   // cargamos el servicio
   constructor(private comunicacionService: ComunicacionService) {}
+  
+  //Metodo que modificara el booleano masCampos al valor contrario
+  toogleCampos() {
+    this.masCampos = !this.masCampos;
+  }
   
   public onSubmit() {
     console.log('ha pulsado en submit busca-cadenas: ' + JSON.stringify(this.cadenas));

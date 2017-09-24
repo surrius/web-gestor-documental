@@ -51,7 +51,7 @@ export class JobsPasos3 {
   cod_pasoinc: number;
   des_paso: string;
   des_incomjob: string;
-  des_critinco: string;
+  xti_critinco: string;
 }
 
 // Clase que auna las anteriores para dar formato al modelo de datos

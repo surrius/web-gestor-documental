@@ -69,6 +69,11 @@
 				<div class="col-sm-4">
 					<label for="des_libreori">Librer&iacute;a origen</label> 
 					<input type="text" class="form-control" id="des_libreori" name="des_libreori" formControlName="des_libreori">
+					
+					<small class="text-danger" 
+						*ngIf="altaJobsForm.get('des_libreori').invalid && (altaJobsForm.get('des_libreori').dirty || altaJobsForm.get('des_libreori').touched)">
+						Campo obligatorio
+					</small>
 				</div>
 			</div>
 			
@@ -111,6 +116,10 @@
 					<select class="form-control" id="xti_critijob" name="xti_critijob" formControlName="xti_critijob">  
 						<option *ngFor="let criti of criticidad" [value]="criti[0]">{{criti[1]}}</option>
 					</select> 
+					<small class="text-danger" 
+						*ngIf="altaJobsForm.get('xti_critijob').invalid && (altaJobsForm.get('xti_critijob').dirty || altaJobsForm.get('xti_critijob').touched)">
+						Seleccione una opci&oacute;n v&aacute;lida
+					</small>
 				</div>
 				<!-- TABLA DE LOS CAMPOS USADOS PARA GENERAR LA TABLA DE CRITICIDAD -->
 				<div formArrayName="jobsCriticidad" class="col-sm-6">			
@@ -271,7 +280,7 @@
 								<input class="form-control" formControlName="des_incomjob">
 							</td>						
 							<td>
-								<input class="form-control" formControlName="des_critinco">
+								<input class="form-control" formControlName="xti_critinco">
 							</td>						
 							<td>
 								<span class="glyphicon glyphicon-remove" *ngIf="pasos3.length > 1" (click)="removePaso3(k)"></span>
@@ -287,13 +296,18 @@
 			</div>
 		</fieldset>
 		<br>
+		<div class="alert alert-danger" *ngIf="!datos_ok">
+			<p *ngFor="let msg of mensaje_err">
+				{{msg}}
+			</p>
+		</div>
 		<!-- BOTONERA DEL FORMULARIO -->
 		<div class="row form-group form-group-sm" *ngIf="showAlta">
 			<div class="col-sm-3">
 				<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 			</div>
 			<div class="col-sm-offset-6 col-sm-3">
-				<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success">Aceptar</button>
+				<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success" [disabled]="!altaJobsForm.valid">Aceptar</button>
 			</div>
 		</div>
 		
@@ -311,3 +325,13 @@
         </div>
 	</form>
 </div>
+<br>
+<div class="row">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
+<br>

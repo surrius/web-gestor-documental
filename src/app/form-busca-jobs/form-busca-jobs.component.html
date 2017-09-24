@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			<div *ngIf="!masCampos">
-				<a style="cursor: pointer;"> 
+				<a (click)="toogleCampos()" style="cursor: pointer;"> 
 					Mostrar mas campos de b&uacute;squeda + 
 				</a>
 			</div>
@@ -76,12 +76,11 @@
 							[(ngModel)]="jobs.des_maqeje" name="busca_des_maqeje" #busca_des_maqeje="ngModel">
 					</div>				
 				</div>
-				
-				<div class="row form-group form-group-sm">
-					TODO: Componer busqueda del campo criticidad 
-				</div>
+				<a (click)="toogleCampos()" style="cursor: pointer;">
+					Mostrar menos campos de b&uacute;squeda - 
+				</a>
 			</div>
-			
+			<br>
 			<!-- BOTONERA DEL FORMULARIO -->
 			<div class="row form-group form-group-sm">
 				<div class="col-sm-2">
@@ -96,3 +95,13 @@
 		</fieldset>
 	</form>
 </div>
+<br>
+<div class="row">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
+<br>

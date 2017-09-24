@@ -18,6 +18,12 @@ body {
 /* **************************************************** */
 /* 					CLASES GENERALES 					*/
 /* **************************************************** */
+.alinea-centro {
+	text-align: center;
+}
+.alinea-izq {
+	text-align: left;
+}
 
 /* **************************************************** */
 /* 		Modificaciones de aspecto de la ventana modal 	*/
@@ -53,14 +59,19 @@ fieldset {
 }
 
 legend {
-	font-size:17px;
-	font-weight:bold;
+	font-size: 17px;
+	font-weight: bold;
 	margin-bottom: 0px; 
 	width: 35%; 
 	border: 2px solid #D3D3D3;
 	border-radius: 4px; 
 	padding: 5px 5px 5px 10px; 
 	background-color: #F4F4F4;
+}
+
+.legend-interna {
+	font-size: 14px; 
+	color: black;
 }
 
 form .well {
@@ -73,6 +84,10 @@ form .btn {
 	font-weight: bold;
 }
 
+form h5 {
+	font-weight: bold;
+}
+
 textarea { 
 	resize: vertical; 
 }
@@ -80,6 +95,11 @@ textarea {
 #frmConsulta th {
 	background: #d3d3d3;
 	text-align: center;
+}
+
+#frmConsulta .celda-vacia {
+	background: white !important;
+	border-color: transparent !important;
 }
 
 #altaJobsForm th {
@@ -102,8 +122,13 @@ textarea {
 	border-color: transparent !important;
 }
 
-#frmConsulta .celda-vacia {
-	background: white !important;
+#altaAppsForm th {
+	background: #d3d3d3;
+	text-align: center;
+}
+
+#altaAppsForm .celda-vacia {
+	background: #F4F4F4 !important;
 	border-color: transparent !important;
 }
 
@@ -111,6 +136,20 @@ form .table-bordered {
 	border: none;
 }
 /* **************************************************** */
+/* 			Clases de los iconos de enlace 				*/
+/* **************************************************** */
+.mini-circular {
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.mini-img-circular {
+    max-width: 70%;
+}
+
+.mini-img-circular:hover {
+    max-width: 75%;
+}
 
 /* **************************************************** */
 /* Clases para pruebas durante el desarrollo de la web  */

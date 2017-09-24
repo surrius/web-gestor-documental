@@ -1,0 +1,943 @@
+<!--					****************		FORMULARIO DE ALTA/MODIFICACION	DE APLICACIONES		**************** 						-->
+<!--	El modelo de formulario usado para esta parte de la página es el Reactive Form, es decir, los controles y validaciones se 
+		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
+		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
+
+<div id="areaAltaAplicacion">
+	<div *ngIf="showAlta">
+		<h3 class="titulo-form-alta">Formulario de alta de Aplicaciones</h3>
+	</div>
+	<br>
+	<form id="altaAppsForm" name="altaAppsForm" [formGroup]="altaAppsForm" (ngSubmit)="onSubmit()" novalidate>
+		<fieldset>
+			<legend class="text-muted">
+				Datos de la aplicaci&oacute;n
+			</legend>
+			<div class="row form-group form-group-sm">			
+				<!-- CODIGO APLICACION -->
+				<div class="col-sm-4">
+					<label for="cod_aplicaci">C&oacute;digo de aplicaci&oacute;n - UUAA</label> 
+					<input type="text" class="form-control" id="cod_aplicaci" name="cod_aplicaci" maxlength="4" formControlName="cod_aplicaci">
+					 
+					<small class="text-danger" 
+						*ngIf="altaAppsForm.get('cod_aplicaci').invalid && (altaAppsForm.get('cod_aplicaci').dirty || altaAppsForm.get('cod_aplicaci').touched)">
+						Campo obligatorio de 4 caracteres
+					</small>
+				</div>
+				
+				<!-- NOMBRE -->
+<!-- 				<div class="col-sm-6"> -->
+<!-- 					<label for="des_cadenapl">Nombre</label>  -->
+<!-- 					<input type="text" class="form-control" id="des_cadenapl" name="des_cadenapl" formControlName="des_cadenapl"> -->
+<!-- 				</div> -->
+			</div>
+			
+			<fieldset>
+				<legend class="legend-interna">
+					RESPONSABLES DE APLICACION
+				</legend>
+				<!-- RESPONSABLES DE APLICACION -->
+				<div formArrayName="responsables">			
+					<table id="appResponsablesApp" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-1">CATEGORIA</th>
+								<th class="col-sm-6">NOMBRE Y APELLIDOS</th>
+								<th class="col-sm-2">TELEFONO INTERNO</th>
+								<th class="col-sm-2">TELEFONO EXTERNO</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+<!-- 						<tbody> -->
+<!-- 							<tr *ngFor="let responsable of responsables.controls; let i=index" [formGroupName]="i"> -->
+<!-- 								<td> -->
+<!-- 									<input class="form-control" formControlName="des_scriptjb"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<input class="form-control" formControlName="des_scriptpr"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<input class="form-control" formControlName="des_cadenapr"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<input class="form-control" formControlName="des_scriptsu"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<input class="form-control" formControlName="des_cadenasu"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<span class="glyphicon glyphicon-remove" *ngIf="responsables.length > 1" (click)="removeResponsables(i)"></span> -->
+<!-- 								</td>						 -->
+<!-- 							</tr> -->
+<!-- 						</tbody> -->
+					</table>
+					<p>Categor&iacute;as: Jefe de Grupo, Jefe de proyecto, Mantenimiento1, Mantenimiento2...</p>	
+					<div *ngIf="showAlta">
+						<a (click)="addResponsables()" style="cursor: pointer;"> 
+							A&ntilde;adir responsables + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<div class="row form-group form-group-sm">
+				<!-- FECHA IMPLANTACION -->
+				<div class="col-sm-3">
+					<label for="tim_implanta">Fecha de implantaci&oacute;n</label> 
+					<input type="datetime-local" class="form-control" id="tim_implanta" name="tim_implanta" formControlName="tim_implanta">
+				</div>
+				
+				<!-- FECHA DE ENTREGA -->
+				<div class="col-sm-3">
+					<label for="tim_entrega">Fecha de entrega</label> 
+					<input type="datetime-local" class="form-control" id="tim_entrega" name="tim_entrega" formControlName="tim_entrega">
+				</div>
+			
+				<!-- ID. MONITORIZACION -->
+				<div class="col-sm-3">
+					<label for="des_codmonit">ID. Monitorizaci&oacute;n</label>
+					<input type="text" class="form-control" id="des_codmonit" name="des_codmonit" formControlName="des_codmonit">
+				</div>
+				
+				<!-- FECHA MONITORIZACION -->
+				<div class="col-sm-3">
+					<label for="fec_monitori">Fecha de Monitorizaci&oacute;n</label>
+					<input type="date" class="form-control" id="fec_monitori" name="fec_monitori" formControlName="fec_monitori">
+				</div>
+			</div>
+			<p>ID. Monitorizaci&oacute;n a cumplimentar por Explotaci&oacute;n</p>
+			
+			<fieldset>
+				<legend class="legend-interna">
+					CONTROL DE MODIFICACIONES
+				</legend>
+				<!-- CONTROL DE MODIFICACIONES -->
+				<div formArrayName="ctlModificaciones">			
+					<table id="appCtlModificaciones" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-2">VERSION</th>
+								<th class="col-sm-7">DESCRIPCION DE LA MODIFICACION</th>
+								<th class="col-sm-2">FECHA</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let control of ctlModificaciones.controls; let j=index" [formGroupName]="j">
+								<td>
+<!-- 									<input class="form-control" formControlName="des_scriptjb"> -->
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_versionm">
+								</td>						
+								<td>
+									<input type="date" class="form-control" formControlName="fec_version">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="ctlModificaciones.length > 1" (click)="removeCtlModif(j)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addCtlModificaciones()" style="cursor: pointer;"> 
+							A&ntilde;adir versi&oacute;n + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend class="text-muted">
+				Caracter&iacute;sticas generales del servicio
+			</legend>
+			<div class="row form-group form-group-sm">			
+				<!-- TIPO DE SERVICIO -->
+				<div class="col-sm-12">
+					<label for="des_tiposser">Tipo de servicio</label> 
+					<textarea rows="3" class="form-control" id="des_tiposser" name="des_tiposser" formControlName="des_tiposser">
+ 					</textarea>
+				</div>
+			</div>
+			
+			<div class="row form-group form-group-sm">			
+				<!-- OBJETIVO DE SERVICIO -->
+				<div class="col-sm-12">
+					<label for="des_objeserv">Objetivo del servicio</label> 
+					<textarea rows="3" class="form-control" id="des_objeserv" name="des_objeserv" formControlName="des_objeserv">
+ 					</textarea>
+				</div>
+			</div>
+			
+			<div class="row form-group form-group-sm">
+				<div class="col-sm-12">
+					<h5>HORARIOS DE LA APLICACION:</h5>
+				</div>			
+				<!-- HORAS MAXIMO ACCESO -->
+				<div class="col-sm-6">
+					<label for="des_hmax">Horas m&aacute;ximo acceso</label> 
+					<input type="text" class="form-control" id="des_hmax" name="des_hmax" formControlName="des_hmax">
+				</div>
+				
+				<!-- HORAS VALLE -->
+				<div class="col-sm-6">
+					<label for="des_hvalle">Horas valle para intervenciones</label> 
+					<input type="text" class="form-control" id="des_hvalle" name="des_hvalle" formControlName="des_hvalle">
+				</div>
+			</div>
+			
+			<div class="row form-group form-group-sm">			
+				<!-- USUARIOS A LOS QUE SE DIRIGE EL SERVICIO -->
+				<div class="col-sm-12">
+					<label for="des_ususerv">Usuarios a los que va dirigido el servicio</label> 
+					<textarea rows="3" class="form-control" id="des_ususerv" name="des_ususerv" formControlName="des_ususerv">
+ 					</textarea>
+				</div>
+			</div>
+			
+			<!-- DESCRIPCION DE LOS PROCESOS -->
+			<fieldset>
+				<legend class="legend-interna">
+					DESCRIPCION DE LOS PROCESOS
+				</legend>
+				<div formArrayName="descProcesos">			
+					<table id="appDescProcesos" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-1">ID</th>
+								<th class="col-sm-3">NOMBRE</th>
+								<th class="col-sm-2">TIPO DE MONITORIZACION</th>
+								<th class="col-sm-2">NIVEL SEVERIDAD</th>
+								<th class="col-sm-3">ACCION A EFECTUAR</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let desc of descProcesos.controls; let k=index" [formGroupName]="k">
+								<td>
+<!-- 									<input class="form-control" formControlName="des_nombrepr"> -->
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_nombrepr">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_tipomoni">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="xti_severida">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_acciopro">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="descProcesos.length > 1" (click)="removeDescProcesos(k)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addDescProcesos()" style="cursor: pointer;"> 
+							A&ntilde;adir Descripci&oacute;n + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<!-- PARADA Y ARRANQUE -->
+			<fieldset>
+				<legend class="legend-interna">
+					PARADA Y ARRANQUE
+				</legend>
+				<div formArrayName="paradaArranque">			
+					<table id="appParadaArranque" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-1">ID</th>
+								<th class="col-sm-5">PROCEDIMIENTOS DE PARADA</th>
+								<th class="col-sm-5">PROCEDIMIENTOS DE ARRANQUE</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let pyl of paradaArranque.controls; let l=index" [formGroupName]="l">
+								<td>
+<!-- 									<input class="form-control" formControlName="des_nombrepr"> -->
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_arranque">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_paradaua">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="paradaArranque.length > 1" (click)="removeParadaArranque(l)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addParadaArranque()" style="cursor: pointer;"> 
+							A&ntilde;adir procedimiento + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<!-- TRATAMIENTO FICHEROS LOG -->
+			<fieldset>
+				<legend class="legend-interna">
+					TRATAMIENTO FICHEROS LOG
+				</legend>
+				<div class="col-sm-12">
+					<h5>Identificaci&oacute;n</h5>
+				</div>	
+				<div formArrayName="logNombre">			
+					<table id="appLogNombre" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-1">ID</th>
+								<th class="col-sm-5">NOMBRE</th>
+								<th class="col-sm-5">FUNCIONALIDAD</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let lognom of logNombre.controls; let m=index" [formGroupName]="m">
+								<td>
+<!-- 									<input class="form-control" formControlName="des_nombrepr"> -->
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_nomlog">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_funlog">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="logNombre.length > 1" (click)="removeLogNombre(m)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addlogNombre()" style="cursor: pointer;"> 
+							A&ntilde;adir identificaci&oacute;n log + 
+						</a>
+					</div>		
+				</div>
+				<br>
+				<div formArrayName="logAccion">			
+					<table id="appLogAccion" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-1">ID</th>
+								<th class="col-sm-4">MENSAJE</th>
+								<th class="col-sm-2">SEVERIDAD</th>
+								<th class="col-sm-4">ACCION A EFECTUAR</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let logacc of logAccion.controls; let n=index" [formGroupName]="n">
+								<td>
+<!-- 									<input class="form-control" formControlName="des_nombrepr"> -->
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_msjlog">
+								</td>						
+								<td>
+									<input class="form-control" maxlength="1" formControlName="xti_severida">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_acciopro">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="logAccion.length > 1" (click)="removeLogAccion(n)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addLogAccion()" style="cursor: pointer;"> 
+							A&ntilde;adir acci&oacute;n log + 
+						</a>
+					</div>		
+				</div>
+				<br>
+				<div class="col-sm-12">
+					<h5>Acci&oacute;n de Mantenimiento</h5>
+				</div>	
+				<div formArrayName="logMantenimiento">			
+					<table id="appLogMantenimiento" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-3">NOMBRE</th>
+								<th class="col-sm-2">TAMA&Ntilde;O MAXIMO</th>
+								<th class="col-sm-2">PREVISION DE CRECIMIENTO</th>
+								<th class="col-sm-2">CRITERIOS DE RECICLADO</th>
+								<th class="col-sm-2">TRATAMIENTO</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let logman of logMantenimiento.controls; let o=index" [formGroupName]="o">
+								<td>
+									<input class="form-control" formControlName="des_nomlog">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_tammax">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_prevcrec">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_critrec">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_tratamie">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="logMantenimiento.length > 1" (click)="removeLogMantenimiento(o)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addLogMantenimiento()" style="cursor: pointer;"> 
+							A&ntilde;adir mantenimiento log + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<!-- REQUERIMIENTOS DE COMUNICACIONES -->
+			<fieldset>
+				<legend class="legend-interna">
+					REQUERIMIENTOS DE COMUNICACIONES
+				</legend>
+				<div class="col-sm-12">
+					<h5>(Establecer que m&aacute;quinas se tienen que ver entre si mediante ping)</h5>
+				</div>	
+				<div formArrayName="reqComunicacion">			
+					<table id="appReqComunicacion" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-3">NOMBRE DEL EQUIPO 1</th>
+								<th class="col-sm-3">NOMBRE DEL EQUIPO 2</th>
+								<th class="col-sm-5">PROCEDIMIENTO EN CASO DE EVENTO</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let comu of reqComunicacion.controls; let p=index" [formGroupName]="p">
+								<td>
+									<input class="form-control" formControlName="des_nomeq1">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_nomeq2">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_proccomu">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="reqComunicacion.length > 1" (click)="removeReqComunicacion(p)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addReqComunicacion()" style="cursor: pointer;"> 
+							A&ntilde;adir requerimiento + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<!-- REQUERIMIENTOS DE MIDDLEWARE -->
+			<fieldset>
+				<legend class="legend-interna">
+					REQUERIMIENTOS DE MIDDLEWARE
+				</legend>
+				<div formArrayName="reqMiddle">			
+					<table id="appReqMiddle" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-2">GESTOR DE COLAS</th>
+								<th class="col-sm-4">NOMBRE DE COLA</th>
+								<th class="col-sm-2">SEVERIDAD</th>
+								<th class="col-sm-3">PROF. DE COLAS MAX.</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let middle of reqMiddle.controls; let q=index" [formGroupName]="q">
+								<td>
+									<input class="form-control" formControlName="des_gestcola">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_nombrcol">
+								</td>						
+								<td>
+									<input maxlength="1" class="form-control" formControlName="xti_severida">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_profundi">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="reqMiddle.length > 1" (click)="removeReqMiddle(q)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addReqMiddle()" style="cursor: pointer;"> 
+							A&ntilde;adir requerimiento + 
+						</a>
+					</div>		
+				</div>
+				<br>
+				<div formArrayName="reqMiddleB">			
+					<table id="appReqMiddleB" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-3">GESTOR DE COLAS</th>
+								<th class="col-sm-4">NOMBRE DE CANAL</th>
+								<th class="col-sm-4">COLA DE TRANSMISION</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let middleb of reqMiddleB.controls; let r=index" [formGroupName]="r">
+								<td>
+									<input class="form-control" formControlName="des_gestcola">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_canalmdl">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_colamdl">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="reqMiddleB.length > 1" (click)="removeReqMiddleB(r)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addReqMiddleB()" style="cursor: pointer;"> 
+							A&ntilde;adir requerimiento + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<!-- REQUERIMIENTOS DE QA-RUN -->
+			<fieldset>
+				<legend class="legend-interna">
+					REQUERIMIENTOS DE QA-RUN
+				</legend>
+				<div formArrayName="reqQA">			
+					<table id="appReqQA" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-3">DIRECCION URL</th>
+								<th class="col-sm-3">USUARIO/PASSWORD (Si procede)</th>
+								<th class="col-sm-5">Identificar funcionalidad cuyo funcionamiento asegure que el servicio est&aacute; activo</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+<!-- 							<tr *ngFor="let qa of reqQA.controls; let s=index" [formGroupName]="s"> -->
+<!-- 								<td> -->
+<!-- 									<input class="form-control" formControlName="des_gestcola"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<input class="form-control" formControlName="des_nombrcol"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<input maxlength="1" class="form-control" formControlName="xti_severida"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<input type="number" class="form-control" formControlName="qnu_profundi"> -->
+<!-- 								</td>						 -->
+<!-- 								<td> -->
+<!-- 									<span class="glyphicon glyphicon-remove" *ngIf="reqQA.length > 1" (click)="removeReqQA(s)"></span> -->
+<!-- 								</td>						 -->
+<!-- 							</tr> -->
+						</tbody>
+					</table>
+<!-- 					<div *ngIf="showAlta"> -->
+<!-- 						<a (click)="addReqQA()" style="cursor: pointer;">  --> 
+<!-- 							A&ntilde;adir requerimiento +  -->
+<!-- 						</a> -->
+<!-- 					</div>		 -->
+				</div>
+			</fieldset>
+			<br>
+			<!-- OCUPACION DE ESPACIO -->
+			<fieldset>
+				<legend class="legend-interna">
+					OCUPACION DE ESPACIO
+				</legend>
+				<div class="col-sm-12">
+					<h5>Caracter&iacute;sticas FileSystem</h5>
+				</div>	
+				<div formArrayName="caracFS">			
+					<table id="appCaracFS" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-3">NOMBRE</th>
+								<th class="col-sm-1">ESPACIO ESTIMADO</th>
+								<th class="col-sm-2">PREVISION DE CRECIMIENTO</th>
+								<th class="col-sm-2">UMBRAL MAXIMO DE OCUPACION</th>
+								<th class="col-sm-3">TRATAMIENTO</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let carac of caracFS.controls; let t=index" [formGroupName]="t">
+								<td>
+									<input class="form-control" formControlName="des_nomfs">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_espaesti">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_prevcrec">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_umbramax">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_tratamie">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="caracFS.length > 1" (click)="removeCaracFS(t)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addCaracFS()" style="cursor: pointer;"> 
+							A&ntilde;adir caracter&iacute;stica + 
+						</a>
+					</div>		
+				</div>
+				<br>
+				<div class="col-sm-12">
+					<h5>Monitorizaci&oacute;n FileSystem</h5>
+				</div>	
+				<div formArrayName="moniFS">			
+					<table id="appMoniFS" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-3">NOMBRE F/S</th>
+								<th class="col-sm-2">% MINOR</th>
+								<th class="col-sm-2">% CRITICAL</th>
+								<th class="col-sm-4">PROCEDIMIENTO EN CASO DE EVENTOS</th>
+								<th class="col-sm-1">ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let moni of moniFS.controls; let u=index" [formGroupName]="u">
+								<td>
+									<input class="form-control" formControlName="des_nomfs">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_minor">
+								</td>						
+								<td>
+									<input type="number" class="form-control" formControlName="qnu_critical">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_proccomu">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="moniFS.length > 1" (click)="removeMoniFS(u)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addMoniFS()" style="cursor: pointer;"> 
+							A&ntilde;adir monitorizaci&oacute;n + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<!-- BASES DE DATOS -->
+			<fieldset>
+				<legend class="legend-interna">
+					BASES DE DATOS
+				</legend>
+			</fieldset>
+			<br>
+			<!-- SERVIDOR WAS -->
+			<fieldset>
+				<legend class="legend-interna">
+					SERVIDOR WAS
+				</legend>
+				<div class="col-sm-12">
+					<p>(Por defecto se monitorizan todos los servidores was existentes en la m&aacute;quina salvo que se detalle lo contrario)</p>
+				</div>	
+			</fieldset>
+			<br>
+			<div class="row form-group form-group-sm">			
+				<!-- OTRAS MONITORIZACIONES -->
+				<div class="col-sm-12">
+					<label for="des_tiposser">OTRAS MONITORIZACIONES</label> 
+					<p>
+						(A continuaci&oacute;n hay que describir con el m&aacute;ximo detalle posible aquellas otras monitorizaciones que no se adapten a ninguno de los grupos anteriores,
+						como por ejemplo, aquellas monitorizaciones que requieran la creaci&oacute;n de un script para usar alguna utilidad de DB2, Oracle, etc)
+					</p>
+					<textarea rows="3" class="form-control" id="des_monitori" name="des_monitori" formControlName="des_monitori">
+ 					</textarea>
+				</div>
+			</div>
+			<br>
+			<!-- TRANSMISION DE FICHEROS -->
+			<fieldset>
+				<legend class="legend-interna">
+					TRANSMISION DE FICHEROS
+				</legend>
+				<div formArrayName="ficheros">			
+					<table id="appFicheros" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th colspan="3" class="col-sm-4">ORIGEN</th>
+								<th colspan="3" class="col-sm-4">DESTINO</th>
+								<th colspan="2" class="col-sm-4 celda-vacia"></th>
+							</tr>
+							<tr>
+								<th>MAQUINA</th>
+								<th>SCRIPT/JOB</th>
+								<th>FICHERO</th>
+								<th>MAQUINA</th>
+								<th>SCRIPT/JOB</th>
+								<th>FICHERO</th>
+								<th>PROCEDIMIENTO</th>
+								<th>ACCIONES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let fic of ficheros.controls; let zi=index" [formGroupName]="zi">
+								<td>
+									<input class="form-control" formControlName="des_maqori">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_scriptor">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_fichentr">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_maqdest">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_scriptde">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_fichdest">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_proccomu">
+								</td>						
+								<td>
+									<span class="glyphicon glyphicon-remove" *ngIf="ficheros.length > 1" (click)="removeFicheros(zi)"></span>
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addFicheros()" style="cursor: pointer;"> 
+							A&ntilde;adir informaci&oacute;n + 
+						</a>
+					</div>		
+				</div>
+			</fieldset>
+			<br>
+			<!-- BACKUPS -->
+			<fieldset>
+				<legend class="legend-interna">
+					BACKUPS
+				</legend>
+				<h5>FileSystem</h5>
+			</fieldset>
+			<br>
+			<div class="row form-group form-group-sm">			
+				<!-- OTRAS CONSIDERACIONES -->
+				<div class="col-sm-12">
+					<label for="des_detcon">OTRAS CONSIDERACIONES Y PARTICULARIDADES</label> 
+					<textarea rows="3" class="form-control" id="des_detcon" name="des_detcon" formControlName="des_detcon">
+ 					</textarea>
+				</div>
+			</div>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend class="text-muted">
+				Avance de Solicitud
+			</legend>
+			<div class="row form-group form-group-sm">			
+				<!-- CODIGO APLICACION -->
+<!-- 				<div class="col-sm-4"> -->
+<!-- 					<label for="cod_aplicaci">C&oacute;digo de aplicaci&oacute;n - UUAA</label>  -->
+<!-- 					<input type="text" class="form-control" id="cod_aplicaci" name="cod_aplicaci" maxlength="4" formControlName="cod_aplicaci"> -->
+					 
+<!-- 					<small class="text-danger"  -->
+<!-- 						*ngIf="altaAppsForm.get('cod_aplicaci').invalid && (altaAppsForm.get('cod_aplicaci').dirty || altaAppsForm.get('cod_aplicaci').touched)"> -->
+<!-- 						Campo obligatorio de 4 caracteres -->
+<!-- 					</small> -->
+<!-- 				</div> -->
+				
+				<!-- FECHA PREVISTA DE ENTREGA -->
+				<div class="col-sm-4">
+					<label for="tim_estimada">Fecha prevista de entrega</label> 
+					<input type="datetime-local" class="form-control" id="tim_estimada" name="tim_estimada" formControlName="tim_estimada">
+				</div>
+				
+				<!-- NOMBRE PETICIONARIO -->
+				<div class="col-sm-4">
+					<label for="des_nompet">Nombre peticionario</label> 
+					<input type="text" class="form-control" id="des_nompet" name="des_nompet" formControlName="des_nompet">
+				</div>
+				
+				<!-- TELEFONO PETICIONARIO -->
+				<div class="col-sm-4">
+					<label for="des_telsolic">Tel&eacute;fono</label> 
+					<input type="text" class="form-control" id="des_telsolic" name="des_telsolic" formControlName="des_telsolic">
+				</div>
+			</div>
+			
+			<div class="row form-group form-group-sm">			
+				<!-- DESCRIPCION DE FUNCIONALIDAD -->
+				<div class="col-sm-12">
+					<label for="des_funcuuaa">Descripci&oacute;n de la funcionalidad</label> 
+					<textarea rows="3" class="form-control" id="des_funcuuaa" name="des_funcuuaa" formControlName="des_funcuuaa">
+ 					</textarea>
+				</div>
+			</div>
+			
+			<div class="row form-group form-group-sm">
+				<div class="col-sm-12">
+					<label>ALCANCE (N&uacute;mero de Objetos/Ejecuciones):</label>
+				</div>
+				<!-- PAQUETES -->
+				<div class="col-sm-3">
+					<label for="qnu_npaquete">Paquetes</label>
+					<input type="number" class="form-control" id="qnu_npaquete" name="qnu_npaquete" formControlName="qnu_npaquete">
+				</div>
+				
+				<!-- SCRIPTS -->
+				<div class="col-sm-3">
+					<label for="qnu_nscripts">Scripts</label>
+					<input type="number" class="form-control" id="qnu_nscripts" name="qnu_nscripts" formControlName="qnu_nscripts">
+				</div>
+				
+				<!-- FICHEROS DE CONFIG -->
+				<div class="col-sm-3">
+					<label for="qnu_nfichero">Ficheros de configuraci&oacute;n</label>
+					<input type="number" class="form-control" id="qnu_nfichero" name="qnu_nfichero" formControlName="qnu_nfichero">
+				</div>
+				
+				<!-- CARGAS EN BBDD -->
+				<div class="col-sm-3">
+					<label for="qnu_ncargabd">Cargas de BBDD</label> 
+					<input type="number" class="form-control" id="qnu_ncargabd" name="qnu_ncargabd" formControlName="qnu_ncargabd">
+				</div>				
+			</div>
+			
+			<!-- SANCION DE AVANCE DE SOLICITUD -->
+			<fieldset>
+				<legend class="legend-interna">
+					SANCION DE AVANCE DE SOLICITUD
+				</legend>
+				<p>(A cumplimentar por Recepci&oacute;n de Aplicaciones. En caso de rechazo, se especificar&aacute;n las causas)</p>	
+				<div class="row form-group form-group-sm">
+				<!-- SANCION APROBADA -->
+					<div class="col-sm-3">
+						<label for="xti_csancion">Sanci&oacute;n aprobada?</label>
+						<select class="form-control" id="xti_csancion" name="xti_csancion" formControlName="xti_csancion">
+							<option value="N">NO</option>
+							<option value="S">SI</option>
+						</select>
+					</div>
+					
+					<!-- FECHA ULTIMA SOLICITUD -->
+					<div class="col-sm-4">
+						<label for="tim_ultsol">Fecha &uacute;ltima solicitud</label> 
+						<input type="datetime-local" class="form-control" id="tim_ultsol" name="tim_ultsol" formControlName="tim_ultsol">
+					</div>
+									
+					<!-- FECHA FIN RA -->
+					<div class="col-sm-4">
+						<label for="tim_finra">Fecha fin trabajo R.A.</label>
+						<input type="datetime-local" class="form-control" id="tim_finra" name="tim_finra" formControlName="tim_finra">
+					</div>
+				</div>
+				
+				<div class="row form-group form-group-sm">
+					<!-- USUARIO -->
+					<div class="col-sm-3">
+						<label for="cod_user">Usuario</label>
+						<input type="text" class="form-control" id="cod_user" name="cod_user" formControlName="cod_user">
+					</div>
+					
+					<!-- RESPONSABLE RA -->
+					<div class="col-sm-6">
+						<label for="cod_userra">Responsable de R.A.</label> 
+						<input type="text" class="form-control" id="cod_userra" name="cod_userra" formControlName="cod_userra">
+					</div>
+									
+					<!-- TELEFONO -->
+					<div class="col-sm-3">
+						<label for="des_telusura">Tel&eacute;fono</label>
+						<input type="text" class="form-control" id="des_telusura" name="des_telusura" formControlName="des_telusura">
+					</div>
+				</div>
+				
+				<div class="row form-group form-group-sm">			
+				<!-- CAUSAS DEL RECHAZO -->
+				<div class="col-sm-12">
+					<label for="des_obsyrech">Observaciones/Causas de Rechazo</label> 
+					<textarea rows="3" class="form-control" id="des_obsyrech" name="des_obsyrech" formControlName="des_obsyrech">
+ 					</textarea>
+				</div>
+			</div>
+			</fieldset>
+		</fieldset>
+		<br>
+		<div class="alert alert-danger" *ngIf="!datos_ok">
+			<p *ngFor="let msg of mensaje_err">
+				{{msg}}
+			</p>
+		</div>
+		<!-- BOTONERA DEL FORMULARIO -->
+		<div class="row form-group form-group-sm" *ngIf="showAlta">
+			<div class="col-sm-3">
+				<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
+			</div>
+			<div class="col-sm-offset-6 col-sm-3">
+				<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success" [disabled]="!altaAppsForm.valid">Aceptar</button>
+			</div>
+		</div>
+<!-- 		QUITAR TODO: -->
+		<div class="margin-20">
+          <div>altaAppsForm details:</div>
+          <pre>Is altaAppsForm valid?: <br>{{altaAppsForm.valid | json}}</pre>
+          <pre>altaAppsForm value: <br>{{altaAppsForm.value | json}}</pre>
+        </div>
+	</form>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
+<br>

@@ -12,7 +12,7 @@ import { EnroutadorService } from '../services/enroutador.service';
   
 export class FormAltaJobsComponent implements OnInit {
   //TODO: Quitar, variable de pruebas
-  grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
+  grupo_soporte: string[] = ['', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
   pruebaForm: string =  '{ "cod_aplicaci": "kkkk", "des_refdocjb": "bbbbbbbbbbbbbbbbbb", "des_nombrjob": "aaaaaaaaa" }';  
   obj = JSON.parse(this.pruebaForm);
   //TODO: Fin Pruebas
@@ -29,6 +29,10 @@ export class FormAltaJobsComponent implements OnInit {
   criticidad: any[] = [['W','Aviso al d&iacute;a siguiente'],['S','Aviso al d&iacute;a siguiente incluso si es festivo'],['C','Aviso inmediato']];
   acciones: any[] = [['L','Liberar sucesores'],['F','Force OK'],['R','Relanzar']];
   igualdades: any[] = [['I','Igual'],['D','Distinto']];
+  
+  //Variables de validacion del formulario
+  datos_ok: boolean = true;
+  mensaje_err: string[];
   
   //Variable del tipo Jobs sobre la que mapear los campos del formulario
   jobs: Jobs = new Jobs();
@@ -53,14 +57,14 @@ export class FormAltaJobsComponent implements OnInit {
       cod_aplicaci: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       des_refdocjb: ['', [Validators.required, Validators.minLength(8)]],
       des_nombrjob: ['', [Validators.required, Validators.minLength(8)]],
-      des_gsoporte: [''],
+      des_gsoporte: ['', [Validators.required]],
       des_maqori: [''],
-      des_libreori: [''],
+      des_libreori: ['', [Validators.required]],
       des_desjobpl: [''],
       des_estrupl: [''],
       des_periojob: [''],
       des_maqeje: [''],
-      xti_critijob: [''],
+      xti_critijob: ['', [Validators.required]],
       jobsCriticidad: this.fb.array([this.initJobsCriticidad()]),
       pasos1: this.fb.array([this.initPaso1()]),
       pasos2: this.fb.array([this.initPaso2()]),
@@ -143,7 +147,7 @@ export class FormAltaJobsComponent implements OnInit {
     return this.fb.group({
       des_paso: [''],
       des_incomjob: [''],
-      des_critinco: ['']
+      xti_critinco: ['']
     });
   }
   
@@ -203,8 +207,14 @@ export class FormAltaJobsComponent implements OnInit {
   /* METODOS PARA PREPARAR EL ENVIO AL SERVICIO WEB
   /* ***************************************************** */
   onSubmit() {
+    this.datos_ok = true;
+    this.mensaje_err = [];
     this.jobs = this.prepareSaveJob();
-    console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.jobs));
+    if (this.datos_ok) {
+      console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.jobs));
+    } else {
+      alert("Errores al validar el formulario. Corregirlos para continuar");
+    } 
   }
   
   prepareSaveJob(): Jobs {
@@ -237,23 +247,33 @@ export class FormAltaJobsComponent implements OnInit {
       (pasos1: JobsPasos1) => Object.assign({}, pasos1)
     );
     
+    pasos1DeepCopy = this.valida_pasos1DeepCopy(pasos1DeepCopy);
+    
     let pasos2DeepCopy: JobsPasos2[] = formModel.pasos2.map(
       (pasos2: JobsPasos2) => Object.assign({}, pasos2)
     );
+    
+    pasos2DeepCopy = this.valida_pasos2DeepCopy(pasos2DeepCopy);
     
     let pasos3DeepCopy: JobsPasos3[] = formModel.pasos3.map(
       (pasos3: JobsPasos3) => Object.assign({}, pasos3)
     );
 
-    // Mapeo manual de la clase Jobs que une todas las clases que forman la tabla de jobs
-    const saveJob: Jobs = {
-      jobs_principal: principalDeepCopy,
-      jobsCriticidad: jobsCriticidadDeepCopy,
-      pasos1: pasos1DeepCopy,
-      pasos2: pasos2DeepCopy,
-      pasos3: pasos3DeepCopy
-    };
-    return saveJob;
+    pasos3DeepCopy = this.valida_pasos3DeepCopy(pasos3DeepCopy);
+    
+    if (this.datos_ok) {    
+      // Mapeo manual de la clase Jobs que une todas las clases que forman la tabla de jobs
+      const saveJob: Jobs = {
+        jobs_principal: principalDeepCopy,
+        jobsCriticidad: jobsCriticidadDeepCopy,
+        pasos1: pasos1DeepCopy,
+        pasos2: pasos2DeepCopy,
+        pasos3: pasos3DeepCopy
+      };
+      return saveJob;
+    } else {
+      return null;
+    }
   }
   
   //Validaciones previas al envio de datos al servidor
@@ -263,6 +283,46 @@ export class FormAltaJobsComponent implements OnInit {
       
       if (data_criticidad.xti_igualdad != <string>"I" && data_criticidad.xti_igualdad != <string>'D') {
         data_criticidad.xti_igualdad = 'N';
+      }
+    }
+    return datos;
+  }
+  
+  valida_pasos1DeepCopy(datos: JobsPasos1[]) {
+    for (let data of datos) {
+      let data_pasos1: JobsPasos1 = data;
+      
+      if (!data_pasos1.des_paso) {
+        this.datos_ok = false;
+        this.mensaje_err.push('- Falta por informar paso en la primera tabla.');
+      }
+    }
+    return datos;
+  }
+  
+  valida_pasos2DeepCopy(datos: JobsPasos2[]) {
+    for (let data of datos) {
+      let data_pasos2: JobsPasos2 = data;
+      
+      if (!data_pasos2.des_paso) {
+        this.datos_ok = false;
+        this.mensaje_err.push('- Falta por informar paso en la segunda tabla.');
+      }
+    }
+    return datos;
+  }
+  
+  valida_pasos3DeepCopy(datos: JobsPasos3[]) {
+    for (let data of datos) {
+      let data_pasos3: JobsPasos3 = data;
+      
+      if (!data_pasos3.des_paso) {
+        this.datos_ok = false;
+        this.mensaje_err.push('- Falta por informar paso en la tercera tabla.');
+      }
+      if (!data_pasos3.xti_critinco) {
+        this.datos_ok = false;
+        this.mensaje_err.push('- Falta por informar nivel de criticidad en la tercera tabla de pasos.');
       }
     }
     return datos;

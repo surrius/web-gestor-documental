@@ -15,6 +15,11 @@ export class FormBuscaJobsComponent {
   jobs = new JobsPrincipal();
   grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
   
+  //Metodo que modificara el booleano masCampos al valor contrario
+  toogleCampos() {
+    this.masCampos = !this.masCampos;
+  }
+  
   public onSubmit() {
     console.log('ha pulsado en submit: ' + JSON.stringify(this.jobs));
   }

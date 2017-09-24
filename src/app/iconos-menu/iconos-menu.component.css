@@ -2,8 +2,6 @@
 /* Estilos de los circulos por aplicacion 				*/
 /* **************************************************** */
 .circular {
-	margin-top: 5%;
-	margin-bottom: 5%;
 	border-radius: 50%;
 	cursor: pointer;
 }
@@ -19,8 +17,4 @@
 #contentImagenes h3 {
 	color: #2A86CA;
 	font-weight: bold;
-}
-
-.alinea-centro {
-	text-align: center;
 }
