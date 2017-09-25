@@ -1,4 +1,4 @@
-import { Aplicaciones, AplicacionesMain, Tewokcmu, Tewokdpu, Tewokpya, Tewokilu, Tewokmlu, Tewokaml, Tewokrco, Tewokrmc, Tewokmrc, Tewokofs, Tewokmfs, Tewoktfi } from '../clases/aplicaciones';
+import { Aplicaciones, AplicacionesMain, Tewokcmu, Tewokdpu, Tewokpya, Tewokilu, Tewokmlu, Tewokaml, Tewokrco, Tewokrmc, Tewokmrc, Tewokofs, Tewokmfs, Tewoktfi, Tewokres, Tewokibd, Tewokmbd, Tewokweb, Tewokbck } from '../clases/aplicaciones';
 import { EnroutadorService } from '../services/enroutador.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
@@ -20,6 +20,14 @@ export class FormAltaAplicacionesComponent implements OnInit {
   //Variables de validacion del formulario
   datos_ok: boolean = true;
   mensaje_err: string[];
+  
+  //Variables de los combos repetitivos
+  severidad: any[] = [['A','Alta'],['M','Media'],['B','Baja']];
+  bbdd: any[] = [['O','Oracle'],['D','DB2']];
+  sweb: any[] = [['E','Web'],['A','Was']];
+  backup: any[] = [['F','FileSystem'],['B','Base de Datos']];
+  tipos: any[] = [['O','Online (BBDD)'],['T','Total (BBDD)'],['I','Incremental (FS)'],['C','Completo (FS)']];
+  periodicidad: any[] = [['D','Diaria'],['S','Semanal'],['M','Mensual'],['T','Trimestral'],['A','Anual']];
   
   //Variable del tipo Aplicaciones sobre la que mapear los campos del formulario
   aplicaciones: Aplicaciones = new Aplicaciones();
@@ -56,7 +64,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
       des_telsolic: ['',],
       des_telusura: ['',],
       des_tiposser: ['',],
-      //  des_usura: ['',],
+      des_usura: ['',],
       des_ususerv: ['',],
       fec_monitori: ['',],
       qnu_ncargabd: ['',],
@@ -79,10 +87,13 @@ export class FormAltaAplicacionesComponent implements OnInit {
       reqComunicacion: this.fb.array([this.initReqComunicacion()]),
       reqMiddle: this.fb.array([this.initReqMiddle()]),
       reqMiddleB: this.fb.array([this.initReqMiddleB()]),
-      reqQA: this.fb.array([this.initReqQA()]),
       caracFS: this.fb.array([this.initCaracFS()]),
       moniFS: this.fb.array([this.initMoniFS()]),
-      ficheros: this.fb.array([this.initFicheros()])
+      bbddA: this.fb.array([this.initBbddA()]),
+      bbddB: this.fb.array([this.initBbddB()]),
+      servidor: this.fb.array([this.initServidor()]),
+      ficheros: this.fb.array([this.initFicheros()]),
+      backups: this.fb.array([this.initBackups()])
     });
     
     this.showAlta = this.sw_alta_consulta(this.operacion);
@@ -122,16 +133,16 @@ export class FormAltaAplicacionesComponent implements OnInit {
    */
   initResponsables(): FormGroup {
     return this.fb.group({
-//      des_scriptjb: [''],
-//      des_scriptpr: [''],
-//      des_cadenapr: [''],
-//      des_scriptsu: [''],
-//      des_cadenasu: ['']
+      des_usucateg: [''],
+      des_nombyape: [''],
+      des_telinter: [''],
+      des_telexter: ['']
     });
   }
   
   initCtlModificaciones(): FormGroup {
     return this.fb.group({
+      cod_secuuaa: [''],
       des_versionm: [''],
       fec_version: ['']
     });
@@ -203,16 +214,6 @@ export class FormAltaAplicacionesComponent implements OnInit {
     });
   }
   
-  initReqQA(): FormGroup {
-    return this.fb.group({
-//      des_nomfs: [''],
-//      qnu_espaesti: [''],
-//      qnu_prevcrec: [''],
-//      qnu_umbramax: [''],
-//      des_tratamie: ['']
-    });
-  }
-  
   initCaracFS(): FormGroup {
     return this.fb.group({
       des_nomfs: [''],
@@ -232,6 +233,36 @@ export class FormAltaAplicacionesComponent implements OnInit {
     });
   }
   
+  initBbddA(): FormGroup {
+    return this.fb.group({
+      xti_gestbbdd: [''],
+      cod_nombbdd: [''],
+      des_listenbd: [''],
+      des_usubd: [''],
+      des_proccomu: ['']
+    });
+  }
+  
+  initBbddB(): FormGroup {
+    return this.fb.group({
+      xti_gestbbdd: [''],
+      cod_nombbdd: [''],
+      des_instabd: [''],
+      cod_tablbbdd: [''],
+      qnu_severo: [''],
+      qnu_critical: [''],
+      des_proccomu: ['']
+    });
+  }
+  
+  initServidor(): FormGroup {
+    return this.fb.group({
+      xti_serviapl: [''],
+      des_instaweb: [''],
+      des_proccomu: ['']
+    });
+  }
+  
   initFicheros(): FormGroup {
     return this.fb.group({
       des_maqori: [''],
@@ -241,6 +272,15 @@ export class FormAltaAplicacionesComponent implements OnInit {
       des_scriptde: [''],
       des_fichdest: [''],
       des_proccomu: ['']
+    });
+  }
+  
+  initBackups(): FormGroup {
+    return this.fb.group({
+      xti_gestbbdd: [''],
+      xti_backup: [''],
+      xti_periodo: [''],
+      des_ciclovid: [''],
     });
   }
   
@@ -294,8 +334,24 @@ export class FormAltaAplicacionesComponent implements OnInit {
     return this.altaAppsForm.get('moniFS') as FormArray;
   }
   
+  get bbddA(): FormArray {
+    return this.altaAppsForm.get('bbddA') as FormArray;
+  }
+  
+  get bbddB(): FormArray {
+    return this.altaAppsForm.get('bbddB') as FormArray;
+  }
+  
+  get servidor(): FormArray {
+    return this.altaAppsForm.get('servidor') as FormArray;
+  }
+  
   get ficheros(): FormArray {
     return this.altaAppsForm.get('ficheros') as FormArray;
+  }
+  
+  get backups(): FormArray {
+    return this.altaAppsForm.get('backups') as FormArray;
   }
   
   //Metodos para añadir elementos
@@ -347,8 +403,24 @@ export class FormAltaAplicacionesComponent implements OnInit {
     this.moniFS.push(this.initMoniFS());
   }
   
+  addBbddA(): void {
+    this.bbddA.push(this.initBbddA());
+  }
+  
+  addBbddB(): void {
+    this.bbddB.push(this.initBbddB());
+  }
+  
+  addServidor(): void {
+    this.servidor.push(this.initServidor());
+  }
+  
   addFicheros(): void {
     this.ficheros.push(this.initFicheros());
+  }
+  
+  addBackups(): void {
+    this.ficheros.push(this.initBackups());
   }
   
   //Metodos para eliminar elementos
@@ -400,8 +472,24 @@ export class FormAltaAplicacionesComponent implements OnInit {
     this.moniFS.removeAt(u);
   }
   
-  removeFicheros(zi: number): void {
-    this.ficheros.removeAt(zi);
+  removeBbddA(w: number): void {
+    this.bbddA.removeAt(w);
+  }
+  
+  removeBbddB(x: number): void {
+    this.bbddB.removeAt(x);
+  }
+  
+  removeServidor(y: number): void {
+    this.servidor.removeAt(y);
+  }
+  
+  removeFicheros(z: number): void {
+    this.ficheros.removeAt(z);
+  }
+  
+  removeBackups(z1: number): void {
+    this.ficheros.removeAt(z1);
   }
   
   /* ***************************************************** */
@@ -438,7 +526,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
       des_telsolic: formModel.des_telsolic as string,
       des_telusura: formModel.des_telusura as string,
       des_tiposser: formModel.des_tiposser as string,
-      //  des_usura: formModel.des_usura as string,
+      des_usura: formModel.des_usura as string,
       des_ususerv: formModel.des_ususerv as string,
       fec_monitori: formModel.fec_monitori as Date,
       qnu_ncargabd: formModel.qnu_ncargabd as number,
@@ -454,9 +542,9 @@ export class FormAltaAplicacionesComponent implements OnInit {
     };
     
     // Mapeo automático de los campos del formulario que son arrays
-//    const responsablesDeepCopy: TEWOK[] = formModel.responsables.map(
-//      (responsables: TEWOK) => Object.assign({}, responsables)
-//    );
+    const responsablesDeepCopy: Tewokres[] = formModel.responsables.map(
+      (responsables: Tewokres) => Object.assign({}, responsables)
+    );
     
     const ctlModificacionesDeepCopy: Tewokcmu[] = formModel.ctlModificaciones.map(
       (ctlModificaciones: Tewokcmu) => Object.assign({}, ctlModificaciones)
@@ -502,15 +590,31 @@ export class FormAltaAplicacionesComponent implements OnInit {
       (moniFS: Tewokmfs) => Object.assign({}, moniFS)
     );
     
+    const bbddADeepCopy: Tewokibd[] = formModel.bbddA.map(
+      (bbddA: Tewokibd) => Object.assign({}, bbddA)
+    );
+    
+    const bbddBDeepCopy: Tewokmbd[] = formModel.bbddB.map(
+      (bbddB: Tewokmbd) => Object.assign({}, bbddB)
+    );
+    
+    const servidorDeepCopy: Tewokweb[] = formModel.servidor.map(
+      (servidor: Tewokweb) => Object.assign({}, servidor)
+    );
+    
     const ficherosDeepCopy: Tewoktfi[] = formModel.ficheros.map(
       (ficheros: Tewoktfi) => Object.assign({}, ficheros)
+    );
+    
+    const backupsDeepCopy: Tewokbck[] = formModel.backups.map(
+      (backups: Tewokbck) => Object.assign({}, backups)
     );
     
     // Mapeo manual de la clase general de Aplicaciones que une todas las clases que forman la tabla
     if (this.datos_ok) { 
       const saveAplicacion: Aplicaciones = {
         aplicacionesMain: principalDeepCopy,
-//        tewokxxx: responsablesDeepCopy,
+        tewokres: responsablesDeepCopy,
         tewokcmu: ctlModificacionesDeepCopy,
         tewokdpu: descProcesosDeepCopy,
         tewokpya: paradaArranqueDeepCopy,
@@ -522,7 +626,11 @@ export class FormAltaAplicacionesComponent implements OnInit {
         tewokmrc: reqMiddleBDeepCopy,
         tewokofs: caracFSDeepCopy,
         tewokmfs: moniFSDeepCopy,
-        tewoktfi: ficherosDeepCopy
+        tewokibd: bbddADeepCopy,
+        tewokmbd: bbddBDeepCopy,
+        tewokweb: servidorDeepCopy,
+        tewoktfi: ficherosDeepCopy,
+        tewokbck: backupsDeepCopy
       };
       return saveAplicacion;
     } else {

@@ -23,6 +23,10 @@ export class FormAltaCadenasComponent implements OnInit {
   datos_ok: boolean = true;
   mensaje_err: string[];
   
+  //Variables de informacion de los combos
+  periodicidad: any[] = [['D','Diaria'],['S','Semanal'],['M','Mensual'],['T','Trimestral'],['A','Anual']];
+  criticidadcdn: any[] = [['N','No cr&iacute;tico'],['A','Alta'],['M','Media'],['B','Baja'],['A','Aviso d&iacute;a siguiente']];
+  
   //Variable del tipo Cadenas sobre la que mapear los campos del formulario
   cadenas: Cadenas = new Cadenas();
   

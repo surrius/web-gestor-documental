@@ -12,8 +12,9 @@ import * as $ from 'jquery';
 
 //Servicio de enrutamiento
 import { EnroutadorService } from './services/enroutador.service';
-//Servicio de comunicacion
-import { ComunicacionService } from './services/comunicacion.service';
+//Servicios de comunicacion con la BBDD
+import { BbddJobsService } from './services/bbdd-jobs.service';
+import { BbddCadenasService } from './services/bbdd-cadenas.service';
 
 //Componentes creados para el proyecto
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { ConsultaJobsComponent } from './consulta-jobs/consulta-jobs.component';
 import { ConsultaCadenasComponent } from './consulta-cadenas/consulta-cadenas.component';
 import { FormBuscaAplicacionesComponent } from './form-busca-aplicaciones/form-busca-aplicaciones.component';
 import { FormAltaAplicacionesComponent } from './form-alta-aplicaciones/form-alta-aplicaciones.component';
+import { ConsultaAplicacionesComponent } from './consulta-aplicaciones/consulta-aplicaciones.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { FormAltaAplicacionesComponent } from './form-alta-aplicaciones/form-alt
     ConsultaJobsComponent,
     ConsultaCadenasComponent,
     FormBuscaAplicacionesComponent,
-    FormAltaAplicacionesComponent
+    FormAltaAplicacionesComponent,
+    ConsultaAplicacionesComponent
   ],
   imports: [
     routes,
@@ -53,7 +56,8 @@ import { FormAltaAplicacionesComponent } from './form-alta-aplicaciones/form-alt
   ],
   providers: [
     EnroutadorService,
-    ComunicacionService
+    BbddJobsService,
+    BbddCadenasService
   ],
   bootstrap: [AppComponent]
 })

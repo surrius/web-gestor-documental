@@ -4,7 +4,15 @@
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
-
+<br>
+<div class="row">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
 <div id="areaBusca">
 	<br>
 	<form id="buscaCdnForm" name="buscaCdnForm" (ngSubmit)="onSubmit()" #buscaCdnForm="ngForm">

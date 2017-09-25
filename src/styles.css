@@ -144,11 +144,11 @@ form .table-bordered {
 }
 
 .mini-img-circular {
-    max-width: 70%;
+    max-width: 50%;
 }
 
 .mini-img-circular:hover {
-    max-width: 75%;
+    max-width: 55%;
 }
 
 /* **************************************************** */

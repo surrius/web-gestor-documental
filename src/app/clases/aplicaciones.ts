@@ -1,9 +1,5 @@
 //Campos de la tabla principal de Aplicaciones (TEWOKPUA)
 export class AplicacionesMain {
-//  aud_timcrea: Date;
-//  aud_timmodif: Date;
-//  aud_usuario: string;
-//  cod_autouni: number;
   cod_aplicaci: string;
   cod_user: string;
   cod_userra: string;
@@ -19,7 +15,7 @@ export class AplicacionesMain {
   des_telsolic: string;
   des_telusura: string;
   des_tiposser: string;
-//  des_usura: string;
+  des_usura: string;
   des_ususerv: string;
   fec_monitori: Date;
   qnu_ncargabd: number;
@@ -34,11 +30,17 @@ export class AplicacionesMain {
   xti_csancion: string;
 }
 
-//Tabla de Control de Modificaciones(TEWOKCMU)
-//??????????????????TODO: ?????
+//Tabla de Responsables(TEWOKRES)
+export class Tewokres {
+  des_usucateg: string;
+  des_nombyape: string;
+  des_telinter: string;
+  des_telexter: string;
+}
 
 //Tabla de Control de Modificaciones(TEWOKCMU)
 export class Tewokcmu {
+  cod_secuuaa: number;
   des_versionm: string;
   fec_version: Date;
 }
@@ -101,13 +103,6 @@ export class Tewokmrc {
   des_colamdl: string;
 }
 
-//Tabla de Requerimientos QA-RUN(TEWOKMRC)
-//export class Tewokmrc {
-//  des_gestcola: string;
-//  des_canalmdl: string;
-//  des_colamdl: string;
-//}
-
 //Tabla de Ocupacion de espacio - Caracteristicas FileSystem (TEWOKOFS)
 export class Tewokofs {
   des_nomfs: string;
@@ -125,6 +120,33 @@ export class Tewokmfs {
   des_proccomu: string;
 }
 
+//Tabla de BBDD 1 (ORA o DB2) - (TEWOKIBD)
+export class Tewokibd {
+  xti_gestbbdd: string;
+  cod_nombbdd: string;
+  des_listenbd: string;
+  des_usubd: string;
+  des_proccomu: string;
+}
+
+//Tabla de BBDD 2 (Instancias) - (TEWOKMBD)
+export class Tewokmbd {
+  xti_gestbbdd: string;
+  cod_nombbdd: string;
+  des_instabd: string;
+  cod_tablbbdd: string;
+  qnu_severo: number;
+  qnu_critical: number;
+  des_proccomu: string;
+}
+
+//Tabla de Servidores WAS/WEB - (TEWOKWEB)
+export class Tewokweb {
+  xti_serviapl: string;
+  des_instaweb: string;
+  des_proccomu: string;
+}
+
 //Tabla de transmision de ficheros (TEWOKTFI)
 export class Tewoktfi {
   des_maqori: string;
@@ -136,11 +158,19 @@ export class Tewoktfi {
   des_proccomu: string;
 }
 
+//Tabla de transmision de ficheros (TEWOKBCK)
+export class Tewokbck {
+  xti_gestbbdd: string;
+  xti_backup: string;
+  xti_periodo: string;
+  des_ciclovid: string;
+}
+
 // Clase que auna las anteriores para dar formato al modelo de datos
 // que se corresponde al de la tabla cadenas con el que trabajaremos
 export class Aplicaciones {
   aplicacionesMain: AplicacionesMain;
-  //Falta la tabla de responsables
+  tewokres: Tewokres[];
   tewokcmu: Tewokcmu[];
   tewokdpu: Tewokdpu[];
   tewokpya: Tewokpya[];
@@ -152,5 +182,9 @@ export class Aplicaciones {
   tewokmrc: Tewokmrc[];
   tewokofs: Tewokofs[];
   tewokmfs: Tewokmfs[];
+  tewokibd: Tewokibd[];
+  tewokmbd: Tewokmbd[];
+  tewokweb: Tewokweb[];
   tewoktfi: Tewoktfi[];
+  tewokbck: Tewokbck[];
 }

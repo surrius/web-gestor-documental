@@ -2,7 +2,15 @@
 <!--	El modelo de formulario usado para esta parte de la página es el Reactive Form, es decir, los controles y validaciones se 
 		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
 		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
-
+<br>
+<div class="row" *ngIf="showAlta">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
 <div id="areaAltaCadena">
 	<div *ngIf="showAlta">
 		<h3 class="titulo-form-alta">Formulario de alta de Cadenas</h3>
@@ -87,7 +95,9 @@
 				<!-- PERIODICIDAD -->
 				<div class="col-sm-3">
 					<label for="xti_periocdn">Periodicidad</label> 
-					<input type="text" class="form-control" id="xti_periocdn" name="xti_periocdn" formControlName="xti_periocdn">
+					<select class="form-control" id="xti_periocdn" name="xti_periocdn" formControlName="xti_periocdn">  
+						<option *ngFor="let periodo of periodicidad" [value]="periodo[0]">{{periodo[1]}}</option>	
+					</select>
 					
 					<small class="text-danger" 
 						*ngIf="altaCadenasForm.get('xti_periocdn').invalid && (altaCadenasForm.get('xti_periocdn').dirty || altaCadenasForm.get('xti_periocdn').touched)">
@@ -112,7 +122,9 @@
 				<!-- CRITICIDAD -->
 				<div class="col-sm-4">
 					<label for="xti_critical">Criticidad</label> 
-					<input type="text" class="form-control" id="xti_critical" name="xti_critical" formControlName="xti_critical">
+					<select class="form-control" id="xti_critical" name="xti_critical" formControlName="xti_critical">  
+						<option *ngFor="let criti of criticidadcdn" [value]="criti[0]">{{criti[1]}}</option>	
+					</select>
 					
 					<small class="text-danger" 
 						*ngIf="altaCadenasForm.get('xti_critical').invalid && (altaCadenasForm.get('xti_critical').dirty || altaCadenasForm.get('xti_critical').touched)">
@@ -226,7 +238,7 @@
 	</form>
 </div>
 <br>
-<div class="row">
+<div class="row" *ngIf="showAlta">
 	<div class="col-xs-1 pull-right mini-circular">
 			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
 	</div>

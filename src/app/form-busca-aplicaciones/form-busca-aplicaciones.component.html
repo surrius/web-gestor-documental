@@ -1,9 +1,18 @@
 <!-- REFERENCIA AL FORMULARIO DE CONSULTA, QUE CONTIENE EL FORMULARIO DE ALTA DESHABILITADO PARA LA CARGA DE DATOS -->
-<!-- <app-consulta-aplicaciones></app-consulta-aplicaciones> -->
+<app-consulta-aplicaciones></app-consulta-aplicaciones>
 
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
+<br>
+<div class="row">
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+	</div>
+	<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	</div>
+</div>
 <div id="areaBuscaAplicaciones">
 	<br>
 	<form id="buscaAppsForm" name="buscaAppsForm" (ngSubmit)="onSubmit()" #buscaAppsForm="ngForm">
@@ -178,7 +187,7 @@
 					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 				</div>
 				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaAppBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaJobsModal" 
+					<button id="frmBuscaAppBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaAppsModal" 
 						[disabled]="!buscaAppsForm.form.dirty">Buscar</button>
 <!-- 					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button> -->
 				</div>
