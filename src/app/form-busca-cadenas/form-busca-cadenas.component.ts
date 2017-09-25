@@ -42,7 +42,6 @@ export class FormBuscaCadenasComponent {
       .subscribe(
       result => {
         this.resultado = result;
-
         console.log('Resultado de llamada al Servicio web: ' + JSON.stringify(this.resultado));
       },
       error => {

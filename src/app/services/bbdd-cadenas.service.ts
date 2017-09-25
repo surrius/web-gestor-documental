@@ -14,25 +14,25 @@ export class BbddCadenasService {
   baseURL = "http://localhost:8080/";
 
   constructor(private http: Http) {}
-  
+
   //Fetch all articles
-    getAllCadenas(): Observable<CadenaPrincipal[]> {
-//        return this.http.get(this.baseURL + 'prueba')
-//         .map(this.extractData)
-//         .catch(this.handleError);
-      return this.http.get(this.baseURL + 'prueba')
+  getAllCadenas(): Observable<CadenaPrincipal[]> {
+    //        return this.http.get(this.baseURL + 'prueba')
+    //         .map(this.extractData)
+    //         .catch(this.handleError);
+    return this.http.get(this.baseURL + 'prueba')
       .map(res => res.json());
-    }
-  
-    private extractData(res: Response) {
-      let body = res.json();
-      console.log('Me has devuelto: ' + body);
-      return body;
-    }
-  
-    private handleError(error: Response | any) {
-      console.error('Error controlado desde el servicio: ' + error.message || error);
-      return Observable.throw(error.status);
-    }
+  }
+
+  private extractData(res: Response) {
+    let body = res.json();
+    console.log('Me has devuelto: ' + body);
+    return body;
+  }
+
+  private handleError(error: Response | any) {
+    console.error('Error controlado desde el servicio: ' + error.message || error);
+    return Observable.throw(error.status);
+  }
 
 }
