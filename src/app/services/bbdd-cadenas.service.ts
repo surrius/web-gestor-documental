@@ -6,33 +6,33 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 //Módulos rxjs
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
 
 @Injectable()
 export class BbddCadenasService {
 
   //URL base
-  baseURL = "http://localhost:8080/";
+  baseURL = "http://localhost:8080/GestorDocumentalWeb/";
 
   constructor(private http: Http) {}
 
-  //Fetch all articles
-  getAllCadenas(): Observable<CadenaPrincipal[]> {
-    //        return this.http.get(this.baseURL + 'prueba')
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    return this.http.get(this.baseURL + 'prueba')
-      .map(res => res.json());
+  //Recupera las últimas cadenas insertadas
+  getUltimas(): Observable<Cadenas[]> {
+    return this.http.get(this.baseURL + 'busca/cadena')
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);
   }
 
   private extractData(res: Response) {
     let body = res.json();
-    console.log('Me has devuelto: ' + body);
+    console.log("Respuesta del servicio: " + JSON.stringify(body));
     return body;
   }
 
-  private handleError(error: Response | any) {
-    console.error('Error controlado desde el servicio: ' + error.message || error);
-    return Observable.throw(error.status);
-  }
+  private handleErrorObservable(error: Response | any) {
+    console.error(error.message || error);
+    return Observable.throw(error.message || error);
+  } 
+  
 
 }

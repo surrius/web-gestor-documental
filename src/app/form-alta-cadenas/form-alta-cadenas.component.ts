@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 
-import { CadenaPrincipal, CadenaRelaciones, Cadenas } from '../clases/cadenas';
+import { CadenaPrincipal, Tewokcrds, Cadenas } from '../clases/cadenas';
 import { EnroutadorService } from '../services/enroutador.service';
 
 @Component({
@@ -143,34 +143,61 @@ export class FormAltaCadenasComponent implements OnInit {
     const formModel = this.altaCadenasForm.value;
 
     // Mapeo manual de los campos del formulario y la clase JobsPrincipal
-    const principalDeepCopy: CadenaPrincipal = {
-      cod_aplicaci: formModel.cod_aplicaci as string,
-      cod_cadenapl: 0,   //Sin representacion en el formulario
-      des_refdocum: formModel.des_refdocum as string,
-      des_cadenapl: formModel.des_cadenapl as string,
-      des_autor: formModel.des_autor as string,
-      fec_modifica: formModel.fec_modifica as Date,
-      des_equipocd: formModel.des_equipocd as string,
-      xti_periocdn: formModel.xti_periocdn as string,
-      des_diaejecu: formModel.des_diaejecu as string,
-      des_horaejec: formModel.des_horaejec as string,
-      xti_critical: formModel.xti_critical as string,
-      des_rearran: formModel.des_rearran as string,
-      des_interrel: formModel.des_interrel as string,
-      des_descaden: formModel.des_descaden as string,
-      des_incompat: formModel.des_incompat as string
-    };
+//    const principalDeepCopy: CadenaPrincipal = {
+//      id: {
+//        cod_aplicaci: formModel.cod_aplicaci as string,
+//        cod_cadenapl:  0   //Sin representacion en el formulario
+//      },
+//      aud_timcrea: 0,
+//      aud_timmodif: 0,
+//      aud_usuario: '',
+//      cod_autouni: 0,
+//      des_refdocum: formModel.des_refdocum as string,
+//      des_cadenapl: formModel.des_cadenapl as string,
+//      des_autor: formModel.des_autor as string,
+//      fec_modifica: formModel.fec_modifica as Date,
+//      des_equipocd: formModel.des_equipocd as string,
+//      xti_periocdn: formModel.xti_periocdn as string,
+//      des_diaejecu: formModel.des_diaejecu as string,
+//      des_horaejec: formModel.des_horaejec as string,
+//      xti_critical: formModel.xti_critical as string,
+//      des_rearran: formModel.des_rearran as string,
+//      des_interrel: formModel.des_interrel as string,
+//      des_descaden: formModel.des_descaden as string,
+//      des_incompat: formModel.des_incompat as string
+//    };
     
-    // Mapeo automático de los campos del formulario y la clase CadenaRelaciones
-    const relacionesDeepCopy: CadenaRelaciones[] = formModel.relaciones.map(
-      (relaciones: CadenaRelaciones) => Object.assign({}, relaciones)
+    // Mapeo automático de los campos del formulario y la clase Tewokcrds
+    const relacionesDeepCopy: Tewokcrds[] = formModel.relaciones.map(
+      (relaciones: Tewokcrds) => Object.assign({}, relaciones)
     );
     
     // Mapeo manual de la clase Cadenas que une todas las clases que forman la tabla
     if (this.datos_ok) { 
       const saveCadena: Cadenas = {
-        cadena_principal: principalDeepCopy,
-        cadena_relaciones: relacionesDeepCopy
+        id: {
+          cod_aplicaci: formModel.cod_aplicaci as string,
+          cod_cadenapl: 0   //Sin representacion en el formulario
+        },
+        aud_timcrea: 0,
+        aud_timmodif: 0,
+        aud_usuario: '',
+        cod_autouni: 0,
+        des_refdocum: formModel.des_refdocum as string,
+        des_cadenapl: formModel.des_cadenapl as string,
+        des_autor: formModel.des_autor as string,
+        fec_modifica: formModel.fec_modifica as Date,
+        des_equipocd: formModel.des_equipocd as string,
+        xti_periocdn: formModel.xti_periocdn as string,
+        des_diaejecu: formModel.des_diaejecu as string,
+        des_horaejec: formModel.des_horaejec as string,
+        xti_critical: formModel.xti_critical as string,
+        des_rearran: formModel.des_rearran as string,
+        des_interrel: formModel.des_interrel as string,
+        des_descaden: formModel.des_descaden as string,
+        des_incompat: formModel.des_incompat as string,
+        //        cadena_principal: principalDeepCopy,
+        tewokcrds: relacionesDeepCopy
       };
       return saveCadena;
     } else {

@@ -10,7 +10,7 @@ import { FormAltaAplicacionesComponent } from './form-alta-aplicaciones/form-alt
 import { ModuleWithProviders } from '@angular/core';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo:'/', pathMatch: 'full'},
+  { path: '', redirectTo:'/iconos-menu', pathMatch: 'full'},
   { path: 'iconos-menu', component: IconosMenuComponent},
   { path: 'menu-operacion', component: MenuOperacionComponent},
   { path: 'form-busca-jobs', component: FormBuscaJobsComponent},

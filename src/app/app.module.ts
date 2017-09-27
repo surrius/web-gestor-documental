@@ -9,6 +9,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 //Libreria Jquery para usarla en todo el proyecto
 import * as $ from 'jquery';
+//Libreria del plugin de Angular + Datatables
+import {DataTableModule} from "angular2-datatable";
 
 //Servicio de enrutamiento
 import { EnroutadorService } from './services/enroutador.service';
@@ -48,11 +50,12 @@ import { ConsultaAplicacionesComponent } from './consulta-aplicaciones/consulta-
     ConsultaAplicacionesComponent
   ],
   imports: [
-    routes,
     BrowserModule,
+    routes,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    DataTableModule
   ],
   providers: [
     EnroutadorService,
