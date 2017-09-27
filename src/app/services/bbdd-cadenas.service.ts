@@ -1,4 +1,4 @@
-import { Cadenas, CadenaPrincipal } from '../clases/cadenas';
+import { Cadenas } from '../clases/cadenas';
 import { Injectable } from '@angular/core';
 
 //Módulos para comunicacion HTTP
@@ -20,7 +20,16 @@ export class BbddCadenasService {
   getUltimas(): Observable<Cadenas[]> {
     return this.http.get(this.baseURL + 'busca/cadena')
       .map(this.extractData)
-      .catch(this.handleErrorObservable);
+      .catch(this.handleError);
+  }
+  
+  //Alta de una cadena
+  createCadena(cadena: Cadenas): Observable<number> {
+    let cpHeaders = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: cpHeaders});
+    return this.http.post(this.baseURL + 'alta/cadena', cadena, options)
+      .map(success => success.status)
+      .catch(this.handleError);
   }
 
   private extractData(res: Response) {
@@ -29,7 +38,7 @@ export class BbddCadenasService {
     return body;
   }
 
-  private handleErrorObservable(error: Response | any) {
+  private handleError(error: Response | any) {
     console.error(error.message || error);
     return Observable.throw(error.message || error);
   } 

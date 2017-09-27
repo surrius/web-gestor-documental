@@ -136,6 +136,7 @@ export class FormBuscaCadenasComponent implements OnInit {
   cadenas_res: Cadenas[];
   
   // Variables del plugin Datatables
+  public data: any[];
   public filterQuery = "";
   public rowsOnPage = 5;
   public sortBy = "email";

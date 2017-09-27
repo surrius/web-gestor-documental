@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 import { CadenaPrincipal, Tewokcrds, Cadenas } from '../clases/cadenas';
 import { EnroutadorService } from '../services/enroutador.service';
+import { BbddCadenasService } from '../services/bbdd-cadenas.service';
 
 @Component({
   selector: 'app-form-alta-cadenas',
@@ -30,6 +32,10 @@ export class FormAltaCadenasComponent implements OnInit {
   //Variable del tipo Cadenas sobre la que mapear los campos del formulario
   cadenas: Cadenas = new Cadenas();
   
+  //Variables de comunicación
+  errorMessage: string;
+  statusCode: number;
+  
   //Variable del tipo FormGroup (Formulario) que contendrá el formulario de altas
   public altaCadenasForm: FormGroup;
 
@@ -37,6 +43,7 @@ export class FormAltaCadenasComponent implements OnInit {
   //La instancia fb nos permitirá crear grupos, controles y arrays de campos para el contro del formulario
   constructor(
     private fb: FormBuilder,
+    private bbddCadenasService: BbddCadenasService,
     private data: EnroutadorService
   ) { }
 
@@ -133,7 +140,15 @@ export class FormAltaCadenasComponent implements OnInit {
     this.mensaje_err = [];
     this.cadenas = this.prepareSaveCadena();
     if (this.datos_ok) {
+      console.log(this.cadenas);
       console.log('Resultado del formulario de ALTA DE CADENAS: ' + JSON.stringify(this.cadenas));
+      //Creacion de la cadena
+      this.bbddCadenasService.createCadena(this.cadenas)
+        .subscribe(successCode => {
+          this.statusCode = successCode;
+        },
+        errorCode => this.statusCode = errorCode
+        );
     } else {
       alert("Errores al validar el formulario. Corregirlos para continuar");
     } 
