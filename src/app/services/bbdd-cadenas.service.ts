@@ -1,4 +1,3 @@
-import { Cadenas } from '../clases/cadenas';
 import { Injectable } from '@angular/core';
 
 //Módulos para comunicacion HTTP
@@ -7,6 +6,8 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+
+import { Cadenas } from '../clases/cadenas';
 
 @Injectable()
 export class BbddCadenasService {
@@ -17,8 +18,9 @@ export class BbddCadenasService {
   constructor(private http: Http) {}
 
   //Recupera las últimas cadenas insertadas
-  getUltimas(): Observable<Cadenas[]> {
-    return this.http.get(this.baseURL + 'busca/cadena')
+  getFindCadena(): Observable<Cadenas[]> {
+//    return this.http.get(this.baseURL + 'busca/cadena')
+    return this.http.get('../assets/simulado.json')
       .map(this.extractData)
       .catch(this.handleError);
   }

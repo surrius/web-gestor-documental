@@ -43,11 +43,11 @@
 					</select>
 				</div>
 				
-				<!-- MAQUINA DE ORIGEN -->
+				<!-- APLICACION UUAA -->
 				<div class="col-sm-3">
-					<label for="busca_des_maqori">Maquina origen</label> 
-					<input type="text" class="form-control" id="busca_des_maqori"
-						[(ngModel)]="jobs.des_maqori" name="busca_des_maqori" #busca_des_maqori="ngModel">
+					<label for="cod_aplicaci">Cod.Aplicaci&oacute;n - UUAA</label> 
+					<input type="text" class="form-control" id="cod_aplicaci"
+						[(ngModel)]="jobs?.id.cod_aplicaci" name="cod_aplicaci" #cod_aplicaci="ngModel">
 				</div>
 			</div>
 			<div *ngIf="!masCampos">
@@ -85,6 +85,14 @@
 							[(ngModel)]="jobs.des_maqeje" name="busca_des_maqeje" #busca_des_maqeje="ngModel">
 					</div>				
 				</div>
+				<div class="row form-group form-group-sm">
+					<!-- MAQUINA DE ORIGEN -->
+					<div class="col-sm-3">
+						<label for="busca_des_maqori">Maquina origen</label> 
+						<input type="text" class="form-control" id="busca_des_maqori"
+							[(ngModel)]="jobs.des_maqori" name="busca_des_maqori" #busca_des_maqori="ngModel">
+					</div>
+				</div>
 				<a (click)="toogleCampos()" style="cursor: pointer;">
 					Mostrar menos campos de b&uacute;squeda - 
 				</a>
@@ -96,42 +104,67 @@
 					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 				</div>
 				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaJobsModal" 
-						[disabled]="!buscaJobsForm.form.dirty">Buscar</button>
-<!-- 					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button> -->
+<!-- 					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaJobsModal"  -->
+<!-- 						[disabled]="!buscaJobsForm.form.dirty">Buscar</button> -->
+					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button>
 				</div>
 			</div>
 		</fieldset>
 	</form>
 	<br>
+	<div class="example-container mat-elevation-z8">
+		<md-table #table [dataSource]="jobs_res"> 
+			<!--- Note that these columns can be defined in any order.
+	   The actual rendered columns are set as a property on the row definition" -->
+	
+			<!-- Position Column --> <ng-container mdColumnDef="position">
+			<md-header-cell *mdHeaderCellDef> No. </md-header-cell> <md-cell
+				*mdCellDef="let element"> {{element.des_gsoporte}} </md-cell> </ng-container>
+	
+			<!-- Name Column --> <ng-container mdColumnDef="name">
+			<md-header-cell *mdHeaderCellDef> Name </md-header-cell> <md-cell
+				*mdCellDef="let element"> {{element.des_nombrjob}} </md-cell> </ng-container>
+	
+			<!-- Weight Column --> <ng-container mdColumnDef="weight">
+			<md-header-cell *mdHeaderCellDef> Weight </md-header-cell> <md-cell
+				*mdCellDef="let element"> {{element.xti_critijob}} </md-cell> </ng-container>
+	
+			<!-- Color Column --> 
+			<ng-container mdColumnDef="symbol">
+			<md-header-cell *mdHeaderCellDef> Symbol </md-header-cell> <md-cell
+				*mdCellDef="let element"> {{element.symbol}} </md-cell> 
+			</ng-container> 
+			<md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row> <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+		</md-table>
+	</div>
 	<!-- TABLA DE RESULTADOS DEL PLUGIN DATABLES -->
-	<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
-		<thead>
-			<tr>
-				<th style="width: 20%"><mfDefaultSorter by="cod_aplicaci">cod_aplicaci</mfDefaultSorter>
-				</th>
-				<th style="width: 50%"><mfDefaultSorter by="des_gsoporte">des_gsoporte</mfDefaultSorter>
-				</th>
-				<th style="width: 10%"><mfDefaultSorter by="des_nombrjob">des_nombrjob</mfDefaultSorter>
-				</th>
-				<th style="width: 20%"><mfDefaultSorter by="xti_critijob">xti_critijob</mfDefaultSorter>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let data of data_simu">
-				<td>{{data.cod_aplicaci}}</td>
-				<td>{{data.des_gsoporte}}</td>
-				<td>{{data.des_nombrjob}}</td>
-				<td>{{data.xti_critijob | uppercase}}</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td colspan="4"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator></td>
-			</tr>
-		</tfoot>
-	</table>
+<!-- 	<table *ngIf="jobs_res" class="table table-striped" [mfData]="jobs_res" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage"> -->
+<!-- 		<thead> -->
+<!-- 			<tr> -->
+<!-- 				<th style="width: 20%"><mfDefaultSorter by="cod_aplicaci">cod_aplicaci</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 				<th style="width: 50%"><mfDefaultSorter by="des_gsoporte">des_gsoporte</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 				<th style="width: 10%"><mfDefaultSorter by="des_nombrjob">des_nombrjob</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 				<th style="width: 20%"><mfDefaultSorter by="xti_critijob">xti_critijob</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 			</tr> -->
+<!-- 		</thead> -->
+<!-- 		<tbody> -->
+<!-- 			<tr *ngFor="let data of jobs_res"> -->
+<!-- 				<td>{{data.id.cod_aplicaci}}</td> -->
+<!-- 				<td>{{data.des_gsoporte}}</td> -->
+<!-- 				<td>{{data.des_nombrjob}}</td> -->
+<!-- 				<td>{{data.xti_critijob | uppercase}}</td> -->
+<!-- 			</tr> -->
+<!-- 		</tbody> -->
+<!-- 		<tfoot> -->
+<!-- 			<tr> -->
+<!-- 				<td colspan="4"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator></td> -->
+<!-- 			</tr> -->
+<!-- 		</tfoot> -->
+<!-- 	</table> -->
 </div>
 <br>
 <div class="row">

@@ -1,71 +1,131 @@
 //Campos de la tabla principal de Jobs (TEWOKJOB)
+/* TODO: Quitar
 export class JobsPrincipal {
-  cod_aplicaci: string;
-  cod_jobpl: number;
-  des_refdocjb: string;
-  des_nombrjob: string;
-  des_gsoporte: string;
-  des_maqori: string;
-  des_libreori: string;
+  id: {
+    cod_aplicaci: string;
+    cod_jobpl: number;
+  };
+  aud_timcrea: number;
+  aud_timmodif: number;
+  aud_usuario: string;
+  cod_autouni: number;
+  
   des_desjobpl: string;
   des_estrupl: string;
-  des_periojob: string;
+  des_gsoporte: string;
+  des_libreori: string;
   des_maqeje: string;
+  des_maqori: string;
+  des_nombrjob: string;
+  des_periojob: string;
+  des_refdocjb: string;
   xti_critijob: string;
 }
+*/
 
 //Tabla para la formulacion de la criticidad (TEWOKJAR)
-export class JobsCriticidad {
+export class Tewokjars {
+  id: {
+    cod_aplicaci: string;
+    cod_jobpl: number;
+    xti_accion: string;
+    cod_error: number;
+    xti_igualdad: string;
+  };
+  aud_timcrea: number;
+  aud_timmodif: number;
+  aud_usuario: string;
+  cod_autouni: number;
+}
+
+// Esta tabla se crea como soporte para las altas, ya que la clase que se devuelve desde el
+// html tiene esta estructura. Posteriormente se mapea la clase TewokjarsAlta --> 
+export class TewokjarsAlta {
+  cod_aplicaci: string;
+  cod_jobpl: number;
   xti_accion: string;
   cod_error: number;
   xti_igualdad: string;
-  
-  constructor() {
-    this.xti_accion = 'N';
-    this.cod_error = 0;
-    this.xti_igualdad = 'N';
-  }
 }
 
 //Tabla 1 de descripcion de pasos (TEWOKJSO)
-export class JobsPasos1 {
-  cod_pasosop: number;
-  des_paso: string;
+export class Tewokjsos {
+  id: {
+    cod_aplicaci: string;
+    cod_jobpl: number;
+    cod_pasosop: number;
+  };
+  aud_timcrea: number;
+  aud_timmodif: number;
+  aud_usuario: string;
+  cod_autouni: number;
+  
+  des_accesbd: string;
+  des_entibd: string;
   des_fichentr: string;
   des_fichsali: string;
-  des_entibd: string;
-  des_accesbd: string;
+  des_paso: string;
 }
 
 //Tabla 2 de descripcion de pasos (TEWOKJCO)
-export class JobsPasos2 {
-  cod_pasocond: number;
+export class Tewokjcos {
+  id: {
+    cod_aplicaci: string;
+    cod_jobpl: number;
+    cod_pasocond: number;
+  };
+  aud_timcrea: number;
+  aud_timmodif: number;
+  aud_usuario: string;
+  cod_autouni: number;
+  
   des_paso: string;
   des_predece: string;
-  des_sucesor: string;
   des_rearra: string;
+  des_sucesor: string;
 }
 
 //Tabla 3 de descripcion de pasos (TEWOKJIN)
-export class JobsPasos3 {
-  cod_pasoinc: number;
-  des_paso: string;
+export class Tewokjins {
+  id: {
+    cod_aplicaci: string;
+    cod_jobpl: number;
+    cod_pasoinc: number;
+  };
+  aud_timcrea: number;
+  aud_timmodif: number;
+  aud_usuario: string;
+  cod_autouni: number;
+  
   des_incomjob: string;
+  des_paso: string;
   xti_critinco: string;
 }
 
 // Clase que auna las anteriores para dar formato al modelo de datos
 // que se corresponde al de la tabla jobs con el que trabajaremos
 export class Jobs {
-  jobs_principal: JobsPrincipal;
-  jobsCriticidad: JobsCriticidad[];
-  pasos1: JobsPasos1[];
-  pasos2: JobsPasos2[];
-  pasos3: JobsPasos3[];
+  id: {
+    cod_aplicaci: string;
+    cod_jobpl: number;
+  };
+  aud_timcrea: number;
+  aud_timmodif: number;
+  aud_usuario: string;
+  cod_autouni: number;
+  
+  des_desjobpl: string;
+  des_estrupl: string;
+  des_gsoporte: string;
+  des_libreori: string;
+  des_maqeje: string;
+  des_maqori: string;
+  des_nombrjob: string;
+  des_periojob: string;
+  des_refdocjb: string;
+  xti_critijob: string;
+  tewokjsos: Tewokjsos[];
+  tewokjins: Tewokjins[];
+  tewokjars: Tewokjars[];
+  tewokjcos: Tewokjcos[];
 }
-
-/*
-  get consulta(): string {
-    return JSON.stringify(this);
-  }
-*/
