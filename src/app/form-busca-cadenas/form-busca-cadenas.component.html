@@ -132,33 +132,33 @@
 	</form>
 	<br>
 	<!-- TABLA DE RESULTADOS DEL PLUGIN DATABLES -->
-	<table *ngIf="cadenas_res" class="table table-striped" [mfData]="cadenas_res" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
-		<thead>
-			<tr>
-				<th style="width: 20%"><mfDefaultSorter by="id.cod_aplicaci">id.cod_aplicaci</mfDefaultSorter>
-				</th>
-				<th style="width: 50%"><mfDefaultSorter by="id.cod_cadenapl">id.cod_cadenapl</mfDefaultSorter>
-				</th>
-				<th style="width: 10%"><mfDefaultSorter by="des_refdocum">des_nombrjob</mfDefaultSorter>
-				</th>
-				<th style="width: 20%"><mfDefaultSorter by="des_diaejecu">xti_critijob</mfDefaultSorter>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let data of cadenas_res">
-				<td>{{data.des_descaden}}</td>
-				<td>{{data.des_horaejec}}</td>
-				<td>{{data.des_refdocum}}</td>
-				<td>{{data.des_diaejecu | uppercase}}</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td colspan="4"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator></td>
-			</tr>
-		</tfoot>
-	</table>
+<!-- 	<table *ngIf="cadenas_res" class="table table-striped" [mfData]="cadenas_res" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage"> -->
+<!-- 		<thead> -->
+<!-- 			<tr> -->
+<!-- 				<th style="width: 20%"><mfDefaultSorter by="id.cod_aplicaci">id.cod_aplicaci</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 				<th style="width: 50%"><mfDefaultSorter by="id.cod_cadenapl">id.cod_cadenapl</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 				<th style="width: 10%"><mfDefaultSorter by="des_refdocum">des_nombrjob</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 				<th style="width: 20%"><mfDefaultSorter by="des_diaejecu">xti_critijob</mfDefaultSorter> -->
+<!-- 				</th> -->
+<!-- 			</tr> -->
+<!-- 		</thead> -->
+<!-- 		<tbody> -->
+<!-- 			<tr *ngFor="let data of cadenas_res"> -->
+<!-- 				<td>{{data.des_descaden}}</td> -->
+<!-- 				<td>{{data.des_horaejec}}</td> -->
+<!-- 				<td>{{data.des_refdocum}}</td> -->
+<!-- 				<td>{{data.des_diaejecu | uppercase}}</td> -->
+<!-- 			</tr> -->
+<!-- 		</tbody> -->
+<!-- 		<tfoot> -->
+<!-- 			<tr> -->
+<!-- 				<td colspan="4"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator></td> -->
+<!-- 			</tr> -->
+<!-- 		</tfoot> -->
+<!-- 	</table> -->
 </div>
 <br>
 <div class="row">

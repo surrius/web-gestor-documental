@@ -1,0 +1,145 @@
+  {
+	"id": {
+		"cod_aplicaci": "DIME",
+		"cod_jobpl": 1
+	},
+	"aud_timcrea": 1505373662961,
+	"aud_timmodif": 1505373662961,
+	"aud_usuario": "XE29079",
+	"cod_autouni": 1,
+	"des_desjobpl": "Descripción del Job",
+	"des_estrupl": "CADENA_APLICA",
+	"des_gsoporte": "RA DISTRIBUIDOS",
+	"des_libreori": "Librería origen",
+	"des_maqeje": "SIDBS101",
+	"des_maqori": "SDDBS101",
+	"des_nombrjob": "ejecuta.sh",
+	"des_periojob": "Diario de Martes a Sábado",
+	"des_refdocjb": "DIMEALGOD.doc",
+	"xti_critijob": "W",
+	"tewokjsos": [
+		{
+			"id": {
+				"cod_aplicaci": "DIME",
+				"cod_jobpl": 1,
+				"cod_pasosop": 1
+			},
+			"aud_timcrea": 1505379811926,
+			"aud_timmodif": 1505379811926,
+			"aud_usuario": "XE29079",
+			"cod_autouni": 1,
+			"des_accesbd": "Tipo de acceso a BD",
+			"des_entibd": "Entidad de BD",
+			"des_fichentr": "/tmp/fichEntrada.txt",
+			"des_fichsali": "/tmp/fichSalida.txt",
+			"des_paso": "1.-"
+		},
+		{
+			"id": {
+				"cod_aplicaci": "PRUE",
+				"cod_jobpl": 1,
+				"cod_pasosop": 1
+			},
+			"aud_timcrea": 1505379811926,
+			"aud_timmodif": 1505379811926,
+			"aud_usuario": "XE51933",
+			"cod_autouni": 1,
+			"des_accesbd": "Prueba acceso BD",
+			"des_entibd": "Prueba Entidad de BD",
+			"des_fichentr": "prueba/tmp/fichEntrada.txt",
+			"des_fichsali": "prueba/tmp/fichSalida.txt",
+			"des_paso": "2.-"
+		}
+	],
+	"tewokjins": [
+		{
+			"id": {
+				"cod_aplicaci": "DIME",
+				"cod_jobpl": 1,
+				"cod_pasoinc": 1
+			},
+			"aud_timcrea": 1505380939780,
+			"aud_timmodif": 1505380939780,
+			"aud_usuario": "XE29079",
+			"cod_autouni": 1,
+			"des_incomjob": "Incompatibilidades con el job a planificar",
+			"des_paso": "1.-",
+			"xti_critinco": "W"
+		},
+		{
+			"id": {
+				"cod_aplicaci": "DIME",
+				"cod_jobpl": 1,
+				"cod_pasoinc": 1
+			},
+			"aud_timcrea": 1505380939780,
+			"aud_timmodif": 1505380939780,
+			"aud_usuario": "XE29079",
+			"cod_autouni": 1,
+			"des_incomjob": "Prueba de Incompatibilidades con el job a planificar",
+			"des_paso": "2.-",
+			"xti_critinco": "S"
+		}
+	],
+	"tewokjars": [
+		{
+			"id": {
+				"cod_aplicaci": "DIME",
+				"cod_jobpl": 1,
+				"xti_accion": "R",
+				"cod_error": 999,
+				"xti_igualdad": "I"
+			},
+			"aud_timcrea": 1505381696438,
+			"aud_timmodif": 1505381696438,
+			"aud_usuario": "XE29079",
+			"cod_autouni": 1
+		},
+		{
+			"id": {
+				"cod_aplicaci": "PRUE",
+				"cod_jobpl": 2,
+				"xti_accion": "R",
+				"cod_error": 789,
+				"xti_igualdad": "I"
+			},
+			"aud_timcrea": 1505381696438,
+			"aud_timmodif": 1505381696438,
+			"aud_usuario": "XE51933",
+			"cod_autouni": 2
+		}
+	],
+	"tewokjcos": [
+		{
+			"id": {
+				"cod_aplicaci": "DIME",
+				"cod_jobpl": 1,
+				"cod_pasocond": 1
+			},
+			"aud_timcrea": 1505375175515,
+			"aud_timmodif": 1505375175515,
+			"aud_usuario": "XE29079",
+			"cod_autouni": 1,
+			"des_paso": "1.-",
+			"des_predece": "Predecesores del Job",
+			"des_rearra": "Reglas de rearranque",
+			"des_sucesor": "Sucesores del Job"
+		},
+		{
+			"id": {
+				"cod_aplicaci": "DIME",
+				"cod_jobpl": 1,
+				"cod_pasocond": 1
+			},
+			"aud_timcrea": 1505375175515,
+			"aud_timmodif": 1505375175515,
+			"aud_usuario": "XE29079",
+			"cod_autouni": 1,
+			"des_paso": "2.-",
+			"des_predece": "Prueba Predecesores del Job",
+			"des_rearra": "Prueba Reglas de rearranque",
+			"des_sucesor": "Prueba Sucesores del Job"
+		}
+	]
+}
+ 

@@ -15,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'menu-operacion', component: MenuOperacionComponent},
   { path: 'form-busca-jobs', component: FormBuscaJobsComponent},
   { path: 'form-alta-jobs', component: FormAltaJobsComponent},
+  { path: 'form-alta-jobs/:id', component: FormAltaJobsComponent},
   { path: 'form-busca-cadenas', component: FormBuscaCadenasComponent},
   { path: 'form-alta-cadenas', component: FormAltaCadenasComponent},
   { path: 'form-busca-aplicaciones', component: FormBuscaAplicacionesComponent},

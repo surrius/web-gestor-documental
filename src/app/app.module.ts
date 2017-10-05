@@ -2,18 +2,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { routes } from './app.routes';
 //Formularios
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//Importamos el m�dulo http del paquete http de Angular
+//Importamos el modulo http del paquete http de Angular
 import { HttpModule, JsonpModule } from '@angular/http';
 
 //Libreria Jquery para usarla en todo el proyecto
 import * as $ from 'jquery';
-//Libreria del plugin de Angular + Datatables
-import {DataTableModule} from "angular2-datatable"; //quitar si no uso: quitar tambien la persistencia y angula-2-data-table de package.json
 
 //Servicio de enrutamiento
 import { EnroutadorService } from './services/enroutador.service';
@@ -55,12 +53,11 @@ import { ConsultaAplicacionesComponent } from './consulta-aplicaciones/consulta-
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatTableModule,
+    NgxDatatableModule,
     routes,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
-    DataTableModule     //quitar si no uso las datables
+    HttpModule
   ],
   providers: [
     EnroutadorService,

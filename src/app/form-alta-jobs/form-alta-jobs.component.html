@@ -3,17 +3,17 @@
 		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
 		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
 <br>
-<div class="row" *ngIf="showAlta">
+<div class="row">
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+			<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 	</div>
 	<div class="col-xs-1 pull-right mini-circular">
 			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 	</div>
 </div>
 <div id="areaAlta">
-	<div *ngIf="showAlta">
-		<h3 class="titulo-form-alta">Formulario de alta de Jobs</h3>
+	<div>
+		<h3 class="titulo-form-alta">{{titulo}}{{nombreJob_tit.value}}</h3>
 	</div>
 	<br>
 	<form id="altaJobsForm" name="altaJobsForm"[formGroup]="altaJobsForm" (ngSubmit)="onSubmit()" novalidate>
@@ -25,7 +25,7 @@
 				<!-- JOBNAME -->
 				<div class="col-sm-4">
 					<label for="des_nombrjob">JobName</label> 
-					<input type="text" class="form-control" id="des_nombrjob" name="des_nombrjob" formControlName="des_nombrjob">
+					<input type="text" class="form-control" #nombreJob_tit id="des_nombrjob" name="des_nombrjob" formControlName="des_nombrjob">
 					 
 					<small class="text-danger" 
 						*ngIf="altaJobsForm.get('des_nombrjob').invalid && (altaJobsForm.get('des_nombrjob').dirty || altaJobsForm.get('des_nombrjob').touched)">
@@ -157,7 +157,7 @@
 									</select>
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="jobsCriticidad.length > 1" (click)="removeJobsCriticidad(x)"></span>
+									<span class="glyphicon glyphicon-remove" *ngIf="jobsCriticidad.length > 1 && showAlta" (click)="removeJobsCriticidad(x)"></span>
 								</td>						
 							</tr>
 						</tbody>
@@ -198,9 +198,6 @@
 						<tr *ngFor="let paso1 of pasos1.controls; let i=index" [formGroupName]="i">
 							<td>
 								<input class="form-control" formControlName="des_paso">
-	<!-- 							<small *ngIf="!altaJobsForm.get('pasos1').valid" class="text-danger"> -->
-	<!-- 								Obligatrio -->
-	<!-- 							</small> -->
 							</td>						
 							<td>
 								<input class="form-control" formControlName="des_fichentr">
@@ -215,8 +212,7 @@
 								<input class="form-control" formControlName="des_accesbd">
 							</td>						
 							<td>
-	<!-- 							<span class="glyphicon glyphicon-remove" *ngIf="altaJobsForm.get('pasos1').length > 1" (click)="removePaso(i)"></span> -->
-								<span class="glyphicon glyphicon-remove" *ngIf="pasos1.length > 1" (click)="removePaso1(i)"></span>
+								<span class="glyphicon glyphicon-remove" *ngIf="pasos1.length > 1 && showAlta" (click)="removePaso1(i)"></span>
 							</td>						
 						</tr>
 					</tbody>
@@ -256,7 +252,7 @@
 								<input class="form-control" formControlName="des_rearra">
 							</td>						
 							<td>
-								<span class="glyphicon glyphicon-remove" *ngIf="pasos2.length > 1" (click)="removePaso2(j)"></span>
+								<span class="glyphicon glyphicon-remove" *ngIf="pasos2.length > 1 && showAlta" (click)="removePaso2(j)"></span>
 							</td>						
 						</tr>
 					</tbody>
@@ -294,7 +290,7 @@
 								</select>
 							</td>						
 							<td>
-								<span class="glyphicon glyphicon-remove" *ngIf="pasos3.length > 1" (click)="removePaso3(k)"></span>
+								<span class="glyphicon glyphicon-remove" *ngIf="pasos3.length > 1 && showAlta" (click)="removePaso3(k)"></span>
 							</td>						
 						</tr>
 					</tbody>
@@ -324,22 +320,17 @@
 		
 <!-- 		QUITAR TODO: -->
 		<!-- PRUEBAS -->
-		<div class="row form-group form-group-sm" *ngIf="showAlta">
-			<div class="col-sm-3">
-				<button type="button" class="pull-left btn btn-primary" (click)="prueba()">Informar</button>
-			</div>
-		</div>
-		<div class="margin-20">
-          <div>altaJobsForm details:</div>
-          <pre>Is altaJobsForm valid?: <br>{{altaJobsForm.valid | json}}</pre>
-          <pre>altaJobsForm value: <br>{{altaJobsForm.value | json}}</pre>
-        </div>
+<!-- 		<div class="margin-20"> -->
+<!--           <div>altaJobsForm details:</div> -->
+<!--           <pre>Is altaJobsForm valid?: <br>{{altaJobsForm.valid | json}}</pre> -->
+<!--           <pre>altaJobsForm value: <br>{{altaJobsForm.value | json}}</pre> -->
+<!--         </div> -->
 	</form>
 </div>
 <br>
-<div class="row" *ngIf="showAlta">
+<div class="row">
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+			<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 	</div>
 	<div class="col-xs-1 pull-right mini-circular">
 			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">

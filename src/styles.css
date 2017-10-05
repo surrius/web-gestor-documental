@@ -1,5 +1,7 @@
-/* Estilos de angular.material para las datatables */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* Estilos de para las datatables */
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
  
 /* **************************************************** */
 /* 	HOJA DE ESTILOS GENERALES PROPIOS DE LA WEB 		*/
