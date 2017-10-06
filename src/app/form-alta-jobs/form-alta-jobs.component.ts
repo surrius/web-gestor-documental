@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import * as jsPDF from 'jspdf';
 
 import { Jobs, Tewokjars, Tewokjcos, Tewokjins, Tewokjsos, TewokjarsAlta, JobID } from '../clases/jobs';
 import { BbddJobsService } from '../services/bbdd-jobs.service';
@@ -17,6 +18,7 @@ import { Observable } from 'rxjs';
 export class FormAltaJobsComponent implements OnInit {
   //TODO: Quitar, variable de pruebas
   grupo_soporte: string[] = ['', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
+  @ViewChild('printPDF') el: ElementRef;
   //TODO: Fin Pruebas
   
   //Variables usadas para rotular el Front de la aplicacion
@@ -399,11 +401,10 @@ export class FormAltaJobsComponent implements OnInit {
   altaNuevoJob(job: Jobs) {
     this.bbddJobsService.createJob(job)
       .subscribe(successCode => {
-        this.statusCode = successCode;
-        console.log('Resultado Alta Job: ' + this.statusCode);
-//        if (this.statusCode == ) { //TODO: Bloquear cuando vaya ok el Alta
-          this.altaJobsForm.disable();
-//        }
+        this.statusCode = +successCode;
+        console.log('Resultado Alta Job: ' + this.statusCode); //Cod correcto = 201
+        this.altaJobsForm.disable();
+        this.showAlta = this.sw_alta_consulta('consulta');
       },
       errorCode => this.statusCode = errorCode
       );
@@ -507,6 +508,18 @@ export class FormAltaJobsComponent implements OnInit {
   /* ********************************************************************************************* */
   goBack(): void {
     this.location.back();
+  }
+  
+  download() {
+    let pdf = new jsPDF('l', 'pt', 'a4');
+    let options = {
+      pagesplit: true,
+      background: '#fff'
+    };  
+    
+    pdf.addHTML(this.el.nativeElement, 0, 0, options, () => {
+      pdf.save(this.altaJobsForm.get('des_refdocjb').value + ".pdf");
+    });
   }
   
 }

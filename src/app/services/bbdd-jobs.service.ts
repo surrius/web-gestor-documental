@@ -11,7 +11,11 @@ import { Jobs, JobID } from '../clases/jobs';
 
 @Injectable()
 export class BbddJobsService {
-  baseURL = "http://localhost:8080/GestorDocumentalWeb/";
+  // Ruta para llamadas en Local
+//  baseURL = "http://localhost:8080/WebGestDoc/";
+  
+  // Ruta para llamadas en Desarrollo
+  baseURL = "http://ldsgc101.igrupobbva:7270/WebGestDoc/";
   cpHeaders = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
@@ -34,8 +38,8 @@ export class BbddJobsService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-    return this.http.get(this.baseURL + 'busca/job/id', options)
-//    return this.http.get('../assets/simulado_job_id.json')
+//    return this.http.get(this.baseURL + 'busca/job/id', options)
+    return this.http.get('../assets/simulado_job_id.json')
       .map(this.extractData)
       .catch(this.handleError);
   }

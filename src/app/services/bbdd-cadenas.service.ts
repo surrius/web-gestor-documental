@@ -1,39 +1,71 @@
 import { Injectable } from '@angular/core';
 
 //Módulos para comunicacion HTTP
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Http, Response, RequestOptions, URLSearchParams, Headers } from '@angular/http';
 //Módulos rxjs
 import {Observable} from "rxjs/Observable";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/catch";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
-import { Cadenas } from '../clases/cadenas';
+import { Cadenas, CdnID } from '../clases/cadenas';
 
 @Injectable()
 export class BbddCadenasService {
-
-  //URL base
-  baseURL = "http://localhost:8080/GestorDocumentalWeb/";
+  // Ruta para llamadas en Local
+//  baseURL = "http://localhost:8080/WebGestDoc/";
+  
+  // Ruta para llamadas en Desarrollo
+  baseURL = "http://ldsgc101.igrupobbva:7270/WebGestDoc/";
+  cpHeaders = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
 
-  //Recupera las últimas cadenas insertadas
-  getFindCadena(): Observable<Cadenas[]> {
-//    return this.http.get(this.baseURL + 'busca/cadena')
-    return this.http.get('../assets/simulado.json')
+  //Recupera cadenas filtrados por los campos del objeto Cadena
+  getFindCadena(cadena: Cadenas): Observable<Cadenas[]> {
+    let cpParams = new URLSearchParams();
+    cpParams.set('cadena', JSON.stringify(cadena));
+    let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
+    
+//    return this.http.get(this.baseURL + 'busca/cadena', options)
+    return this.http.get('../assets/simulado_cdn.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
   
-  //Alta de una cadena
+  //Recupera cadena por ID
+  getFindCadenaId(id: CdnID): Observable<Cadenas> {
+    let cpParams = new URLSearchParams();
+    cpParams.set('id', JSON.stringify(id));
+    let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
+    
+//    return this.http.get(this.baseURL + 'busca/cadena/id', options)
+    return this.http.get('../assets/simulado_cdn_id.json')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+  
+  //Alta de una Cadena nueva
   createCadena(cadena: Cadenas): Observable<number> {
-    let cpHeaders = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: cpHeaders});
+    let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'alta/cadena', cadena, options)
       .map(success => success.status)
       .catch(this.handleError);
   }
+  
+  //Elimina cadena por ID
+  deleteCdnID(id: CdnID): Observable<number> {
+    let cpParams = new URLSearchParams();
+    cpParams.set('id', JSON.stringify(id));
+    let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
+    
+    return this.http.delete(this.baseURL + 'borra/cadena/id', options)
+      .map(success => success.status)
+      .catch(this.handleError);
+  }
 
+  /* ************************************************************* */
+  /* Metodos para la recuperaccion correcta y erronea de los datos */
+  /* ************************************************************* */
   private extractData(res: Response) {
     let body = res.json();
     console.log("Respuesta del servicio: " + JSON.stringify(body));
@@ -41,9 +73,9 @@ export class BbddCadenasService {
   }
 
   private handleError(error: Response | any) {
+    console.error('Error al recuperar datos desde el servidor: ');
     console.error(error.message || error);
     return Observable.throw(error.message || error);
   } 
   
-
 }

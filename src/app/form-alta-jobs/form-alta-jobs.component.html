@@ -11,7 +11,12 @@
 			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 	</div>
 </div>
-<div id="areaAlta">
+<div class="row form-group form-group-sm" *ngIf="!showAlta">
+	<div class="col-sm-3">
+		<button type="button" class="pull-left btn btn-primary" (click)="download()">Exportar a PDF</button>
+	</div>
+</div>
+<div id="areaAlta" #printPDF>
 	<div>
 		<h3 class="titulo-form-alta">{{titulo}}{{nombreJob_tit.value}}</h3>
 	</div>

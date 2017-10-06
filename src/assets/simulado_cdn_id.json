@@ -1,5 +1,4 @@
-[
-	{
+{
 		"id": {
 			"cod_aplicaci": "DIME",
 			"cod_cadenapl": 1
@@ -55,53 +54,4 @@
 				"des_scriptsu": "Datos de sucesor"
 			}
 		]
-	},
-	{
-		"id": {
-			"cod_aplicaci": "SIUL",
-			"cod_cadenapl": 2
-		},
-		"aud_timcrea": 1506332968146,
-		"aud_timmodif": 1506332968146,
-		"aud_usuario": "XE29079",
-		"cod_autouni": 3,
-		"des_autor": "autor",
-		"des_cadenapl": "CADENA_APLICA",
-		"des_descaden": "Observaciones de la cadena",
-		"des_diaejecu": "Todos los días laborables",
-		"des_equipocd": "SIDBS101",
-		"des_horaejec": "Cada 5 min",
-		"des_incompat": "Incompatibilidades encontradas",
-		"des_interrel": "Relaciones con otras cadenas",
-		"des_rearran": "Rearranques necesarios tras la ejecución",
-		"des_refdocum": "DIMEJOBA.doc",
-		"fec_modifica": null,
-		"xti_critical": "B",
-		"xti_periocdn": "D",
-		"tewokcrds": []
-	},
-	{
-		"id": {
-			"cod_aplicaci": "SIUL",
-			"cod_cadenapl": 1
-		},
-		"aud_timcrea": 1506348254860,
-		"aud_timmodif": 1506348254860,
-		"aud_usuario": "XE29079",
-		"cod_autouni": 2,
-		"des_autor": "autor",
-		"des_cadenapl": "CADENA_APLICA",
-		"des_descaden": "Observaciones de la cadena",
-		"des_diaejecu": "Todos los días laborables",
-		"des_equipocd": "SDDIM110",
-		"des_horaejec": "Cada 5 min",
-		"des_incompat": "Incompatibilidades encontradas",
-		"des_interrel": "Relaciones con otras cadenas",
-		"des_rearran": "Rearranques necesarios tras la ejecución",
-		"des_refdocum": "DIMEJOBA.doc",
-		"fec_modifica": null,
-		"xti_critical": "B",
-		"xti_periocdn": "D",
-		"tewokcrds": []
-	}
-]
+}
