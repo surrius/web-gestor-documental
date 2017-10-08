@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -23,7 +23,6 @@ export class FormAltaJobsComponent implements OnInit {
   
   //Variables usadas para rotular el Front de la aplicacion
   titulo: string = '';
-//  @Input() nombreJob_tit: any;
   
   //Variables que contendran el valor del servicio de enrutamiento
   public documento: string;
@@ -33,7 +32,7 @@ export class FormAltaJobsComponent implements OnInit {
   //se usa también para las consultas.
   public showAlta: boolean = false;
   
-  //Variables para informar los combos de criticidad
+  //Variables para informar los combos 
   criticidad: any[] = [['W','Aviso al d\u00EDa siguiente'],['S','Aviso al d\u00EDa siguiente incluso si es festivo'],['C','Aviso inmediato']];
   acciones: any[] = [['L','Liberar sucesores'],['F','Force OK'],['R','Relanzar']];
   igualdades: any[] = [['I','Igual'],['D','Distinto']];
@@ -70,8 +69,7 @@ export class FormAltaJobsComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private data: EnroutadorService
-  ) { 
-   }
+  ) { }
 
   //Metodo que se ejecutará tras el constructor en el que inicializaremos los campos que va a contener el 
   //formulario. Estos serán los mismos que el de la plantilla HTML, para luego hacer el mapeo con su clase
@@ -238,6 +236,7 @@ export class FormAltaJobsComponent implements OnInit {
   
   // Metodo para resetear los datos del formulario
   public limpiar() {
+    this.altaJobsForm.enable();
     this.crearFormulario();
     //console.log('Entra en metodo limpiar');    
     //console.log("Los Jobs recuperados son: " + this.jobs_res);
@@ -245,7 +244,6 @@ export class FormAltaJobsComponent implements OnInit {
     this.jobs.id = this.ini_id;
     this.jobs.id.cod_aplicaci = null;
     this.jobs.id.cod_jobpl = null;
-    this.altaJobsForm.enable();
   }
   
   /* ***************************************************** */

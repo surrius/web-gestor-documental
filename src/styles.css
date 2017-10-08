@@ -157,6 +157,14 @@ form .table-bordered {
 }
 
 /* **************************************************** */
+/* 		Clases de la tabla de datos de la busqueda  	*/
+/* **************************************************** */
+.color-iconos {
+	color: #2A86CA;
+	cursor: pointer;
+}
+
+/* **************************************************** */
 /* Clases para pruebas durante el desarrollo de la web  */
 /* **************************************************** */
 .prueba1 {

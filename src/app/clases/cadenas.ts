@@ -40,6 +40,7 @@ export class Tewokcrds {
   aud_timmodif: number;
   aud_usuario: string;
   cod_autouni: number;
+  
   des_cadenapr: string;
   des_cadenasu: string;
   des_scriptjb: string;

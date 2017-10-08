@@ -16,6 +16,7 @@ export class FormBuscaJobsComponent implements OnInit {
   // Control para visualizar mas o menos campos de búsqueda
   masCampos: boolean = false;
   
+  // Variable a la que asociamos como onjeto NgForm, el formulario de búsqueda
   @ViewChild('buscaJobsForm') formulario: NgForm;
   
   //Variable asociada al formulario de búsqueda
@@ -28,7 +29,7 @@ export class FormBuscaJobsComponent implements OnInit {
   //TODO: Eliminar cuando se recupere correctamente
   grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
   
-  // Variables informadas con el servicio a la BBDD de cadenas
+  // Variables informadas con el servicio a la BBDD de Jobs
   errorMessage: string;
   statusCode: number;
   jobs_res: Jobs[];

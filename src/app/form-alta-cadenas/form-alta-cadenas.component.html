@@ -3,17 +3,22 @@
 		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
 		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
 <br>
-<div class="row" *ngIf="showAlta">
+<div class="row">
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+			<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 	</div>
 	<div class="col-xs-1 pull-right mini-circular">
 			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 	</div>
 </div>
-<div id="areaAltaCadena">
-	<div *ngIf="showAlta">
-		<h3 class="titulo-form-alta">Formulario de alta de Cadenas</h3>
+<div class="row form-group form-group-sm" *ngIf="!showAlta">
+	<div class="col-sm-3">
+		<button type="button" class="pull-left btn btn-primary" (click)="download()">Exportar a PDF</button>
+	</div>
+</div>
+<div id="areaAltaCadena" #printPDF>
+	<div>
+		<h3 class="titulo-form-alta">{{titulo}}{{nombreCdn_tit.value}}</h3>
 	</div>
 	<br>
 	<form id="altaCadenasForm" name="altaCadenasForm" [formGroup]="altaCadenasForm" (ngSubmit)="onSubmit()" novalidate>
@@ -36,7 +41,7 @@
 				<!-- CADENA -->
 				<div class="col-sm-4">
 					<label for="des_cadenapl">Cadena</label> 
-					<input type="text" class="form-control" id="des_cadenapl" name="des_cadenapl" formControlName="des_cadenapl">
+					<input type="text" class="form-control" #nombreCdn_tit id="des_cadenapl" name="des_cadenapl" formControlName="des_cadenapl">
 				
 					<small class="text-danger" 
 						*ngIf="altaCadenasForm.get('des_cadenapl').invalid && (altaCadenasForm.get('des_cadenapl').dirty || altaCadenasForm.get('des_cadenapl').touched)">
@@ -188,7 +193,7 @@
 								<input class="form-control" formControlName="des_cadenasu">
 							</td>						
 							<td>
-								<span class="glyphicon glyphicon-remove" *ngIf="relaciones.length > 1" (click)="removeRelacion(i)"></span>
+								<span class="glyphicon glyphicon-remove" *ngIf="relaciones.length > 1 && showAlta" (click)="removeRelacion(i)"></span>
 							</td>						
 						</tr>
 					</tbody>
@@ -230,17 +235,17 @@
 			</div>
 		</div>
 <!-- 		QUITAR TODO: -->
-		<div class="margin-20">
-          <div>altaCadenasForm details:</div>
-          <pre>Is altaCadenasForm valid?: <br>{{altaCadenasForm.valid | json}}</pre>
-          <pre>altaCadenasForm value: <br>{{altaCadenasForm.value | json}}</pre>
-        </div>
+<!-- 		<div class="margin-20"> -->
+<!--           <div>altaCadenasForm details:</div> -->
+<!--           <pre>Is altaCadenasForm valid?: <br>{{altaCadenasForm.valid | json}}</pre> -->
+<!--           <pre>altaCadenasForm value: <br>{{altaCadenasForm.value | json}}</pre> -->
+<!--         </div> -->
 	</form>
 </div>
 <br>
-<div class="row" *ngIf="showAlta">
+<div class="row">
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+			<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 	</div>
 	<div class="col-xs-1 pull-right mini-circular">
 			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
