@@ -7,10 +7,10 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Jobs, JobID } from '../clases/jobs';
+import { Aplicaciones, AppID } from '../clases/aplicaciones';
 
 @Injectable()
-export class BbddJobsService {
+export class BbddAplicacionesService {
   // Ruta para llamadas en Local
 //  baseURL = "http://localhost:8080/WebGestDoc/";
   
@@ -24,53 +24,53 @@ export class BbddJobsService {
 
   constructor(private http: Http) {}
 
-  //Recupera jobs filtrados por los campos del objeto Job
-  getFindJob(job: Jobs): Observable<Jobs[]> {
+  //Recupera aplicaciones filtradss por los campos del objeto Aplicacion
+  getFindAplicacion(aplicacion: Aplicaciones): Observable<Aplicaciones[]> {
     let cpParams = new URLSearchParams();
-    cpParams.set('job', JSON.stringify(job));
+    cpParams.set('aplicacion', JSON.stringify(aplicacion));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-    return this.http.get(this.baseURL + 'busca/job', options)
-//    return this.http.get('../assets/simulado_job.json')
+//    return this.http.get(this.baseURL + 'busca/aplicacion', options)
+    return this.http.get('../assets/simulado_aplicacion.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
   
-  //Recupera job por ID
-  getFindJobId(id: JobID): Observable<Jobs> {
+  //Recupera aplicacion por ID
+  getFindAplicacionId(id: AppID): Observable<Aplicaciones> {
     let cpParams = new URLSearchParams();
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-    return this.http.get(this.baseURL + 'busca/job/id', options)
-//    return this.http.get('../assets/simulado_job_id.json')
+//    return this.http.get(this.baseURL + 'busca/aplicacion/id', options)
+    return this.http.get('../assets/simulado_aplicacion_id.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
   
-  //Alta de un Job nuevo
-  createJob(job: Jobs): Observable<number> {
+  //Alta de una Aplicacion nueva
+  createAplicacion(aplicacion: Aplicaciones): Observable<number> {
     let options = new RequestOptions({headers: this.cpHeaders});
-    return this.http.post(this.baseURL + 'alta/job', job, options)
+    return this.http.post(this.baseURL + 'alta/aplicacion', aplicacion, options)
       .map(success => success.status)
       .catch(this.handleError);
   }
   
-  //Modificacion de un Job existente
-  updateJob(job: Jobs): Observable<number> {
+  //Modificacion de una Aplicacion existente
+  updateAplicacion(aplicacion: Aplicaciones): Observable<number> {
     let options = new RequestOptions({headers: this.cpHeaders});
-    return this.http.put(this.baseURL + 'modifica/job', job, options)
+    return this.http.put(this.baseURL + 'modifica/aplicacion', aplicacion, options)
       .map(success => success.status)
       .catch(this.handleError);
   }
   
-  //Elimina job por ID
-  deleteJobID(id: JobID): Observable<number> {
+  //Elimina aplicacion por ID
+  deleteAppID(id: AppID): Observable<number> {
     let cpParams = new URLSearchParams();
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-    return this.http.delete(this.baseURL + 'borra/job/id', options)
+    return this.http.delete(this.baseURL + 'borra/aplicacion/id', options)
       .map(success => success.status)
       .catch(this.handleError);
   }

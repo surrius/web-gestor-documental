@@ -3,20 +3,31 @@
 		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
 		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
 <br>
-<div class="row" *ngIf="showAlta">
+<div class="row">
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+		<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 	</div>
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+		<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 	</div>
 </div>
-<div id="areaAltaAplicacion">
-	<div *ngIf="showAlta">
-		<h3 class="titulo-form-alta">Formulario de alta de Aplicaciones</h3>
+<div class="row form-group form-group-sm" *ngIf="!showAlta">
+	<div class="col-sm-3">
+		<button type="button" class="pull-left btn btn-primary" (click)="download()">Exportar a PDF</button>
+	</div>
+</div>
+<div id="areaAltaAplicacion" #printPDF>
+	<div>
+		<h3 class="titulo-form-alta">{{titulo}}{{nombreJob_tit.value}}</h3>
 	</div>
 	<br>
 	<form id="altaAppsForm" name="altaAppsForm" [formGroup]="altaAppsForm" (ngSubmit)="onSubmit()" novalidate>
+		<!-- Campos ocultos -->
+		<input type="hidden" formControlName="cod_planuuaa">
+		<input type="hidden" formControlName="aud_timcrea">
+		<input type="hidden" formControlName="aud_timmodif">
+		<input type="hidden" formControlName="aud_usuario">
+		<input type="hidden" formControlName="cod_autouni">
 		<fieldset>
 			<legend class="text-muted">
 				Datos de la aplicaci&oacute;n
@@ -65,7 +76,15 @@
 									<input class="form-control" formControlName="des_telexter">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="responsables.length > 1" (click)="removeResponsables(i)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeResponsables(i)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_user">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -133,7 +152,15 @@
 									<input type="date" class="form-control" formControlName="fec_version">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="ctlModificaciones.length > 1" (click)="removeCtlModif(j)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeCtlModif(j)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -229,7 +256,15 @@
 									<input class="form-control" formControlName="des_acciopro">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="descProcesos.length > 1" (click)="removeDescProcesos(k)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeDescProcesos(k)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_jobpl">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -265,7 +300,15 @@
 									<input class="form-control" formControlName="des_paradaua">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="paradaArranque.length > 1" (click)="removeParadaArranque(l)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeParadaArranque(l)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -304,7 +347,15 @@
 									<input class="form-control" formControlName="des_funlog">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="logNombre.length > 1" (click)="removeLogNombre(m)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeLogNombre(m)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -340,7 +391,15 @@
 									<input class="form-control" formControlName="des_acciopro">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="logAccion.length > 1" (click)="removeLogAccion(n)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeLogAccion(n)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -385,7 +444,15 @@
 									<input class="form-control" formControlName="des_tratamie">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="logMantenimiento.length > 1" (click)="removeLogMantenimiento(o)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeLogMantenimiento(o)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -428,7 +495,15 @@
 									<input class="form-control" formControlName="des_proccomu">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="reqComunicacion.length > 1" (click)="removeReqComunicacion(p)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeReqComunicacion(p)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -474,7 +549,15 @@
 									<input type="number" class="form-control" formControlName="qnu_profundi">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="reqMiddle.length > 1" (click)="removeReqMiddle(q)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeReqMiddle(q)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -508,7 +591,15 @@
 									<input class="form-control" formControlName="des_colamdl">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="reqMiddleB.length > 1" (click)="removeReqMiddleB(r)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeReqMiddleB(r)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -559,7 +650,15 @@
 									<input class="form-control" formControlName="des_tratamie">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="caracFS.length > 1" (click)="removeCaracFS(t)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeCaracFS(t)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -600,7 +699,15 @@
 									<input class="form-control" formControlName="des_proccomu">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="moniFS.length > 1" (click)="removeMoniFS(u)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeMoniFS(u)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -654,7 +761,15 @@
 									<input class="form-control" formControlName="des_proccomu">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="bbddA.length > 1" (click)="removeBbddA(w)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeBbddA(w)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -709,7 +824,15 @@
 									<input class="form-control" formControlName="des_proccomu">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="bbddB.length > 1" (click)="removeBbddB(x)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeBbddB(x)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -754,7 +877,15 @@
 									<input class="form-control" formControlName="des_proccomu">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="servidor.length > 1" (click)="removeServidor(y)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeServidor(y)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -829,7 +960,15 @@
 									<input class="form-control" formControlName="des_proccomu">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="ficheros.length > 1" (click)="removeFicheros(z)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeFicheros(z)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -879,7 +1018,15 @@
 									<input class="form-control" formControlName="des_ciclovid">
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="backups.length > 1" (click)="removeBackups(z1)"></span>
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeBackups(z1)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_planuuaa">
+									<input type="hidden" formControlName="cod_secuuaa">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -1053,12 +1200,12 @@
 	</form>
 </div>
 <br>
-<div class="row" *ngIf="showAlta">
+<div class="row">
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+		<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 	</div>
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+		<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 	</div>
 </div>
 <br>

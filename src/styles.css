@@ -89,6 +89,14 @@ form .btn {
 	font-weight: bold;
 }
 
+form .label {
+	vertical-align: bottom;
+}
+
+form .glyphicon {
+	vertical-align: bottom;
+}
+
 form h5 {
 	font-weight: bold;
 }

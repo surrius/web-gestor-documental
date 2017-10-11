@@ -98,6 +98,8 @@ export class Cadenas {
     this.fec_modifica = null;
     this.xti_critical = null;
     this.xti_periocdn = null;
+    
+    this.tewokcrds = [];
   }
   
 }

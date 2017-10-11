@@ -15,9 +15,13 @@ export class BbddCadenasService {
 //  baseURL = "http://localhost:8080/WebGestDoc/";
   
   // Ruta para llamadas en Desarrollo
-  baseURL = "http://ldsgc101.igrupobbva:7270/WebGestDoc/";
-  cpHeaders = new Headers({'Content-Type': 'application/json'});
+//  baseURL = "http://ldsgc101.igrupobbva:7270/WebGestDoc/";
+  
+  // Ruta para llamadas en Desarrollo a tarves de la Junction
+  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
 
+  cpHeaders = new Headers({'Content-Type': 'application/json'});
+  
   constructor(private http: Http) {}
 
   //Recupera cadenas filtrados por los campos del objeto Cadena
@@ -48,6 +52,14 @@ export class BbddCadenasService {
   createCadena(cadena: Cadenas): Observable<number> {
     let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'alta/cadena', cadena, options)
+      .map(success => success.status)
+      .catch(this.handleError);
+  }
+  
+  //Modificacion de una cadena existente
+  updateCadena(cadena: Cadenas): Observable<number> {
+    let options = new RequestOptions({headers: this.cpHeaders});
+    return this.http.put(this.baseURL + 'modifica/cadena', cadena, options)
       .map(success => success.status)
       .catch(this.handleError);
   }

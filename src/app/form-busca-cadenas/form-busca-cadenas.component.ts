@@ -81,12 +81,14 @@ export class FormBuscaCadenasComponent implements OnInit {
   }
   
   elimina(row) {
-    console.log(row.id.cod_aplicaci + ' ' + row.id.cod_cadenapl);
-    let cadenaID = new CdnID();
-    cadenaID.cod_aplicaci = row.id.cod_aplicaci;
-    cadenaID.cod_cadenapl = row.id.cod_cadenapl;
-    
-    this.bdBorra(cadenaID);
+    if(confirm("Se va a proceder a la eliminacion del registro. ¿Está Seguro?")) {
+      console.log(row.id.cod_aplicaci + ' ' + row.id.cod_cadenapl);
+      let cadenaID = new CdnID();
+      cadenaID.cod_aplicaci = row.id.cod_aplicaci;
+      cadenaID.cod_cadenapl = row.id.cod_cadenapl;
+      
+      this.bdBorra(cadenaID);
+    }
   }
   
   /* ****************************************************************** */

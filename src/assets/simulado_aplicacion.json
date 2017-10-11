@@ -1,0 +1,5202 @@
+[
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  },
+  {
+    "id": {
+      "cod_aplicaci": "DIME",
+      "cod_planuuaa": 1
+    },
+    "aud_timcrea": 1505389444484,
+    "aud_timmodif": 1505389444484,
+    "aud_usuario": "XE29079",
+    "cod_autouni": 1,
+    "cod_user": "XE29079",
+    "cod_userra": "A70085",
+    "des_codmonit": "Monitorizacion",
+    "des_funcuuaa": "Funcionalidad de la UUAA",
+    "des_hmax": "Horario Oficinas (08:00-15:00)",
+    "des_hvalle": "Fuera del horario de oficinas",
+    "des_monitori": "monitorizaciones que no se adapten a ninguno de los grupos anteriores",
+    "des_nompet": "José Vicente Sevillano",
+    "des_objeserv": "Observaciones de la entrega",
+    "des_obsyrech": "Observaciones o las causas de rechazo",
+    "des_telsolic": "918072436",
+    "des_telusura": "555555555",
+    "des_tiposser": "Descripción del tipo de servicio aportado",
+    "des_usura": "Rubén Antón Calzadilla",
+    "des_ususerv": "Usuarios de Servicios Centrales",
+    "fec_monitori": null,
+    "qnu_ncargabd": null,
+    "qnu_nfichero": null,
+    "qnu_npaquete": null,
+    "qnu_nscripts": null,
+    "tim_entrega": null,
+    "tim_estimada": null,
+    "tim_finra": null,
+    "tim_implanta": null,
+    "tim_ultsol": null,
+    "xti_csancion": null,
+    "tewokamls": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505390426207,
+        "aud_timmodif": 1505390426207,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomlog": "/pr/dime/milog.log",
+        "des_tratamie": "Borrado quincenal",
+        "qnu_critrec": 90,
+        "qnu_prevcrec": 15,
+        "qnu_tammax": 10000
+      }
+    ],
+    "tewokbcks": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505391784118,
+        "aud_timmodif": 1505391784118,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_periodo": "D",
+        "des_ciclovid": "estándar",
+        "xti_backup": "I",
+        "xti_gestbbdd": "F"
+      }
+    ],
+    "tewokcmus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505392360887,
+        "aud_timmodif": 1505392360887,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_versionm": "Versión inicial",
+        "fec_version": null
+      }
+    ],
+    "tewokdpus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_jobpl": 1
+        },
+        "aud_timcrea": 1505393950103,
+        "aud_timmodif": 1505393950103,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_nombrepr": "Nombre del proceso actual",
+        "des_tipomoni": "Tipo de monitorización",
+        "xti_severida": "B"
+      }
+    ],
+    "tewokibds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394200283,
+        "aud_timmodif": 1505394200283,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "des_listenbd": "Listener",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "des_usubd": "XEWOKAD1",
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokilus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394487607,
+        "aud_timmodif": 1505394487607,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_funlog": "Funcionalidad del log",
+        "des_nomlog": "/pr/dime/miLog.log"
+      }
+    ],
+    "tewokmbds": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505394858901,
+        "aud_timmodif": 1505394858901,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "cod_nombbdd": "BEWOK001",
+        "cod_tablbbdd": "Tewokmbd",
+        "des_instabd": "BEWOK001_1_LDPGS101",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_severo": 80,
+        "xti_gestbbdd": "O"
+      }
+    ],
+    "tewokmfss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505395162828,
+        "aud_timmodif": 1505395162828,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_proccomu": "Procedimiento en caso de evento",
+        "qnu_critical": 90,
+        "qnu_minor": 80
+      }
+    ],
+    "tewokmlus": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398533269,
+        "aud_timmodif": 1505398533269,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_acciopro": "Acción a realizar en el proceso actual",
+        "des_msjlog": "Mensaje a monitorizar",
+        "xti_severida": "A"
+      }
+    ],
+    "tewokmrcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505398723164,
+        "aud_timmodif": 1505398723164,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_canalmdl": "MQEWOKCANAL",
+        "des_colamdl": "MQEWOK.1.COLA",
+        "des_gestcola": "GESTCOLA"
+      }
+    ],
+    "tewokofss": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399176975,
+        "aud_timmodif": 1505399176975,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomfs": "/pr/dime",
+        "des_tratamie": "Ampliación del FileSystem",
+        "qnu_espaesti": 10000,
+        "qnu_prevcrec": 15,
+        "qnu_umbramax": 90
+      }
+    ],
+    "tewokpyas": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399331249,
+        "aud_timmodif": 1505399331249,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_arranque": "Proceso de arranque",
+        "des_paradaua": "Proceso de parada"
+      }
+    ],
+    "tewokrcos": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505399810439,
+        "aud_timmodif": 1505399810439,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nomeq1": "LDSGC101",
+        "des_nomeq2": "SDDIM110",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento"
+      }
+    ],
+    "tewokress": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_user": "U511307"
+        },
+        "aud_timcrea": 1505400115280,
+        "aud_timmodif": 1505400115280,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_nombyape": "Alberto Gómez Gallego",
+        "des_telexter": "555555555",
+        "des_telinter": "55555",
+        "des_usucateg": "REXP"
+      }
+    ],
+    "tewokrmcs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400321934,
+        "aud_timmodif": 1505400321934,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_gestcola": "GESTCOLA",
+        "des_nombrcol": "MQEWOK.1.COLA",
+        "qnu_profundi": 100,
+        "xti_severida": "B"
+      }
+    ],
+    "tewoktfis": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400732155,
+        "aud_timmodif": 1505400732155,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_fichdest": "/tmp/ficheroDestino.txt",
+        "des_fichentr": "/tmp/ficheroOrigen.txt",
+        "des_maqdest": "SDDIM110",
+        "des_maqori": "LDSGC101",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "des_scriptde": "/tmp/ejecutaDestino.sh",
+        "des_scriptor": "/tmp/ejecutaOrigen.sh"
+      }
+    ],
+    "tewokwebs": [
+      {
+        "id": {
+          "cod_aplicaci": "DIME",
+          "cod_planuuaa": 1,
+          "cod_secuuaa": 1
+        },
+        "aud_timcrea": 1505400893048,
+        "aud_timmodif": 1505400893048,
+        "aud_usuario": "XE29079",
+        "cod_autouni": 1,
+        "des_instaweb": "NOMBRE_INSTANCIA",
+        "des_proccomu": "Procedimiento a realizar en caso de darse el evento",
+        "xti_serviapl": "S"
+      }
+    ],
+    "des_detcon": "Datos a considerar no incluídos en la definición"
+  }
+]

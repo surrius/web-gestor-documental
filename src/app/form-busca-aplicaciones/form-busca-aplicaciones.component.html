@@ -1,6 +1,3 @@
-<!-- REFERENCIA AL FORMULARIO DE CONSULTA, QUE CONTIENE EL FORMULARIO DE ALTA DESHABILITADO PARA LA CARGA DE DATOS -->
-<app-consulta-aplicaciones></app-consulta-aplicaciones>
-
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
@@ -23,7 +20,7 @@
 				<div class="col-sm-3">
 					<label for="cod_aplicaci">Aplicaci&oacute;n</label> 
 					<input type="text" class="form-control" id="cod_aplicaci"
-						[(ngModel)]="aplicaciones.cod_aplicaci" name="cod_aplicaci" #cod_aplicaci="ngModel">
+						[(ngModel)]="aplicaciones?.id.cod_aplicaci" name="cod_aplicaci" #cod_aplicaci="ngModel">
 				</div>
 				
 				<!-- FECHA IMPLANTACION -->
@@ -187,13 +184,97 @@
 					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
 				</div>
 				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaAppBtnBusca" type="submit" class="pull-right btn btn-success" data-toggle="modal" data-target="#consultaAppsModal" 
-						[disabled]="!buscaAppsForm.form.dirty">Buscar</button>
-<!-- 					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button> -->
+					<button id="frmBuscaAppBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaAppsForm.form.dirty">Buscar</button>
 				</div>
 			</div>
 		</fieldset>
 	</form>
+	<br>
+	<!-- TABLA DE RESULTADOS DE BÚSQUEDA -->
+	<div *ngIf="aplicaciones_res">
+		<ngx-datatable
+			class="material striped"
+			[rows]="aplicaciones_res"
+			[columnMode]="'standard'"
+			[scrollbarH]="true"
+			[headerHeight]="50"
+			[footerHeight]="50"
+			[rowHeight]="'auto'"
+			[reorderable]="reorderable"
+			[limit]="10"
+			[selected]="selected"
+          	[selectionType]="'checkbox'"
+          	(activate)="onActivate($event)"
+          	(select)='onSelect($event)'>
+			<ngx-datatable-column 
+				[frozenLeft]="true"
+	            [width]="30"
+	            [sortable]="false"
+	            [canAutoResize]="false"
+	            [draggable]="false"
+	            [resizeable]="false"
+	            [headerCheckboxable]="true"
+	            [checkboxable]="true">
+          	</ngx-datatable-column>
+			<ngx-datatable-column
+				[frozenLeft]="true"
+	            [width]="100"
+	            [sortable]="false"
+	            [canAutoResize]="false"
+	            [draggable]="false"
+	            [resizeable]="false"
+	            [headerCheckboxable]="false"
+	            [checkboxable]="false">
+	            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            		<i (click)="consulta(row)" class="color-iconos glyphicon glyphicon-eye-open"></i>
+            		<i (click)="elimina(row)" class="color-iconos glyphicon glyphicon-trash"></i>
+          		</ng-template>
+          	</ngx-datatable-column>
+			<ngx-datatable-column name="UUAA" prop="id.cod_aplicaci">
+          		<ng-template let-value="value" ngx-datatable-cell-template>
+            		<strong>{{value}}</strong>
+          		</ng-template>
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Fecha de implantaci&oacute;n" prop="tim_implanta">
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Fecha de entrega" prop="tim_entrega"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="ID. Monitorizaci&oacute;n" prop="des_codmonit"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Fecha de Monitorizaci&oacute;n" prop="fec_monitori"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Horas m&aacute;ximo acceso" prop="des_hmax"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Horas valle" prop="des_hvalle"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Fecha prevista entrega" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Nombre peticionario" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Telef. peticionario" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Sanci&oacute;n aprobada?" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Fecha &uacute;ltima solicitud" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Fecha fin R.A." prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Usuario R.A." prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Responsable R.A." prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="Telef. responsable R.A." prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="ALCANCE: Paquetes" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="ALCANCE: Scripts" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="ALCANCE: Fic. config." prop="tim_estimada"> 
+        	</ngx-datatable-column>
+        	<ngx-datatable-column name="ALCANCE: Cargas de BBDD" prop="tim_estimada"> 
+        	</ngx-datatable-column>
+		</ngx-datatable>
+	</div>
 </div>
 <br>
 <div class="row">

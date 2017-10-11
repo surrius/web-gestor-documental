@@ -86,7 +86,7 @@ export class FormAltaCadenasComponent implements OnInit {
         this.cadenas.id = this.ini_id;
         this.cadenas.id.cod_aplicaci = this.id.cod_aplicaci;
         this.cadenas.id.cod_cadenapl = this.id.cod_cadenapl;
-        //console.log(this.cadenas);
+//        console.log(this.cadenas);
         this.bdBuscaCadenaId(this.cadenas);
       }
     });
@@ -124,6 +124,12 @@ export class FormAltaCadenasComponent implements OnInit {
   crearFormulario() {
     this.altaCadenasForm = this.fb.group({
       cod_aplicaci: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+      cod_cadenapl: [''],
+      aud_timcrea: [''],
+      aud_timmodif: [''],
+      aud_usuario: [''],
+      cod_autouni: [''],
+      
       des_refdocum: ['', [Validators.required, Validators.minLength(8)]],
       des_cadenapl: ['', [Validators.required, Validators.minLength(8)]],
       des_autor: [''],
@@ -146,6 +152,14 @@ export class FormAltaCadenasComponent implements OnInit {
    */
   initRelacion(): FormGroup {
     return this.fb.group({
+      cod_aplicaci: [''],
+      cod_cadenapl: [''],
+      cod_secuuaa: [''],
+      aud_timcrea: [''],
+      aud_timmodif: [''],
+      aud_usuario: [''],
+      cod_autouni: [''],
+      
       des_scriptjb: [''],
       des_scriptpr: [''],
       des_cadenapr: [''],
@@ -188,13 +202,19 @@ export class FormAltaCadenasComponent implements OnInit {
   onSubmit() {
     this.datos_ok = true;
     this.mensaje_err = [];
+    console.log('Antes de prepare');
+    console.log(this.cadenas);
     this.cadenas = this.prepareSaveCadena();
     
     if (this.datos_ok) {
       console.log(this.cadenas);
-//      console.log('Resultado del formulario de ALTA DE CADENAS: ' + JSON.stringify(this.cadenas));
+      console.log('Resultado del formulario de ALTA DE CADENAS: ' + JSON.stringify(this.cadenas));
       
-      this.altaNuevaCadena(this.cadenas);
+      if (this.operacion == 'modificacion') {
+        this.modificaCadena(this.cadenas);
+      } else {
+        this.altaNuevaCadena(this.cadenas);
+      }
       
     } else {
       alert("Errores al validar el formulario. Corregirlos para continuar");
@@ -230,34 +250,59 @@ export class FormAltaCadenasComponent implements OnInit {
 //    };
     
     // Mapeo automático de los campos del formulario y la clase Tewokcrds
-    const relacionesDeepCopy: Tewokcrds[] = formModel.relaciones.map(
-      (relaciones: Tewokcrds) => Object.assign({}, relaciones)
-    );
+//    const relacionesDeepCopy: Tewokcrds[] = formModel.relaciones.map(
+//      (relaciones: Tewokcrds) => Object.assign({}, relaciones)
+//    );
+    
+    let relacionesDeepCopy: Tewokcrds[] = new Array<Tewokcrds>();
+    
+    for (let elem of formModel.relaciones) {
+      let data: Tewokcrds = new Tewokcrds();
+      data.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_cadenapl:  elem.cod_cadenapl? elem.cod_cadenapl : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      data.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      data.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      data.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      data.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+      
+      data.des_cadenapr = elem.des_cadenapr? elem.des_cadenapr : null;
+      data.des_cadenasu = elem.des_cadenasu? elem.des_cadenasu : null;
+      data.des_scriptjb = elem.des_scriptjb? elem.des_scriptjb : null;
+      data.des_scriptpr = elem.des_scriptpr? elem.des_scriptpr : null;
+      data.des_scriptsu = elem.des_scriptsu? elem.des_scriptsu : null;
+      
+      relacionesDeepCopy.push(data);
+    }
+    
     
     // Mapeo manual de la clase Cadenas que une todas las clases que forman la tabla
     if (this.datos_ok) { 
       const saveCadena: Cadenas = {
         id: {
-          cod_aplicaci: formModel.cod_aplicaci as string,
-          cod_cadenapl: null   //Sin representacion en el formulario
+          cod_aplicaci: formModel.cod_aplicaci? formModel.cod_aplicaci as string : null,
+          cod_cadenapl: formModel.cod_cadenapl? formModel.cod_cadenapl as number : null
         },
-        aud_timcrea: null,
-        aud_timmodif: null,
-        aud_usuario: null,
-        cod_autouni: null,
-        des_refdocum: formModel.des_refdocum as string,
-        des_cadenapl: formModel.des_cadenapl as string,
-        des_autor: formModel.des_autor as string,
-        fec_modifica: formModel.fec_modifica as Date,
-        des_equipocd: formModel.des_equipocd as string,
-        xti_periocdn: formModel.xti_periocdn as string,
-        des_diaejecu: formModel.des_diaejecu as string,
-        des_horaejec: formModel.des_horaejec as string,
-        xti_critical: formModel.xti_critical as string,
-        des_rearran: formModel.des_rearran as string,
-        des_interrel: formModel.des_interrel as string,
-        des_descaden: formModel.des_descaden as string,
-        des_incompat: formModel.des_incompat as string,
+        aud_timcrea: formModel.aud_timcrea? formModel.aud_timcrea as number : null,
+        aud_timmodif: formModel.aud_timmodif? formModel.aud_timmodif as number : null,
+        aud_usuario: formModel.aud_usuario? formModel.aud_usuario as string : null,
+        cod_autouni: formModel.cod_autouni? formModel.cod_autouni as number : null,
+        
+        des_refdocum: formModel.des_refdocum? formModel.des_refdocum as string : null,
+        des_cadenapl: formModel.des_cadenapl? formModel.des_cadenapl as string : null,
+        des_autor: formModel.des_autor? formModel.des_autor as string : null,
+        fec_modifica: formModel.fec_modifica? formModel.fec_modifica as Date : null,
+        des_equipocd: formModel.des_equipocd? formModel.des_equipocd as string : null,
+        xti_periocdn: formModel.xti_periocdn? formModel.xti_periocdn as string : null,
+        des_diaejecu: formModel.des_diaejecu? formModel.des_diaejecu as string : null,
+        des_horaejec: formModel.des_horaejec? formModel.des_horaejec as string : null,
+        xti_critical: formModel.xti_critical? formModel.xti_critical as string : null,
+        des_rearran: formModel.des_rearran? formModel.des_rearran as string : null,
+        des_interrel: formModel.des_interrel? formModel.des_interrel as string : null,
+        des_descaden: formModel.des_descaden? formModel.des_descaden as string : null,
+        des_incompat: formModel.des_incompat? formModel.des_incompat as string : null,
         tewokcrds: relacionesDeepCopy
       };
       
@@ -274,11 +319,30 @@ export class FormAltaCadenasComponent implements OnInit {
       .subscribe(successCode => {
         this.statusCode = +successCode;
         console.log('Resultado Alta Cadena: ' + this.statusCode); //Cod correcto = 201
+        alert('Alta efectuada correctamente');
         this.altaCadenasForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
       },
-      errorCode => this.statusCode = errorCode
-      );
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error al solicitar el alta.');      
+      });
+  }
+  
+  // Metodo que invoca al servicio para dar de modificar un Job
+  modificaCadena(cadena: Cadenas) {
+    this.bbddCadenasService.updateCadena(cadena)
+      .subscribe(successCode => {
+        this.statusCode = +successCode;
+        console.log('Resultado Modificacion Job: ' + this.statusCode); //Cod correcto = 201
+        alert('Cadena modificada correctamente');
+        this.altaCadenasForm.disable();
+        this.showAlta = this.sw_alta_consulta('consulta');
+      },
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error al modificar job.');      
+      });
   }
   
   /* ********************************************************************************************* */
@@ -306,7 +370,14 @@ export class FormAltaCadenasComponent implements OnInit {
   }
   
   informaFormulario(data: Cadenas) {
+    console.log(this.cadenas);
     this.altaCadenasForm.get('cod_aplicaci').setValue(data.id.cod_aplicaci);
+    this.altaCadenasForm.get('cod_cadenapl').setValue(data.id.cod_cadenapl);
+    this.altaCadenasForm.get('aud_timcrea').setValue(data.aud_timcrea);
+    this.altaCadenasForm.get('aud_timmodif').setValue(data.aud_timmodif);
+    this.altaCadenasForm.get('aud_usuario').setValue(data.aud_usuario);
+    this.altaCadenasForm.get('cod_autouni').setValue(data.cod_autouni);
+    
     this.altaCadenasForm.get('des_autor').setValue(data.des_autor);
     this.altaCadenasForm.get('des_cadenapl').setValue(data.des_cadenapl);
     this.altaCadenasForm.get('des_descaden').setValue(data.des_descaden);
@@ -327,6 +398,14 @@ export class FormAltaCadenasComponent implements OnInit {
     this.relaciones.removeAt(0);
     for (let elem of data.tewokcrds) {
       let formTewokcrds = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_cadenapl: elem.id.cod_cadenapl,
+        cod_secuuaa: elem.id.cod_secuuaa,
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
         des_cadenapr: elem.des_cadenapr,
         des_cadenasu: elem.des_cadenasu,
         des_scriptjb: elem.des_scriptjb,
@@ -338,7 +417,7 @@ export class FormAltaCadenasComponent implements OnInit {
     }
     
     // Se desactiva o no el formulario en función de la petición
-    this.altaCadenasForm.get('des_cadenapl').disable();
+//    this.altaCadenasForm.get('des_cadenapl').disable();
     if (!this.showAlta) {
       this.altaCadenasForm.disable();
     }

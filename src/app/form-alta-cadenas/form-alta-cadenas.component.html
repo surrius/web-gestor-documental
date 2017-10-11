@@ -22,6 +22,12 @@
 	</div>
 	<br>
 	<form id="altaCadenasForm" name="altaCadenasForm" [formGroup]="altaCadenasForm" (ngSubmit)="onSubmit()" novalidate>
+		<!-- Campos ocultos -->
+		<input type="hidden" formControlName="cod_cadenapl">
+		<input type="hidden" formControlName="aud_timcrea">
+		<input type="hidden" formControlName="aud_timmodif">
+		<input type="hidden" formControlName="aud_usuario">
+		<input type="hidden" formControlName="cod_autouni">
 		<fieldset>
 			<legend class="text-muted">
 				Nombre y descripcion de la cadena:
@@ -172,7 +178,7 @@
 							<th>CADENA</th>
 							<th>SCRIPT</th>
 							<th>CADENA</th>
-							<th>ACCIONES</th>
+							<th class="celda-vacia"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -191,9 +197,17 @@
 							</td>						
 							<td>
 								<input class="form-control" formControlName="des_cadenasu">
+								<!-- Campos ocultos -->
+								<input type="hidden" formControlName="cod_aplicaci">
+								<input type="hidden" formControlName="cod_cadenapl">
+								<input type="hidden" formControlName="cod_secuuaa">
+								<input type="hidden" formControlName="aud_timcrea">
+								<input type="hidden" formControlName="aud_timmodif">
+								<input type="hidden" formControlName="aud_usuario">
+								<input type="hidden" formControlName="cod_autouni">
 							</td>						
 							<td>
-								<span class="glyphicon glyphicon-remove" *ngIf="relaciones.length > 1 && showAlta" (click)="removeRelacion(i)"></span>
+								<span class="label label-danger" *ngIf="showAlta" (click)="removeRelacion(i)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
 							</td>						
 						</tr>
 					</tbody>

@@ -15,9 +15,11 @@ import * as $ from 'jquery';
 
 //Servicio de enrutamiento
 import { EnroutadorService } from './services/enroutador.service';
+
 //Servicios de comunicacion con la BBDD
 import { BbddJobsService } from './services/bbdd-jobs.service';
 import { BbddCadenasService } from './services/bbdd-cadenas.service';
+import { BbddAplicacionesService } from './services/bbdd-aplicaciones.service';
 
 //Componentes creados para el proyecto
 import { AppComponent } from './app.component';
@@ -62,7 +64,8 @@ import { ConsultaAplicacionesComponent } from './consulta-aplicaciones/consulta-
   providers: [
     EnroutadorService,
     BbddJobsService,
-    BbddCadenasService
+    BbddCadenasService,
+    BbddAplicacionesService
   ],
   bootstrap: [AppComponent]
 })

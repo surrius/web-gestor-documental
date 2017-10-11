@@ -21,7 +21,13 @@
 		<h3 class="titulo-form-alta">{{titulo}}{{nombreJob_tit.value}}</h3>
 	</div>
 	<br>
-	<form id="altaJobsForm" name="altaJobsForm"[formGroup]="altaJobsForm" (ngSubmit)="onSubmit()" novalidate>
+	<form id="altaJobsForm" name="altaJobsForm" [formGroup]="altaJobsForm" (ngSubmit)="onSubmit()" novalidate>
+		<!-- Campos ocultos -->
+		<input type="hidden" formControlName="cod_jobpl">
+		<input type="hidden" formControlName="aud_timcrea">
+		<input type="hidden" formControlName="aud_timmodif">
+		<input type="hidden" formControlName="aud_usuario">
+		<input type="hidden" formControlName="cod_autouni">
 		<fieldset>
 			<legend class="text-muted">
 				Datos del Script:
@@ -143,7 +149,7 @@
 								<th class="col-sm-4">TIPO ACCION</th>
 								<th class="col-sm-2">COD.ERROR</th>
 								<th class="col-sm-4">IGUALDAD</th>
-								<th class="col-sm-2">ACCION</th>
+								<th class="col-sm-2 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -162,7 +168,15 @@
 									</select>
 								</td>						
 								<td>
-									<span class="glyphicon glyphicon-remove" *ngIf="jobsCriticidad.length > 1 && showAlta" (click)="removeJobsCriticidad(x)"></span>
+<!-- 									<span class="glyphicon glyphicon-remove" *ngIf="jobsCriticidad.length > 1 && showAlta" (click)="removeJobsCriticidad(x)"></span> -->
+									<span class="label label-danger" *ngIf="showAlta" (click)="removeJobsCriticidad(x)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_jobpl">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
 								</td>						
 							</tr>
 						</tbody>
@@ -196,7 +210,7 @@
 							<th>SALIDA</th>
 							<th>ENTIDADES</th>
 							<th>TIPO DE ACCESO</th>
-							<th>ACCIONES</th>
+							<th class="celda-vacia"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -217,7 +231,15 @@
 								<input class="form-control" formControlName="des_accesbd">
 							</td>						
 							<td>
-								<span class="glyphicon glyphicon-remove" *ngIf="pasos1.length > 1 && showAlta" (click)="removePaso1(i)"></span>
+								<span class="label label-danger" *ngIf="showAlta" (click)="removePaso1(i)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+								<!-- Campos ocultos -->
+								<input type="hidden" formControlName="cod_aplicaci">
+								<input type="hidden" formControlName="cod_jobpl">
+								<input type="hidden" formControlName="cod_pasosop">
+								<input type="hidden" formControlName="aud_timcrea">
+								<input type="hidden" formControlName="aud_timmodif">
+								<input type="hidden" formControlName="aud_usuario">
+								<input type="hidden" formControlName="cod_autouni">
 							</td>						
 						</tr>
 					</tbody>
@@ -239,7 +261,7 @@
 							<th class="col-sm-3">PREDECESORES</th>
 							<th class="col-sm-3">SUCESORES</th>
 							<th class="col-sm-4">NORMAS DE REARRANQUE</th>
-							<th class="col-sm-1">ACCIONES</th>
+							<th class="col-sm-1 celda-vacia"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -257,7 +279,15 @@
 								<input class="form-control" formControlName="des_rearra">
 							</td>						
 							<td>
-								<span class="glyphicon glyphicon-remove" *ngIf="pasos2.length > 1 && showAlta" (click)="removePaso2(j)"></span>
+								<span class="label label-danger" *ngIf="showAlta" (click)="removePaso2(j)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+								<!-- Campos ocultos -->
+								<input type="hidden" formControlName="cod_aplicaci">
+								<input type="hidden" formControlName="cod_jobpl">
+								<input type="hidden" formControlName="cod_pasocond">
+								<input type="hidden" formControlName="aud_timcrea">
+								<input type="hidden" formControlName="aud_timmodif">
+								<input type="hidden" formControlName="aud_usuario">
+								<input type="hidden" formControlName="cod_autouni">
 							</td>						
 						</tr>
 					</tbody>
@@ -278,7 +308,7 @@
 							<th class="col-sm-1">PASO</th>
 							<th class="col-sm-7">INCOMPATIBILIDADES</th>
 							<th class="col-sm-3">CRITICIDAD</th>
-							<th class="col-sm-1">ACCIONES</th>
+							<th class="col-sm-1 celda-vacia"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -295,7 +325,15 @@
 								</select>
 							</td>						
 							<td>
-								<span class="glyphicon glyphicon-remove" *ngIf="pasos3.length > 1 && showAlta" (click)="removePaso3(k)"></span>
+								<span class="label label-danger" *ngIf="showAlta" (click)="removePaso3(k)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+								<!-- Campos ocultos -->
+								<input type="hidden" formControlName="cod_aplicaci">
+								<input type="hidden" formControlName="cod_jobpl">
+								<input type="hidden" formControlName="cod_pasoinc">
+								<input type="hidden" formControlName="aud_timcrea">
+								<input type="hidden" formControlName="aud_timmodif">
+								<input type="hidden" formControlName="aud_usuario">
+								<input type="hidden" formControlName="cod_autouni">
 							</td>						
 						</tr>
 					</tbody>
@@ -334,10 +372,10 @@
 <br>
 <div class="row">
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
+		<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 	</div>
 	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+		<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 	</div>
 </div>
 <br>

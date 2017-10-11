@@ -83,12 +83,14 @@ export class FormBuscaJobsComponent implements OnInit {
   }
   
   elimina(row) {
-    console.log(row.id.cod_aplicaci + ' ' + row.id.cod_jobpl);
-    let jobID = new JobID();
-    jobID.cod_aplicaci = row.id.cod_aplicaci;
-    jobID.cod_jobpl = row.id.cod_jobpl;
-    
-    this.bdBorra(jobID);
+    if(confirm("Se va a proceder a la eliminacion del registro. ¿Está Seguro?")) {
+      console.log(row.id.cod_aplicaci + ' ' + row.id.cod_jobpl);
+      let jobID = new JobID();
+      jobID.cod_aplicaci = row.id.cod_aplicaci;
+      jobID.cod_jobpl = row.id.cod_jobpl;
+      
+      this.bdBorra(jobID);
+    }
   }
   
   /* ****************************************************************** */

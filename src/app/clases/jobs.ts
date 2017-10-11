@@ -19,16 +19,6 @@ export class Tewokjars {
   cod_autouni: number;
 }
 
-// Esta tabla se crea como soporte para las altas, ya que la clase que se devuelve desde el
-// html tiene esta estructura. Posteriormente se mapea a la clase Tewokjars para enviar a la BBDD 
-export class TewokjarsAlta {
-  cod_aplicaci: string;
-  cod_jobpl: number;
-  xti_accion: string;
-  cod_error: number;
-  xti_igualdad: string;
-}
-
 //Tabla 1 de descripcion de pasos (TEWOKJSO)
 export class Tewokjsos {
   id: {
@@ -129,28 +119,3 @@ export class Jobs {
     this.xti_critijob = null;
   }
 }
-//export class Jobs {
-//  id: {
-//    cod_aplicaci: string;
-//    cod_jobpl: number;
-//  };
-//  aud_timcrea: number;
-//  aud_timmodif: number;
-//  aud_usuario: string;
-//  cod_autouni: number;
-//  
-//  des_desjobpl: string;
-//  des_estrupl: string;
-//  des_gsoporte: string;
-//  des_libreori: string;
-//  des_maqeje: string;
-//  des_maqori: string;
-//  des_nombrjob: string;
-//  des_periojob: string;
-//  des_refdocjb: string;
-//  xti_critijob: string;
-//  tewokjsos: Tewokjsos[];
-//  tewokjins: Tewokjins[];
-//  tewokjars: Tewokjars[];
-//  tewokjcos: Tewokjcos[];
-//}

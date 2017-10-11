@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import * as jsPDF from 'jspdf';
 
-import { Jobs, Tewokjars, Tewokjcos, Tewokjins, Tewokjsos, TewokjarsAlta, JobID } from '../clases/jobs';
+import { Jobs, Tewokjars, Tewokjcos, Tewokjins, Tewokjsos, JobID } from '../clases/jobs';
 import { BbddJobsService } from '../services/bbdd-jobs.service';
 import { EnroutadorService } from '../services/enroutador.service';
 import { Observable } from 'rxjs';
@@ -126,6 +126,12 @@ export class FormAltaJobsComponent implements OnInit {
   crearFormulario() {
     this.altaJobsForm = this.fb.group({
       cod_aplicaci: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+      cod_jobpl: [''],
+      aud_timcrea: [''],
+      aud_timmodif: [''],
+      aud_usuario: [''],
+      cod_autouni: [''],
+      
       des_refdocjb: ['', [Validators.required, Validators.minLength(8)]],
       des_nombrjob: ['', [Validators.required, Validators.minLength(8)]],
       des_gsoporte: ['', [Validators.required]],
@@ -149,6 +155,14 @@ export class FormAltaJobsComponent implements OnInit {
    */
   initJobsCriticidad(): FormGroup {
     return this.fb.group({
+      cod_aplicaci: [''],
+      cod_jobpl: [''],
+      cod_secuuaa: [''],
+      aud_timcrea: [''],
+      aud_timmodif: [''],
+      aud_usuario: [''],
+      cod_autouni: [''],
+      
       xti_accion: [''],
       cod_error: [''],
       xti_igualdad: ['']
@@ -157,6 +171,14 @@ export class FormAltaJobsComponent implements OnInit {
   
   initPaso1(): FormGroup {
     return this.fb.group({
+      cod_aplicaci: [''],
+      cod_jobpl: [''],
+      cod_pasosop: [''],
+      aud_timcrea: [''],
+      aud_timmodif: [''],
+      aud_usuario: [''],
+      cod_autouni: [''],
+      
       des_paso: [''],
       des_fichentr: [''],
       des_fichsali: [''],
@@ -167,6 +189,14 @@ export class FormAltaJobsComponent implements OnInit {
   
   initPaso2(): FormGroup {
     return this.fb.group({
+      cod_aplicaci: [''],
+      cod_jobpl: [''],
+      cod_pasocond: [''],
+      aud_timcrea: [''],
+      aud_timmodif: [''],
+      aud_usuario: [''],
+      cod_autouni: [''],
+      
       des_paso: [''],
       des_predece: [''],
       des_sucesor: [''],
@@ -176,6 +206,14 @@ export class FormAltaJobsComponent implements OnInit {
   
   initPaso3(): FormGroup {
     return this.fb.group({
+      cod_aplicaci: [''],
+      cod_jobpl: [''],
+      cod_pasoinc: [''],
+      aud_timcrea: [''],
+      aud_timmodif: [''],
+      aud_usuario: [''],
+      cod_autouni: [''],
+      
       des_paso: [''],
       des_incomjob: [''],
       xti_critinco: ['']
@@ -256,9 +294,13 @@ export class FormAltaJobsComponent implements OnInit {
     
     if (this.datos_ok) {
       console.log(this.jobs);
-      //console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.jobs));
+      console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.jobs));
       
-      this.altaNuevoJob(this.jobs);
+      if (this.operacion == 'modificacion') {
+        this.modificaJob(this.jobs);
+      } else {
+        this.altaNuevoJob(this.jobs);
+      }
       
     } else {
       alert("Errores al validar el formulario. Corregirlos para continuar");
@@ -269,50 +311,56 @@ export class FormAltaJobsComponent implements OnInit {
     const formModel = this.altaJobsForm.value;
 
     // Mapeo automático de los campos del formulario con sus respectivas tablas
-    let tewokjarsAlta: TewokjarsAlta[] = formModel.jobsCriticidad.map(
-      (jobsCriticidad: TewokjarsAlta) => Object.assign({}, jobsCriticidad)
-    ); 
-    let jobsCriticidadDeepCopy: Tewokjars[] = this.valida_jobsCriticidadDeepCopy(tewokjarsAlta);
+//    let tewokjarsAlta: TewokjarsAlta[] = formModel.jobsCriticidad.map(
+//      (jobsCriticidad: TewokjarsAlta) => Object.assign({}, jobsCriticidad)
+//    ); 
+//    let jobsCriticidadDeepCopy: Tewokjars[] = this.valida_jobsCriticidadDeepCopy(tewokjarsAlta);
+    let jobsCriticidadDeepCopy: Tewokjars[] = this.validarCriticidad(formModel.jobsCriticidad);
     
-    let pasos1DeepCopy: Tewokjsos[] = formModel.pasos1.map(
-      (pasos1: Tewokjsos) => Object.assign({}, pasos1)
-    );
+//    let pasos1DeepCopy: Tewokjsos[] = formModel.pasos1.map(
+//      (pasos1: Tewokjsos) => Object.assign({}, pasos1)
+//    );
     
-    pasos1DeepCopy = this.valida_pasos1DeepCopy(pasos1DeepCopy);
+//    pasos1DeepCopy = this.valida_pasos1DeepCopy(pasos1DeepCopy);
+    let pasos1DeepCopy: Tewokjsos[] = this.validarPasos1(formModel.pasos1);
     
-    let pasos2DeepCopy: Tewokjcos[] = formModel.pasos2.map(
-      (pasos2: Tewokjcos) => Object.assign({}, pasos2)
-    );
     
-    pasos2DeepCopy = this.valida_pasos2DeepCopy(pasos2DeepCopy);
+//    let pasos2DeepCopy: Tewokjcos[] = formModel.pasos2.map(
+//      (pasos2: Tewokjcos) => Object.assign({}, pasos2)
+//    );
+//    
+//    pasos2DeepCopy = this.valida_pasos2DeepCopy(pasos2DeepCopy);
+    let pasos2DeepCopy: Tewokjcos[] = this.validarPasos2(formModel.pasos2);
     
-    let pasos3DeepCopy: Tewokjins[] = formModel.pasos3.map(
-      (pasos3: Tewokjins) => Object.assign({}, pasos3)
-    );
-
-    pasos3DeepCopy = this.valida_pasos3DeepCopy(pasos3DeepCopy);
+//    let pasos3DeepCopy: Tewokjins[] = formModel.pasos3.map(
+//      (pasos3: Tewokjins) => Object.assign({}, pasos3)
+//    );
+//
+//    pasos3DeepCopy = this.valida_pasos3DeepCopy(pasos3DeepCopy);
+    let pasos3DeepCopy: Tewokjins[] = this.validarPasos3(formModel.pasos3);
     
     // Mapeo manual de la clase Jobs que une todas las clases que forman la tabla de jobs
     if (this.datos_ok) {    
       const saveJob: Jobs = {
         id: {
-          cod_aplicaci: formModel.cod_aplicaci as string,
-          cod_jobpl: null    //Sin representacion en el formulario
+          cod_aplicaci: formModel.cod_aplicaci? formModel.cod_aplicaci as string : null,
+          cod_jobpl: formModel.cod_jobpl? formModel.cod_jobpl as number : null
         },
-        aud_timcrea: null,   //Sin representacion en el formulario
-        aud_timmodif: null,  //Sin representacion en el formulario
-        aud_usuario: null,  //Sin representacion en el formulario
-        cod_autouni: null,   //Sin representacion en el formulario
-        des_refdocjb: formModel.des_refdocjb as string,
-        des_nombrjob: formModel.des_nombrjob as string,
-        des_gsoporte: formModel.des_gsoporte as string,
-        des_maqori: formModel.des_maqori as string,
-        des_libreori: formModel.des_libreori as string,
-        des_desjobpl: formModel.des_desjobpl as string,
-        des_estrupl: formModel.des_estrupl as string,
-        des_periojob: formModel.des_periojob as string,
-        des_maqeje: formModel.des_maqeje as string,
-        xti_critijob: formModel.xti_critijob as string,
+        aud_timcrea: formModel.aud_timcrea? formModel.aud_timcrea as number : null,
+        aud_timmodif: formModel.aud_timmodif? formModel.aud_timmodif as number : null,
+        aud_usuario: formModel.aud_usuario? formModel.aud_usuario as string : null,
+        cod_autouni: formModel.cod_autouni? formModel.cod_autouni as number : null,
+        
+        des_refdocjb: formModel.des_refdocjb? formModel.des_refdocjb as string : null,
+        des_nombrjob: formModel.des_nombrjob? formModel.des_nombrjob as string : null,
+        des_gsoporte: formModel.des_gsoporte? formModel.des_gsoporte as string : null,
+        des_maqori: formModel.des_maqori? formModel.des_maqori as string : null,
+        des_libreori: formModel.des_libreori? formModel.des_libreori as string : null,
+        des_desjobpl: formModel.des_desjobpl? formModel.des_desjobpl as string : null,
+        des_estrupl: formModel.des_estrupl? formModel.des_estrupl as string : null,
+        des_periojob: formModel.des_periojob? formModel.des_periojob as string : null,
+        des_maqeje: formModel.des_maqeje? formModel.des_maqeje as string : null,
+        xti_critijob: formModel.xti_critijob? formModel.xti_critijob as string : null,
         tewokjars: jobsCriticidadDeepCopy,
         tewokjsos: pasos1DeepCopy,
         tewokjcos: pasos2DeepCopy,
@@ -329,21 +377,27 @@ export class FormAltaJobsComponent implements OnInit {
   /* ******************************************************** */
   /*     Validaciones previas al envio de datos al servidor   */
   /* ******************************************************** */
-  // Dado que los datos del formulario(TewokjarsAlta), no tienen la misma estructura que la clase Tewokjars, 
+  // Dado que los datos del formulario, no tienen la misma estructura que la clase Tewokjars, 
   // se recorre el array entero y se asignan a una variable con los datos del tipo Tewokjars.
-  // De esta manera, al enviar el JSON al Backend, coincide con el que se envia al front para las consultas.
-  valida_jobsCriticidadDeepCopy(datos: TewokjarsAlta[]) {
+  // De esta manera, componemos el JSON que espera recibir el backend con la estructura de las tablas SQL.
+  validarCriticidad(form: any) {
     let array_resultado: Tewokjars[] = new Array<Tewokjars>();
     
-    for (let data of datos) {
+    for (let elem of form) {
       let resultado: Tewokjars = new Tewokjars();
+      
       resultado.id = {
-        cod_aplicaci: null,
-        cod_jobpl: null,
-        xti_accion: data.xti_accion,
-        cod_error: data.cod_error,
-        xti_igualdad: data.xti_igualdad
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_jobpl: elem.cod_jobpl? elem.cod_jobpl : null,
+        xti_accion: elem.xti_accion? elem.xti_accion : null,
+        cod_error: elem.cod_error? elem.cod_error : null,
+        xti_igualdad: elem.xti_igualdad? elem.xti_igualdad : null
       };
+      
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
 
       if (resultado.id.xti_igualdad != <string>"I" && resultado.id.xti_igualdad != <string>'D') {
         resultado.id.xti_igualdad = 'N';
@@ -355,45 +409,168 @@ export class FormAltaJobsComponent implements OnInit {
     return array_resultado;
   }
   
-  valida_pasos1DeepCopy(datos: Tewokjsos[]) {
-    for (let data of datos) {
-      let data_pasos1: Tewokjsos = data;
+//  valida_jobsCriticidadDeepCopy(datos: TewokjarsAlta[]) {
+//    let array_resultado: Tewokjars[] = new Array<Tewokjars>();
+//    
+//    for (let data of datos) {
+//      let resultado: Tewokjars = new Tewokjars();
+//      resultado.id = {
+//        cod_aplicaci: null,
+//        cod_jobpl: null,
+//        xti_accion: data.xti_accion,
+//        cod_error: data.cod_error,
+//        xti_igualdad: data.xti_igualdad
+//      };
+//
+//      if (resultado.id.xti_igualdad != <string>"I" && resultado.id.xti_igualdad != <string>'D') {
+//        resultado.id.xti_igualdad = 'N';
+//      }
+//      
+//      array_resultado.push(resultado);
+//    }
+//    
+//    return array_resultado;
+//  }
+  
+  validarPasos1(form: any) {
+    let array_resultado: Tewokjsos[] = new Array<Tewokjsos>();
+    
+    for (let elem of form) {
+      let resultado: Tewokjsos = new Tewokjsos();
       
-      if (!data_pasos1.des_paso) {
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_jobpl: elem.cod_jobpl? elem.cod_jobpl : null,
+        cod_pasosop: elem.cod_pasosop? elem.cod_pasosop : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_accesbd = elem.des_accesbd? elem.des_accesbd : null;
+      resultado.des_entibd = elem.des_entibd? elem.des_entibd : null;
+      resultado.des_fichentr = elem.des_fichentr? elem.des_fichentr : null;
+      resultado.des_fichsali = elem.des_fichsali? elem.des_fichsali : null;
+      resultado.des_paso = elem.des_paso? elem.des_paso : null;
+      
+      if (!resultado.des_paso) {
         this.datos_ok = false;
-        this.mensaje_err.push('- Falta por informar paso en la primera tabla.');
+        this.mensaje_err.push('- Falta por informar paso en la primera tabla de descripcion de pasos.');
       }
+      
+      array_resultado.push(resultado);
     }
-    return datos;
+    
+    return array_resultado;
   }
   
-  valida_pasos2DeepCopy(datos: Tewokjcos[]) {
-    for (let data of datos) {
-      let data_pasos2: Tewokjcos = data;
+  validarPasos2(form: any) {
+    let array_resultado: Tewokjcos[] = new Array<Tewokjcos>();
+    
+    for (let elem of form) {
+      let resultado: Tewokjcos = new Tewokjcos();
       
-      if (!data_pasos2.des_paso) {
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_jobpl: elem.cod_jobpl? elem.cod_jobpl : null,
+        cod_pasocond: elem.cod_pasocond? elem.cod_pasocond : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_paso = elem.des_paso? elem.des_paso : null;
+      resultado.des_predece = elem.des_predece? elem.des_predece : null;
+      resultado.des_rearra = elem.des_rearra? elem.des_rearra : null;
+      resultado.des_sucesor = elem.des_sucesor? elem.des_sucesor : null;
+      
+      if (!resultado.des_paso) {
         this.datos_ok = false;
-        this.mensaje_err.push('- Falta por informar paso en la segunda tabla.');
+        this.mensaje_err.push('- Falta por informar paso en la segunda tabla de descripcion de pasos.');
       }
+      
+      array_resultado.push(resultado);
     }
-    return datos;
+    
+    return array_resultado;
   }
   
-  valida_pasos3DeepCopy(datos: Tewokjins[]) {
-    for (let data of datos) {
-      let data_pasos3: Tewokjins = data;
+  validarPasos3(form: any) {
+    let array_resultado: Tewokjins[] = new Array<Tewokjins>();
+    
+    for (let elem of form) {
+      let resultado: Tewokjins = new Tewokjins();
       
-      if (!data_pasos3.des_paso) {
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_jobpl: elem.cod_jobpl? elem.cod_jobpl : null,
+        cod_pasoinc: elem.cod_pasoinc? elem.cod_pasoinc : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_paso = elem.des_paso? elem.des_paso : null;
+      resultado.des_incomjob = elem.des_incomjob? elem.des_incomjob : null;
+      resultado.xti_critinco = elem.xti_critinco? elem.xti_critinco : null;
+      
+      if (!resultado.des_paso) {
         this.datos_ok = false;
-        this.mensaje_err.push('- Falta por informar paso en la tercera tabla.');
+        this.mensaje_err.push('- Falta por informar paso en la tercera tabla de descripcion de pasos.');
       }
-      if (!data_pasos3.xti_critinco) {
+      if (!resultado.xti_critinco) {
         this.datos_ok = false;
-        this.mensaje_err.push('- Falta por informar nivel de criticidad en la tercera tabla de pasos.');
+        this.mensaje_err.push('- Falta por informar nivel de criticidad en la tercera tabla de descripcion de pasos.');
       }
+      
+      array_resultado.push(resultado);
     }
-    return datos;
+    
+    return array_resultado;
   }
+  
+//  valida_pasos1DeepCopy(datos: Tewokjsos[]) {
+//    for (let data of datos) {
+//      let data_pasos1: Tewokjsos = data;
+//      
+//      if (!data_pasos1.des_paso) {
+//        this.datos_ok = false;
+//        this.mensaje_err.push('- Falta por informar paso en la primera tabla.');
+//      }
+//    }
+//    return datos;
+//  }
+  
+//  valida_pasos2DeepCopy(datos: Tewokjcos[]) {
+//    for (let data of datos) {
+//      let data_pasos2: Tewokjcos = data;
+//      
+//      if (!data_pasos2.des_paso) {
+//        this.datos_ok = false;
+//        this.mensaje_err.push('- Falta por informar paso en la segunda tabla de descripcion de pasos.');
+//      }
+//    }
+//    return datos;
+//  }
+  
+//  valida_pasos3DeepCopy(datos: Tewokjins[]) {
+//    for (let data of datos) {
+//      let data_pasos3: Tewokjins = data;
+//      
+//      if (!data_pasos3.des_paso) {
+//        this.datos_ok = false;
+//        this.mensaje_err.push('- Falta por informar paso en la tercera tabla de descripcion de pasos.');
+//      }
+//      if (!data_pasos3.xti_critinco) {
+//        this.datos_ok = false;
+//        this.mensaje_err.push('- Falta por informar nivel de criticidad en la tercera tabla de descripcion de pasos.');
+//      }
+//    }
+//    return datos;
+//  }
   
   // Metodo que invoca al servicio para dar de alta un Job
   altaNuevoJob(job: Jobs) {
@@ -401,11 +578,30 @@ export class FormAltaJobsComponent implements OnInit {
       .subscribe(successCode => {
         this.statusCode = +successCode;
         console.log('Resultado Alta Job: ' + this.statusCode); //Cod correcto = 201
+        alert('Alta efectuada correctamente');
         this.altaJobsForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
       },
-      errorCode => this.statusCode = errorCode
-      );
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error al solicitar el alta.');      
+      });
+  }
+  
+  // Metodo que invoca al servicio para dar de modificar un Job
+  modificaJob(job: Jobs) {
+    this.bbddJobsService.updateJob(job)
+      .subscribe(successCode => {
+        this.statusCode = +successCode;
+        console.log('Resultado Modificacion Job: ' + this.statusCode); //Cod correcto = 201
+        alert('Job modificado correctamente');
+        this.altaJobsForm.disable();
+        this.showAlta = this.sw_alta_consulta('consulta');
+      },
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error al modificar job.');      
+      });
   }
 
   /* ********************************************************************************************* */
@@ -434,6 +630,12 @@ export class FormAltaJobsComponent implements OnInit {
   
   informaFormulario(data: Jobs) {
     this.altaJobsForm.get('cod_aplicaci').setValue(data.id.cod_aplicaci);
+    this.altaJobsForm.get('cod_jobpl').setValue(data.id.cod_jobpl);
+    this.altaJobsForm.get('aud_timcrea').setValue(data.aud_timcrea);
+    this.altaJobsForm.get('aud_timmodif').setValue(data.aud_timmodif);
+    this.altaJobsForm.get('aud_usuario').setValue(data.aud_usuario);
+    this.altaJobsForm.get('cod_autouni').setValue(data.cod_autouni);
+    
     this.altaJobsForm.get('des_refdocjb').setValue(data.des_refdocjb);
     this.altaJobsForm.get('des_nombrjob').setValue(data.des_nombrjob);
     this.altaJobsForm.get('des_gsoporte').setValue(data.des_gsoporte);
@@ -451,9 +653,17 @@ export class FormAltaJobsComponent implements OnInit {
     this.jobsCriticidad.removeAt(0);
     for (let elem of data.tewokjars) {
       let formTewokjars = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_jobpl: elem.id.cod_jobpl,
         xti_accion: elem.id.xti_accion,
         cod_error: elem.id.cod_error,
-        xti_igualdad: elem.id.xti_igualdad
+        xti_igualdad: elem.id.xti_igualdad,
+        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni
+        
       });
       this.jobsCriticidad.push(formTewokjars);
     }
@@ -461,6 +671,14 @@ export class FormAltaJobsComponent implements OnInit {
     this.pasos1.removeAt(0);
     for (let elem of data.tewokjsos) {
       let formTewokjsos = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_jobpl: elem.id.cod_jobpl,
+        cod_pasosop: elem.id.cod_pasosop,
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+      
         des_paso: elem.des_paso,
         des_fichentr: elem.des_fichentr,
         des_fichsali: elem.des_fichsali,
@@ -473,6 +691,14 @@ export class FormAltaJobsComponent implements OnInit {
     this.pasos2.removeAt(0);
     for (let elem of data.tewokjcos) {
       let formTewokjcos = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_jobpl: elem.id.cod_jobpl,
+        cod_pasocond: elem.id.cod_pasocond,
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
         des_paso: elem.des_paso,
         des_predece: elem.des_predece,
         des_sucesor: elem.des_sucesor,
@@ -484,6 +710,14 @@ export class FormAltaJobsComponent implements OnInit {
     this.pasos3.removeAt(0);
     for (let elem of data.tewokjins) {
       let formTewokjins = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_jobpl: elem.id.cod_jobpl,
+        cod_pasoinc: elem.id.cod_pasoinc,
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
         des_paso: elem.des_paso,
         des_incomjob: elem.des_incomjob,
         xti_critinco: elem.xti_critinco
@@ -492,7 +726,7 @@ export class FormAltaJobsComponent implements OnInit {
     }
     
     // Se desactiva o no el formulario en función de la petición
-    this.altaJobsForm.get('des_nombrjob').disable();
+//    this.altaJobsForm.get('des_nombrjob').disable();
     if (!this.showAlta) {
       this.altaJobsForm.disable();
     }
