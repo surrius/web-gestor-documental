@@ -70,7 +70,7 @@ export class BbddJobsService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-    return this.http.delete(this.baseURL + 'borra/job/id', options)
+    return this.http.get(this.baseURL + 'borra/job/id', options)
       .map(success => success.status)
       .catch(this.handleError);
   }

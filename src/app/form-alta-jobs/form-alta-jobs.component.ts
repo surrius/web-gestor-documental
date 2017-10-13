@@ -142,10 +142,14 @@ export class FormAltaJobsComponent implements OnInit {
       des_periojob: [''],
       des_maqeje: [''],
       xti_critijob: ['', [Validators.required]],
-      jobsCriticidad: this.fb.array([this.initJobsCriticidad()]),
-      pasos1: this.fb.array([this.initPaso1()]),
-      pasos2: this.fb.array([this.initPaso2()]),
-      pasos3: this.fb.array([this.initPaso3()])
+      jobsCriticidad: this.fb.array([]),
+      pasos1: this.fb.array([]),
+      pasos2: this.fb.array([]),
+      pasos3: this.fb.array([])
+//      jobsCriticidad: this.fb.array([this.initJobsCriticidad()]),
+//      pasos1: this.fb.array([this.initPaso1()]),
+//      pasos2: this.fb.array([this.initPaso2()]),
+//      pasos3: this.fb.array([this.initPaso3()])
     });
   }
   

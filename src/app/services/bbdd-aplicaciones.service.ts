@@ -30,8 +30,8 @@ export class BbddAplicacionesService {
     cpParams.set('aplicacion', JSON.stringify(aplicacion));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-//    return this.http.get(this.baseURL + 'busca/aplicacion', options)
-    return this.http.get('../assets/simulado_aplicacion.json')
+    return this.http.get(this.baseURL + 'busca/aplicacion', options)
+//    return this.http.get('../assets/simulado_aplicacion.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -42,8 +42,8 @@ export class BbddAplicacionesService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-//    return this.http.get(this.baseURL + 'busca/aplicacion/id', options)
-    return this.http.get('../assets/simulado_aplicacion_id.json')
+    return this.http.get(this.baseURL + 'busca/aplicacion/id', options)
+//    return this.http.get('../assets/simulado_aplicacion_id.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -70,7 +70,7 @@ export class BbddAplicacionesService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-    return this.http.delete(this.baseURL + 'borra/aplicacion/id', options)
+    return this.http.get(this.baseURL + 'borra/aplicacion/id', options)
       .map(success => success.status)
       .catch(this.handleError);
   }

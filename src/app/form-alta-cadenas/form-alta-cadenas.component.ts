@@ -143,7 +143,7 @@ export class FormAltaCadenasComponent implements OnInit {
       des_interrel: [''],
       des_descaden: [''],
       des_incompat: [''],
-      relaciones: this.fb.array([this.initRelacion()])
+      relaciones: this.fb.array([])
     });
   }
   /*

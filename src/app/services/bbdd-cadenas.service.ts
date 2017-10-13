@@ -30,8 +30,8 @@ export class BbddCadenasService {
     cpParams.set('cadena', JSON.stringify(cadena));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-//    return this.http.get(this.baseURL + 'busca/cadena', options)
-    return this.http.get('../assets/simulado_cdn.json')
+    return this.http.get(this.baseURL + 'busca/cadena', options)
+//    return this.http.get('../assets/simulado_cdn.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -42,8 +42,8 @@ export class BbddCadenasService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-//    return this.http.get(this.baseURL + 'busca/cadena/id', options)
-    return this.http.get('../assets/simulado_cdn_id.json')
+    return this.http.get(this.baseURL + 'busca/cadena/id', options)
+//    return this.http.get('../assets/simulado_cdn_id.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -70,7 +70,7 @@ export class BbddCadenasService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-    return this.http.delete(this.baseURL + 'borra/cadena/id', options)
+    return this.http.get(this.baseURL + 'borra/cadena/id', options)
       .map(success => success.status)
       .catch(this.handleError);
   }

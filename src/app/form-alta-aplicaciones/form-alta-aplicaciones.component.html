@@ -18,7 +18,7 @@
 </div>
 <div id="areaAltaAplicacion" #printPDF>
 	<div>
-		<h3 class="titulo-form-alta">{{titulo}}{{nombreJob_tit.value}}</h3>
+		<h3 class="titulo-form-alta">{{titulo}}{{nombreUUAA_tit.value}}</h3>
 	</div>
 	<br>
 	<form id="altaAppsForm" name="altaAppsForm" [formGroup]="altaAppsForm" (ngSubmit)="onSubmit()" novalidate>
@@ -36,7 +36,7 @@
 				<!-- CODIGO APLICACION -->
 				<div class="col-sm-4">
 					<label for="cod_aplicaci">C&oacute;digo de aplicaci&oacute;n - UUAA</label> 
-					<input type="text" class="form-control" id="cod_aplicaci" name="cod_aplicaci" maxlength="4" formControlName="cod_aplicaci">
+					<input type="text" class="form-control" #nombreUUAA_tit id="cod_aplicaci" name="cod_aplicaci" maxlength="4" formControlName="cod_aplicaci">
 					 
 					<small class="text-danger" 
 						*ngIf="altaAppsForm.get('cod_aplicaci').invalid && (altaAppsForm.get('cod_aplicaci').dirty || altaAppsForm.get('cod_aplicaci').touched)">
@@ -58,7 +58,7 @@
 								<th class="col-sm-6">NOMBRE Y APELLIDOS</th>
 								<th class="col-sm-2">TELEFONO INTERNO</th>
 								<th class="col-sm-2">TELEFONO EXTERNO</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -137,7 +137,7 @@
 								<th class="col-sm-1">VERSION</th>
 								<th class="col-sm-8">DESCRIPCION DE LA MODIFICACION</th>
 								<th class="col-sm-2">FECHA</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -236,7 +236,7 @@
 								<th class="col-sm-2">TIPO DE MONITORIZACION</th>
 								<th class="col-sm-2">NIVEL SEVERIDAD</th>
 								<th class="col-sm-4">ACCION A EFECTUAR</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -288,7 +288,7 @@
 							<tr>
 								<th class="col-sm-5">PROCEDIMIENTOS DE PARADA</th>
 								<th class="col-sm-6">PROCEDIMIENTOS DE ARRANQUE</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -335,7 +335,7 @@
 							<tr>
 								<th class="col-sm-5">NOMBRE</th>
 								<th class="col-sm-6">FUNCIONALIDAD</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -361,7 +361,7 @@
 						</tbody>
 					</table>
 					<div *ngIf="showAlta">
-						<a (click)="addlogNombre()" style="cursor: pointer;"> 
+						<a (click)="addLogNombre()" style="cursor: pointer;"> 
 							A&ntilde;adir identificaci&oacute;n log + 
 						</a>
 					</div>		
@@ -374,7 +374,7 @@
 								<th class="col-sm-5">MENSAJE</th>
 								<th class="col-sm-2">SEVERIDAD</th>
 								<th class="col-sm-4">ACCION A EFECTUAR</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -423,7 +423,7 @@
 								<th class="col-sm-2">PREVISION DE CRECIMIENTO</th>
 								<th class="col-sm-2">CRITERIOS DE RECICLADO</th>
 								<th class="col-sm-2">TRATAMIENTO</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -480,7 +480,7 @@
 								<th class="col-sm-3">NOMBRE DEL EQUIPO 1</th>
 								<th class="col-sm-3">NOMBRE DEL EQUIPO 2</th>
 								<th class="col-sm-5">PROCEDIMIENTO EN CASO DE EVENTO</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -529,7 +529,7 @@
 								<th class="col-sm-4">NOMBRE DE COLA</th>
 								<th class="col-sm-2">SEVERIDAD</th>
 								<th class="col-sm-3">PROF. DE COLAS MAX.</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -576,7 +576,7 @@
 								<th class="col-sm-3">GESTOR DE COLAS</th>
 								<th class="col-sm-4">NOMBRE DE CANAL</th>
 								<th class="col-sm-4">COLA DE TRANSMISION</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -629,7 +629,7 @@
 								<th class="col-sm-2">PREVISION DE CRECIMIENTO</th>
 								<th class="col-sm-2">UMBRAL MAXIMO DE OCUPACION</th>
 								<th class="col-sm-3">TRATAMIENTO</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -681,7 +681,7 @@
 								<th class="col-sm-2">% MINOR</th>
 								<th class="col-sm-2">% CRITICAL</th>
 								<th class="col-sm-4">PROCEDIMIENTO EN CASO DE EVENTOS</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -738,7 +738,7 @@
 								<th class="col-sm-2">NOMBRE INSTANCIA</th>
 								<th class="col-sm-2">USUARIO</th>
 								<th class="col-sm-4">PROCEDIMIENTO EN CASO DE EVENTO</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -795,7 +795,7 @@
 								<th class="col-sm-1">UMBRAL SEVERO</th>
 								<th class="col-sm-1">UMBRAL CRITICO</th>
 								<th class="col-sm-2">PROCEDIMIENTO EN CASO DE EVENTO</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -860,7 +860,7 @@
 								<th class="col-sm-1">TIPO</th>
 								<th class="col-sm-4">NOMBRE SERVIDOR WAS/WEB</th>
 								<th class="col-sm-6">PROCEDIMIENTO EN CASO DE EVENTO</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -933,7 +933,7 @@
 								<th>SCRIPT/JOB</th>
 								<th>FICHERO</th>
 								<th>PROCEDIMIENTO</th>
-								<th>ACCIONES</th>
+								<th class="celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -994,7 +994,7 @@
 								<th class="col-sm-2">TIPO</th>
 								<th class="col-sm-3">PERIODICIDAD</th>
 								<th class="col-sm-4">CICLO DE VIDA</th>
-								<th class="col-sm-1">ACCIONES</th>
+								<th class="col-sm-1 celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -1032,7 +1032,7 @@
 						</tbody>
 					</table>
 					<div *ngIf="showAlta">
-						<a (click)="addBackupsr()" style="cursor: pointer;"> 
+						<a (click)="addBackups()" style="cursor: pointer;"> 
 							A&ntilde;adir backup + 
 						</a>
 					</div>		
@@ -1192,11 +1192,11 @@
 			</div>
 		</div>
 <!-- 		QUITAR TODO: -->
-		<div class="margin-20">
-          <div>altaAppsForm details:</div>
-          <pre>Is altaAppsForm valid?: <br>{{altaAppsForm.valid | json}}</pre>
-          <pre>altaAppsForm value: <br>{{altaAppsForm.value | json}}</pre>
-        </div>
+<!-- 		<div class="margin-20"> -->
+<!--           <div>altaAppsForm details:</div> -->
+<!--           <pre>Is altaAppsForm valid?: <br>{{altaAppsForm.valid | json}}</pre> -->
+<!--           <pre>altaAppsForm value: <br>{{altaAppsForm.value | json}}</pre> -->
+<!--         </div> -->
 	</form>
 </div>
 <br>

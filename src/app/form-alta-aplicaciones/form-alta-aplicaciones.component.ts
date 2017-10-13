@@ -162,23 +162,23 @@ export class FormAltaAplicacionesComponent implements OnInit {
       tim_implanta: ['',],
       tim_ultsol: ['',],
       xti_csancion: ['',],
-      responsables: this.fb.array([this.initResponsables()]),
-      ctlModificaciones: this.fb.array([this.initCtlModificaciones()]),
-      descProcesos: this.fb.array([this.initDescProcesos()]),
-      paradaArranque: this.fb.array([this.initParadaArranque()]),
-      logNombre: this.fb.array([this.initLogNombre()]),
-      logAccion: this.fb.array([this.initLogAccion()]),
-      logMantenimiento: this.fb.array([this.initLogMantenimiento()]),
-      reqComunicacion: this.fb.array([this.initReqComunicacion()]),
-      reqMiddle: this.fb.array([this.initReqMiddle()]),
-      reqMiddleB: this.fb.array([this.initReqMiddleB()]),
-      caracFS: this.fb.array([this.initCaracFS()]),
-      moniFS: this.fb.array([this.initMoniFS()]),
-      bbddA: this.fb.array([this.initBbddA()]),
-      bbddB: this.fb.array([this.initBbddB()]),
-      servidor: this.fb.array([this.initServidor()]),
-      ficheros: this.fb.array([this.initFicheros()]),
-      backups: this.fb.array([this.initBackups()])
+      responsables: this.fb.array([]),
+      ctlModificaciones: this.fb.array([]),
+      descProcesos: this.fb.array([]),
+      paradaArranque: this.fb.array([]),
+      logNombre: this.fb.array([]),
+      logAccion: this.fb.array([]),
+      logMantenimiento: this.fb.array([]),
+      reqComunicacion: this.fb.array([]),
+      reqMiddle: this.fb.array([]),
+      reqMiddleB: this.fb.array([]),
+      caracFS: this.fb.array([]),
+      moniFS: this.fb.array([]),
+      bbddA: this.fb.array([]),
+      bbddB: this.fb.array([]),
+      servidor: this.fb.array([]),
+      ficheros: this.fb.array([]),
+      backups: this.fb.array([])
     });
   }
   
@@ -610,7 +610,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
   }
   
   addBackups(): void {
-    this.ficheros.push(this.initBackups());
+    this.backups.push(this.initBackups());
   }
   
   //Metodos para eliminar elementos
@@ -794,7 +794,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
 //    const reqMiddleDeepCopy: Tewokrmc[] = formModel.reqMiddle.map(
 //      (reqMiddle: Tewokrmc) => Object.assign({}, reqMiddle)
 //    );
-    let reqMiddleDeepCopy: Tewokrmcs[] = this.validarTewokrmc(formModel.reqMiddle);
+    let reqMiddleDeepCopy: Tewokrmcs[] = this.validarTewokrmcs(formModel.reqMiddle);
     
 //    const reqMiddleBDeepCopy: Tewokmrc[] = formModel.reqMiddleB.map(
 //      (reqMiddleB: Tewokmrc) => Object.assign({}, reqMiddleB)
@@ -900,18 +900,496 @@ export class FormAltaAplicacionesComponent implements OnInit {
       return null;
     }
   }
-//  TODO: Para el viernes!!!!!
-  //Validaciones previas al envio de datos al servidor
-//  valida_ctlModificacionesDeepCopy(datos: Tewokcmu[]) {
-//    for (let data of datos) {
-//      let data_ctlModificaciones: Tewokcmu = data;
-//      
-//      if (data_ctlModificaciones.des_versionm) {
-//        data_ctlModificaciones.des_versionm = '';
-//      }
-//    }
-//    return datos;
-//  }
+  
+  //Mapeo de campos y validaciones previas al envio de datos al servidor
+  validarTewokress(form: any) {
+    let array_resultado: Tewokress[] = new Array<Tewokress>();
+    
+    for (let elem of form) {
+      let resultado: Tewokress = new Tewokress();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_user: elem.cod_user? elem.cod_user : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_usucateg = elem.des_usucateg? elem.des_usucateg : null;
+      resultado.des_nombyape = elem.des_nombyape? elem.des_nombyape : null;
+      resultado.des_telinter = elem.des_telinter? elem.des_telinter : null;
+      resultado.des_telexter = elem.des_telexter? elem.des_telexter : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokcmus(form: any) {
+    let array_resultado: Tewokcmus[] = new Array<Tewokcmus>();
+    
+    for (let elem of form) {
+      let resultado: Tewokcmus = new Tewokcmus();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_versionm = elem.des_versionm? elem.des_versionm : null;
+      resultado.fec_version = elem.fec_version? elem.fec_version : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokdpus(form: any) {
+    let array_resultado: Tewokdpus[] = new Array<Tewokdpus>();
+    
+    for (let elem of form) {
+      let resultado: Tewokdpus = new Tewokdpus();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_jobpl: elem.cod_jobpl? elem.cod_jobpl : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_acciopro = elem.des_acciopro? elem.des_acciopro : null;
+      resultado.des_nombrepr = elem.des_nombrepr? elem.des_nombrepr : null;
+      resultado.des_tipomoni = elem.des_tipomoni? elem.des_tipomoni : null;
+      resultado.xti_severida = elem.xti_severida? elem.xti_severida : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokpyas(form: any) {
+    let array_resultado: Tewokpyas[] = new Array<Tewokpyas>();
+    
+    for (let elem of form) {
+      let resultado: Tewokpyas = new Tewokpyas();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_arranque = elem.des_arranque? elem.des_arranque : null;
+      resultado.des_paradaua = elem.des_paradaua? elem.des_paradaua : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokilus(form: any) {
+    let array_resultado: Tewokilus[] = new Array<Tewokilus>();
+    
+    for (let elem of form) {
+      let resultado: Tewokilus = new Tewokilus();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_nomlog = elem.des_nomlog? elem.des_nomlog : null;
+      resultado.des_funlog = elem.des_funlog? elem.des_funlog : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokmlus(form: any) {
+    let array_resultado: Tewokmlus[] = new Array<Tewokmlus>();
+    
+    for (let elem of form) {
+      let resultado: Tewokmlus = new Tewokmlus();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_msjlog = elem.des_msjlog? elem.des_msjlog : null;
+      resultado.xti_severida = elem.xti_severida? elem.xti_severida : null;
+      resultado.des_acciopro = elem.des_acciopro? elem.des_acciopro : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokamls(form: any) {
+    let array_resultado: Tewokamls[] = new Array<Tewokamls>();
+    
+    for (let elem of form) {
+      let resultado: Tewokamls = new Tewokamls();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_nomlog = elem.des_nomlog? elem.des_nomlog : null;
+      resultado.qnu_tammax = elem.qnu_tammax? elem.qnu_tammax : null;
+      resultado.qnu_prevcrec = elem.qnu_prevcrec? elem.qnu_prevcrec : null;
+      resultado.qnu_critrec = elem.qnu_critrec? elem.qnu_critrec : null;
+      resultado.des_tratamie = elem.des_tratamie? elem.des_tratamie : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokrcos(form: any) {
+    let array_resultado: Tewokrcos[] = new Array<Tewokrcos>();
+    
+    for (let elem of form) {
+      let resultado: Tewokrcos = new Tewokrcos();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_nomeq1 = elem.des_nomeq1? elem.des_nomeq1 : null;
+      resultado.des_nomeq2 = elem.des_nomeq2? elem.des_nomeq2 : null;
+      resultado.des_proccomu = elem.des_proccomu? elem.des_proccomu : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokrmcs(form: any) {
+    let array_resultado: Tewokrmcs[] = new Array<Tewokrmcs>();
+    
+    for (let elem of form) {
+      let resultado: Tewokrmcs = new Tewokrmcs();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_gestcola = elem.des_gestcola? elem.des_gestcola : null;
+      resultado.des_nombrcol = elem.des_nombrcol? elem.des_nombrcol : null;
+      resultado.xti_severida = elem.xti_severida? elem.xti_severida : null;
+      resultado.qnu_profundi = elem.qnu_profundi? elem.qnu_profundi : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokmrcs(form: any) {
+    let array_resultado: Tewokmrcs[] = new Array<Tewokmrcs>();
+    
+    for (let elem of form) {
+      let resultado: Tewokmrcs = new Tewokmrcs();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_gestcola = elem.des_gestcola? elem.des_gestcola : null;
+      resultado.des_canalmdl = elem.des_canalmdl? elem.des_canalmdl : null;
+      resultado.des_colamdl = elem.des_colamdl? elem.des_colamdl : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokofss(form: any) {
+    let array_resultado: Tewokofss[] = new Array<Tewokofss>();
+    
+    for (let elem of form) {
+      let resultado: Tewokofss = new Tewokofss();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_nomfs = elem.des_nomfs? elem.des_nomfs : null;
+      resultado.qnu_espaesti = elem.qnu_espaesti? elem.qnu_espaesti : null;
+      resultado.qnu_prevcrec = elem.qnu_prevcrec? elem.qnu_prevcrec : null;
+      resultado.qnu_umbramax = elem.qnu_umbramax? elem.qnu_umbramax : null;
+      resultado.des_tratamie = elem.des_tratamie? elem.des_tratamie : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokmfss(form: any) {
+    let array_resultado: Tewokmfss[] = new Array<Tewokmfss>();
+    
+    for (let elem of form) {
+      let resultado: Tewokmfss = new Tewokmfss();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_nomfs = elem.des_nomfs? elem.des_nomfs : null;
+      resultado.qnu_minor = elem.qnu_minor? elem.qnu_minor : null;
+      resultado.qnu_critical = elem.qnu_critical? elem.qnu_critical : null;
+      resultado.des_proccomu = elem.des_proccomu? elem.des_proccomu : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokibds(form: any) {
+    let array_resultado: Tewokibds[] = new Array<Tewokibds>();
+    
+    for (let elem of form) {
+      let resultado: Tewokibds = new Tewokibds();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.xti_gestbbdd = elem.xti_gestbbdd? elem.xti_gestbbdd : null;
+      resultado.cod_nombbdd = elem.cod_nombbdd? elem.cod_nombbdd : null;
+      resultado.des_listenbd = elem.des_listenbd? elem.des_listenbd : null;
+      resultado.des_usubd = elem.des_usubd? elem.des_usubd : null;
+      resultado.des_proccomu = elem.des_proccomu? elem.des_proccomu : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokmbds(form: any) {
+    let array_resultado: Tewokmbds[] = new Array<Tewokmbds>();
+    
+    for (let elem of form) {
+      let resultado: Tewokmbds = new Tewokmbds();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.xti_gestbbdd = elem.xti_gestbbdd? elem.xti_gestbbdd : null;
+      resultado.des_instabd = elem.des_instabd? elem.des_instabd : null;
+      resultado.cod_tablbbdd = elem.cod_tablbbdd? elem.cod_tablbbdd : null;
+      resultado.qnu_severo = elem.qnu_severo? elem.qnu_severo : null;
+      resultado.qnu_critical = elem.qnu_critical? elem.qnu_critical : null;
+      resultado.des_proccomu = elem.des_proccomu? elem.des_proccomu : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokwebs(form: any) {
+    let array_resultado: Tewokwebs[] = new Array<Tewokwebs>();
+    
+    for (let elem of form) {
+      let resultado: Tewokwebs = new Tewokwebs();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.xti_serviapl = elem.xti_serviapl? elem.xti_serviapl : null;
+      resultado.des_instaweb = elem.des_instaweb? elem.des_instaweb : null;
+      resultado.des_proccomu = elem.des_proccomu? elem.des_proccomu : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewoktfis(form: any) {
+    let array_resultado: Tewoktfis[] = new Array<Tewoktfis>();
+    
+    for (let elem of form) {
+      let resultado: Tewoktfis = new Tewoktfis();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.des_maqori = elem.des_maqori? elem.des_maqori : null;
+      resultado.des_scriptor = elem.des_scriptor? elem.des_scriptor : null;
+      resultado.des_fichentr = elem.des_fichentr? elem.des_fichentr : null;
+      resultado.des_maqdest = elem.des_maqdest? elem.des_maqdest : null;
+      resultado.des_scriptde = elem.des_scriptde? elem.des_scriptde : null;
+      resultado.des_fichdest = elem.des_fichdest? elem.des_fichdest : null;
+      resultado.des_proccomu = elem.des_proccomu? elem.des_proccomu : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  validarTewokbcks(form: any) {
+    let array_resultado: Tewokbcks[] = new Array<Tewokbcks>();
+    
+    for (let elem of form) {
+      let resultado: Tewokbcks = new Tewokbcks();
+      
+      resultado.id = {
+        cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
+        cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
+      };
+      resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
+      resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
+      resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
+      resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
+
+      resultado.xti_gestbbdd = elem.xti_gestbbdd? elem.xti_gestbbdd : null;
+      resultado.xti_backup = elem.xti_backup? elem.xti_backup : null;
+      resultado.xti_periodo = elem.xti_periodo? elem.xti_periodo : null;
+      resultado.des_ciclovid = elem.des_ciclovid? elem.des_ciclovid : null;
+      
+      array_resultado.push(resultado);
+    }
+    
+    return array_resultado;
+  }
+  
+  // Metodo que invoca al servicio para dar de alta un Job
+  altaNuevaAplicacion(aplicacion: Aplicaciones) {
+    this.bbddAplicacionesService.createAplicacion(aplicacion)
+      .subscribe(successCode => {
+        this.statusCode = +successCode;
+        console.log('Resultado Alta aplicacion: ' + this.statusCode); //Cod correcto = 201
+        alert('Alta efectuada correctamente');
+        this.altaAppsForm.disable();
+        this.showAlta = this.sw_alta_consulta('consulta');
+      },
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error al solicitar el alta.');      
+      });
+  }
+  
+  // Metodo que invoca al servicio para dar de modificar una Aplicacion
+  modificaAplicacion(aplicacion: Aplicaciones) {
+    this.bbddAplicacionesService.updateAplicacion(aplicacion)
+      .subscribe(successCode => {
+        this.statusCode = +successCode;
+        console.log('Resultado Modificacion Aplicacion: ' + this.statusCode); //Cod correcto = 201
+        alert('Aplicacion modificada correctamente');
+        this.altaAppsForm.disable();
+        this.showAlta = this.sw_alta_consulta('consulta');
+      },
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error al modificar aplicacion.');      
+      });
+  }
   
   /* ********************************************************************************************* */
   /* ********************************************************************************************* */
@@ -921,4 +1399,411 @@ export class FormAltaAplicacionesComponent implements OnInit {
   /*                          METODOS USADOS PARA LA CONSULTA DE DATOS                             */
   /* ********************************************************************************************* */
   /* ********************************************************************************************* */
+  // Metodo para buscar una Aplicacion por su ID unica en la BBDD y mostrarlo en la Consulta/Modif
+  bdBuscaAplicacionId(aplicacion: Aplicaciones) {
+    let appID = new AppID();
+    appID.cod_aplicaci = aplicacion.id.cod_aplicaci;
+    appID.cod_planuuaa = aplicacion.id.cod_planuuaa;
+    
+    this.bbddAplicacionesService.getFindAplicacionId(appID).subscribe(
+      data => this.informaFormulario(data),
+      error => { 
+        this.errorMessage = <any>error;
+        alert('Error al recuperar datos desde el servidor');
+        this.goBack();
+      }
+    );
+  }
+  
+  // Informamos todos los campos del formulario con los datos recuperados del servidor
+  informaFormulario(data: Aplicaciones) {
+    this.altaAppsForm.get('cod_aplicaci').setValue(data.id.cod_aplicaci);
+    this.altaAppsForm.get('cod_planuuaa').setValue(data.id.cod_planuuaa);
+    this.altaAppsForm.get('aud_timcrea').setValue(data.aud_timcrea);
+    this.altaAppsForm.get('aud_timmodif').setValue(data.aud_timmodif);
+    this.altaAppsForm.get('aud_usuario').setValue(data.aud_usuario);
+    this.altaAppsForm.get('cod_autouni').setValue(data.cod_autouni);
+    
+    this.altaAppsForm.get('cod_user').setValue(data.cod_user);
+    this.altaAppsForm.get('cod_userra').setValue(data.cod_userra);
+    this.altaAppsForm.get('des_codmonit').setValue(data.des_codmonit);
+    this.altaAppsForm.get('des_funcuuaa').setValue(data.des_funcuuaa);
+    this.altaAppsForm.get('des_hmax').setValue(data.des_hmax);
+    this.altaAppsForm.get('des_hvalle').setValue(data.des_hvalle);
+    this.altaAppsForm.get('des_monitori').setValue(data.des_monitori);
+    this.altaAppsForm.get('des_nompet').setValue(data.des_nompet);
+    this.altaAppsForm.get('des_objeserv').setValue(data.des_objeserv);
+    this.altaAppsForm.get('des_obsyrech').setValue(data.des_obsyrech);
+    this.altaAppsForm.get('des_telsolic').setValue(data.des_telsolic);
+    this.altaAppsForm.get('des_telusura').setValue(data.des_telusura);
+    this.altaAppsForm.get('des_tiposser').setValue(data.des_tiposser);
+    this.altaAppsForm.get('des_usura').setValue(data.des_usura);
+    this.altaAppsForm.get('des_ususerv').setValue(data.des_ususerv);
+    this.altaAppsForm.get('fec_monitori').setValue(data.fec_monitori);
+    this.altaAppsForm.get('qnu_ncargabd').setValue(data.qnu_ncargabd);
+    this.altaAppsForm.get('qnu_nfichero').setValue(data.qnu_nfichero);
+    this.altaAppsForm.get('qnu_npaquete').setValue(data.qnu_npaquete);
+    this.altaAppsForm.get('qnu_nscripts').setValue(data.qnu_nscripts);
+    this.altaAppsForm.get('tim_entrega').setValue(data.tim_entrega);
+    this.altaAppsForm.get('tim_estimada').setValue(data.tim_estimada);
+    this.altaAppsForm.get('tim_finra').setValue(data.tim_finra);
+    this.altaAppsForm.get('tim_implanta').setValue(data.tim_implanta);
+    this.altaAppsForm.get('tim_ultsol').setValue(data.tim_ultsol);
+    this.altaAppsForm.get('xti_csancion').setValue(data.xti_csancion);
+    this.altaAppsForm.get('des_detcon').setValue(data.des_detcon);
+    
+    // Se informa cada uno de los formArray con los valores recuperados de la BBDD. 
+    // Previamente, se elimina el primer registro que se ha creado con el formulario
+    // para que no aparezca vacio en la web
+    this.responsables.removeAt(0);
+    for (let elem of data.tewokress) {
+      let formTewokress = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_user: elem.id.cod_user,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_usucateg: elem.des_usucateg,
+        des_nombyape: elem.des_nombyape,
+        des_telinter: elem.des_telinter,
+        des_telexter: elem.des_telexter
+      });
+      this.responsables.push(formTewokress);
+    }
+    
+    this.ctlModificaciones.removeAt(0);
+    for (let elem of data.tewokcmus) {
+      let formTewokcmus = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_versionm: elem.des_versionm,
+        fec_version: elem.fec_version
+      });
+      this.ctlModificaciones.push(formTewokcmus);
+    }
+    
+    this.descProcesos.removeAt(0);
+    for (let elem of data.tewokdpus) {
+      let formTewokdpus = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_jobpl: elem.id.cod_jobpl,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_acciopro: elem.des_acciopro,
+        des_nombrepr: elem.des_nombrepr,
+        des_tipomoni: elem.des_tipomoni,
+        xti_severida: elem.xti_severida
+      });
+      this.descProcesos.push(formTewokdpus);
+    }
+    
+    this.paradaArranque.removeAt(0);
+    for (let elem of data.tewokpyas) {
+      let formTewokpyas = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_arranque: elem.des_arranque,
+        des_paradaua: elem.des_paradaua
+      });
+      this.paradaArranque.push(formTewokpyas);
+    }
+    
+    this.logNombre.removeAt(0);
+    for (let elem of data.tewokilus) {
+      let formTewokilus = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_nomlog: elem.des_nomlog,
+        des_funlog: elem.des_funlog
+      });
+      this.logNombre.push(formTewokilus);
+    }
+    
+    this.logAccion.removeAt(0);
+    for (let elem of data.tewokmlus) {
+      let formTewokmlus = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_msjlog: elem.des_msjlog,
+        xti_severida: elem.xti_severida,
+        des_acciopro: elem.des_acciopro
+      });
+      this.logAccion.push(formTewokmlus);
+    }
+    
+    this.logMantenimiento.removeAt(0);
+    for (let elem of data.tewokamls) {
+      let formTewokamls = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_nomlog: elem.des_nomlog,
+        qnu_tammax: elem.qnu_tammax,
+        qnu_prevcrec: elem.qnu_prevcrec,
+        qnu_critrec: elem.qnu_critrec,
+        des_tratamie: elem.des_tratamie
+      });
+      this.logMantenimiento.push(formTewokamls);
+    }
+    
+    this.reqComunicacion.removeAt(0);
+    for (let elem of data.tewokrcos) {
+      let formTewokrcos = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_nomeq1: elem.des_nomeq1,
+        des_nomeq2: elem.des_nomeq2,
+        des_proccomu: elem.des_proccomu
+      });
+      this.reqComunicacion.push(formTewokrcos);
+    }
+    
+    this.reqMiddle.removeAt(0);
+    for (let elem of data.tewokrmcs) {
+      let formTewokrmcs = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_gestcola: elem.des_gestcola,
+        des_nombrcol: elem.des_nombrcol,
+        xti_severida: elem.xti_severida,
+        qnu_profundi: elem.qnu_profundi
+      });
+      this.reqMiddle.push(formTewokrmcs);
+    }
+    
+    this.reqMiddleB.removeAt(0);
+    for (let elem of data.tewokmrcs) {
+      let formTewokmrcs = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_gestcola: elem.des_gestcola,
+        des_canalmdl: elem.des_canalmdl,
+        des_colamdl: elem.des_colamdl
+      });
+      this.reqMiddleB.push(formTewokmrcs);
+    }
+    
+    this.caracFS.removeAt(0);
+    for (let elem of data.tewokofss) {
+      let formTewokofss = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_nomfs: elem.des_nomfs,
+        qnu_espaesti: elem.qnu_espaesti,
+        qnu_prevcrec: elem.qnu_prevcrec,
+        qnu_umbramax: elem.qnu_umbramax,
+        des_tratamie: elem.des_tratamie
+      });
+      this.caracFS.push(formTewokofss);
+    }
+    
+    this.moniFS.removeAt(0);
+    for (let elem of data.tewokmfss) {
+      let formTewokmfss = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_nomfs: elem.des_nomfs,
+        qnu_minor: elem.qnu_minor,
+        qnu_critical: elem.qnu_critical,
+        des_proccomu: elem.des_proccomu
+      });
+      this.moniFS.push(formTewokmfss);
+    }
+    
+    this.bbddA.removeAt(0);
+    for (let elem of data.tewokibds) {
+      let formTewokibds = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        xti_gestbbdd: elem.xti_gestbbdd,
+        cod_nombbdd: elem.cod_nombbdd,
+        des_listenbd: elem.des_listenbd,
+        des_usubd: elem.des_usubd,
+        des_proccomu: elem.des_proccomu
+      });
+      this.bbddA.push(formTewokibds);
+    }
+    
+    this.bbddB.removeAt(0);
+    for (let elem of data.tewokmbds) {
+      let formTewokmbds = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        xti_gestbbdd: elem.xti_gestbbdd,
+        cod_nombbdd: elem.cod_nombbdd,
+        des_instabd: elem.des_instabd,
+        cod_tablbbdd: elem.cod_tablbbdd,
+        qnu_severo: elem.qnu_severo,
+        qnu_critical: elem.qnu_critical,
+        des_proccomu: elem.des_proccomu
+      });
+      this.bbddB.push(formTewokmbds);
+    }
+    
+    this.servidor.removeAt(0);
+    for (let elem of data.tewokwebs) {
+      let formTewokwebs = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        xti_serviapl: elem.xti_serviapl,
+        des_instaweb: elem.des_instaweb,
+        des_proccomu: elem.des_proccomu
+      });
+      this.servidor.push(formTewokwebs);
+    }
+    
+    this.ficheros.removeAt(0);
+    for (let elem of data.tewoktfis) {
+      let formTewoktfis = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        des_maqori: elem.des_maqori,
+        des_scriptor: elem.des_scriptor,
+        des_fichentr: elem.des_fichentr,
+        des_maqdest: elem.des_maqdest,
+        des_scriptde: elem.des_scriptde,
+        des_fichdest: elem.des_fichdest,
+        des_proccomu: elem.des_proccomu
+      });
+      this.ficheros.push(formTewoktfis);
+    }
+    
+    this.backups.removeAt(0);
+    for (let elem of data.tewokbcks) {
+      let formTewokbcks = this.fb.group({
+        cod_aplicaci: elem.id.cod_aplicaci,
+        cod_planuuaa: elem.id.cod_planuuaa,
+        cod_secuuaa: elem.id.cod_secuuaa,        
+        aud_timcrea: elem.aud_timcrea,
+        aud_timmodif: elem.aud_timmodif,
+        aud_usuario: elem.aud_usuario,
+        cod_autouni: elem.cod_autouni,
+        
+        xti_gestbbdd: elem.xti_gestbbdd,
+        xti_backup: elem.xti_backup,
+        xti_periodo: elem.xti_periodo,
+        des_ciclovid: elem.des_ciclovid
+      });
+      this.backups.push(formTewokbcks);
+    }
+    
+    // Se desactiva o no el formulario en función de la petición
+//    this.altaAppsForm.get('cod_aplicaci').disable();
+    if (!this.showAlta) {
+      this.altaAppsForm.disable();
+    }
+        
+  }
+  
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  /*                            METODOS COMUNES USADOS EN EL COMPONENTE                            */
+  /* ********************************************************************************************* */
+  /* ********************************************************************************************* */
+  goBack(): void {
+    this.location.back();
+  }
+  
+  download() {
+    let pdf = new jsPDF('l', 'pt', 'a4');
+    let options = {
+      pagesplit: true,
+      background: '#fff'
+    };  
+    
+    pdf.addHTML(this.el.nativeElement, 0, 0, options, () => {
+      pdf.save(this.altaAppsForm.get('cod_aplicaci').value + ".pdf");
+    });
+  }
+  
 }
