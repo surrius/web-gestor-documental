@@ -1,181 +1,227 @@
+<!-- ****************		VENTANA MODAL PARA LA MODIFICACION MASIVA DEL GRUPO DE SOPORTE		**************** -->
+<app-busca-grupo-soporte></app-busca-grupo-soporte>
+
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
 <br>
-<div class="row">
-	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-1 pull-right mini-circular">
+				<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+		</div>
+		<div class="col-xs-1 pull-right mini-circular">
+				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+		</div>
 	</div>
-	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
-	</div>
-</div>
-<div id="areaBusca">
-	<br>
-	<form id="buscaJobsForm" name="buscaJobsForm" (ngSubmit)="onSubmit()" #buscaJobsForm="ngForm">
-		<fieldset id="fieldBusca">
-			<legend class="text-muted"> Rellene los campos de la consulta </legend>
-			<div class="row form-group form-group-sm">
-				<!-- NOMBRE -->
-				<div class="col-sm-3">
-					<label for="busca_des_refdocjb">Nombre</label> 
-					<input type="text" class="form-control" id="busca_des_refdocjb"
-						[(ngModel)]="jobs.des_refdocjb" name="busca_des_refdocjb" #busca_des_refdocjb="ngModel">
-				</div>
-				
-				<!-- JOBNAME -->
-				<div class="col-sm-3">
-					<label for="busca_des_nombrjob">Jobname</label> 
-					<input type="text" class="form-control" id="busca_des_nombrjob"
-						[(ngModel)]="jobs.des_nombrjob" name="busca_des_nombrjob" #busca_des_nombrjob="ngModel">
-				</div>
-				
-				<!-- GRUPO DE SOPORTE -->
-				<div class="col-sm-3">
-					<label for="busca_des_gsoporte">Grupo de Soporte</label>
-					<select class="form-control" id="busca_des_gsoporte"
-						[(ngModel)]="jobs.des_gsoporte" name="busca_des_gsoporte" #busca_des_gsoporte="ngModel">
-						<option *ngFor="let grupo of grupo_soporte" [value]="grupo">{{grupo}}</option>
-					</select>
-				</div>
-				
-				<!-- APLICACION UUAA -->
-				<div class="col-sm-3">
-					<label for="cod_aplicaci">Cod.Aplicaci&oacute;n - UUAA</label> 
-					<input type="text" class="form-control" id="cod_aplicaci"
-						[(ngModel)]="jobs?.id.cod_aplicaci" name="cod_aplicaci" #cod_aplicaci="ngModel">
-				</div>
-			</div>
-			<div *ngIf="!masCampos">
-				<a (click)="toogleCampos()" style="cursor: pointer;"> 
-					Mostrar mas campos de b&uacute;squeda + 
-				</a>
-			</div>
-			<div *ngIf="masCampos">
+	<div id="areaBusca">
+		<br>
+		<form id="buscaJobsForm" name="buscaJobsForm" (ngSubmit)="onSubmit()" #buscaJobsForm="ngForm">
+			<fieldset id="fieldBusca">
+				<legend class="text-muted"> Rellene los campos de la consulta </legend>
 				<div class="row form-group form-group-sm">
-					<!-- LIBRERIA DE ORIGEN -->
+					<!-- Documento -->
 					<div class="col-sm-3">
-						<label for="busca_des_libreori">Libreria de origen</label>
-						<input type="text" class="form-control" id="busca_des_libreori"
-							[(ngModel)]="jobs.des_libreori" name="busca_des_libreori" #busca_des_libreori="ngModel">
+						<label for="busca_des_refdocjb">Documento</label> 
+						<input type="text" class="form-control" id="busca_des_refdocjb"
+							[(ngModel)]="jobs.des_refdocjb" name="busca_des_refdocjb" #busca_des_refdocjb="ngModel">
 					</div>
 					
-					<!-- ESTRUCTURA -->
+					<!-- JOBNAME -->
 					<div class="col-sm-3">
-						<label for="busca_des_estrupl">Estructura</label>
-						<input type="text" class="form-control" id="busca_des_estrupl"
-							[(ngModel)]="jobs.des_estrupl" name="busca_des_estrupl" #busca_des_estrupl="ngModel">
+						<label for="busca_des_nombrjob">Jobname</label> 
+						<input type="text" class="form-control" id="busca_des_nombrjob"
+							[(ngModel)]="jobs.des_nombrjob" name="busca_des_nombrjob" #busca_des_nombrjob="ngModel">
 					</div>
 					
-					<!-- PERIODICIDAD -->
+					<!-- GRUPO DE SOPORTE -->
 					<div class="col-sm-3">
-						<label for="busca_des_periojob">Reglas de Planificaci&oacute;n/Periodicidad</label>
-						<input type="text" class="form-control" id="busca_des_periojob"
-							[(ngModel)]="jobs.des_periojob" name="busca_des_periojob" #busca_des_periojob="ngModel">
+						<label>Grupo de Soporte</label>
+						<div (click)="setOrigen('busca')" class="input-group" style="cursor: pointer;" data-toggle="modal" data-target="#modMasivaGSoporte">
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-search"></span>
+							</span>
+							<input type="text" class="form-control" id="busca_des_gsoporte" value="{{buscaGRS.seleccionBusca}}" [readOnly]="true"
+								[(ngModel)]="jobs.des_gsoporte" name="busca_des_gsoporte" #busca_des_gsoporte="ngModel">
+						</div>
 					</div>
 					
-					<!-- MAQUINA DE EJECUCION -->
+					<!-- APLICACION UUAA -->
 					<div class="col-sm-3">
-						<label for="busca_des_maqeje">M&aacute;quina de ejecuci&oacute;n</label> 
-						<input type="text" class="form-control" id="busca_des_maqeje"
-							[(ngModel)]="jobs.des_maqeje" name="busca_des_maqeje" #busca_des_maqeje="ngModel">
-					</div>				
+						<label for="cod_aplicaci">Cod.Aplicaci&oacute;n - UUAA</label> 
+						<input type="text" class="form-control" id="cod_aplicaci"
+							[(ngModel)]="jobs?.id.cod_aplicaci" name="cod_aplicaci" #cod_aplicaci="ngModel">
+					</div>
 				</div>
+				<div *ngIf="!masCampos">
+					<a (click)="toogleCampos()" style="cursor: pointer;"> 
+						Mostrar mas campos de b&uacute;squeda + 
+					</a>
+				</div>
+				<div *ngIf="masCampos">
+					<div class="row form-group form-group-sm">
+						<!-- LIBRERIA DE ORIGEN -->
+						<div class="col-sm-3">
+							<label for="busca_des_libreori">Libreria de origen</label>
+							<input type="text" class="form-control" id="busca_des_libreori"
+								[(ngModel)]="jobs.des_libreori" name="busca_des_libreori" #busca_des_libreori="ngModel">
+						</div>
+						
+						<!-- ESTRUCTURA -->
+						<div class="col-sm-3">
+							<label for="busca_des_estrupl">Estructura</label>
+							<input type="text" class="form-control" id="busca_des_estrupl"
+								[(ngModel)]="jobs.des_estrupl" name="busca_des_estrupl" #busca_des_estrupl="ngModel">
+						</div>
+						
+						<!-- PERIODICIDAD -->
+						<div class="col-sm-3">
+							<label for="busca_des_periojob">Reglas de Planificaci&oacute;n/Periodicidad</label>
+							<input type="text" class="form-control" id="busca_des_periojob"
+								[(ngModel)]="jobs.des_periojob" name="busca_des_periojob" #busca_des_periojob="ngModel">
+						</div>
+						
+						<!-- MAQUINA DE EJECUCION -->
+						<div class="col-sm-3">
+							<label for="busca_des_maqeje">M&aacute;quina de ejecuci&oacute;n</label> 
+							<input type="text" class="form-control" id="busca_des_maqeje"
+								[(ngModel)]="jobs.des_maqeje" name="busca_des_maqeje" #busca_des_maqeje="ngModel">
+						</div>				
+					</div>
+					<div class="row form-group form-group-sm">
+						<!-- MAQUINA DE ORIGEN -->
+						<div class="col-sm-3">
+							<label for="busca_des_maqori">Maquina origen</label> 
+							<input type="text" class="form-control" id="busca_des_maqori"
+								[(ngModel)]="jobs.des_maqori" name="busca_des_maqori" #busca_des_maqori="ngModel">
+						</div>
+					</div>
+					<a (click)="toogleCampos()" style="cursor: pointer;">
+						Mostrar menos campos de b&uacute;squeda - 
+					</a>
+				</div>
+				<br>
+				<!-- BOTONERA DEL FORMULARIO -->
 				<div class="row form-group form-group-sm">
-					<!-- MAQUINA DE ORIGEN -->
-					<div class="col-sm-3">
-						<label for="busca_des_maqori">Maquina origen</label> 
-						<input type="text" class="form-control" id="busca_des_maqori"
-							[(ngModel)]="jobs.des_maqori" name="busca_des_maqori" #busca_des_maqori="ngModel">
+					<div class="col-sm-2">
+						<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
+	<!-- 					<button type="reset" class="pull-left btn btn-primary">Limpiar</button> -->
+					</div>
+					<div class="col-sm-offset-8 col-sm-2">
+						<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success">Buscar</button>
 					</div>
 				</div>
-				<a (click)="toogleCampos()" style="cursor: pointer;">
-					Mostrar menos campos de b&uacute;squeda - 
-				</a>
+			</fieldset>
+		</form>
+		<br>
+	<!-- 	<div *ngIf="jobs_res" class="row"> -->
+	<!-- 		<div class="col-sm-2"> -->
+	<!-- 			<button [disabled]="selected.length < 1" type="button" class="pull-left btn btn-success" data-toggle="modal" data-target="#modMasivaGSoporte">Modificar Grupo Soporte</button> -->
+	<!-- 		</div> -->
+	<!-- 		<div class="col-sm-2"> -->
+	<!-- 			<button (click)="dame()" type="button" class="pull-left btn btn-success">Mostrar</button> -->
+	<!-- 		</div> -->
+	<!-- 		<input value="{{buscaGRS.seleccion}}" [readOnly]="true" class="form-control"> -->
+	<!-- 	</div> -->
+
+		<div class="container-fluid" *ngIf="jobs_res">
+			<div class="col-xs-6">
+			<!-- <label>Modificaci&oacute;n masiva de Grupo de Soporte</label> -->
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button (click)="setOrigen('masiva')" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modMasivaGSoporte">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+					<input value="{{buscaGRS.seleccionMasiva}}" [readOnly]="true" class="form-control">
+					<span class="input-group-btn">
+						<button [disabled]="selected.length < 1 || !buscaGRS.seleccion" (click)="modMasivaGSoporte()" type="button" class="btn btn-primary">
+							<span class="glyphicon glyphicon-pencil"> Modificar</span>
+						</button>
+					</span>
+				</div>
 			</div>
+			<div class="col-xs-4">
+				<button (click)="borradoMasivo()" [disabled]="selected.length < 1" type="button" class="btn btn-danger">
+					<span class="glyphicon glyphicon-trash"></span>
+					    Borrado masivo
+				</button>
+			</div>	
 			<br>
-			<!-- BOTONERA DEL FORMULARIO -->
-			<div class="row form-group form-group-sm">
-				<div class="col-sm-2">
-					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
-<!-- 					<button type="reset" class="pull-left btn btn-primary">Limpiar</button> -->
-				</div>
-				<div class="col-sm-offset-8 col-sm-2">
-					<button id="frmBuscaJobBtnBusca" type="submit" class="pull-right btn btn-success" [disabled]="!buscaJobsForm.form.dirty">Buscar</button>
-				</div>
-			</div>
-		</fieldset>
-	</form>
+		</div>
+		<br>
+		<!-- TABLA DE RESULTADOS DE BÚSQUEDA -->
+		<div *ngIf="jobs_res">
+			<ngx-datatable
+				class="material striped"
+				[rows]="jobs_res"
+				[columnMode]="'standard'"
+				[scrollbarH]="true"
+				[headerHeight]="50"
+				[footerHeight]="50"
+				[rowHeight]="'auto'"
+				[reorderable]="reorderable"
+				[limit]="10"
+				[selected]="selected"
+	          	[selectionType]="'checkbox'"
+	          	(activate)="onActivate($event)"
+	          	(select)='onSelect($event)'>
+				<ngx-datatable-column 
+					[frozenLeft]="true"
+		            [width]="30"
+		            [sortable]="false"
+		            [canAutoResize]="false"
+		            [draggable]="false"
+		            [resizeable]="false"
+		            [headerCheckboxable]="true"
+		            [checkboxable]="true">
+	          	</ngx-datatable-column>
+				<ngx-datatable-column
+					[frozenLeft]="true"
+		            [width]="100"
+		            [sortable]="false"
+		            [canAutoResize]="false"
+		            [draggable]="false"
+		            [resizeable]="false"
+		            [headerCheckboxable]="false"
+		            [checkboxable]="false">
+		            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+	            		<i (click)="consulta(row)" title="Consultar" class="color-iconos glyphicon glyphicon-eye-open"></i>
+	            		<i (click)="modificacion(row)" title="Modificar" class="color-iconos glyphicon glyphicon-pencil"></i>
+	            		<i (click)="copiar(row)" title="Copiar" class="color-iconos glyphicon glyphicon-duplicate"></i>
+	            		<i (click)="elimina(row)" title="Borrar" class="color-iconos glyphicon glyphicon-trash"></i>
+	          		</ng-template>
+	          	</ngx-datatable-column>
+				<ngx-datatable-column name="Jobname" prop="des_nombrjob">
+	          		<ng-template let-value="value" ngx-datatable-cell-template>
+	            		<strong>{{value}}</strong>
+	          		</ng-template>
+	        	</ngx-datatable-column>
+	        	<ngx-datatable-column name="Documento" prop="des_refdocjb">
+	        	</ngx-datatable-column>
+	        	<ngx-datatable-column name="UUAA" prop="id.cod_aplicaci"> 
+	        	</ngx-datatable-column>
+	        	<ngx-datatable-column name="Grupo Soporte" prop="des_gsoporte"> 
+	        	</ngx-datatable-column>
+	        	<ngx-datatable-column name="M&aacute;quina Origen" prop="des_maqori"> 
+	        	</ngx-datatable-column>
+	        	<ngx-datatable-column name="Librer&iacute;a Origen" prop="des_libreori"> 
+	        	</ngx-datatable-column>
+	        	<ngx-datatable-column name="Estructura" prop="des_estrupl"> 
+	        	</ngx-datatable-column>
+	        	<ngx-datatable-column name="Periodicidad" prop="des_periojob"> 
+	        	</ngx-datatable-column>
+			</ngx-datatable>
+		</div>
+	</div>
 	<br>
-	<!-- TABLA DE RESULTADOS DE BÚSQUEDA -->
-	<div *ngIf="jobs_res">
-		<ngx-datatable
-			class="material striped"
-			[rows]="jobs_res"
-			[columnMode]="'standard'"
-			[scrollbarH]="true"
-			[headerHeight]="50"
-			[footerHeight]="50"
-			[rowHeight]="'auto'"
-			[reorderable]="reorderable"
-			[limit]="10"
-			[selected]="selected"
-          	[selectionType]="'checkbox'"
-          	(activate)="onActivate($event)"
-          	(select)='onSelect($event)'>
-			<ngx-datatable-column 
-				[frozenLeft]="true"
-	            [width]="30"
-	            [sortable]="false"
-	            [canAutoResize]="false"
-	            [draggable]="false"
-	            [resizeable]="false"
-	            [headerCheckboxable]="true"
-	            [checkboxable]="true">
-          	</ngx-datatable-column>
-			<ngx-datatable-column
-				[frozenLeft]="true"
-	            [width]="100"
-	            [sortable]="false"
-	            [canAutoResize]="false"
-	            [draggable]="false"
-	            [resizeable]="false"
-	            [headerCheckboxable]="false"
-	            [checkboxable]="false">
-	            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-            		<i (click)="consulta(row)" class="color-iconos glyphicon glyphicon-eye-open"></i>
-            		<i (click)="elimina(row)" class="color-iconos glyphicon glyphicon-trash"></i>
-          		</ng-template>
-          	</ngx-datatable-column>
-			<ngx-datatable-column name="Nombre Job" prop="des_nombrjob">
-          		<ng-template let-value="value" ngx-datatable-cell-template>
-            		<strong>{{value}}</strong>
-          		</ng-template>
-        	</ngx-datatable-column>
-        	<ngx-datatable-column name="Documento" prop="des_refdocjb">
-        	</ngx-datatable-column>
-        	<ngx-datatable-column name="UUAA" prop="id.cod_aplicaci"> 
-        	</ngx-datatable-column>
-        	<ngx-datatable-column name="Grupo Soporte" prop="des_gsoporte"> 
-        	</ngx-datatable-column>
-        	<ngx-datatable-column name="M&aacute;quina Origen" prop="des_maqori"> 
-        	</ngx-datatable-column>
-        	<ngx-datatable-column name="Librer&iacute;a Origen" prop="des_libreori"> 
-        	</ngx-datatable-column>
-        	<ngx-datatable-column name="Estructura" prop="des_estrupl"> 
-        	</ngx-datatable-column>
-        	<ngx-datatable-column name="Periodicidad" prop="des_periojob"> 
-        	</ngx-datatable-column>
-		</ngx-datatable>
-	</div>
-</div>
-<br>
-<div class="row">
-	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
-	</div>
-	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	<div class="row">
+		<div class="col-xs-1 pull-right mini-circular">
+				<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
+		</div>
+		<div class="col-xs-1 pull-right mini-circular">
+				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+		</div>
 	</div>
 </div>
 <br>

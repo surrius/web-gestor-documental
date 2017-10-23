@@ -1,0 +1,35 @@
+<div class="modal fade" id="modMasivaGSoporte" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Selecci&oacute;n de Grupo de Soporte disponible</h4>
+			</div>
+			<div class="modal-body">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-search"></span>
+					</span>
+					<input #searchBox id="search-box" class="mayusculas form-control input-lg" 
+						placeholder="Teclee Grupo de Soporte a buscar" (keyup)="search(searchBox.value)"/>
+				</div>
+				<br>
+				<div class="input-group">
+					<span class="input-group-addon seleccionado">Seleccionado:</span>
+					<input class="mayusculas form-control" [readOnly]="true" value="{{seleccion}}"/>
+				</div>
+				<br>
+				<ul id="myUL" class="contenedor" *ngIf="grupo_soporte_ob">
+				  <li *ngFor="let grupo of grupo_soporte_ob | async">
+				    <a (click)="asigna(grupo, searchBox)">{{grupo}}</a>
+				  </li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal"><strong>Cerrar</strong></button>
+			</div>
+		</div>
+	</div>
+</div>

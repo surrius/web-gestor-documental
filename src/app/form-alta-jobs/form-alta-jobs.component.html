@@ -1,178 +1,263 @@
+<!-- ****************		VENTANA MODAL PARA LA MODIFICACION MASIVA DEL GRUPO DE SOPORTE		**************** -->
+<app-busca-grupo-soporte></app-busca-grupo-soporte>
+
 <!--					****************		FORMULARIO DE ALTA/MODIFICACION	DE JOBS		**************** 						-->
 <!--	El modelo de formulario usado para esta parte de la página es el Reactive Form, es decir, los controles y validaciones se 
 		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
 		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
 <br>
-<div class="row">
-	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-1 pull-right mini-circular">
+				<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
+		</div>
+		<div class="col-xs-1 pull-right mini-circular">
+				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+		</div>
 	</div>
-	<div class="col-xs-1 pull-right mini-circular">
-			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	<div class="row form-group form-group-sm" *ngIf="!showAlta">
+		<div class="col-sm-3">
+			<button type="button" class="pull-left btn btn-primary" (click)="download()">Exportar a PDF</button>
+		</div>
 	</div>
-</div>
-<div class="row form-group form-group-sm" *ngIf="!showAlta">
-	<div class="col-sm-3">
-		<button type="button" class="pull-left btn btn-primary" (click)="download()">Exportar a PDF</button>
-	</div>
-</div>
-<div id="areaAlta" #printPDF>
-	<div>
-		<h3 class="titulo-form-alta">{{titulo}}{{nombreJob_tit.value}}</h3>
-	</div>
-	<br>
-	<form id="altaJobsForm" name="altaJobsForm" [formGroup]="altaJobsForm" (ngSubmit)="onSubmit()" novalidate>
-		<!-- Campos ocultos -->
-		<input type="hidden" formControlName="cod_jobpl">
-		<input type="hidden" formControlName="aud_timcrea">
-		<input type="hidden" formControlName="aud_timmodif">
-		<input type="hidden" formControlName="aud_usuario">
-		<input type="hidden" formControlName="cod_autouni">
-		<fieldset>
-			<legend class="text-muted">
-				Datos del Script:
-			</legend>
-			<div class="row form-group form-group-sm">			
-				<!-- JOBNAME -->
-				<div class="col-sm-4">
-					<label for="des_nombrjob">JobName</label> 
-					<input type="text" class="form-control" #nombreJob_tit id="des_nombrjob" name="des_nombrjob" formControlName="des_nombrjob">
-					 
-					<small class="text-danger" 
-						*ngIf="altaJobsForm.get('des_nombrjob').invalid && (altaJobsForm.get('des_nombrjob').dirty || altaJobsForm.get('des_nombrjob').touched)">
-						Campo obligatorio de al menos 8 caracteres
-					</small>
-				</div>
-				
-				<!-- NOMBRE DOCUMENTO-->
-				<div class="col-sm-4">
-					<label for="des_refdocjb">Nombre del Documento</label> 
-					<input type="text" class="form-control" id="des_refdocjb" name="des_refdocjb" formControlName="des_refdocjb">
-				
-					<small class="text-danger" 
-						*ngIf="altaJobsForm.get('des_refdocjb').invalid && (altaJobsForm.get('des_refdocjb').dirty || altaJobsForm.get('des_refdocjb').touched)">
-						Campo obligatorio de al menos 8 caracteres
-					</small>
-				</div>
-				
-				<!-- COD. APLICACION (UUAA) -->
-				<div class="col-sm-3">
-					<label for="cod_aplicaci">Cod.Aplicaci&oacute;n - UUAA</label> 
-					<input type="text" class="form-control" id="cod_aplicaci" name="cod_aplicaci" maxlength="4" formControlName="cod_aplicaci">
-					 
-					<small class="text-danger" 
-						*ngIf="altaJobsForm.get('cod_aplicaci').invalid && (altaJobsForm.get('cod_aplicaci').dirty || altaJobsForm.get('cod_aplicaci').touched)">
-						Campo obligatorio de 4 caracteres
-					</small>
-				</div>
-			</div>
-			<div class="row form-group form-group-sm">
-				<!-- GRUPO DE SOPORTE -->
-				<div class="col-sm-4">
-					<label for="des_gsoporte">Grupo de Soporte</label>
-					<select class="form-control" id="des_gsoporte" name="des_gsoporte" formControlName="des_gsoporte">  
-						<option *ngFor="let grupo of grupo_soporte" [value]="grupo">{{grupo}}</option>	
-					</select>
-					<small class="text-danger" 
-						*ngIf="altaJobsForm.get('des_gsoporte').invalid && (altaJobsForm.get('des_gsoporte').dirty || altaJobsForm.get('des_gsoporte').touched)">
-						Seleccione una opci&oacute;n v&aacute;lida
-					</small>
-				</div>
-				
-				<!-- MAQUINA DE ORIGEN -->
-				<div class="col-sm-4">
-					<label for="des_maqori">M&aacute;quina origen</label> 
-					<input type="text" class="form-control" id="des_maqori" name="des_maqori" formControlName="des_maqori">
-				</div>
-				
-				<!-- LIBRERIA DE ORIGEN -->
-				<div class="col-sm-4">
-					<label for="des_libreori">Librer&iacute;a origen</label> 
-					<input type="text" class="form-control" id="des_libreori" name="des_libreori" formControlName="des_libreori">
+	<div id="areaAlta" #printPDF>
+		<div>
+			<h3 class="titulo-form-alta">{{titulo}}{{nombreJob_tit.value}}</h3>
+		</div>
+		<br>
+		<form id="altaJobsForm" name="altaJobsForm" [formGroup]="altaJobsForm" (ngSubmit)="onSubmit()" novalidate>
+			<!-- Campos ocultos -->
+			<input type="hidden" formControlName="cod_jobpl">
+			<input type="hidden" formControlName="aud_timcrea">
+			<input type="hidden" formControlName="aud_timmodif">
+			<input type="hidden" formControlName="aud_usuario">
+			<input type="hidden" formControlName="cod_autouni">
+			<fieldset>
+				<legend class="text-muted">
+					Datos del Script:
+				</legend>
+				<div class="row form-group form-group-sm">			
+					<!-- JOBNAME -->
+					<div class="col-sm-4">
+						<label for="des_nombrjob">JobName</label> 
+						<input type="text" class="form-control" #nombreJob_tit id="des_nombrjob" name="des_nombrjob" formControlName="des_nombrjob">
+						 
+						<small class="text-danger" 
+							*ngIf="altaJobsForm.get('des_nombrjob').invalid && (altaJobsForm.get('des_nombrjob').dirty || altaJobsForm.get('des_nombrjob').touched)">
+							Campo obligatorio de al menos 8 caracteres
+						</small>
+					</div>
 					
-					<small class="text-danger" 
-						*ngIf="altaJobsForm.get('des_libreori').invalid && (altaJobsForm.get('des_libreori').dirty || altaJobsForm.get('des_libreori').touched)">
-						Campo obligatorio
-					</small>
+					<!-- NOMBRE DOCUMENTO-->
+					<div class="col-sm-4">
+						<label for="des_refdocjb">Nombre del Documento</label> 
+						<input type="text" class="form-control" id="des_refdocjb" name="des_refdocjb" formControlName="des_refdocjb">
+					
+						<small class="text-danger" 
+							*ngIf="altaJobsForm.get('des_refdocjb').invalid && (altaJobsForm.get('des_refdocjb').dirty || altaJobsForm.get('des_refdocjb').touched)">
+							Campo obligatorio de al menos 8 caracteres
+						</small>
+					</div>
+					
+					<!-- COD. APLICACION (UUAA) -->
+					<div class="col-sm-3">
+						<label for="cod_aplicaci">Cod.Aplicaci&oacute;n - UUAA</label> 
+						<input type="text" class="form-control" id="cod_aplicaci" name="cod_aplicaci" maxlength="4" formControlName="cod_aplicaci">
+						 
+						<small class="text-danger" 
+							*ngIf="altaJobsForm.get('cod_aplicaci').invalid && (altaJobsForm.get('cod_aplicaci').dirty || altaJobsForm.get('cod_aplicaci').touched)">
+							Campo obligatorio de 4 caracteres
+						</small>
+					</div>
 				</div>
-			</div>
-			
-			<div class="row form-group form-group-sm">
-				<!-- DESCRIPCION -->
-				<div class="col-sm-12">
-					<label for="des_desjobpl">Descripci&oacute;n</label>
-					<textarea rows="5" class="form-control" id="des_desjobpl" name="des_desjobpl" formControlName="des_desjobpl">
- 					</textarea>
+				<div class="row form-group form-group-sm">
+					<!-- GRUPO DE SOPORTE -->
+					<div class="col-sm-4">
+						<label for="des_gsoporte">Grupo de Soporte</label>
+						<div class="input-group">
+							<span *ngIf="showAlta" (click)="setOrigen('alta')" class="input-group-addon"  style="cursor: pointer;" data-toggle="modal" data-target="#modMasivaGSoporte">
+								<span class="glyphicon glyphicon-search"></span>
+							</span>
+							<input type="text" class="form-control" id="des_gsoporte" name="des_gsoporte" 
+								value="{{buscaGRS.seleccionAlta}}" [readOnly]="true" formControlName="des_gsoporte">
+						</div>
+						<!-- <select class="form-control" id="des_gsoporte" name="des_gsoporte" formControlName="des_gsoporte">  
+							<option *ngFor="let grupo of grupo_soporte" [value]="grupo">{{grupo}}</option>	
+						</select> -->
+						<!-- <small class="text-danger" 
+							*ngIf="altaJobsForm.get('des_gsoporte').invalid && (altaJobsForm.get('des_gsoporte').dirty || altaJobsForm.get('des_gsoporte').touched)">
+							Seleccione una opci&oacute;n v&aacute;lida
+						</small> -->
+
+						<!-- <div class="col-sm-3">
+							<label>Grupo de Soporte</label>
+							<div (click)="setOrigen('busca')" class="input-group" style="cursor: pointer;" data-toggle="modal" data-target="#modMasivaGSoporte">
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-search"></span>
+								</span>
+								<input type="text" class="form-control" id="busca_des_gsoporte" value="{{buscaGRS.seleccionBusca}}" [readOnly]="true"
+									[(ngModel)]="jobs.des_gsoporte" name="busca_des_gsoporte" #busca_des_gsoporte="ngModel">
+							</div>
+						</div> -->
+					</div>
+					
+					<!-- MAQUINA DE ORIGEN -->
+					<div class="col-sm-4">
+						<label for="des_maqori">M&aacute;quina origen</label> 
+						<input type="text" class="form-control" id="des_maqori" name="des_maqori" formControlName="des_maqori">
+					</div>
+					
+					<!-- LIBRERIA DE ORIGEN -->
+					<div class="col-sm-4">
+						<label for="des_libreori">Librer&iacute;a origen</label> 
+						<input type="text" class="form-control" id="des_libreori" name="des_libreori" formControlName="des_libreori">
+						
+						<small class="text-danger" 
+							*ngIf="altaJobsForm.get('des_libreori').invalid && (altaJobsForm.get('des_libreori').dirty || altaJobsForm.get('des_libreori').touched)">
+							Campo obligatorio
+						</small>
+					</div>
 				</div>
-			</div>
 				
-			<div class="row form-group form-group-sm">
-				<!-- PERIODICIDAD -->
-				<div class="col-sm-12">
-					<label for="des_periojob">Reglas de Planificaci&oacute;n/Periodicidad</label>
-					<textarea rows="2" class="form-control" id="des_periojob" name="des_periojob" formControlName="des_periojob">
- 					</textarea>
+				<div class="row form-group form-group-sm">
+					<!-- DESCRIPCION -->
+					<div class="col-sm-12">
+						<label for="des_desjobpl">Descripci&oacute;n</label>
+						<textarea rows="5" class="form-control" id="des_desjobpl" name="des_desjobpl" formControlName="des_desjobpl">
+	 					</textarea>
+					</div>
 				</div>
-			</div>
-			
-			<div class="row form-group form-group-sm">
-				<!-- ESTRUCTURA -->
-				<div class="col-sm-4">
-					<label for="des_estrupl">Estructura</label> 
-					<input type="text" class="form-control" id="des_estrupl" name="des_estrupl" formControlName="des_estrupl">
+					
+				<div class="row form-group form-group-sm">
+					<!-- PERIODICIDAD -->
+					<div class="col-sm-12">
+						<label for="des_periojob">Reglas de Planificaci&oacute;n/Periodicidad</label>
+						<textarea rows="2" class="form-control" id="des_periojob" name="des_periojob" formControlName="des_periojob">
+	 					</textarea>
+					</div>
 				</div>
 				
-				<!-- MAQUINA DE EJECUCION -->
-				<div class="col-sm-4">
-					<label for="des_maqeje">M&aacute;quina de ejecuci&oacute;n</label> 
-					<input type="text" class="form-control" id="des_maqeje" name="des_maqeje" formControlName="des_maqeje">
+				<div class="row form-group form-group-sm">
+					<!-- ESTRUCTURA -->
+					<div class="col-sm-4">
+						<label for="des_estrupl">Estructura</label> 
+						<input type="text" class="form-control" id="des_estrupl" name="des_estrupl" formControlName="des_estrupl">
+					</div>
+					
+					<!-- MAQUINA DE EJECUCION -->
+					<div class="col-sm-4">
+						<label for="des_maqeje">M&aacute;quina de ejecuci&oacute;n</label> 
+						<input type="text" class="form-control" id="des_maqeje" name="des_maqeje" formControlName="des_maqeje">
+					</div>
 				</div>
-			</div>
+				<br>
+				<div class="row form-group form-group-sm">
+					<!-- CRITICIDAD -->
+					<div class="col-sm-4">
+						<label for="des_estrupl">Criticidad</label>
+						<select class="form-control" id="xti_critijob" name="xti_critijob" formControlName="xti_critijob">  
+							<option *ngFor="let criti of criticidad" [value]="criti[0]">{{criti[1]}}</option>
+						</select> 
+						<small class="text-danger" 
+							*ngIf="altaJobsForm.get('xti_critijob').invalid && (altaJobsForm.get('xti_critijob').dirty || altaJobsForm.get('xti_critijob').touched)">
+							Seleccione una opci&oacute;n v&aacute;lida
+						</small>
+					</div>
+					<!-- TABLA DE LOS CAMPOS USADOS PARA GENERAR LA TABLA DE CRITICIDAD -->
+					<div formArrayName="jobsCriticidad" class="col-sm-6">			
+						<table id="jobsDescCriticidad" class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th class="col-sm-4">TIPO ACCION</th>
+									<th class="col-sm-2">COD.ERROR</th>
+									<th class="col-sm-4">IGUALDAD</th>
+									<th class="col-sm-2 celda-vacia"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let elem of jobsCriticidad.controls; let x=index" [formGroupName]="x">
+									<td>
+										<select class="form-control" id="xti_accion" name="xti_accion" formControlName="xti_accion">  
+											<option *ngFor="let acc of acciones" [value]="acc[0]">{{acc[1]}}</option>
+										</select> 
+									</td>						
+									<td>
+										<input class="form-control" formControlName="cod_error">
+									</td>						
+									<td>
+										<select class="form-control" id="xti_igualdad" name="xti_igualdad" formControlName="xti_igualdad">  
+											<option *ngFor="let igual of igualdades" [value]="igual[0]">{{igual[1]}}</option>
+										</select>
+									</td>						
+									<td>
+	<!-- 									<span class="glyphicon glyphicon-remove" *ngIf="jobsCriticidad.length > 1 && showAlta" (click)="removeJobsCriticidad(x)"></span> -->
+										<span class="btn label label-danger" *ngIf="showAlta" (click)="removeJobsCriticidad(x)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+										<!-- Campos ocultos -->
+										<input type="hidden" formControlName="cod_aplicaci">
+										<input type="hidden" formControlName="cod_jobpl">
+										<input type="hidden" formControlName="aud_timcrea">
+										<input type="hidden" formControlName="aud_timmodif">
+										<input type="hidden" formControlName="aud_usuario">
+										<input type="hidden" formControlName="cod_autouni">
+									</td>						
+								</tr>
+							</tbody>
+						</table>	
+						<div *ngIf="showAlta">
+							<a (click)="addJobsCriticidad()" style="cursor: pointer;"> 
+								Crear nuevo paso de criticidad + 
+							</a>
+						</div>
+					</div>
+				</div>
+			</fieldset>
 			<br>
-			<div class="row form-group form-group-sm">
-				<!-- CRITICIDAD -->
-				<div class="col-sm-4">
-					<label for="des_estrupl">Criticidad</label>
-					<select class="form-control" id="xti_critijob" name="xti_critijob" formControlName="xti_critijob">  
-						<option *ngFor="let criti of criticidad" [value]="criti[0]">{{criti[1]}}</option>
-					</select> 
-					<small class="text-danger" 
-						*ngIf="altaJobsForm.get('xti_critijob').invalid && (altaJobsForm.get('xti_critijob').dirty || altaJobsForm.get('xti_critijob').touched)">
-						Seleccione una opci&oacute;n v&aacute;lida
-					</small>
-				</div>
-				<!-- TABLA DE LOS CAMPOS USADOS PARA GENERAR LA TABLA DE CRITICIDAD -->
-				<div formArrayName="jobsCriticidad" class="col-sm-6">			
-					<table id="jobsDescCriticidad" class="table table-striped table-bordered">
+			<fieldset>
+				<legend class="text-muted"> 
+					Descripci&oacute;n de pasos:
+				</legend>
+				<!-- TABLA DE LOS PASOS DE ENTRADA/SALIDA DE FICHEROS Y BBDD -->
+				<div formArrayName="pasos1">			
+					<table id="jobsDescPasos" class="table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th class="col-sm-4">TIPO ACCION</th>
-								<th class="col-sm-2">COD.ERROR</th>
-								<th class="col-sm-4">IGUALDAD</th>
-								<th class="col-sm-2 celda-vacia"></th>
+								<th class="col-sm-1 celda-vacia"></th>
+								<th colspan="2" class="col-sm-5">FICHEROS</th>
+								<th colspan="2" class="col-sm-5">BASE DE DATOS</th>
+								<th class="col-sm-1 celda-vacia"></th>
+							</tr>
+							<tr>
+								<th>PASOS</th>
+								<th>ENTRADA</th>
+								<th>SALIDA</th>
+								<th>ENTIDADES</th>
+								<th>TIPO DE ACCESO</th>
+								<th class="celda-vacia"></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr *ngFor="let elem of jobsCriticidad.controls; let x=index" [formGroupName]="x">
+							<tr *ngFor="let paso1 of pasos1.controls; let i=index" [formGroupName]="i">
 								<td>
-									<select class="form-control" id="xti_accion" name="xti_accion" formControlName="xti_accion">  
-										<option *ngFor="let acc of acciones" [value]="acc[0]">{{acc[1]}}</option>
-									</select> 
+									<input class="form-control" formControlName="des_paso">
 								</td>						
 								<td>
-									<input class="form-control" formControlName="cod_error">
+									<input class="form-control" formControlName="des_fichentr">
 								</td>						
 								<td>
-									<select class="form-control" id="xti_igualdad" name="xti_igualdad" formControlName="xti_igualdad">  
-										<option *ngFor="let igual of igualdades" [value]="igual[0]">{{igual[1]}}</option>
-									</select>
+									<input class="form-control" formControlName="des_fichsali">
 								</td>						
 								<td>
-<!-- 									<span class="glyphicon glyphicon-remove" *ngIf="jobsCriticidad.length > 1 && showAlta" (click)="removeJobsCriticidad(x)"></span> -->
-									<span class="label label-danger" *ngIf="showAlta" (click)="removeJobsCriticidad(x)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<input class="form-control" formControlName="des_entibd">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_accesbd">
+								</td>						
+								<td>
+									<span class="btn label label-danger" *ngIf="showAlta" (click)="removePaso1(i)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
 									<!-- Campos ocultos -->
 									<input type="hidden" formControlName="cod_aplicaci">
 									<input type="hidden" formControlName="cod_jobpl">
+									<input type="hidden" formControlName="cod_pasosop">
 									<input type="hidden" formControlName="aud_timcrea">
 									<input type="hidden" formControlName="aud_timmodif">
 									<input type="hidden" formControlName="aud_usuario">
@@ -182,200 +267,138 @@
 						</tbody>
 					</table>	
 					<div *ngIf="showAlta">
-						<a (click)="addJobsCriticidad()" style="cursor: pointer;"> 
-							Crear nuevo paso de criticidad + 
+						<a (click)="addPaso1()" style="cursor: pointer;"> 
+							Crear nuevo paso + 
 						</a>
 					</div>
 				</div>
+				<br>
+				<!-- TABLA DE LOS PASOS PARA LAS NORMAS DE REARRANQUE -->
+				<div formArrayName="pasos2">
+					<table id="jobsRearranques"
+						class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-1">PASO</th>
+								<th class="col-sm-3">PREDECESORES</th>
+								<th class="col-sm-3">SUCESORES</th>
+								<th class="col-sm-4">NORMAS DE REARRANQUE</th>
+								<th class="col-sm-1 celda-vacia"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let paso2 of pasos2.controls; let j=index" [formGroupName]="j">
+								<td>
+									<input class="form-control" formControlName="des_paso">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_predece">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_sucesor">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_rearra">
+								</td>						
+								<td>
+									<span class="btn label label-danger" *ngIf="showAlta" (click)="removePaso2(j)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_jobpl">
+									<input type="hidden" formControlName="cod_pasocond">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addPaso2()" style="cursor: pointer;"> 
+							Crear nuevo paso + 
+						</a>
+					</div>
+				</div>
+				<br>
+				<!-- TABLA DE LOS PASOS DE INCOMPATIBILIDADES -->
+				<div formArrayName="pasos3">
+					<table id="jobsIncompatibilidades"
+						class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-sm-1">PASO</th>
+								<th class="col-sm-7">INCOMPATIBILIDADES</th>
+								<th class="col-sm-3">CRITICIDAD</th>
+								<th class="col-sm-1 celda-vacia"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let paso3 of pasos3.controls; let k=index" [formGroupName]="k">
+								<td>
+									<input class="form-control" formControlName="des_paso">
+								</td>						
+								<td>
+									<input class="form-control" formControlName="des_incomjob">
+								</td>						
+								<td>
+									<select class="form-control" id="xti_critinco" name="xti_critinco" formControlName="xti_critinco">  
+										<option *ngFor="let criti of criticidad" [value]="criti[0]">{{criti[1]}}</option>
+									</select>
+								</td>						
+								<td>
+									<span class="btn label label-danger" *ngIf="showAlta" (click)="removePaso3(k)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
+									<!-- Campos ocultos -->
+									<input type="hidden" formControlName="cod_aplicaci">
+									<input type="hidden" formControlName="cod_jobpl">
+									<input type="hidden" formControlName="cod_pasoinc">
+									<input type="hidden" formControlName="aud_timcrea">
+									<input type="hidden" formControlName="aud_timmodif">
+									<input type="hidden" formControlName="aud_usuario">
+									<input type="hidden" formControlName="cod_autouni">
+								</td>						
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="showAlta">
+						<a (click)="addPaso3()" style="cursor: pointer;"> 
+							Crear nuevo paso + 
+						</a>
+					</div>			
+				</div>
+			</fieldset>
+			<br>
+			<div class="alert alert-danger" *ngIf="!datos_ok">
+				<p *ngFor="let msg of mensaje_err">
+					{{msg}}
+				</p>
 			</div>
-		</fieldset>
-		<br>
-		<fieldset>
-			<legend class="text-muted"> 
-				Descripci&oacute;n de pasos:
-			</legend>
-			<!-- TABLA DE LOS PASOS DE ENTRADA/SALIDA DE FICHEROS Y BBDD -->
-			<div formArrayName="pasos1">			
-				<table id="jobsDescPasos" class="table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th class="col-sm-1 celda-vacia"></th>
-							<th colspan="2" class="col-sm-5">FICHEROS</th>
-							<th colspan="2" class="col-sm-5">BASE DE DATOS</th>
-							<th class="col-sm-1 celda-vacia"></th>
-						</tr>
-						<tr>
-							<th>PASOS</th>
-							<th>ENTRADA</th>
-							<th>SALIDA</th>
-							<th>ENTIDADES</th>
-							<th>TIPO DE ACCESO</th>
-							<th class="celda-vacia"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let paso1 of pasos1.controls; let i=index" [formGroupName]="i">
-							<td>
-								<input class="form-control" formControlName="des_paso">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_fichentr">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_fichsali">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_entibd">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_accesbd">
-							</td>						
-							<td>
-								<span class="label label-danger" *ngIf="showAlta" (click)="removePaso1(i)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
-								<!-- Campos ocultos -->
-								<input type="hidden" formControlName="cod_aplicaci">
-								<input type="hidden" formControlName="cod_jobpl">
-								<input type="hidden" formControlName="cod_pasosop">
-								<input type="hidden" formControlName="aud_timcrea">
-								<input type="hidden" formControlName="aud_timmodif">
-								<input type="hidden" formControlName="aud_usuario">
-								<input type="hidden" formControlName="cod_autouni">
-							</td>						
-						</tr>
-					</tbody>
-				</table>	
-				<div *ngIf="showAlta">
-					<a (click)="addPaso1()" style="cursor: pointer;"> 
-						Crear nuevo paso + 
-					</a>
+			<!-- BOTONERA DEL FORMULARIO -->
+			<div class="row form-group form-group-sm" *ngIf="showAlta">
+				<div class="col-sm-3">
+					<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
+				</div>
+				<div class="col-sm-offset-6 col-sm-3">
+					<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success" [disabled]="!altaJobsForm.valid">Aceptar</button>
 				</div>
 			</div>
-			<br>
-			<!-- TABLA DE LOS PASOS PARA LAS NORMAS DE REARRANQUE -->
-			<div formArrayName="pasos2">
-				<table id="jobsRearranques"
-					class="table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th class="col-sm-1">PASO</th>
-							<th class="col-sm-3">PREDECESORES</th>
-							<th class="col-sm-3">SUCESORES</th>
-							<th class="col-sm-4">NORMAS DE REARRANQUE</th>
-							<th class="col-sm-1 celda-vacia"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let paso2 of pasos2.controls; let j=index" [formGroupName]="j">
-							<td>
-								<input class="form-control" formControlName="des_paso">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_predece">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_sucesor">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_rearra">
-							</td>						
-							<td>
-								<span class="label label-danger" *ngIf="showAlta" (click)="removePaso2(j)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
-								<!-- Campos ocultos -->
-								<input type="hidden" formControlName="cod_aplicaci">
-								<input type="hidden" formControlName="cod_jobpl">
-								<input type="hidden" formControlName="cod_pasocond">
-								<input type="hidden" formControlName="aud_timcrea">
-								<input type="hidden" formControlName="aud_timmodif">
-								<input type="hidden" formControlName="aud_usuario">
-								<input type="hidden" formControlName="cod_autouni">
-							</td>						
-						</tr>
-					</tbody>
-				</table>
-				<div *ngIf="showAlta">
-					<a (click)="addPaso2()" style="cursor: pointer;"> 
-						Crear nuevo paso + 
-					</a>
-				</div>
-			</div>
-			<br>
-			<!-- TABLA DE LOS PASOS DE INCOMPATIBILIDADES -->
-			<div formArrayName="pasos3">
-				<table id="jobsIncompatibilidades"
-					class="table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th class="col-sm-1">PASO</th>
-							<th class="col-sm-7">INCOMPATIBILIDADES</th>
-							<th class="col-sm-3">CRITICIDAD</th>
-							<th class="col-sm-1 celda-vacia"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let paso3 of pasos3.controls; let k=index" [formGroupName]="k">
-							<td>
-								<input class="form-control" formControlName="des_paso">
-							</td>						
-							<td>
-								<input class="form-control" formControlName="des_incomjob">
-							</td>						
-							<td>
-								<select class="form-control" id="xti_critinco" name="xti_critinco" formControlName="xti_critinco">  
-									<option *ngFor="let criti of criticidad" [value]="criti[0]">{{criti[1]}}</option>
-								</select>
-							</td>						
-							<td>
-								<span class="label label-danger" *ngIf="showAlta" (click)="removePaso3(k)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
-								<!-- Campos ocultos -->
-								<input type="hidden" formControlName="cod_aplicaci">
-								<input type="hidden" formControlName="cod_jobpl">
-								<input type="hidden" formControlName="cod_pasoinc">
-								<input type="hidden" formControlName="aud_timcrea">
-								<input type="hidden" formControlName="aud_timmodif">
-								<input type="hidden" formControlName="aud_usuario">
-								<input type="hidden" formControlName="cod_autouni">
-							</td>						
-						</tr>
-					</tbody>
-				</table>
-				<div *ngIf="showAlta">
-					<a (click)="addPaso3()" style="cursor: pointer;"> 
-						Crear nuevo paso + 
-					</a>
-				</div>			
-			</div>
-		</fieldset>
-		<br>
-		<div class="alert alert-danger" *ngIf="!datos_ok">
-			<p *ngFor="let msg of mensaje_err">
-				{{msg}}
-			</p>
-		</div>
-		<!-- BOTONERA DEL FORMULARIO -->
-		<div class="row form-group form-group-sm" *ngIf="showAlta">
-			<div class="col-sm-3">
-				<button type="button" class="pull-left btn btn-primary" (click)="limpiar()">Limpiar</button>
-			</div>
-			<div class="col-sm-offset-6 col-sm-3">
-				<button id="frmAltaBtnOK" type="submit" class="pull-right btn btn-success" [disabled]="!altaJobsForm.valid">Aceptar</button>
-			</div>
-		</div>
-		
-<!-- 		QUITAR TODO: -->
-<!-- 		<div class="margin-20"> -->
-<!--           <div>altaJobsForm details:</div> -->
-<!--           <pre>Is altaJobsForm valid?: <br>{{altaJobsForm.valid | json}}</pre> -->
-<!--           <pre>altaJobsForm value: <br>{{altaJobsForm.value | json}}</pre> -->
-<!--         </div> -->
-	</form>
-</div>
-<br>
-<div class="row">
-	<div class="col-xs-1 pull-right mini-circular">
-		<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
+			
+	<!-- 		QUITAR TODO: -->
+	<!-- 		<div class="margin-20"> -->
+	<!--           <div>altaJobsForm details:</div> -->
+	<!--           <pre>Is altaJobsForm valid?: <br>{{altaJobsForm.valid | json}}</pre> -->
+	<!--           <pre>altaJobsForm value: <br>{{altaJobsForm.value | json}}</pre> -->
+	<!--         </div> -->
+		</form>
 	</div>
-	<div class="col-xs-1 pull-right mini-circular">
-		<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+	<br>
+	<div class="row">
+		<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
+		</div>
+		<div class="col-xs-1 pull-right mini-circular">
+			<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
+		</div>
 	</div>
 </div>
 <br>

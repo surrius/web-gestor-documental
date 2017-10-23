@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
 import { routes } from './app.routes';
 //Formularios
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +34,7 @@ import { ConsultaCadenasComponent } from './consulta-cadenas/consulta-cadenas.co
 import { FormBuscaAplicacionesComponent } from './form-busca-aplicaciones/form-busca-aplicaciones.component';
 import { FormAltaAplicacionesComponent } from './form-alta-aplicaciones/form-alta-aplicaciones.component';
 import { ConsultaAplicacionesComponent } from './consulta-aplicaciones/consulta-aplicaciones.component';
+import { BuscaGrupoSoporteComponent } from './busca-grupo-soporte/busca-grupo-soporte.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { ConsultaAplicacionesComponent } from './consulta-aplicaciones/consulta-
     ConsultaCadenasComponent,
     FormBuscaAplicacionesComponent,
     FormAltaAplicacionesComponent,
-    ConsultaAplicacionesComponent
+    ConsultaAplicacionesComponent,
+    BuscaGrupoSoporteComponent
   ],
   imports: [
     BrowserModule,

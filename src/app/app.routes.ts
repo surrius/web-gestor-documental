@@ -11,15 +11,15 @@ import { ModuleWithProviders } from '@angular/core';
 
 const appRoutes: Routes = [
   { path: '', redirectTo:'/iconos-menu', pathMatch: 'full'},
-  { path: 'iconos-menu', component: IconosMenuComponent},
-  { path: 'menu-operacion', component: MenuOperacionComponent},
-  { path: 'form-busca-jobs', component: FormBuscaJobsComponent},
-  { path: 'form-alta-jobs', component: FormAltaJobsComponent},
-  { path: 'form-alta-jobs/:id', component: FormAltaJobsComponent},
-  { path: 'form-busca-cadenas', component: FormBuscaCadenasComponent},
-  { path: 'form-alta-cadenas', component: FormAltaCadenasComponent},
-  { path: 'form-busca-aplicaciones', component: FormBuscaAplicacionesComponent},
-  { path: 'form-alta-aplicaciones', component: FormAltaAplicacionesComponent},
+  { path: 'iconos-menu', component: IconosMenuComponent, data: { animation: 'iconos-menu' }},
+  { path: 'menu-operacion', component: MenuOperacionComponent, data: { animation: 'menu-operacion' }},
+  { path: 'form-busca-jobs', component: FormBuscaJobsComponent, data: { animation: 'form-busca-jobs' }},
+  { path: 'form-alta-jobs', component: FormAltaJobsComponent, data: { animation: 'form-alta-jobs' }},
+  /*{ path: 'form-alta-jobs/:id', component: FormAltaJobsComponent, data: { animation: 'form-alta-jobs/:id' }},*/
+  { path: 'form-busca-cadenas', component: FormBuscaCadenasComponent, data: { animation: 'form-busca-cadenas' }},
+  { path: 'form-alta-cadenas', component: FormAltaCadenasComponent, data: { animation: 'form-alta-cadenas' }},
+  { path: 'form-busca-aplicaciones', component: FormBuscaAplicacionesComponent, data: { animation: 'form-busca-aplicaciones' }},
+  { path: 'form-alta-aplicaciones', component: FormAltaAplicacionesComponent, data: { animation: 'form-alta-aplicaciones' }},
   { path: '**', component: IconosMenuComponent}
 ];
 

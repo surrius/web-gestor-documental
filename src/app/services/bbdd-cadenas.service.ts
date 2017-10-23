@@ -75,6 +75,17 @@ export class BbddCadenasService {
       .catch(this.handleError);
   }
 
+  //Eliminacion masiva de Cadenas
+  deleteMasivo(elemBorra): Observable<number> {
+    let cpParams = new URLSearchParams();
+    cpParams.set('borra', JSON.stringify(elemBorra));
+    let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
+    
+    return this.http.get(this.baseURL + 'borrado/masivo/cadena', options)
+      .map(success => success.status)
+      .catch(this.handleError);
+  }
+
   /* ************************************************************* */
   /* Metodos para la recuperaccion correcta y erronea de los datos */
   /* ************************************************************* */

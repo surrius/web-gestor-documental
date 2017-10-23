@@ -6,6 +6,7 @@ import * as jsPDF from 'jspdf';
 
 import { Jobs, Tewokjars, Tewokjcos, Tewokjins, Tewokjsos, JobID } from '../clases/jobs';
 import { BbddJobsService } from '../services/bbdd-jobs.service';
+import { BuscaGrupoSoporteComponent } from '../busca-grupo-soporte/busca-grupo-soporte.component';
 import { EnroutadorService } from '../services/enroutador.service';
 import { Observable } from 'rxjs';
 
@@ -20,6 +21,9 @@ export class FormAltaJobsComponent implements OnInit {
   grupo_soporte: string[] = ['', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
   @ViewChild('printPDF') el: ElementRef;
   //TODO: Fin Pruebas
+
+  // Variable que almacenara el contenido del componente BuscaGrupoSoporteComponent
+  @ViewChild(BuscaGrupoSoporteComponent) public buscaGRS: BuscaGrupoSoporteComponent;
   
   //Variables usadas para rotular el Front de la aplicacion
   titulo: string = '';
@@ -35,7 +39,7 @@ export class FormAltaJobsComponent implements OnInit {
   //Variables para informar los combos 
   criticidad: any[] = [['W','Aviso al d\u00EDa siguiente'],['S','Aviso al d\u00EDa siguiente incluso si es festivo'],['C','Aviso inmediato']];
   acciones: any[] = [['L','Liberar sucesores'],['F','Force OK'],['R','Relanzar']];
-  igualdades: any[] = [['I','Igual'],['D','Distinto']];
+  igualdades: any[] = [['I','Igual'],['D','Distinto'],['N','(Vacio)']];
   
   //Variables de validacion del formulario
   datos_ok: boolean = true;
@@ -99,16 +103,17 @@ export class FormAltaJobsComponent implements OnInit {
     let resultado: boolean = false;
     switch (oper) {
       case 'alta_nueva':
-      case 'alta_copia':
-      case 'alta_masiva':
-      case 'alta_copia_masiva':
         resultado = true;
         this.titulo = 'Alta de nuevo Job ';
         break;        
       case 'modificacion':
         resultado = true;
         this.titulo = 'Modificaci\u00F3n del Job ';
-        break;        
+        break;  
+      case 'copia':
+        resultado = true;
+        this.titulo = 'Copia de job. Nuevo: ';
+        break;       
       default:
         this.titulo = 'Consulta del Job ';
         resultado = false;
@@ -134,7 +139,7 @@ export class FormAltaJobsComponent implements OnInit {
       
       des_refdocjb: ['', [Validators.required, Validators.minLength(8)]],
       des_nombrjob: ['', [Validators.required, Validators.minLength(8)]],
-      des_gsoporte: ['', [Validators.required]],
+      des_gsoporte: [''],
       des_maqori: [''],
       des_libreori: ['', [Validators.required]],
       des_desjobpl: [''],
@@ -279,6 +284,7 @@ export class FormAltaJobsComponent implements OnInit {
   // Metodo para resetear los datos del formulario
   public limpiar() {
     this.altaJobsForm.enable();
+    this.buscaGRS.seleccionAlta = null;
     this.crearFormulario();
     //console.log('Entra en metodo limpiar');    
     //console.log("Los Jobs recuperados son: " + this.jobs_res);
@@ -300,11 +306,25 @@ export class FormAltaJobsComponent implements OnInit {
       console.log(this.jobs);
       console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.jobs));
       
-      if (this.operacion == 'modificacion') {
+      switch (this.operacion) {
+        case "modificacion":
+          this.modificaJob(this.jobs);
+          break;
+        case "copia":
+          this.altaNuevoJob(this.jobs);
+          break;        
+        default: //alta
+          this.altaJobsForm.get('des_gsoporte').setValue(this.buscaGRS.seleccionAlta);
+          this.altaNuevoJob(this.jobs);
+          break;
+      }
+
+      /*if (this.operacion == 'modificacion') {
         this.modificaJob(this.jobs);
       } else {
+        this.altaJobsForm.get('des_gsoporte').setValue(this.buscaGRS.seleccionAlta);
         this.altaNuevoJob(this.jobs);
-      }
+      }*/
       
     } else {
       alert("Errores al validar el formulario. Corregirlos para continuar");
@@ -371,8 +391,14 @@ export class FormAltaJobsComponent implements OnInit {
         tewokjins: pasos3DeepCopy
       };
       
-      return saveJob;
       
+      if (!saveJob.des_gsoporte) {
+        this.datos_ok = false;
+        this.mensaje_err.push('- No ha seleccionado ning\u00FAn Grupo de Soporte');
+      }
+
+      return saveJob;
+
     } else {
       return null;
     }
@@ -405,6 +431,9 @@ export class FormAltaJobsComponent implements OnInit {
 
       if (resultado.id.xti_igualdad != <string>"I" && resultado.id.xti_igualdad != <string>'D') {
         resultado.id.xti_igualdad = 'N';
+      }
+      if (!resultado.id.cod_error) {
+        resultado.id.cod_error = 0;
       }
       
       array_resultado.push(resultado);
@@ -633,6 +662,16 @@ export class FormAltaJobsComponent implements OnInit {
   }
   
   informaFormulario(data: Jobs) {
+    if (this.operacion == 'copia') {
+      data.id.cod_jobpl = null;
+      data.aud_timcrea = null;
+      data.aud_timmodif = null;
+      data.aud_usuario = null;
+      data.cod_autouni = null;
+      data.des_refdocjb = null;
+      data.des_nombrjob = null;
+    }
+
     this.altaJobsForm.get('cod_aplicaci').setValue(data.id.cod_aplicaci);
     this.altaJobsForm.get('cod_jobpl').setValue(data.id.cod_jobpl);
     this.altaJobsForm.get('aud_timcrea').setValue(data.aud_timcrea);
@@ -757,5 +796,10 @@ export class FormAltaJobsComponent implements OnInit {
       pdf.save(this.altaJobsForm.get('des_refdocjb').value + ".pdf");
     });
   }
+
+  setOrigen(info: string) {
+    this.buscaGRS.seleccion = '';
+    this.buscaGRS.origen = info;
+  } 
   
 }

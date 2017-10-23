@@ -97,16 +97,17 @@ export class FormAltaCadenasComponent implements OnInit {
     let resultado: boolean = false;
     switch (oper) {
       case 'alta_nueva':
-      case 'alta_copia':
-      case 'alta_masiva':
-      case 'alta_copia_masiva':
         resultado = true;
         this.titulo = 'Alta de nueva Cadena ';
         break;        
       case 'modificacion':
         resultado = true;
         this.titulo = 'Modificaci\u00F3n de Cadena ';
-        break;        
+        break;
+      case 'copia':
+        resultado = true;
+        this.titulo = 'Copia de cadena. Nueva: ';
+        break;         
       default:
         this.titulo = 'Consulta de Cadena ';
         resultado = false;
@@ -224,7 +225,7 @@ export class FormAltaCadenasComponent implements OnInit {
   prepareSaveCadena(): Cadenas {
     const formModel = this.altaCadenasForm.value;
 
-    // Mapeo manual de los campos del formulario y la clase JobsPrincipal
+    // Mapeo manual de los campos del formulario y la clase CadenaPrincipal
 //    const principalDeepCopy: CadenaPrincipal = {
 //      id: {
 //        cod_aplicaci: formModel.cod_aplicaci as string,
@@ -329,19 +330,19 @@ export class FormAltaCadenasComponent implements OnInit {
       });
   }
   
-  // Metodo que invoca al servicio para dar de modificar un Job
+  // Metodo que invoca al servicio para modificar una Cadena
   modificaCadena(cadena: Cadenas) {
     this.bbddCadenasService.updateCadena(cadena)
       .subscribe(successCode => {
         this.statusCode = +successCode;
-        console.log('Resultado Modificacion Job: ' + this.statusCode); //Cod correcto = 201
+        console.log('Resultado Modificacion Cadena: ' + this.statusCode); //Cod correcto = 201
         alert('Cadena modificada correctamente');
         this.altaCadenasForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
       },
       errorCode => {
         this.statusCode = errorCode;
-        alert('Error al modificar job.');      
+        alert('Error al modificar cadena.');      
       });
   }
   
@@ -370,7 +371,16 @@ export class FormAltaCadenasComponent implements OnInit {
   }
   
   informaFormulario(data: Cadenas) {
-    console.log(this.cadenas);
+    if (this.operacion == 'copia') {
+      data.id.cod_cadenapl = null;
+      data.aud_timcrea = null;
+      data.aud_timmodif = null;
+      data.aud_usuario = null;
+      data.cod_autouni = null;
+      data.des_cadenapl = null;
+      data.des_refdocum = null;
+    }
+
     this.altaCadenasForm.get('cod_aplicaci').setValue(data.id.cod_aplicaci);
     this.altaCadenasForm.get('cod_cadenapl').setValue(data.id.cod_cadenapl);
     this.altaCadenasForm.get('aud_timcrea').setValue(data.aud_timcrea);

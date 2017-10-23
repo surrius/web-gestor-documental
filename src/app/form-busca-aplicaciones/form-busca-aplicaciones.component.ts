@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Aplicaciones, AppID } from '../clases/aplicaciones';
 import { BbddAplicacionesService } from '../services/bbdd-aplicaciones.service';
+import { EnroutadorService } from '../services/enroutador.service';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
@@ -17,6 +18,10 @@ export class FormBuscaAplicacionesComponent implements OnInit {
   
   // Variable a la que asociamos como onjeto NgForm, el formulario de búsqueda
   @ViewChild('buscaAppsForm') formulario: NgForm;
+
+  //Variables que contendran el valor del servicio de enrutamiento
+  public documento: string;
+  public operacion: string;
   
   //Variable asociada al formulario de búsqueda
   aplicaciones = new Aplicaciones();
@@ -36,7 +41,8 @@ export class FormBuscaAplicacionesComponent implements OnInit {
  
   constructor(
     private bbddAplicacionesService: BbddAplicacionesService,
-    private router: Router
+    private router: Router,
+    private data: EnroutadorService
     ) {
     //Se inicializa el objeto interno de la cadena para que no de error TypeError por no estar
     //definida en la template (html) cuando se renderiza la página
@@ -44,6 +50,8 @@ export class FormBuscaAplicacionesComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.data.currentDocumento.subscribe(documento => this.documento = documento);
+    this.data.currentOperacion.subscribe(operacion => this.operacion = operacion);
   }
   
   //Metodo que modificara el booleano masCampos al valor contrario
@@ -56,7 +64,7 @@ export class FormBuscaAplicacionesComponent implements OnInit {
     console.log('ha pulsado en submit: ' + JSON.stringify(this.aplicaciones));
     console.log(this.aplicaciones);
     this.bdBusca(this.aplicaciones);
-    this.formulario.control.disable();
+    /*this.formulario.control.disable();*/
   }
   
   // Metodo para resetear los datos del formulario
@@ -70,14 +78,51 @@ export class FormBuscaAplicacionesComponent implements OnInit {
     this.aplicaciones.id.cod_planuuaa = null;
     this.formulario.control.enable();
   }
+
+  borradoMasivo() {
+    if (confirm("Se van a eliminar varias aplicaciones masivamente. ¿Proceder?")) {
+      class ElemBorra {
+        aplicaciones: AppID[];
+      };
+      let elemBorra = new ElemBorra();
+
+      let array_aplicaciones: AppID[] = new Array<AppID>();
+
+      for (let data of this.selected) {
+        let appID = new AppID();
+        appID.cod_aplicaci = data.id.cod_aplicaci;
+        appID.cod_planuuaa = data.id.cod_planuuaa;
+        array_aplicaciones.push(appID);
+      }
+
+      elemBorra.aplicaciones = array_aplicaciones;
+
+      console.log(JSON.stringify(elemBorra));
+      this.borradoMasivoAplicaciones(elemBorra);
+    }
+  }
   
   /* ****************************************************************** */
   /*  Métodos para las operaciones CRUD con los elementos de las tablas */
   /* ****************************************************************** */
   consulta(row) {
+    this.operacion = 'consulta';
+    this.data.changeOperacion(this.operacion);
+    this.router.navigate(['/form-alta-aplicaciones', row.id]);
+  }
+
+  modificacion(row) {
+    this.operacion = 'modificacion';
+    this.data.changeOperacion(this.operacion);
     this.router.navigate(['/form-alta-aplicaciones', row.id]);
   }
   
+  copiar(row) {
+    this.operacion = 'copia';
+    this.data.changeOperacion(this.operacion);
+    this.router.navigate(['/form-alta-aplicaciones', row.id]);
+  }
+
   elimina(row) {
     if(confirm("Se va a proceder a la eliminacion del registro. ¿Está Seguro?")) {
       console.log(row.id.cod_aplicaci + ' ' + row.id.cod_planuuaa);
@@ -107,6 +152,21 @@ export class FormBuscaAplicacionesComponent implements OnInit {
       },
       errorCode => this.statusCode = errorCode
       );
+  }
+
+  borradoMasivoAplicaciones(elemBorra) {
+    this.bbddAplicacionesService.deleteMasivo(elemBorra)
+      .subscribe(successCode => {
+        this.statusCode = +successCode;
+        console.log('Resultado borrado masivo Aplicaciones: ' + this.statusCode); //Cod correcto = 201
+        alert('Aplicaciones eliminadas correctamente');
+        this.bdBusca(this.aplicaciones);
+
+      },
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error en servidor al borrar masivamente.');      
+      });
   }
   
   /* ****************************************************************** */

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Cadenas, CdnID } from '../clases/cadenas';
 import { BbddCadenasService } from '../services/bbdd-cadenas.service';
+import { EnroutadorService } from '../services/enroutador.service';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
@@ -18,6 +19,10 @@ export class FormBuscaCadenasComponent implements OnInit {
 
   // Variable a la que asociamos como onjeto NgForm, el formulario de búsqueda
   @ViewChild('buscaCdnForm') formulario: NgForm;
+
+  //Variables que contendran el valor del servicio de enrutamiento
+  public documento: string;
+  public operacion: string;
   
   //Variable asociada al formulario de búsqueda
 //  cadenas = new CadenaPrincipal();
@@ -38,7 +43,8 @@ export class FormBuscaCadenasComponent implements OnInit {
   
   constructor(
     private bbddCadenasService: BbddCadenasService,
-    private router: Router
+    private router: Router,
+    private data: EnroutadorService
   ) {
     //Se inicializa el objeto interno de la cadena para que no de error TypeError por no estar
     //definida en la template (html) cuando se renderiza la página
@@ -46,6 +52,8 @@ export class FormBuscaCadenasComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.data.currentDocumento.subscribe(documento => this.documento = documento);
+    this.data.currentOperacion.subscribe(operacion => this.operacion = operacion);
   }
   
   //Metodo que modificara el booleano masCampos al valor contrario
@@ -58,7 +66,7 @@ export class FormBuscaCadenasComponent implements OnInit {
     console.log('ha pulsado en submit busca-cadenas: ' + JSON.stringify(this.cadenas));
     console.log(this.cadenas);
     this.bdBusca(this.cadenas);
-    this.formulario.control.disable();
+    /*this.formulario.control.disable();*/
   }
   
   // Metodo para resetear los datos del formulario
@@ -72,11 +80,48 @@ export class FormBuscaCadenasComponent implements OnInit {
     this.cadenas.id.cod_cadenapl = null;
     this.formulario.control.enable();
   }
+
+  borradoMasivo() {
+    if (confirm("Se van a eliminar varias cadenas masivamente. ¿Proceder?")) {
+      class ElemBorra {
+        cadenas: CdnID[];
+      };
+      let elemBorra = new ElemBorra();
+
+      let array_cadenas: CdnID[] = new Array<CdnID>();
+
+      for (let data of this.selected) {
+        let cdnID = new CdnID();
+        cdnID.cod_aplicaci = data.id.cod_aplicaci;
+        cdnID.cod_cadenapl = data.id.cod_cadenapl;
+        array_cadenas.push(cdnID);
+      }
+
+      elemBorra.cadenas = array_cadenas;
+
+      console.log(JSON.stringify(elemBorra));
+      this.borradoMasivoCadena(elemBorra);
+    }
+  }
   
   /* ****************************************************************** */
   /*  Métodos para las operaciones CRUD con los elementos de las tablas */
   /* ****************************************************************** */
   consulta(row) {
+    this.operacion = 'consulta';
+    this.data.changeOperacion(this.operacion);
+    this.router.navigate(['/form-alta-cadenas', row.id]);
+  }
+
+  modificacion(row) {
+    this.operacion = 'modificacion';
+    this.data.changeOperacion(this.operacion);
+    this.router.navigate(['/form-alta-cadenas', row.id]);
+  }
+
+  copiar(row) {
+    this.operacion = 'copia';
+    this.data.changeOperacion(this.operacion);
     this.router.navigate(['/form-alta-cadenas', row.id]);
   }
   
@@ -111,6 +156,20 @@ export class FormBuscaCadenasComponent implements OnInit {
       );
   }
   
+  borradoMasivoCadena(elemBorra) {
+    this.bbddCadenasService.deleteMasivo(elemBorra)
+      .subscribe(successCode => {
+        this.statusCode = +successCode;
+        console.log('Resultado borrado masivo Cadenas: ' + this.statusCode); //Cod correcto = 201
+        alert('Cadenas eliminadas correctamente');
+        this.bdBusca(this.cadenas);
+
+      },
+      errorCode => {
+        this.statusCode = errorCode;
+        alert('Error en servidor al borrar masivamente.');      
+      });
+  }
   /* ****************************************************************** */
   /*            Métodos de operacion con el plugin de tablas            */
   /* ****************************************************************** */

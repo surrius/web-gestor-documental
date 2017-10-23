@@ -3,15 +3,15 @@
 /* **************************************************** */
 .circular {
 	border-radius: 50%;
-	cursor: pointer;
 }
 
 .img-circular {
-    max-width: 70%;
+    max-width: 60%;
+	cursor: pointer;
 }
 
 .img-circular:hover {
-    max-width: 73%;
+    max-width: 63%;
 }
 
 #contentImagenes h3 {

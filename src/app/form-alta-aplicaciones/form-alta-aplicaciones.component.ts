@@ -102,18 +102,19 @@ export class FormAltaAplicacionesComponent implements OnInit {
     let resultado: boolean = false;
     switch (oper) {
       case 'alta_nueva':
-      case 'alta_copia':
-      case 'alta_masiva':
-      case 'alta_copia_masiva':
         resultado = true;
-        this.titulo = 'Alta de nuevo Job ';
+        this.titulo = 'Alta de nueva Aplicaci\u00F3n ';
         break;        
       case 'modificacion':
         resultado = true;
-        this.titulo = 'Modificaci\u00F3n del Job ';
-        break;        
+        this.titulo = 'Modificaci\u00F3n de Aplicaci\u00F3n ';
+        break;
+      case 'copia':
+        resultado = true;
+        this.titulo = 'Copia de Aplicaci\u00F3n. Nueva: ';
+        break;         
       default:
-        this.titulo = 'Consulta del Job ';
+        this.titulo = 'Consulta de Aplicaci\u00F3n ';
         resultado = false;
         break;  
     }
@@ -718,7 +719,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
   prepareSaveAplicacion(): Aplicaciones {
     const formModel = this.altaAppsForm.value;
 
-    // Mapeo manual de los campos del formulario y la clase JobsPrincipal
+    // Mapeo manual de los campos del formulario y la clase AppPrincipal
 //    const principalDeepCopy: AplicacionesMain = {
 //      cod_aplicaci: formModel.cod_aplicaci as string,
 //      cod_user: formModel.cod_user as string,
@@ -1359,7 +1360,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
     return array_resultado;
   }
   
-  // Metodo que invoca al servicio para dar de alta un Job
+  // Metodo que invoca al servicio para dar de alta una Aplicacion
   altaNuevaAplicacion(aplicacion: Aplicaciones) {
     this.bbddAplicacionesService.createAplicacion(aplicacion)
       .subscribe(successCode => {
@@ -1417,6 +1418,15 @@ export class FormAltaAplicacionesComponent implements OnInit {
   
   // Informamos todos los campos del formulario con los datos recuperados del servidor
   informaFormulario(data: Aplicaciones) {
+    if (this.operacion == 'copia') {
+      data.id.cod_aplicaci = null;
+      data.id.cod_planuuaa = null;
+      data.aud_timcrea = null;
+      data.aud_timmodif = null;
+      data.aud_usuario = null;
+      data.cod_autouni = null;
+    }
+
     this.altaAppsForm.get('cod_aplicaci').setValue(data.id.cod_aplicaci);
     this.altaAppsForm.get('cod_planuuaa').setValue(data.id.cod_planuuaa);
     this.altaAppsForm.get('aud_timcrea').setValue(data.aud_timcrea);

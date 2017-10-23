@@ -34,13 +34,14 @@ body {
 /* 		Modificaciones de aspecto de la ventana modal 	*/
 /* **************************************************** */
 .modal-header {
+    text-align: center;
 	color: white;
 	font-weight: bold;
-	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #072146 -15px, #2A86CA 100%) repeat scroll 0 0;
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #072146 -50px, #2A86CA 100%) repeat scroll 0 0;
 }
 
 .modal-footer {
-	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2A86CA -15px, #072146 100%) repeat scroll 0 0;
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2A86CA 30px, #072146 100%) repeat scroll 0 0;
 	text-align: center;
 }
 
@@ -160,7 +161,7 @@ form .table-bordered {
     max-width: 50%;
 }
 
-.mini-img-circular:hover {
+.mini-img-circular: hover {
     max-width: 55%;
 }
 

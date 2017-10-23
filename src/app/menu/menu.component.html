@@ -1,5 +1,5 @@
 <!--	CABECERA DE LA PAGINA 		-->
-<div class="container-fluid margin-titulo">
+<!-- <div class="container-fluid margin-titulo">
 	<div class="col-xs-4">
 		<img class="img-head-left" src="../assets/img/img_header.png">
 	</div>
@@ -28,15 +28,35 @@
 	<div class="col-xs-1">
 			<img class="img-head-ayuda" src="../assets/img/help_icon.png">
 	</div>
+</div> -->
+<div class="container-fluid cabecera">
+	<div class="col-xs-4">
+		<img class="img-head-left" src="../assets/img/img_header.png">
+	</div>
+	<div class="col-xs-5">
+		<div class="row">
+			<h5 class="titulo-web">Web</h5>
+			<h3 class="titulo-web">Gestor Documental</h3>
+		</div>
+		<div class="row alinea-izq">
+			<img class="img-head-center" src="../assets/img/logo_oportunidades.png">
+		</div>
+	</div>
 </div>
 
 <!-- BARRA DELIMITADORA DE CABECERA -->
-<div class="row barra-titulo"></div>
+<!-- <div class="row barra-titulo"></div> -->
+
+<!-- BARRA DELIMITADORA DE CABECERA -->
+<!-- <div class="col-xs-2 columna"></div> -->
 
 <!-- DIRECTIVA ANGULAR PARA LA NAVEGACIÓN ENTRE LOS DISTINTOS COMPONENTES -->
-<div class="container">
-	<router-outlet></router-outlet>
+<div [@routerAnimation]="getRouteAnimation(route)">
+	<router-outlet #route="outlet"></router-outlet>
 </div>
+
+<!-- BARRA DELIMITADORA DE CABECERA -->
+<!-- <div class="col-xs-2 columna"></div> -->
 
 <!--	PIE DE PÁGINA INFORMATIVO DE LA APLICACION		-->
 <footer class="footer">
