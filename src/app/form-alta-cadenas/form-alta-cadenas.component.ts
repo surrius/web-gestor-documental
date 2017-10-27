@@ -58,6 +58,10 @@ export class FormAltaCadenasComponent implements OnInit {
   };
   id: any;
   private sub: any;
+
+  // Variables para descargar PDF
+  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
+  link: string;
   
   //CONSTRUCTOR DEL COMPONNENTE:
   //La instancia fb nos permitirá crear grupos, controles y arrays de campos para el contro del formulario
@@ -88,6 +92,8 @@ export class FormAltaCadenasComponent implements OnInit {
         this.cadenas.id.cod_cadenapl = this.id.cod_cadenapl;
 //        console.log(this.cadenas);
         this.bdBuscaCadenaId(this.cadenas);
+        this.link = this.creaLinkPDF();
+        console.log(this.link);
       }
     });
   }
@@ -442,17 +448,13 @@ export class FormAltaCadenasComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  
-  download() {
-    let pdf = new jsPDF('l', 'pt', 'a4');
-    let options = {
-      pagesplit: true,
-      background: '#fff'
-    };  
-    
-    pdf.addHTML(this.el.nativeElement, 0, 0, options, () => {
-      pdf.save(this.altaCadenasForm.get('des_cadenapl').value + ".pdf");
-    });
+
+  creaLinkPDF(): string {
+    let cdnID = new CdnID();
+    cdnID.cod_aplicaci = this.cadenas.id.cod_aplicaci;
+    cdnID.cod_cadenapl = this.cadenas.id.cod_cadenapl;
+
+    return this.baseURL + 'cadena/generaPDF?id=' + JSON.stringify(cdnID);
   }
   
 }

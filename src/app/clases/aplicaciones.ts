@@ -337,7 +337,7 @@ export class Tewokbcks {
   
   xti_gestbbdd: string;
   xti_backup: string;
-  xti_periodo: string;
+  cod_periodo: string;
   des_ciclovid: string;
 }
 

@@ -86,6 +86,17 @@ export class BbddAplicacionesService {
       .catch(this.handleError);
   }
 
+  //Recupera PDF
+  /*getAplicacionPDF(id: AppID): Observable<number> {
+    let cpParams = new URLSearchParams();
+    cpParams.set('id', JSON.stringify(id));
+    let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
+    
+    return this.http.get(this.baseURL + '/aplicacion/generaPDF', options)
+      .map(success => success.status)
+      .catch(this.handleError);
+  }*/
+
   /* ************************************************************* */
   /* Metodos para la recuperaccion correcta y erronea de los datos */
   /* ************************************************************* */

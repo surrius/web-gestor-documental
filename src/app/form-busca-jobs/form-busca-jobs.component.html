@@ -4,16 +4,24 @@
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
+<div class="col-xs-offset-9 col-xs-3 col-sm-offset-10 col-sm-2 panel-mando">
+	<div class="col-xs-1 mini-circular" title="Home" routerLink="/">
+		<span class="hvr-icon-back glyphicon glyphicon-home"></span>
+	</div>
+	<div class="col-xs-1 mini-circular" title="Men&uacute; operaciones" routerLink="/menu-operacion">
+		<span class="hvr-icon-back glyphicon glyphicon-menu-left"></span>
+	</div>
+</div>
 <br>
 <div class="container-fluid">
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
 		</div>
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 		</div>
-	</div>
+	</div> -->
 	<div id="areaBusca">
 		<br>
 		<form id="buscaJobsForm" name="buscaJobsForm" (ngSubmit)="onSubmit()" #buscaJobsForm="ngForm">
@@ -124,16 +132,20 @@
 	<!-- 		<input value="{{buscaGRS.seleccion}}" [readOnly]="true" class="form-control"> -->
 	<!-- 	</div> -->
 
-		<div class="container-fluid" *ngIf="jobs_res">
+		<!-- <div class="container-fluid" *ngIf="jobs_res"> -->
+		<div class="container-fluid well" *ngIf="jobs_res">
+			<div class="row">
+				<strong>OPCIONES PARA OPERACIONES MASIVAS</strong>
+			</div>
+			<br>
 			<div class="col-xs-6">
-			<!-- <label>Modificaci&oacute;n masiva de Grupo de Soporte</label> -->
 				<div class="input-group">
 					<span class="input-group-btn">
 						<button (click)="setOrigen('masiva')" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modMasivaGSoporte">
 							<span class="glyphicon glyphicon-search"></span>
 						</button>
 					</span>
-					<input value="{{buscaGRS.seleccionMasiva}}" [readOnly]="true" class="form-control">
+					<input placeholder="Modificaci&oacute;n masiva de Grupo de Soporte" value="{{buscaGRS.seleccionMasiva}}" [readOnly]="true" class="form-control">
 					<span class="input-group-btn">
 						<button [disabled]="selected.length < 1 || !buscaGRS.seleccion" (click)="modMasivaGSoporte()" type="button" class="btn btn-primary">
 							<span class="glyphicon glyphicon-pencil"> Modificar</span>
@@ -141,17 +153,80 @@
 					</span>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-1">
+				<img class="img-ayuda" (mouseenter)="toggle()" (mouseleave)="toggle()" src="../assets/img/help.png">
+				<div class="div-ayuda" [style.opacity]="stateName">
+					<p>
+						Agrega un grupo de soporte pulsando en <span class="glyphicon glyphicon-search"></span>. Selecciona los elementos a modificar 
+						en la tabla y pulsa sobre modificar.
+					</p>
+				</div>
+			</div>
+			<div class="col-xs-3">
 				<button (click)="borradoMasivo()" [disabled]="selected.length < 1" type="button" class="btn btn-danger">
-					<span class="glyphicon glyphicon-trash"></span>
-					    Borrado masivo
+					<span class="glyphicon glyphicon-trash margin-icon"></span>
+					Borrado masivo
 				</button>
-			</div>	
-			<br>
+			</div>
 		</div>
-		<br>
 		<!-- TABLA DE RESULTADOS DE BÚSQUEDA -->
 		<div *ngIf="jobs_res">
+			<div class="row">
+				<div class="form-inline col-sm-3">
+					<label>Filas a Visualizar:</label>
+					<select #filasTabla id="filasTabla" class="form-control">
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option selected="selected" value="25">25</option>
+						<option value="50">50</option>
+						<option value="75">75</option>	
+						<option value="100">100</option>	
+					</select>
+				</div>
+				<div *ngIf="mostrarCampos" class='col-sm-3 cuadro-mostrar'>
+					<h4>Columnas a Visualizar</h4>
+					<ul>
+						<li>
+							<input [(ngModel)]="chk_jobname" type='checkbox' id="Jobname">
+							<label>Jobname</label>
+						</li>
+						<li>
+							<input [(ngModel)]="chk_documento" type='checkbox' id="Documento">
+							<label>Documento</label>
+						</li>
+						<li>
+							<input [(ngModel)]="chk_uuaa" type='checkbox' id="UUAA">
+							<label>UUAA</label>
+						</li>
+						<li>
+							<input [(ngModel)]="chk_grsoporte" type='checkbox' id="Grupo Soporte">
+							<label>Grupo Soporte</label>
+						</li>
+						<li>
+							<input [(ngModel)]="chk_maqorigen" type='checkbox' id="Maquina Origen">
+							<label>M&aacute;quina Origen</label>
+						</li>
+						<li>
+							<input [(ngModel)]="chk_liborigen" type='checkbox' id="Libreria Origen">
+							<label>Librer&iacute;a Origen</label>
+						</li>
+						<li>
+							<input [(ngModel)]="chk_estructura" type='checkbox' id="Estructura">
+							<label>Estructura</label>
+						</li>
+						<li>
+							<input [(ngModel)]="chk_periodicidad" type='checkbox' id="Periodicidad">
+							<label>Periodicidad</label>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-1 pull-right alinea-der">
+					<button (click)="toggleMostrarCampos()" type="button" class="btn btn-default" title="Columnas a Visualizar">
+						<span class="glyphicon glyphicon-eye-close"></span>
+					</button>
+				</div>
+			</div>
+			<br>
 			<ngx-datatable
 				class="material striped"
 				[rows]="jobs_res"
@@ -159,9 +234,9 @@
 				[scrollbarH]="true"
 				[headerHeight]="50"
 				[footerHeight]="50"
-				[rowHeight]="'auto'"
+				[rowHeight]="60"
 				[reorderable]="reorderable"
-				[limit]="10"
+				[limit]="filasTabla.value"
 				[selected]="selected"
 	          	[selectionType]="'checkbox'"
 	          	(activate)="onActivate($event)"
@@ -176,9 +251,9 @@
 		            [headerCheckboxable]="true"
 		            [checkboxable]="true">
 	          	</ngx-datatable-column>
-				<ngx-datatable-column
+				<ngx-datatable-column 
 					[frozenLeft]="true"
-		            [width]="100"
+		            [width]="120"
 		            [sortable]="false"
 		            [canAutoResize]="false"
 		            [draggable]="false"
@@ -192,36 +267,36 @@
 	            		<i (click)="elimina(row)" title="Borrar" class="color-iconos glyphicon glyphicon-trash"></i>
 	          		</ng-template>
 	          	</ngx-datatable-column>
-				<ngx-datatable-column name="Jobname" prop="des_nombrjob">
+				<ngx-datatable-column *ngIf="chk_jobname" name="Jobname" prop="des_nombrjob">
 	          		<ng-template let-value="value" ngx-datatable-cell-template>
 	            		<strong>{{value}}</strong>
 	          		</ng-template>
 	        	</ngx-datatable-column>
-	        	<ngx-datatable-column name="Documento" prop="des_refdocjb">
+	        	<ngx-datatable-column *ngIf="chk_documento" name="Documento" prop="des_refdocjb">
 	        	</ngx-datatable-column>
-	        	<ngx-datatable-column name="UUAA" prop="id.cod_aplicaci"> 
+	        	<ngx-datatable-column *ngIf="chk_uuaa" name="UUAA" prop="id.cod_aplicaci"> 
 	        	</ngx-datatable-column>
-	        	<ngx-datatable-column name="Grupo Soporte" prop="des_gsoporte"> 
+	        	<ngx-datatable-column *ngIf="chk_grsoporte" name="Grupo Soporte" prop="des_gsoporte"> 
 	        	</ngx-datatable-column>
-	        	<ngx-datatable-column name="M&aacute;quina Origen" prop="des_maqori"> 
+	        	<ngx-datatable-column *ngIf="chk_maqorigen" name="M&aacute;quina Origen" prop="des_maqori"> 
 	        	</ngx-datatable-column>
-	        	<ngx-datatable-column name="Librer&iacute;a Origen" prop="des_libreori"> 
+	        	<ngx-datatable-column *ngIf="chk_liborigen" name="Librer&iacute;a Origen" prop="des_libreori"> 
 	        	</ngx-datatable-column>
-	        	<ngx-datatable-column name="Estructura" prop="des_estrupl"> 
+	        	<ngx-datatable-column *ngIf="chk_estructura" name="Estructura" prop="des_estrupl"> 
 	        	</ngx-datatable-column>
-	        	<ngx-datatable-column name="Periodicidad" prop="des_periojob"> 
+	        	<ngx-datatable-column *ngIf="chk_periodicidad" name="Periodicidad" prop="des_periojob"> 
 	        	</ngx-datatable-column>
 			</ngx-datatable>
 		</div>
 	</div>
 	<br>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
 		</div>
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 		</div>
-	</div>
+	</div> -->
 </div>
 <br>

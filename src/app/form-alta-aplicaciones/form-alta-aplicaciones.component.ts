@@ -63,6 +63,10 @@ export class FormAltaAplicacionesComponent implements OnInit {
   };
   id: any;
   private sub: any;
+
+  // Variables para descargar PDF
+  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
+  link: string;
   
   //CONSTRUCTOR DEL COMPONNENTE:
   //La instancia fb nos permitirá crear grupos, controles y arrays de campos para el contro del formulario
@@ -93,6 +97,8 @@ export class FormAltaAplicacionesComponent implements OnInit {
         this.aplicaciones.id.cod_planuuaa = this.id.cod_planuuaa;
         //console.log(this.aplicaciones);
         this.bdBuscaAplicacionId(this.aplicaciones);
+        this.link = this.creaLinkPDF();
+        console.log(this.link);
       }
     });
   }
@@ -470,7 +476,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
       
       xti_gestbbdd: [''],
       xti_backup: [''],
-      xti_periodo: [''],
+      cod_periodo: [''],
       des_ciclovid: [''],
     });
   }
@@ -1351,7 +1357,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
 
       resultado.xti_gestbbdd = elem.xti_gestbbdd? elem.xti_gestbbdd : null;
       resultado.xti_backup = elem.xti_backup? elem.xti_backup : null;
-      resultado.xti_periodo = elem.xti_periodo? elem.xti_periodo : null;
+      resultado.cod_periodo = elem.cod_periodo? elem.cod_periodo : null;
       resultado.des_ciclovid = elem.des_ciclovid? elem.des_ciclovid : null;
       
       array_resultado.push(resultado);
@@ -1781,7 +1787,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
         
         xti_gestbbdd: elem.xti_gestbbdd,
         xti_backup: elem.xti_backup,
-        xti_periodo: elem.xti_periodo,
+        cod_periodo: elem.cod_periodo,
         des_ciclovid: elem.des_ciclovid
       });
       this.backups.push(formTewokbcks);
@@ -1803,17 +1809,39 @@ export class FormAltaAplicacionesComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  creaLinkPDF(): string {
+    let appID = new AppID();
+    appID.cod_aplicaci = this.aplicaciones.id.cod_aplicaci;
+    appID.cod_planuuaa = this.aplicaciones.id.cod_planuuaa;
+
+    return this.baseURL + 'aplicacion/generaPDF?id=' + JSON.stringify(appID);
+  }
   
-  download() {
-    let pdf = new jsPDF('l', 'pt', 'a4');
+  /*download() {
+    let appID = new AppID();
+    appID.cod_aplicaci = this.aplicaciones.id.cod_aplicaci;
+    appID.cod_planuuaa = this.aplicaciones.id.cod_planuuaa;
+
+    console.log('Va con appID: ' + JSON.stringify(appID));
+
+    this.bbddAplicacionesService.getAplicacionPDF(appID)
+      .subscribe(successCode => {
+        this.statusCode = +successCode;
+      },
+      errorCode => {
+        this.statusCode = errorCode;
+      });
+
+    /*let pdf = new jsPDF('l', 'pt', 'a4');
     let options = {
-      pagesplit: true,
-      background: '#fff'
+    pagesplit: true,
+    background: '#fff'
     };  
     
     pdf.addHTML(this.el.nativeElement, 0, 0, options, () => {
-      pdf.save(this.altaAppsForm.get('cod_aplicaci').value + ".pdf");
+    pdf.save(this.altaAppsForm.get('cod_aplicaci').value + ".pdf");
     });
-  }
+  }*/
   
 }

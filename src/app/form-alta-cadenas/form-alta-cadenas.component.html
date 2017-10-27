@@ -2,19 +2,27 @@
 <!--	El modelo de formulario usado para esta parte de la página es el Reactive Form, es decir, los controles y validaciones se 
 		establecen al crear la relacion con el propio campo desde el componente. Adicionalmente método de generacion de formularios 
 		nos permite crear campos de	forma dinamica, como por ejemplo en el caso de los pasos de los jobs.							-->
+<div class="col-xs-offset-9 col-xs-3 col-sm-offset-10 col-sm-2 panel-mando">
+	<div class="col-xs-1 mini-circular" title="Home" routerLink="/">
+		<span class="hvr-icon-back glyphicon glyphicon-home"></span>
+	</div>
+	<div class="col-xs-1 mini-circular" title="P&aacute;gina anterior" (click)="goBack()">
+		<span class="hvr-icon-back glyphicon glyphicon-menu-left"></span>
+	</div>
+</div>
 <br>
 <div class="container-fluid">
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 		</div>
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 		</div>
-	</div>
-	<div class="row form-group form-group-sm" *ngIf="!showAlta">
-		<div class="col-sm-3">
-			<button type="button" class="pull-left btn btn-primary" (click)="download()">Exportar a PDF</button>
+	</div> -->
+	<div class="row" *ngIf="!showAlta">
+		<div class="col-xs-3">
+			<a href="{{link}}" class="btn btn-sm animated-button thar-two">EXPORTAR A PDF</a>
 		</div>
 	</div>
 	<div id="areaAltaCadena" #printPDF>
@@ -258,13 +266,13 @@
 		</form>
 	</div>
 	<br>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/return_icon.png" title="P&aacute;gina anterior" class="mini-img-circular" (click)="goBack()">
 		</div>
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 		</div>
-	</div>
+	</div> -->
 </div>
 <br>

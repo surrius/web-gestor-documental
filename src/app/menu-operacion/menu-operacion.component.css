@@ -26,12 +26,12 @@
 }
 
 .img-circular-oper {
-    max-width: 45%;
+    max-width: 40%;
     cursor: pointer;
 }
 
 .img-circular-oper:hover {
-    max-width: 48%;
+    max-width: 43%;
 }
 
 #operativas h3, h4 {

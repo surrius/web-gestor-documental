@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { Router } from '@angular/router';
 
 import { Jobs, JobID } from '../clases/jobs';
@@ -18,9 +19,21 @@ import { BuscaGrupoSoporteComponent } from '../busca-grupo-soporte/busca-grupo-s
 })
   
 export class FormBuscaJobsComponent implements OnInit {
-  // Control para visualizar mas o menos campos de búsqueda
+  // Control para visualizar mas o menos campos de búsqueda y ayudas
   masCampos: boolean = false;
-  
+  show = false;
+  mostrarCampos = false;
+
+  //Campos visualizables en la busqueda de la tabla
+  chk_jobname: boolean = true;
+  chk_documento: boolean = true;
+  chk_uuaa: boolean = false;
+  chk_grsoporte: boolean = true;
+  chk_maqorigen: boolean = true;
+  chk_liborigen: boolean = true;
+  chk_estructura: boolean = false;
+  chk_periodicidad: boolean = false;
+
   // Variable a la que asociamos como onjeto NgForm, el formulario de búsqueda
   @ViewChild('buscaJobsForm') formulario: NgForm;
   
@@ -37,10 +50,6 @@ export class FormBuscaJobsComponent implements OnInit {
     cod_aplicaci: null,
     cod_jobpl: null
   };
-  
-  //TODO: Eliminar cuando se recupere correctamente
-  grupo_soporte: string[] = ['Seleccione Grupo...', 'RA DISTRIBUIDOS', 'RA HOST', 'HERRAMIENTAS PRODUCCION', '...'];
-  //TODO: Eliminar cuando se recupere correctamente - FIN
   
   // Variables informadas con el servicio a la BBDD de Jobs
   errorMessage: string;
@@ -66,9 +75,17 @@ export class FormBuscaJobsComponent implements OnInit {
     this.data.currentOperacion.subscribe(operacion => this.operacion = operacion);
   }
   
-  //Metodo que modificara el booleano masCampos al valor contrario
+  //Metodo que modificara el booleano masCampos al valor contrario y la ayuda
   toogleCampos() {
     this.masCampos = !this.masCampos;
+  }
+
+  get stateName() {
+    return this.show ? 1 : 0;
+  }
+
+  toggle() {
+    this.show = !this.show;
   }
   
   // Metodo para el envio del formulario 
@@ -243,6 +260,10 @@ export class FormBuscaJobsComponent implements OnInit {
 
   onActivate(event) {
     //console.log('Activate Event', event);
+  }
+
+  toggleMostrarCampos() {
+    this.mostrarCampos = !this.mostrarCampos;
   }
 
 }

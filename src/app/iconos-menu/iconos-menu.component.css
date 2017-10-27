@@ -6,12 +6,12 @@
 }
 
 .img-circular {
-    max-width: 60%;
+    max-width: 55%;
 	cursor: pointer;
 }
 
 .img-circular:hover {
-    max-width: 63%;
+    max-width: 58%;
 }
 
 #contentImagenes h3 {

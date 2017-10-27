@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import * as jsPDF from 'jspdf';
+import { saveAs } from 'file-saver';
+
 
 import { Jobs, Tewokjars, Tewokjcos, Tewokjins, Tewokjsos, JobID } from '../clases/jobs';
 import { BbddJobsService } from '../services/bbdd-jobs.service';
@@ -65,6 +66,10 @@ export class FormAltaJobsComponent implements OnInit {
   id: any;
   private sub: any;
 
+  // Variables para descargar PDF
+  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
+  link: string;
+
   //CONSTRUCTOR DEL COMPONNENTE:
   //La instancia fb nos permitirá crear grupos, controles y arrays de campos para el contro del formulario
   constructor(
@@ -94,6 +99,8 @@ export class FormAltaJobsComponent implements OnInit {
         this.jobs.id.cod_jobpl = this.id.cod_jobpl;
         //console.log(this.jobs);
         this.bdBuscaJobId(this.jobs);
+        this.link = this.creaLinkPDF();
+        console.log(this.link);
       }
     });
   }
@@ -642,7 +649,7 @@ export class FormAltaJobsComponent implements OnInit {
   
   /* ********************************************************************************************* */
   /* ********************************************************************************************* */
-  /*                    METODOS USADOS PARA LA CONSULTA Y MODIFICACION DE DATOS                    */
+  /*                          METODOS USADOS PARA LA CONSULTA DE DATOS                             */
   /* ********************************************************************************************* */
   /* ********************************************************************************************* */
   // Metodo para buscar un Job por su ID unica en la BBDD y mostrarlo en la Consulta/Modif
@@ -785,8 +792,32 @@ export class FormAltaJobsComponent implements OnInit {
     this.location.back();
   }
   
-  download() {
-    let pdf = new jsPDF('l', 'pt', 'a4');
+
+  creaLinkPDF(): string {
+    let jobID = new JobID();
+    jobID.cod_aplicaci = this.jobs.id.cod_aplicaci;
+    jobID.cod_jobpl = this.jobs.id.cod_jobpl;
+
+    return this.baseURL + 'job/generaPDF?id=' + JSON.stringify(jobID);
+  }
+  /*download() {
+    let jobID = new JobID();
+    jobID.cod_aplicaci = this.jobs.id.cod_aplicaci;
+    jobID.cod_jobpl = this.jobs.id.cod_jobpl;
+
+    let filename = this.jobs.des_refdocjb + '.pdf';
+
+    console.log('Va con jobID: ' + JSON.stringify(jobID));
+
+    this.bbddJobsService.getJobPDF(jobID).subscribe(
+        (response) => {
+          var mediaType = 'application/pdf';
+          var blob = new Blob([response], {type: mediaType});
+          saveAs(blob, filename);
+        });
+  }
+*/
+    /*let pdf = new jsPDF('l', 'pt', 'a4');
     let options = {
       pagesplit: true,
       background: '#fff'
@@ -794,8 +825,7 @@ export class FormAltaJobsComponent implements OnInit {
     
     pdf.addHTML(this.el.nativeElement, 0, 0, options, () => {
       pdf.save(this.altaJobsForm.get('des_refdocjb').value + ".pdf");
-    });
-  }
+    });*/
 
   setOrigen(info: string) {
     this.buscaGRS.seleccion = '';

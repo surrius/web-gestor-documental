@@ -30,17 +30,17 @@
 	</div>
 </div> -->
 <div class="container-fluid cabecera">
-	<div class="col-xs-4">
-		<img class="img-head-left" src="../assets/img/img_header.png">
+	<div class="col-xs-3">
+		<img class="img-head-center" src="../assets/img/logo_oportunidades_2.png" title="Home" routerLink="/">
 	</div>
-	<div class="col-xs-5">
+	<div class="col-xs-6">
 		<div class="row">
-			<h5 class="titulo-web">Web</h5>
-			<h3 class="titulo-web">Gestor Documental</h3>
+			<div class="titulo-web-1">Web</div>
+			<div class="titulo-web-2">Gestor Documental</div>
 		</div>
-		<div class="row alinea-izq">
-			<img class="img-head-center" src="../assets/img/logo_oportunidades.png">
-		</div>
+	</div>
+	<div class="col-xs-3">
+		<img class="img-head-left" src="../assets/img/img_header.png">
 	</div>
 </div>
 
@@ -55,11 +55,15 @@
 	<router-outlet #route="outlet"></router-outlet>
 </div>
 
-<!-- BARRA DELIMITADORA DE CABECERA -->
-<!-- <div class="col-xs-2 columna"></div> -->
-
 <!--	PIE DE PÁGINA INFORMATIVO DE LA APLICACION		-->
 <footer class="footer">
+	<!-- PARA TODAS LAS PAGINAS, BOTÓN DE SUBIR ARRIBA DE LA PÁGINA -->
+	<div class="col-xs-offset-10 col-xs-1 footer-mando">
+		<div class="col-xs-1 mini-circular" title="Arriba" (click)="goTop()">
+			<span class="hvr-icon-back glyphicon glyphicon-menu-up"></span>
+		</div>
+	</div>
+
 	<div class="container-fluid">
 		<p>
 			&copy; BBVA - Gestor Documental Batch 

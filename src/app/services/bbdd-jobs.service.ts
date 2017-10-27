@@ -32,7 +32,7 @@ export class BbddJobsService {
     cpParams.set('job', JSON.stringify(job));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-//    return this.http.get(this.baseURL + 'busca/job', options)
+   /*return this.http.get(this.baseURL + 'busca/job', options)*/
     return this.http.get('../assets/simulado_job.json')
       .map(this.extractData)
       .catch(this.handleError);
@@ -44,7 +44,7 @@ export class BbddJobsService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-//    return this.http.get(this.baseURL + 'busca/job/id', options)
+   /*return this.http.get(this.baseURL + 'busca/job/id', options)*/
     return this.http.get('../assets/simulado_job_id.json')
       .map(this.extractData)
       .catch(this.handleError);
@@ -93,8 +93,8 @@ export class BbddJobsService {
     let cpParams = new URLSearchParams();
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-//    return this.http.get(this.baseURL + 'gruposSoporte', options)
-    return this.http.get('../assets/gr_soporte.json')
+    return this.http.get(this.baseURL + 'gruposSoporte', options)
+    /*return this.http.get('../assets/gr_soporte.json')*/
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -114,6 +114,16 @@ export class BbddJobsService {
       .map(success => success.status)
       .catch(this.handleError);
   }
+
+  //Recupera PDF
+  /*getJobPDF(id: JobID): Observable<Response> {
+    let cpParams = new URLSearchParams();
+    cpParams.set('id', JSON.stringify(id));
+    let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
+    
+    console.log(this.baseURL + '/job/generaPDF', options);
+    return this.http.get(this.baseURL + '/job/generaPDF', options);
+  }*/
 
   /* ************************************************************* */
   /* Metodos para la recuperaccion correcta y erronea de los datos */

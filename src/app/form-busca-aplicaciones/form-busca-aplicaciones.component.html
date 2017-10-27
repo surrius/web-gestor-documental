@@ -1,16 +1,24 @@
 <!--					****************		FORMULARIO DE BUSQUEDA PARA LAS CONSULTAS		**************** 					-->
 <!--	El modelo de formulario usado para esta parte de la página es el Template-driven Form, es decir, los controles y
 		validaciones se realizan desde el propio HTML a traves de los controles de Angular ngForm(Formulario) y ngModel(campos)		-->
+<div class="col-xs-offset-9 col-xs-3 col-sm-offset-10 col-sm-2 panel-mando">
+	<div class="col-xs-1 mini-circular" title="Home" routerLink="/">
+		<span class="hvr-icon-back glyphicon glyphicon-home"></span>
+	</div>
+	<div class="col-xs-1 mini-circular" title="Men&uacute; operaciones" routerLink="/menu-operacion">
+		<span class="hvr-icon-back glyphicon glyphicon-menu-left"></span>
+	</div>
+</div>
 <br>
 <div class="container-fluid">
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
 		</div>
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 		</div>
-	</div>
+	</div> -->
 	<div id="areaBuscaAplicaciones">
 		<br>
 		<form id="buscaAppsForm" name="buscaAppsForm" (ngSubmit)="onSubmit()" #buscaAppsForm="ngForm">
@@ -289,13 +297,13 @@
 		</div>
 	</div>
 	<br>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/return_icon.png" title="Men&uacute; operaciones" class="mini-img-circular" routerLink="/menu-operacion">
 		</div>
 		<div class="col-xs-1 pull-right mini-circular">
 				<img src="../assets/img/home_icon.png" title="Home" class="mini-img-circular" routerLink="/">
 		</div>
-	</div>
+	</div> -->
 </div>
 <br>

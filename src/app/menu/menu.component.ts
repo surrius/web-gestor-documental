@@ -45,5 +45,9 @@ export class MenuComponent {
 	getRouteAnimation(outlet) {
     return outlet.activatedRouteData.animation
   }
+
+  goTop() {
+    window.scrollTo(0, 0);
+  }
     
 }
