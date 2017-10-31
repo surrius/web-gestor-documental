@@ -60,7 +60,6 @@ export class FormAltaCadenasComponent implements OnInit {
   private sub: any;
 
   // Variables para descargar PDF
-  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
   link: string;
   
   //CONSTRUCTOR DEL COMPONNENTE:
@@ -454,7 +453,7 @@ export class FormAltaCadenasComponent implements OnInit {
     cdnID.cod_aplicaci = this.cadenas.id.cod_aplicaci;
     cdnID.cod_cadenapl = this.cadenas.id.cod_cadenapl;
 
-    return this.baseURL + 'cadena/generaPDF?id=' + JSON.stringify(cdnID);
+    return this.bbddCadenasService.baseURL + 'cadena/generaPDF?id=' + JSON.stringify(cdnID);
   }
   
 }

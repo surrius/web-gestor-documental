@@ -65,7 +65,6 @@ export class FormAltaAplicacionesComponent implements OnInit {
   private sub: any;
 
   // Variables para descargar PDF
-  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
   link: string;
   
   //CONSTRUCTOR DEL COMPONNENTE:
@@ -142,6 +141,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
       aud_usuario: [''],
       cod_autouni: [''],
       
+      des_nomuuaa: ['', [Validators.required]],
       cod_user: ['',],
       cod_userra: ['',],
       des_codmonit: ['',],
@@ -474,10 +474,11 @@ export class FormAltaAplicacionesComponent implements OnInit {
       aud_usuario: [''],
       cod_autouni: [''],
       
-      xti_gestbbdd: [''],
+      xti_gestfibd: [''],
       xti_backup: [''],
-      cod_periodo: [''],
+      xti_periodo: [''],
       des_ciclovid: [''],
+      des_identbck: ['']
     });
   }
   
@@ -856,6 +857,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
         aud_usuario: formModel.aud_usuario ? formModel.aud_usuario as string : null,
         cod_autouni: formModel.cod_autouni ? formModel.cod_autouni as number : null,
 
+        des_nomuuaa: formModel.des_nomuuaa ? formModel.des_nomuuaa as string : null,
         cod_user: formModel.cod_user ? formModel.cod_user as string : null,
         cod_userra: formModel.cod_userra ? formModel.cod_userra as string : null,
         des_codmonit: formModel.des_codmonit ? formModel.des_codmonit as string : null,
@@ -970,7 +972,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
       resultado.id = {
         cod_aplicaci: elem.cod_aplicaci? elem.cod_aplicaci : null,
         cod_planuuaa: elem.cod_planuuaa? elem.cod_planuuaa : null,
-        cod_jobpl: elem.cod_jobpl? elem.cod_jobpl : null
+        cod_secuuaa: elem.cod_secuuaa? elem.cod_secuuaa : null
       };
       resultado.aud_timcrea = elem.aud_timcrea? elem.aud_timcrea : null;
       resultado.aud_timmodif = elem.aud_timmodif? elem.aud_timmodif : null;
@@ -1355,10 +1357,11 @@ export class FormAltaAplicacionesComponent implements OnInit {
       resultado.aud_usuario = elem.aud_usuario? elem.aud_usuario : null;
       resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
 
-      resultado.xti_gestbbdd = elem.xti_gestbbdd? elem.xti_gestbbdd : null;
+      resultado.xti_gestfibd = elem.xti_gestfibd? elem.xti_gestfibd : null;
       resultado.xti_backup = elem.xti_backup? elem.xti_backup : null;
-      resultado.cod_periodo = elem.cod_periodo? elem.cod_periodo : null;
+      resultado.xti_periodo = elem.xti_periodo? elem.xti_periodo : null;
       resultado.des_ciclovid = elem.des_ciclovid? elem.des_ciclovid : null;
+      resultado.des_identbck = elem.des_identbck? elem.des_identbck : null;
       
       array_resultado.push(resultado);
     }
@@ -1440,6 +1443,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
     this.altaAppsForm.get('aud_usuario').setValue(data.aud_usuario);
     this.altaAppsForm.get('cod_autouni').setValue(data.cod_autouni);
     
+    this.altaAppsForm.get('des_nomuuaa').setValue(data.des_nomuuaa);
     this.altaAppsForm.get('cod_user').setValue(data.cod_user);
     this.altaAppsForm.get('cod_userra').setValue(data.cod_userra);
     this.altaAppsForm.get('des_codmonit').setValue(data.des_codmonit);
@@ -1512,7 +1516,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
       let formTewokdpus = this.fb.group({
         cod_aplicaci: elem.id.cod_aplicaci,
         cod_planuuaa: elem.id.cod_planuuaa,
-        cod_jobpl: elem.id.cod_jobpl,        
+        cod_secuuaa: elem.id.cod_secuuaa,        
         aud_timcrea: elem.aud_timcrea,
         aud_timmodif: elem.aud_timmodif,
         aud_usuario: elem.aud_usuario,
@@ -1785,10 +1789,11 @@ export class FormAltaAplicacionesComponent implements OnInit {
         aud_usuario: elem.aud_usuario,
         cod_autouni: elem.cod_autouni,
         
-        xti_gestbbdd: elem.xti_gestbbdd,
+        xti_gestfibd: elem.xti_gestfibd,
         xti_backup: elem.xti_backup,
-        cod_periodo: elem.cod_periodo,
-        des_ciclovid: elem.des_ciclovid
+        xti_periodo: elem.xti_periodo,
+        des_ciclovid: elem.des_ciclovid,
+        des_identbck: elem.des_identbck
       });
       this.backups.push(formTewokbcks);
     }
@@ -1815,7 +1820,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
     appID.cod_aplicaci = this.aplicaciones.id.cod_aplicaci;
     appID.cod_planuuaa = this.aplicaciones.id.cod_planuuaa;
 
-    return this.baseURL + 'aplicacion/generaPDF?id=' + JSON.stringify(appID);
+    return this.bbddAplicacionesService.baseURL + 'aplicacion/generaPDF?id=' + JSON.stringify(appID);
   }
   
   /*download() {

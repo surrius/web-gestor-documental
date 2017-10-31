@@ -16,6 +16,20 @@ import { Observable } from 'rxjs';
 export class FormBuscaCadenasComponent implements OnInit {
   // Control para visualizar mas o menos campos de búsqueda
   masCampos: boolean = false;
+  mostrarCampos = false;
+
+  //Campos visualizables en la busqueda de la tabla
+  chk_nomCadena: boolean = true;
+  chk_uuaa: boolean = false;
+  chk_autor: boolean = true;
+  chk_fecModif: boolean = true;
+  chk_equipo: boolean = true;
+  chk_periodicidad: boolean = true;
+  chk_diaEjecucion: boolean = true;
+  chk_horario: boolean = true;
+  chk_criticidad: boolean = true;
+  chk_rearranques: boolean = true;
+  chk_interOnline: boolean = true;
 
   // Variable a la que asociamos como onjeto NgForm, el formulario de búsqueda
   @ViewChild('buscaCdnForm') formulario: NgForm;
@@ -183,5 +197,10 @@ export class FormBuscaCadenasComponent implements OnInit {
   onActivate(event) {
     //console.log('Activate Event', event);
   }
+
+  toggleMostrarCampos() {
+    this.mostrarCampos = !this.mostrarCampos;
+  }
+
 
 }

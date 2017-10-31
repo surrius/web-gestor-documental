@@ -18,11 +18,16 @@ export class BbddAplicacionesService {
 //  baseURL = "http://ldsgc101.igrupobbva:7270/WebGestDoc/";
   
   // Ruta para llamadas en Desarrollo desde la Junction
-  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
+ /* baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";*/
   
   cpHeaders = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
+
+  // Metodo para recuperar la máquina y resolver el entorno
+  get baseURL(): string {
+    return window.location.protocol + '//' + window.location.host + '/WebGestDoc/';
+  }
 
   //Recupera aplicaciones filtradss por los campos del objeto Aplicacion
   getFindAplicacion(aplicacion: Aplicaciones): Observable<Aplicaciones[]> {
@@ -31,7 +36,7 @@ export class BbddAplicacionesService {
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
     return this.http.get(this.baseURL + 'busca/aplicacion', options)
-//    return this.http.get('../assets/simulado_aplicacion.json')
+   /*return this.http.get('../assets/simulado_aplicacion.json')*/
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -43,7 +48,7 @@ export class BbddAplicacionesService {
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
     return this.http.get(this.baseURL + 'busca/aplicacion/id', options)
-//    return this.http.get('../assets/simulado_aplicacion_id.json')
+   /*return this.http.get('../assets/simulado_aplicacion_id.json')*/
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -59,7 +64,7 @@ export class BbddAplicacionesService {
   //Modificacion de una Aplicacion existente
   updateAplicacion(aplicacion: Aplicaciones): Observable<number> {
     let options = new RequestOptions({headers: this.cpHeaders});
-    return this.http.put(this.baseURL + 'modifica/aplicacion', aplicacion, options)
+    return this.http.post(this.baseURL + 'modifica/aplicacion', aplicacion, options)
       .map(success => success.status)
       .catch(this.handleError);
   }

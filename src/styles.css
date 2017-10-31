@@ -24,6 +24,11 @@ body {
 /* **************************************************** */
 /* 					CLASES GENERALES 					*/
 /* **************************************************** */
+.area-iconos {
+	text-align: center;
+    margin-top: 5%;
+}
+
 .alinea-centro {
 	text-align: center;
 }
@@ -34,6 +39,10 @@ body {
 
 .alinea-der {
 	text-align: right;
+}
+
+.maren-inferior {
+	margin-bottom: 10px;
 }
 
 .color-iconos {
@@ -195,6 +204,7 @@ textarea {
 form .table-bordered {
 	border: none;
 }
+
 /* **************************************************** */
 /* 			Clases de los iconos de enlace 				*/
 /* **************************************************** */

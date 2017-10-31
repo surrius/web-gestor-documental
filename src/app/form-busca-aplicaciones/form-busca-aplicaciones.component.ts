@@ -15,7 +15,31 @@ import { Observable } from 'rxjs';
 export class FormBuscaAplicacionesComponent implements OnInit {
   // Control para visualizar mas o menos campos de búsqueda
   masCampos: boolean = false;
-  
+  mostrarCampos = false;
+
+  //Campos visualizables en la busqueda de la tabla
+  chk_uuaa: boolean = true;
+  des_nomuuaa: boolean = false;
+  chk_monitorizacion: boolean = true;
+  chk_fecMonitoriza: boolean = true;
+  chk_horasMaxAcceso: boolean = true;
+  chk_fecImplanta: boolean = true;
+  chk_fecEntrega: boolean = true;
+  chk_horasValle: boolean = false;
+  chk_fecPrevEntrega: boolean = false;
+  chk_nomPeti: boolean = true;
+  chk_telPeti: boolean = false;
+  chk_sancion: boolean = false;
+  chk_fecUltSol: boolean = true;
+  chk_fecFinRA: boolean = true;
+  chk_usuRA: boolean = true;
+  chk_responsableRA: boolean = true;
+  chk_telResponsableRA: boolean = false;
+  chk_alcPaquetes: boolean = false;
+  chk_alcScripts: boolean = false;
+  chk_alcFicConf: boolean = false;
+  chk_alcBBDD: boolean = false;
+
   // Variable a la que asociamos como onjeto NgForm, el formulario de búsqueda
   @ViewChild('buscaAppsForm') formulario: NgForm;
 
@@ -182,5 +206,10 @@ export class FormBuscaAplicacionesComponent implements OnInit {
   onActivate(event) {
     //console.log('Activate Event', event);
   }
+
+  toggleMostrarCampos() {
+    this.mostrarCampos = !this.mostrarCampos;
+  }
+
 
 }

@@ -48,6 +48,7 @@ export class MenuComponent {
 
   goTop() {
     window.scrollTo(0, 0);
+    console.log("Host: " + window.location.host);
   }
     
 }

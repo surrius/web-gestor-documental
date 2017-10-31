@@ -20,11 +20,16 @@ export class BbddJobsService {
 //  baseURL = "http://ldsgc101.igrupobbva:7270/WebGestDoc/";
   
   // Ruta para llamadas en Desarrollo desde la Junction
-  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
+  /*baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";*/
   
   cpHeaders = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
+
+  // Metodo para recuperar la máquina y resolver el entorno
+  get baseURL(): string {
+    return window.location.protocol + '//' + window.location.host + '/WebGestDoc/';
+  }
 
   //Recupera jobs filtrados por los campos del objeto Job
   getFindJob(job: Jobs): Observable<Jobs[]> {
@@ -32,8 +37,8 @@ export class BbddJobsService {
     cpParams.set('job', JSON.stringify(job));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-   /*return this.http.get(this.baseURL + 'busca/job', options)*/
-    return this.http.get('../assets/simulado_job.json')
+   return this.http.get(this.baseURL + 'busca/job', options)
+    /*return this.http.get('../assets/simulado_job.json')*/
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -44,8 +49,8 @@ export class BbddJobsService {
     cpParams.set('id', JSON.stringify(id));
     let options = new RequestOptions({headers: this.cpHeaders, params: cpParams});
     
-   /*return this.http.get(this.baseURL + 'busca/job/id', options)*/
-    return this.http.get('../assets/simulado_job_id.json')
+   return this.http.get(this.baseURL + 'busca/job/id', options)
+    /*return this.http.get('../assets/simulado_job_id.json')*/
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -61,7 +66,7 @@ export class BbddJobsService {
   //Modificacion de un Job existente
   updateJob(job: Jobs): Observable<number> {
     let options = new RequestOptions({headers: this.cpHeaders});
-    return this.http.put(this.baseURL + 'modifica/job', job, options)
+    return this.http.post(this.baseURL + 'modifica/job', job, options)
       .map(success => success.status)
       .catch(this.handleError);
   }
@@ -110,7 +115,7 @@ export class BbddJobsService {
   updateGSoporte(elemModif): Observable<number> {
     let options = new RequestOptions({headers: this.cpHeaders});
 
-    return this.http.put(this.baseURL + 'modifica/grupoSoporte', elemModif, options)
+    return this.http.post(this.baseURL + 'modifica/grupoSoporte', elemModif, options)
       .map(success => success.status)
       .catch(this.handleError);
   }

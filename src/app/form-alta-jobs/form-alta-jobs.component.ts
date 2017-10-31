@@ -66,8 +66,6 @@ export class FormAltaJobsComponent implements OnInit {
   id: any;
   private sub: any;
 
-  // Variables para descargar PDF
-  baseURL = "https://de-e-spacio.es.igrupobbva/webgestdoc/WebGestDoc/";
   link: string;
 
   //CONSTRUCTOR DEL COMPONNENTE:
@@ -798,7 +796,7 @@ export class FormAltaJobsComponent implements OnInit {
     jobID.cod_aplicaci = this.jobs.id.cod_aplicaci;
     jobID.cod_jobpl = this.jobs.id.cod_jobpl;
 
-    return this.baseURL + 'job/generaPDF?id=' + JSON.stringify(jobID);
+    return this.bbddJobsService.baseURL + 'job/generaPDF?id=' + JSON.stringify(jobID);
   }
   /*download() {
     let jobID = new JobID();

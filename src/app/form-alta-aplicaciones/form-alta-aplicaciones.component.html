@@ -42,8 +42,19 @@
 					Datos de la aplicaci&oacute;n
 				</legend>
 				<div class="row form-group form-group-sm">			
-					<!-- CODIGO APLICACION -->
+					<!-- NOMBRE DEL UUAA -->
 					<div class="col-sm-4">
+						<label for="des_nomuuaa">Nombre de la UUAA</label> 
+						<input type="text" class="form-control" id="des_nomuuaa" name="des_nomuuaa" formControlName="des_nomuuaa">
+						 
+						<small class="text-danger" 
+							*ngIf="altaAppsForm.get('des_nomuuaa').invalid && (altaAppsForm.get('des_nomuuaa').dirty || altaAppsForm.get('des_nomuuaa').touched)">
+							Campo obligatorio
+						</small>
+					</div>
+
+					<!-- CODIGO APLICACION -->
+					<div class="col-sm-offset-4 col-sm-4">
 						<label for="cod_aplicaci">C&oacute;digo de aplicaci&oacute;n - UUAA</label> 
 						<input type="text" class="form-control" #nombreUUAA_tit id="cod_aplicaci" name="cod_aplicaci" maxlength="4" formControlName="cod_aplicaci">
 						 
@@ -1001,15 +1012,16 @@
 								<tr>
 									<th class="col-sm-2">OBJETIVO BACKUP</th>
 									<th class="col-sm-2">TIPO</th>
-									<th class="col-sm-3">PERIODICIDAD</th>
-									<th class="col-sm-4">CICLO DE VIDA</th>
+									<th class="col-sm-1">PERIODICIDAD</th>
+									<th class="col-sm-3">CICLO DE VIDA</th>
+									<th class="col-sm-3">OBJETO BACKUP</th>
 									<th class="col-sm-1 celda-vacia"></th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr *ngFor="let bck of backups.controls; let z1=index" [formGroupName]="z1">
 									<td>
-										<select class="form-control" id="xti_gestbbdd" name="xti_gestbbdd" formControlName="xti_gestbbdd">  
+										<select class="form-control" id="xti_gestfibd" name="xti_gestfibd" formControlName="xti_gestfibd">  
 											<option *ngFor="let bcu of backup" [value]="bcu[0]">{{bcu[1]}}</option>	
 										</select>	
 									</td>						
@@ -1019,12 +1031,15 @@
 										</select>
 									</td>						
 									<td>
-										<select class="form-control" id="cod_periodo" name="cod_periodo" formControlName="cod_periodo">  
+										<select class="form-control" id="xti_periodo" name="xti_periodo" formControlName="xti_periodo">  
 											<option *ngFor="let periodo of periodicidad" [value]="periodo[0]">{{periodo[1]}}</option>	
 										</select>
 									</td>						
 									<td>
 										<input class="form-control" formControlName="des_ciclovid">
+									</td>
+									<td>
+										<input class="form-control" formControlName="des_identbck">
 									</td>						
 									<td>
 										<span class="btn label label-danger" *ngIf="showAlta" (click)="removeBackups(z1)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>

@@ -75,7 +75,7 @@ export class Tewokdpus {
   id: {
     cod_aplicaci: string;
     cod_planuuaa: number;
-    cod_jobpl: string;
+    cod_secuuaa: number;
   };
   aud_timcrea: number;
   aud_timmodif: number;
@@ -335,10 +335,11 @@ export class Tewokbcks {
   aud_usuario: string;
   cod_autouni: number;
   
-  xti_gestbbdd: string;
+  xti_gestfibd: string;
   xti_backup: string;
-  cod_periodo: string;
+  xti_periodo: string;
   des_ciclovid: string;
+  des_identbck: string;
 }
 
 // Clase que auna las anteriores para dar formato al modelo de datos
@@ -354,6 +355,7 @@ export class Aplicaciones {
   aud_usuario: string;
   cod_autouni: number;
   
+  des_nomuuaa: string;
   cod_user: string;
   cod_userra: string;
   des_codmonit: string;
@@ -406,6 +408,7 @@ export class Aplicaciones {
     this.aud_usuario = null;
     this.cod_autouni = null;
 
+    this.des_nomuuaa = null;
     this.cod_user = null;
     this.cod_userra = null;
     this.des_codmonit = null;
