@@ -19,7 +19,7 @@ export class FormBuscaAplicacionesComponent implements OnInit {
 
   //Campos visualizables en la busqueda de la tabla
   chk_uuaa: boolean = true;
-  des_nomuuaa: boolean = false;
+  chk_nomdoc: boolean = false;
   chk_monitorizacion: boolean = true;
   chk_fecMonitoriza: boolean = true;
   chk_horasMaxAcceso: boolean = true;
@@ -107,7 +107,7 @@ export class FormBuscaAplicacionesComponent implements OnInit {
     if (confirm("Se van a eliminar varias aplicaciones masivamente. ¿Proceder?")) {
       class ElemBorra {
         aplicaciones: AppID[];
-      };
+      }
       let elemBorra = new ElemBorra();
 
       let array_aplicaciones: AppID[] = new Array<AppID>();

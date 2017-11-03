@@ -117,7 +117,8 @@ export class FormBuscaJobsComponent implements OnInit {
       class ElemModif {
         grupo_soporte: string;
         jobs: JobID[];
-      };
+      }
+      
       let elemModif = new ElemModif();
 
       let array_jobs: JobID[] = new Array<JobID>();
@@ -141,7 +142,8 @@ export class FormBuscaJobsComponent implements OnInit {
     if (confirm("Se van a eliminar varios jobs masivamente. ¿Proceder?")) {
       class ElemBorra {
         jobs: JobID[];
-      };
+      }
+      
       let elemBorra = new ElemBorra();
 
       let array_jobs: JobID[] = new Array<JobID>();

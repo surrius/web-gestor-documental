@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
-    "@swimlane/ngx-datatable": "^10.3.0",
+    "@swimlane/ngx-datatable": "^10.4.0",
     "@types/jspdf": "^1.1.31",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",

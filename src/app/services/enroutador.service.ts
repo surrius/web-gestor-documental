@@ -27,6 +27,23 @@ export class EnroutadorService {
     return window.location.protocol + '//' + window.location.host + '/WebGestDoc/';
   }
   
+  //Metodo para extraer el literal del entorno
+  get entorno(): string {
+    let resultado: string;
+    switch (window.location.host) {
+      case 'de-e-spacio.es.igrupobbva':
+        resultado = 'Desarrollo';
+        break;
+      case 'pr-e-spacio.es.igrupobbva':
+        resultado = 'Produccion';
+        break;
+      default:
+        resultado = 'Local';
+        break;
+    }
+    return resultado;
+  }
+  
   // Metodo para modificar el documento
   changeDocumento(newDoc: string) {
     this.documento.next(newDoc);

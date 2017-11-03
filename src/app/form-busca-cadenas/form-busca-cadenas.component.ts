@@ -99,7 +99,8 @@ export class FormBuscaCadenasComponent implements OnInit {
     if (confirm("Se van a eliminar varias cadenas masivamente. ¿Proceder?")) {
       class ElemBorra {
         cadenas: CdnID[];
-      };
+      }
+      
       let elemBorra = new ElemBorra();
 
       let array_cadenas: CdnID[] = new Array<CdnID>();

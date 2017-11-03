@@ -14,7 +14,7 @@ import { Jobs, JobID } from '../clases/jobs';
 @Injectable()
 export class BbddJobsService {
   // Ruta para llamadas en Local
-//  baseURL = "http://localhost:8080/WebGestDoc/";
+//  baseURL = "http://de-e-spacio.es.igrupobbva/WebGestDoc/";
   
   // Ruta para llamadas en Desarrollo
 //  baseURL = "http://ldsgc101.igrupobbva:7270/WebGestDoc/";

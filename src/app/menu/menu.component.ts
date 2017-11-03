@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition, query } from '@angular/animations';
+import { EnroutadorService } from '../services/enroutador.service';
 
 @Component({
   selector: 'app-menu',
@@ -40,15 +41,41 @@ import { trigger, state, style, animate, transition, query } from '@angular/anim
   ]
 })
 
-export class MenuComponent {
-	// change the animation state
-	getRouteAnimation(outlet) {
-    return outlet.activatedRouteData.animation
+export class MenuComponent implements OnInit {
+  errorMessage: string;
+  
+  info = {
+    codUser: '',
+    serverDate: '',
+    localDate: '',
+    entorno: ''
+  };
+  
+  constructor( private data: EnroutadorService ) { }
+  
+  ngOnInit(): void {
+//    this.datosGenerales();
+//    TODO: Pruebas
+      this.info.codUser = 'xe51933';
+      this.info.serverDate = '02-02-2017 9:00';
+      this.info.localDate = '02-02-2017 9:00';
+      this.info.entorno = this.data.entorno;
+//    TODO: Pruebas-fin
+  }
+  
+  getRouteAnimation(outlet) {
+    return outlet.activatedRouteData.animation;
   }
 
   goTop() {
     window.scrollTo(0, 0);
     console.log("Host: " + window.location.host);
+  }
+  
+  datosGenerales() {
+    this.data.getDatosGenerales().subscribe(
+      data => this.info = data,
+      error => this.errorMessage = <any>error);
   }
     
 }
