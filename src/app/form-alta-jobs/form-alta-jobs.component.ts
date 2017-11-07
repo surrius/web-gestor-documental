@@ -306,10 +306,10 @@ export class FormAltaJobsComponent implements OnInit {
     this.datos_ok = true;
     this.mensaje_err = [];
     this.jobs = this.prepareSaveJob();
+    console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.jobs));
     
     if (this.datos_ok) {
       console.log(this.jobs);
-      console.log('Resultado del formulario de ALTA DE JOBS: ' + JSON.stringify(this.jobs));
       
       switch (this.operacion) {
         case "modificacion":
@@ -319,17 +319,9 @@ export class FormAltaJobsComponent implements OnInit {
           this.altaNuevoJob(this.jobs);
           break;        
         default: //alta
-          this.altaJobsForm.get('des_gsoporte').setValue(this.buscaGRS.seleccionAlta);
           this.altaNuevoJob(this.jobs);
           break;
       }
-
-      /*if (this.operacion == 'modificacion') {
-        this.modificaJob(this.jobs);
-      } else {
-        this.altaJobsForm.get('des_gsoporte').setValue(this.buscaGRS.seleccionAlta);
-        this.altaNuevoJob(this.jobs);
-      }*/
       
     } else {
       alert("Errores al validar el formulario. Corregirlos para continuar");
@@ -369,7 +361,9 @@ export class FormAltaJobsComponent implements OnInit {
     let pasos3DeepCopy: Tewokjins[] = this.validarPasos3(formModel.pasos3);
     
     // Mapeo manual de la clase Jobs que une todas las clases que forman la tabla de jobs
-    if (this.datos_ok) {    
+    if (this.datos_ok) { 
+      formModel.des_gsoporte = this.buscaGRS.seleccionAlta;
+
       const saveJob: Jobs = {
         id: {
           cod_aplicaci: formModel.cod_aplicaci? formModel.cod_aplicaci as string : null,
@@ -613,12 +607,14 @@ export class FormAltaJobsComponent implements OnInit {
   // Metodo que invoca al servicio para dar de alta un Job
   altaNuevoJob(job: Jobs) {
     this.bbddJobsService.createJob(job)
-      .subscribe(successCode => {
-        this.statusCode = +successCode;
+      .subscribe(data => {
+        this.jobs.id.cod_aplicaci = data.cod_aplicaci;
+        this.jobs.id.cod_jobpl = data.cod_jobpl;
         console.log('Resultado Alta Job: ' + this.statusCode); //Cod correcto = 201
         alert('Alta efectuada correctamente');
         this.altaJobsForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
+        this.link = this.creaLinkPDF();
       },
       errorCode => {
         this.statusCode = errorCode;
@@ -629,12 +625,14 @@ export class FormAltaJobsComponent implements OnInit {
   // Metodo que invoca al servicio para dar de modificar un Job
   modificaJob(job: Jobs) {
     this.bbddJobsService.updateJob(job)
-      .subscribe(successCode => {
-        this.statusCode = +successCode;
+      .subscribe(data => {
+        this.jobs.id.cod_aplicaci = data.cod_aplicaci;
+        this.jobs.id.cod_jobpl = data.cod_jobpl;
         console.log('Resultado Modificacion Job: ' + this.statusCode); //Cod correcto = 201
         alert('Job modificado correctamente');
         this.altaJobsForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
+        this.link = this.creaLinkPDF();
       },
       errorCode => {
         this.statusCode = errorCode;

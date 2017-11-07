@@ -56,18 +56,18 @@ export class BbddJobsService {
   }
   
   //Alta de un Job nuevo
-  createJob(job: Jobs): Observable<number> {
+  createJob(job: Jobs): Observable<JobID> {
     let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'alta/job', job, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
   
   //Modificacion de un Job existente
-  updateJob(job: Jobs): Observable<number> {
+  updateJob(job: Jobs): Observable<JobID> {
     let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'modifica/job', job, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
   

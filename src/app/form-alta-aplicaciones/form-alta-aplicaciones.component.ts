@@ -229,7 +229,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
     return this.fb.group({
       cod_aplicaci: [''],
       cod_planuuaa: [''],
-      cod_jobpl: [''],
+      cod_secuuaa: [''],
       aud_timcrea: [''],
       aud_timmodif: [''],
       aud_usuario: [''],
@@ -1273,6 +1273,7 @@ export class FormAltaAplicacionesComponent implements OnInit {
       resultado.cod_autouni = elem.cod_autouni? elem.cod_autouni : null;
 
       resultado.xti_gestbbdd = elem.xti_gestbbdd? elem.xti_gestbbdd : null;
+      resultado.cod_nombbdd = elem.cod_nombbdd? elem.cod_nombbdd : null;
       resultado.des_instabd = elem.des_instabd? elem.des_instabd : null;
       resultado.cod_tablbbdd = elem.cod_tablbbdd? elem.cod_tablbbdd : null;
       resultado.qnu_severo = elem.qnu_severo? elem.qnu_severo : null;
@@ -1372,12 +1373,14 @@ export class FormAltaAplicacionesComponent implements OnInit {
   // Metodo que invoca al servicio para dar de alta una Aplicacion
   altaNuevaAplicacion(aplicacion: Aplicaciones) {
     this.bbddAplicacionesService.createAplicacion(aplicacion)
-      .subscribe(successCode => {
-        this.statusCode = +successCode;
+      .subscribe(data => {
+        this.aplicaciones.id.cod_aplicaci = data.cod_aplicaci;
+        this.aplicaciones.id.cod_planuuaa = data.cod_planuuaa;
         console.log('Resultado Alta aplicacion: ' + this.statusCode); //Cod correcto = 201
         alert('Alta efectuada correctamente');
         this.altaAppsForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
+        this.link = this.creaLinkPDF();
       },
       errorCode => {
         this.statusCode = errorCode;
@@ -1388,12 +1391,14 @@ export class FormAltaAplicacionesComponent implements OnInit {
   // Metodo que invoca al servicio para dar de modificar una Aplicacion
   modificaAplicacion(aplicacion: Aplicaciones) {
     this.bbddAplicacionesService.updateAplicacion(aplicacion)
-      .subscribe(successCode => {
-        this.statusCode = +successCode;
+      .subscribe(data => {
+        this.aplicaciones.id.cod_aplicaci = data.cod_aplicaci;
+        this.aplicaciones.id.cod_planuuaa = data.cod_planuuaa;
         console.log('Resultado Modificacion Aplicacion: ' + this.statusCode); //Cod correcto = 201
         alert('Aplicacion modificada correctamente');
         this.altaAppsForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
+        this.link = this.creaLinkPDF();
       },
       errorCode => {
         this.statusCode = errorCode;
@@ -1480,12 +1485,12 @@ export class FormAltaAplicacionesComponent implements OnInit {
       let formTewokress = this.fb.group({
         cod_aplicaci: elem.id.cod_aplicaci,
         cod_planuuaa: elem.id.cod_planuuaa,
-        cod_user: elem.id.cod_user,        
         aud_timcrea: elem.aud_timcrea,
         aud_timmodif: elem.aud_timmodif,
         aud_usuario: elem.aud_usuario,
         cod_autouni: elem.cod_autouni,
         
+        cod_user: elem.id.cod_user,        
         des_usucateg: elem.des_usucateg,
         des_nombyape: elem.des_nombyape,
         des_telinter: elem.des_telinter,

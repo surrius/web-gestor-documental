@@ -74,8 +74,9 @@
 						<table id="appResponsablesApp" class="table table-striped table-bordered">
 							<thead>
 								<tr>
+									<th class="col-sm-1">USUARIO</th>
 									<th class="col-sm-1">CATEGORIA</th>
-									<th class="col-sm-6">NOMBRE Y APELLIDOS</th>
+									<th class="col-sm-5">NOMBRE Y APELLIDOS</th>
 									<th class="col-sm-2">TELEFONO INTERNO</th>
 									<th class="col-sm-2">TELEFONO EXTERNO</th>
 									<th class="col-sm-1 celda-vacia"></th>
@@ -83,6 +84,9 @@
 							</thead>
 							<tbody>
 								<tr *ngFor="let responsable of responsables.controls; let i=index" [formGroupName]="i">
+									<td>
+										<input class="form-control" formControlName="cod_user">
+									</td>
 									<td>
 										<input class="form-control" formControlName="des_usucateg">
 									</td>						
@@ -100,7 +104,6 @@
 										<!-- Campos ocultos -->
 										<input type="hidden" formControlName="cod_aplicaci">
 										<input type="hidden" formControlName="cod_planuuaa">
-										<input type="hidden" formControlName="cod_user">
 										<input type="hidden" formControlName="aud_timcrea">
 										<input type="hidden" formControlName="aud_timmodif">
 										<input type="hidden" formControlName="aud_usuario">
@@ -280,7 +283,7 @@
 										<!-- Campos ocultos -->
 										<input type="hidden" formControlName="cod_aplicaci">
 										<input type="hidden" formControlName="cod_planuuaa">
-										<input type="hidden" formControlName="cod_jobpl">
+										<input type="hidden" formControlName="cod_secuuaa">
 										<input type="hidden" formControlName="aud_timcrea">
 										<input type="hidden" formControlName="aud_timmodif">
 										<input type="hidden" formControlName="aud_usuario">
@@ -314,10 +317,10 @@
 							<tbody>
 								<tr *ngFor="let pyl of paradaArranque.controls; let l=index" [formGroupName]="l">
 									<td>
-										<input class="form-control" formControlName="des_arranque">
+										<input class="form-control" formControlName="des_paradaua">
 									</td>						
 									<td>
-										<input class="form-control" formControlName="des_paradaua">
+										<input class="form-control" formControlName="des_arranque">
 									</td>						
 									<td>
 										<span class="btn label label-danger" *ngIf="showAlta" (click)="removeParadaArranque(l)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
@@ -439,7 +442,7 @@
 							<thead>
 								<tr>
 									<th class="col-sm-3">NOMBRE</th>
-									<th class="col-sm-2">TAMA&Ntilde;O MAXIMO</th>
+									<th class="col-sm-2">TAMA&Ntilde;O MAXIMO (KB)</th>
 									<th class="col-sm-2">PREVISION DE CRECIMIENTO</th>
 									<th class="col-sm-2">CRITERIOS DE RECICLADO</th>
 									<th class="col-sm-2">TRATAMIENTO</th>
@@ -614,7 +617,7 @@
 										<span class="btn label label-danger" *ngIf="showAlta" (click)="removeReqMiddleB(r)"><span class="glyphicon glyphicon-remove"></span> Borrar</span>
 										<!-- Campos ocultos -->
 										<input type="hidden" formControlName="cod_aplicaci">
-										<input type="hidden" formControlName="cod_planuuaa">
+										<input type="hidden"	 formControlName="cod_planuuaa">
 										<input type="hidden" formControlName="cod_secuuaa">
 										<input type="hidden" formControlName="aud_timcrea">
 										<input type="hidden" formControlName="aud_timmodif">
@@ -645,9 +648,9 @@
 							<thead>
 								<tr>
 									<th class="col-sm-3">NOMBRE</th>
-									<th class="col-sm-1">ESPACIO ESTIMADO</th>
-									<th class="col-sm-2">PREVISION DE CRECIMIENTO</th>
-									<th class="col-sm-2">UMBRAL MAXIMO DE OCUPACION</th>
+									<th class="col-sm-1">ESTIMADO (KB)</th>
+									<th class="col-sm-2">PREVISION DE CRECIMIENTO %</th>
+									<th class="col-sm-2">UMBRAL MAXIMO DE OCUPACION %</th>
 									<th class="col-sm-3">TRATAMIENTO</th>
 									<th class="col-sm-1 celda-vacia"></th>
 								</tr>
@@ -812,8 +815,8 @@
 									<th class="col-sm-2">NOMBRE BBDD</th>
 									<th class="col-sm-2">NOMBRE INSTANCIA</th>
 									<th class="col-sm-2">TABLA</th>
-									<th class="col-sm-1">UMBRAL SEVERO</th>
-									<th class="col-sm-1">UMBRAL CRITICO</th>
+									<th class="col-sm-1">UMBRAL SEVERO %</th>
+									<th class="col-sm-1">UMBRAL CRITICO %</th>
 									<th class="col-sm-2">PROCEDIMIENTO EN CASO DE EVENTO</th>
 									<th class="col-sm-1 celda-vacia"></th>
 								</tr>

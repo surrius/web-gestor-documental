@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition, query } from '@angular/animations';
 import { EnroutadorService } from '../services/enroutador.service';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-menu',
@@ -54,13 +55,11 @@ export class MenuComponent implements OnInit {
   constructor( private data: EnroutadorService ) { }
   
   ngOnInit(): void {
-//    this.datosGenerales();
-//    TODO: Pruebas
-      this.info.codUser = 'xe51933';
-      this.info.serverDate = '02-02-2017 9:00';
-      this.info.localDate = '02-02-2017 9:00';
-      this.info.entorno = this.data.entorno;
-//    TODO: Pruebas-fin
+    this.datosGenerales();
+    //LLamada cada minuto
+    Observable.interval(1000 * 60).subscribe(x => {
+      this.datosGenerales();
+    });
   }
   
   getRouteAnimation(outlet) {
@@ -73,8 +72,14 @@ export class MenuComponent implements OnInit {
   }
   
   datosGenerales() {
+    let fecha = new Date();
+    this.info.localDate = fecha.toLocaleString();
+    this.info.entorno = this.data.entorno;
     this.data.getDatosGenerales().subscribe(
-      data => this.info = data,
+      data => {
+        this.info.codUser = data.usuario;
+        this.info.serverDate = data.fecha;
+      },
       error => this.errorMessage = <any>error);
   }
     

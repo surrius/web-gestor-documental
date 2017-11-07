@@ -54,18 +54,18 @@ export class BbddAplicacionesService {
   }
   
   //Alta de una Aplicacion nueva
-  createAplicacion(aplicacion: Aplicaciones): Observable<number> {
+  createAplicacion(aplicacion: Aplicaciones): Observable<AppID> {
     let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'alta/aplicacion', aplicacion, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
   
   //Modificacion de una Aplicacion existente
-  updateAplicacion(aplicacion: Aplicaciones): Observable<number> {
+  updateAplicacion(aplicacion: Aplicaciones): Observable<AppID> {
     let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'modifica/aplicacion', aplicacion, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
   

@@ -54,18 +54,18 @@ export class BbddCadenasService {
   }
   
   //Alta de una Cadena nueva
-  createCadena(cadena: Cadenas): Observable<number> {
+  createCadena(cadena: Cadenas): Observable<CdnID> {
     let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'alta/cadena', cadena, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
   
   //Modificacion de una cadena existente
-  updateCadena(cadena: Cadenas): Observable<number> {
+  updateCadena(cadena: Cadenas): Observable<CdnID> {
     let options = new RequestOptions({headers: this.cpHeaders});
     return this.http.post(this.baseURL + 'modifica/cadena', cadena, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
   

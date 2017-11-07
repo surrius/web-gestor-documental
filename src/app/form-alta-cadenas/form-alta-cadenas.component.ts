@@ -322,12 +322,14 @@ export class FormAltaCadenasComponent implements OnInit {
   // Metodo que invoca al servicio para dar de alta una cadena
   altaNuevaCadena(cadena: Cadenas) {
     this.bbddCadenasService.createCadena(cadena)
-      .subscribe(successCode => {
-        this.statusCode = +successCode;
+      .subscribe(data => {
+        this.cadenas.id.cod_aplicaci = data.cod_aplicaci;
+        this.cadenas.id.cod_cadenapl = data.cod_cadenapl;
         console.log('Resultado Alta Cadena: ' + this.statusCode); //Cod correcto = 201
         alert('Alta efectuada correctamente');
         this.altaCadenasForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
+        this.link = this.creaLinkPDF();
       },
       errorCode => {
         this.statusCode = errorCode;
@@ -338,12 +340,14 @@ export class FormAltaCadenasComponent implements OnInit {
   // Metodo que invoca al servicio para modificar una Cadena
   modificaCadena(cadena: Cadenas) {
     this.bbddCadenasService.updateCadena(cadena)
-      .subscribe(successCode => {
-        this.statusCode = +successCode;
+      .subscribe(data => {
+        this.cadenas.id.cod_aplicaci = data.cod_aplicaci;
+        this.cadenas.id.cod_cadenapl = data.cod_cadenapl;
         console.log('Resultado Modificacion Cadena: ' + this.statusCode); //Cod correcto = 201
         alert('Cadena modificada correctamente');
         this.altaCadenasForm.disable();
         this.showAlta = this.sw_alta_consulta('consulta');
+        this.link = this.creaLinkPDF();
       },
       errorCode => {
         this.statusCode = errorCode;
